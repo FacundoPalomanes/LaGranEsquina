@@ -1,0 +1,26 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --orange: rgba(236,102,41,255);
+    --gray: #ccc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto Flex", serif;
+    background-color: var(--gray);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0 20px
+}
