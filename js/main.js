@@ -8,9 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hideMenuResize = () => {
         mobileMenu.style.display = "none";
+        carousel.classList.remove('shifted');
     }
 
     toggleButton.addEventListener("click", toggleMenu);
     window.addEventListener("resize", hideMenuResize);
     window.addEventListener("load", hideMenuResize);
+
+    const carousel = document.querySelector('#carouselExampleInterval');
+  
+    toggleButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open'); // Alterna el estado visible del menú
+      carousel.classList.toggle('shifted'); // Mueve el carrusel hacia abajo
+    });
 });
