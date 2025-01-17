@@ -143,7 +143,24 @@
         background-color: var(--orange);
         width: 110%;
         z-index: 1;
-    }
+        transform: translateY(0%);
+        /* transition: all 0.5s ease; */
+      }
+      
+      .navbar__mobile-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        /* animation: slideDown 0.5s ease; */
+      }
+      
+      @keyframes slideDown {
+        0% {
+          transform: translateY(0%);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
 
     .nav__link-mobile {
         margin-left: 40px;
@@ -169,7 +186,6 @@
         left: 0;
         background-color: var(--white);
         opacity: 0;
-        transition: opacity 0.3s ease-in-out;
     }
 
     .nav__link-mobile:hover a::after {
@@ -189,8 +205,9 @@
     .carousel {
         transition: transform 0.3s ease;
     }
-    
-    .carousel.shifted {
+
+    .shifted {
         transform: translateY(260px);
+        transition: all 0.5s ease-in-out;
     }
 }
