@@ -47,9 +47,9 @@ body {
 
   @media screen and (max-width: 1000px){
     .card {
-      flex: 0 0 calc((150% - 100px) / 2); 
+      flex: 0 0 calc((200% - 100px) / 3); 
   }
   .scroll-container {
-    width: 80%;
+    width: 90%;
   }
   }
