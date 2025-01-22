@@ -86,11 +86,6 @@
     position: relative; /* Necesario para los pseudo-elementos */
 }
 
-.nav__link:hover a {
-    transition: all 0.3s;
-    color: var(--black);
-}
-
 .navbar__toggle-btn {
     background-color: transparent;
     border: none;
@@ -102,6 +97,9 @@
     display: none;
 }
 
+.dropdown-menu li a {
+    color: var(--black)
+}
 
 @keyframes moveText {
     0% {
@@ -209,5 +207,8 @@
     .shifted {
         transform: translateY(260px);
         transition: all 0.5s ease-in-out;
+    }
+    .dropdown-menu li a {
+        color: #000;
     }
 }

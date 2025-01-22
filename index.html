@@ -12,6 +12,7 @@
   <!-- css -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/carousel.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/info-grid.css">
 
@@ -52,6 +53,7 @@
         soluciones personalizadas para tu proyecto, estamos aquí para ayudarte. ¡Contáctanos y descubre la calidad y
         confianza que nos distinguen!</p>
     </section>
+    <!-- navbar -->
     <section class="container-navbar">
       <nav class="navbar container">
         <a href="index.html" class="navbar-logo">
@@ -66,7 +68,24 @@
               <a href="#">Productos</a>
             </li>
             <li class="nav__link">
-              <a href="#footer">Contacto</a>
+              <div class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                  style="background-color: transparent; border: none; color: #fff;">
+                  Contacto
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li><a target="_blank" class="dropdown-item"
+                      href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0">Whatsapp</a>
+                  </li>
+                  <li><a target="_blank" class="dropdown-item"
+                      href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
+                  <li><a target="_blank" class="dropdown-item"
+                      href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a></li>
+                </ul>
+              </div>
+
+              <!-- <a href="#footer">Contacto</a> -->
             </li>
           </ul>
           <button class="navbar__toggle-btn">
@@ -81,102 +100,218 @@
                 <a href="#">Productos</a>
               </li>
               <li class="nav__link-mobile">
-                <a href="#">Contacto</a>
+                <div class="dropdown">
+                  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    style="background-color: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: 500;"
+                    aria-expanded="false">
+                    Contacto
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a target="_blank" class="dropdown-item" href="tel:0230 4421831">Telefono</a></li>
+                    <li><a target="_blank" class="dropdown-item"
+                        href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0">Whatsapp</a>
+                    </li>
+                    <li><a target="_blank" class="dropdown-item"
+                        href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
+                    <li><a target="_blank" class="dropdown-item"
+                        href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a></li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>
+
         </div>
       </nav>
     </section>
   </header>
-
   <div id="move-page">
+    <!-- carousel -->
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="./assets/img-1.jpg" class="d-block w-100" alt="Banner 1">
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="./assets/img-2.jpg" class="d-block w-100 takeaway" alt="Banner 2">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/img-3.jpg" class="d-block w-100" alt="Banner 3">
-            </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="./assets/img-1.jpg" class="d-block w-100" alt="Banner 1">
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="./assets/img-2.jpg" class="d-block w-100 takeaway" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/img-3.jpg" class="d-block w-100" alt="Banner 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-</div>
+    <!-- Productos destacados -->
+    <div class="container mt-4">
+      <h2 class="mb-4 text-center">Nuestros Productos Destacados</h2>
+      <div class="scroll-container d-flex overflow-auto"
+        style="gap: 1rem; scroll-snap-type: x mandatory; margin-right: 50px; padding-right: 20px; overflow-x: auto;">
+        <div class="card shadow-sm mx-3">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Tubo</h5>
+            <p class="card-text">Este es uno de nuestros productos destacados, ideal para diversos usos.</p>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            <a href="#" class="btn btn-primary">Ir a productos</a>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            <a href="#" class="btn btn-warning">Ir a productos</a>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            <a href="#" class="btn btn-outline-warning">Ir a productos</a>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            <a href="#" class="btn btn-outline-primary">Ir a productos</a>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Válvula</h5>
+            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination mt-3">
+            <li class="page-item mx-3">
+              <a class="page-link" id="prev" style="cursor: pointer;" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item mx-3">
+              <a class="page-link active" id="next" style="cursor: pointer;" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-
-  <div class="container-column">
-    <!-- Fila 1: Ubicación -->
-    <div class="row">
-      <h3><ion-icon name="location-outline"></ion-icon> Ubicación</h3>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6580.43101025251!2d-58.903755000000004!3d-34.446677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9d98b2920baf%3A0xcecee08d68548792!2sZingueria%20%22La%20Gran%20Esquina%22!5e0!3m2!1ses!2sar!4v1737067352573!5m2!1ses!2sar"
-        width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-    <!-- Fila 2: Horarios -->
-    <div class="row">
-      <h3><ion-icon name="time-outline"></ion-icon> Horarios</h3>
-      <p>Lunes a Viernes de 8-13hs y 14-17hs</p>
-      <p>Sabados 8-12hs</p>
-    </div>
-    <!-- Fila 3: Empresas -->
-    <div class="row">
-      <h3><ion-icon name="business-outline"></ion-icon> Empresas</h3>
-      <p>Durlock - AnclaFlex - Zinzcril...</p>
-    </div>
-    <!-- Fila 4: Medios de Pago -->
-    <div class="row">
-      <h3><ion-icon name="wallet-outline"></ion-icon> Medios de Pago</h3>
-      <div class="payment-grid">
-        <div class="pay-item">
-          <ion-icon name="card-outline"></ion-icon>
-          <p>Débito Crédito Transferencia</p>
-        </div>
-        <div class="pay-item">
-          <ion-icon name="cash-outline"></ion-icon>
-          <p>Efectivo</p>
-        </div>
-        <div class="pay-item">
-          <ion-icon name="qr-code-outline"></ion-icon>
-          <p>Mercado Pago</p>
-        </div>
+      <div class="text-center my-3">
+        <a href="/catalogo" class="btn btn-outline-primary btn-lg">Ver todo el catálogo</a>
       </div>
     </div>
 
-    <!-- Fila 5: Retiros en el local -->
-    <div class="row">
-      <h3><ion-icon name="log-in-outline"></ion-icon> Retiros en el local</h3>
-      <p>Contenido adicional aquí...</p>
-    </div>
-  </div>
-
-
-
-  <!-- footer -->
-  <div id="footer" class="footer-basic">
-    <footer>
-      <div class="social">
-        <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
-            name="logo-instagram"></ion-icon></a>
-        <a target="_blank"
-          href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
-            name="logo-whatsapp"></ion-icon></a>
-        <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
-            name="logo-facebook"></ion-icon></a>
+    <!-- data de contacto -->
+    <div class="container-column">
+      <!-- Fila 1: Ubicación -->
+      <div class="row">
+        <h3><ion-icon name="location-outline"></ion-icon> Ubicación</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6580.43101025251!2d-58.903755000000004!3d-34.446677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9d98b2920baf%3A0xcecee08d68548792!2sZingueria%20%22La%20Gran%20Esquina%22!5e0!3m2!1ses!2sar!4v1737067352573!5m2!1ses!2sar"
+          width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-      <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
-    </footer>
+      <!-- Fila 2: Horarios -->
+      <div class="row">
+        <h3><ion-icon name="time-outline"></ion-icon> Horarios</h3>
+        <p>Lunes a Viernes de 8-13hs y 14-17hs</p>
+        <p>Sabados 8-12hs</p>
+      </div>
+      <!-- Fila 3: Empresas -->
+      <div class="row">
+        <h3><ion-icon name="business-outline"></ion-icon> Empresas</h3>
+        <p>Durlock - AnclaFlex - Zinzcril...</p>
+      </div>
+      <!-- Fila 4: Medios de Pago -->
+      <div class="row">
+        <h3><ion-icon name="wallet-outline"></ion-icon> Medios de Pago</h3>
+        <div class="payment-grid">
+          <div class="pay-item">
+            <ion-icon name="card-outline"></ion-icon>
+            <p>Débito Crédito Transferencia</p>
+          </div>
+          <div class="pay-item">
+            <ion-icon name="cash-outline"></ion-icon>
+            <p>Efectivo</p>
+          </div>
+          <div class="pay-item">
+            <ion-icon name="qr-code-outline"></ion-icon>
+            <p>Mercado Pago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila 5: Retiros en el local -->
+      <div class="row">
+        <h3><ion-icon name="log-in-outline"></ion-icon> Retiros en el local</h3>
+        <p>
+          ¡Retira tus pedidos de manera rápida y sencilla en nuestro local!
+          Una vez realizado tu pedido, recibirás un mensaje cuando esté listo para ser retirado.
+          Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00 y sábados de 10:00 a 14:00.
+          No olvides traer tu comprobante de compra al momento de retirar.
+        </p>
+      </div>
+
+    </div>
+    <!-- footer -->
+    <div id="footer" class="footer-basic">
+      <footer>
+        <div class="social">
+          <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
+              name="logo-instagram"></ion-icon></a>
+          <a target="_blank"
+            href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
+              name="logo-whatsapp"></ion-icon></a>
+          <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
+              name="logo-facebook"></ion-icon></a>
+        </div>
+        <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
+      </footer>
+    </div>
   </div>
   </div>
 
