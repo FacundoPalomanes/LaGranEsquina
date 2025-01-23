@@ -24,6 +24,12 @@ body {
     scroll-snap-type: x mandatory; 
 }
 
+.google-reviews-container {
+  margin: 3%; 
+  text-align: center;
+  font-weight: bold;
+}
+
 .card {
     width: 30%;
     flex: 0 0 calc((150% - 140px) / 6); 
