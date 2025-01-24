@@ -13,13 +13,21 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
+  body.dark-mode .row {
+    background-color: var(--black);
+  }
+
   p {
     margin: 0;
     color: #555;
     font-size: 14px;
   }
   
+  body.dark-mode p {
+    color: var(--white);
+  }
+
   /* Estilo para medios de pago */
   .payment-grid {
     display: grid;

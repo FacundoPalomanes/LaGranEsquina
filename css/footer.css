@@ -36,3 +36,15 @@
     font-size: 15px;
     color:#aaa;
   }
+
+  body.dark-mode .footer-basic {
+    background-color: var(--black);
+    color:#fff;
+  }
+  
+
+  body.dark-mode .footer-basic .social > a:hover {
+    background-color: var(--white);
+    color: var(--black);
+    transition: all 0.3s ease-in-out;
+  }

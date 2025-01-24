@@ -5,8 +5,8 @@
 
 
 .carousel-item img {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     object-fit: cover; /* Se ajusta para que cubra todo el espacio disponible sin deformar */
     object-position: center; /* Centra la imagen */
 }
