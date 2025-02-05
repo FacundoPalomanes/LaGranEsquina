@@ -1,45 +1,42 @@
 .carousel {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
-
 
 .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Se ajusta para que cubra todo el espacio disponible sin deformar */
-    object-position: center; /* Centra la imagen */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Se ajusta para que cubra todo el espacio disponible sin deformar */
+  object-position: center; /* Centra la imagen */
 }
-
-
 
 /* arriba de 1200px */
 @media screen and (min-width: 1200px) {
-    .carousel-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill; 
-    }
-    .carousel-item {
-        height: 80vh; 
-    }
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  .carousel-item {
+    height: 80vh;
+  }
 }
 
 /* arriba de 800px */
 @media screen and (min-width: 800px) {
-    .carousel-item img {
-        object-fit: fill; 
-    }
-    .carousel-item {
-        height: 70vh; /* 70% de la altura de la pantalla para dispositivos grandes */
-    }
+  .carousel-item img {
+    object-fit: fill;
+  }
+  .carousel-item {
+    height: 70vh; /* 70% de la altura de la pantalla para dispositivos grandes */
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .carousel-item img {
-        object-fit: fill; 
-    }
-    .carousel-item {
-        height: 50vh; /* 70% de la altura de la pantalla para dispositivos grandes */
-    }
+  .carousel-item img {
+    object-fit: fill;
+  }
+  .carousel-item {
+    height: 50vh; /* 70% de la altura de la pantalla para dispositivos grandes */
+  }
 }
