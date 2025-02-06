@@ -4,18 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- favicon -->
   <title>La Gran Esquina</title>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-
   <!-- css -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/carousel.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/info-grid.css">
-
   <!-- description and keywords -->
   <meta name="keywords"
     content="zingueria, chapas, barato, pilar, argentina, canaletas, techos, construcción, materiales, accesorios, drenaje, aluminio, acero, venta de chapas, instalación de canaletas, zinguería personalizada, reparación de techos, pilar buenos aires, servicios de zinguería, productos económicos, calidad en zinguería, venta de techos, zinc, galvanizado, pilar argentina, mejores precios, instalación profesional">
@@ -27,24 +24,21 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-
   <!-- google reviews -->
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
-
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
   <!-- icons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+  <!-- emailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <!-- javascript -->
   <script src="./js/main.js"></script>
-
 </head>
 
 <body>
@@ -104,7 +98,7 @@
                 <a href="#">Inicio</a>
               </li>
               <li class="nav__link-mobile">
-                <a href="#">Productos</a>
+                <a href="/productos.html">Productos</a>
               </li>
               <li class="nav__link-mobile">
                 <div class="dropdown">
@@ -159,104 +153,140 @@
       </button>
     </div>
     <!-- Productos destacados -->
-    <div class="container mt-4">
-      <h2 class="mb-4 text-center">Nuestros Productos Destacados</h2>
-      <div class="scroll-container d-flex overflow-auto mx-2"
-        style="gap: 1rem; scroll-snap-type: x mandatory; margin-right: 50px; padding-right: 20px; overflow-x: auto;">
-        <div class="card shadow-sm mx-3">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Tubo</h5>
-            <p class="card-text">Este es uno de nuestros productos destacados, ideal para diversos usos.</p>
+    <section>
+      <div class="container mt-4">
+        <h2 class="mb-4 text-center">Nuestros Productos Destacados</h2>
+        <div class="scroll-container d-flex overflow-auto mx-2"
+          style="gap: 1rem; scroll-snap-type: x mandatory; margin-right: 50px; padding-right: 20px; overflow-x: auto;">
+          <div class="card shadow-sm mx-3">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Tubo</h5>
+              <p class="card-text">Este es uno de nuestros productos destacados, ideal para diversos usos.</p>
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+              <!-- <a href="#" class="btn btn-primary">Ir a productos</a> -->
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+              <!-- <a href="#" class="btn btn-warning">Ir a productos</a> -->
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+              <!-- <a href="#" class="btn btn-outline-warning">Ir a productos</a> -->
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+              <!-- <a href="#" class="btn btn-outline-primary">Ir a productos</a> -->
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            </div>
+          </div>
+          <div class="card shadow-sm">
+            <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Válvula</h5>
+              <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
+            </div>
           </div>
         </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-            <!-- <a href="#" class="btn btn-primary">Ir a productos</a> -->
-          </div>
+        <div class="d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination mt-3">
+              <li class="page-item mx-3">
+                <a class="page-link" id="prev" style="cursor: pointer;" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item mx-3">
+                <a class="page-link active" id="next" style="cursor: pointer;" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-            <!-- <a href="#" class="btn btn-warning">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-            <!-- <a href="#" class="btn btn-outline-warning">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-            <!-- <a href="#" class="btn btn-outline-primary">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/card-try.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Válvula</h5>
-            <p class="card-text">Calidad garantizada para el manejo eficiente de líquidos y gases.</p>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex justify-content-center">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination mt-3">
-            <li class="page-item mx-3">
-              <a class="page-link" id="prev" style="cursor: pointer;" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item mx-3">
-              <a class="page-link active" id="next" style="cursor: pointer;" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
 
-    </div>
-    <div class="text-center mt-3">
-      <a href="/productos.html" class="btn btn-outline-primary btn-lg">Ver todo el catálogo</a>
-    </div>
+      </div>
+      <div class="text-center mt-3">
+        <a href="/productos.html" class="btn btn-outline-primary btn-lg">Ver todo el catálogo</a>
+      </div>
+    </section>
 
     <!-- Google maps reviews -->
     <div class="google-reviews-container">
+      <h3>Lo que dicen nuestros clientes</h3>
       <div class="elfsight-app-1c9c319f-302a-48ec-9e80-ec9f93fbcb2c" data-elfsight-app-lazy></div>
     </div>
+
+    <form id="contact-form" class="row g-3 m-4">
+      <div class="col-md-6">
+        <label class="form-label">Nombre</label>
+        <input id="nombre" type="text" class="form-control" aria-label="First name">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Apellido</label>
+        <input id="apellido" type="text" class="form-control" aria-label="Last name">
+      </div>
+      <div class="col-12">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input id="email" type="email" class="form-control" id="exampleFormControlInput1"
+          placeholder="name@example.com">
+      </div>
+      <div class="col-6">
+        <label class="form-label">Numero</label>
+        <input id="numero" type="tel" class="form-control" aria-label="numero">
+      </div>
+      <div class="col-6">
+        <label class="form-label">DNI</label>
+        <input id="dni" type="number" class="form-control" aria-label="DNI" aria-controls="false">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+        <textarea id="consulta" class="form-control resize-none" id="exampleFormControlTextarea1" style="resize: none;"
+          rows="3"></textarea>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+    <div id="response"></div>
 
     <!-- data de contacto -->
     <div class="container-column">
@@ -277,7 +307,8 @@
       <!-- Fila 3: Empresas -->
       <div class="row">
         <h3><ion-icon name="business-outline"></ion-icon> Empresas</h3>
-        <p>Durlock - AnclaFlex - Zinzcril...</p>
+        <p>Durlock - AnclaFlex - Zinzcril - Knauf - Plavicon - Sinteplast - Sherwin Williams - Ternium - Cindus -
+          Acindar - Isolant - Aluar - Megaflex - Sika - Weber</p>
       </div>
       <!-- Fila 4: Medios de Pago -->
       <div class="row">
@@ -328,6 +359,62 @@
   </div>
   </div>
 
+  <script>
+    emailjs.init("qujuwaFg6Ka9_Azl0");
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const regexDNI = /^\d{8}$/;
+      const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const regexTelefono = /^\d{10}$/;
+      const regexNombreApellido = /^[A-Za-záéíóúÁÉÍÓÚñÑ]+$/;
+
+      let formValid = true;
+
+      if (!regexDNI.test(document.getElementById("dni").value)) {
+        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el DNI, no ingresar con puntos ni guiones</p>";
+        document.getElementById("dni").value = "";
+        formValid = false;
+      }
+
+      if (!regexEmail.test(document.getElementById("email").value)) {
+        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el email</p>";
+        document.getElementById("email").value = "";
+        formValid = false;
+      }
+
+      if (!regexTelefono.test(document.getElementById("numero").value)) {
+        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el Telefono, no ingresar con puntos ni guiones</p>";
+        document.getElementById("numero").value = "";  // Reseteamos solo el campo de número
+        formValid = false;
+      }
+
+      if (!regexNombreApellido.test(document.getElementById("nombre").value) || !regexNombreApellido.test(document.getElementById("apellido").value)) {
+        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el Nombre y Apellido, no ingresar numeros ni simbolos</p>";
+        document.getElementById("nombre").value = "";  // Reseteamos solo el campo de nombre
+        document.getElementById("apellido").value = "";  // Reseteamos solo el campo de apellido
+        formValid = false;
+      }
+
+      if (formValid) {
+        const params = {
+          from_name: document.getElementById("nombre").value + " " + document.getElementById("apellido").value,
+          message: `Email: ${document.getElementById("email").value}, Numero De Telefono: ${document.getElementById("numero").value}, DNI: ${document.getElementById("dni").value}, Consulta: ${document.getElementById("consulta").value}`
+        }
+
+        emailjs.send("service_jnl3jqq", "template_4jxp403", params)
+          .then(response => {
+            document.getElementById("contact-form").reset();
+            document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Formulario enviado correctamente</p>";
+          }, error => {
+            document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Ha habido un error enviando el formulario</p>";
+            console.log(error);
+          });
+      }
+    });
+
+  </script>
 </body>
 
 </html>

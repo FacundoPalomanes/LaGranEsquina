@@ -32,7 +32,12 @@ body.dark-mode {
 }
 
 .google-reviews-container {
-  margin: 1.5% 2%;
+  margin: 1% 2%;
+}
+
+.google-reviews-container h3 {
+  margin-bottom: 2%;
+  text-align: center;
 }
 
 .card {
