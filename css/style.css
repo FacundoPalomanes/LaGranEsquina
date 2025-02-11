@@ -1,8 +1,10 @@
 :root {
   --black: #000;
   --white: #fff;
-  --orange: rgba(236, 102, 41, 255);
+  --orange: #ec6629;
   --gray: #f5f5f5; /* Updated to a lighter shade for better appeal */
+  --grid-gray: #f9f9f9;
+  --grid-p-dark-gray: #555;
 }
 
 * {
@@ -20,7 +22,7 @@ body {
 body.dark-mode {
   transition: all 0.5s ease-in-out;
   background-color: var(--black);
-  color: #fff;
+  color: var(--white);
 }
 
 .scroll-container {

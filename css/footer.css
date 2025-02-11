@@ -2,8 +2,6 @@
 
 .footer-basic {
   padding: 40px 0;
-  background-color: #ffffff;
-  color: #4b4c4d;
 }
 
 .footer-basic .social {
@@ -25,8 +23,8 @@
 }
 
 .footer-basic .social > a:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
   transition: all 0.3s ease-in-out;
 }
 
@@ -39,7 +37,7 @@
 
 body.dark-mode .footer-basic {
   background-color: var(--black);
-  color: #fff;
+  color: var(--white);
 }
 
 body.dark-mode .footer-basic .social > a:hover {

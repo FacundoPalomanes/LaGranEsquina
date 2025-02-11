@@ -20,22 +20,6 @@
 
 .container-navbar {
   background-color: var(--orange);
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
 }
 
 .navbar-logo img {
@@ -78,17 +62,15 @@
 }
 
 .nav__link:hover {
-  color: #211f1b;
   font-weight: 800;
-
   background-size: 100% 100%;
   background-position-x: left;
 }
 
 .nav__link a {
   color: var(--white);
-  text-decoration: none; /* Elimina cualquier subrayado predeterminado */
-  position: relative; /* Necesario para los pseudo-elementos */
+  text-decoration: none;
+  position: relative; 
 }
 
 .navbar__toggle-btn {
@@ -117,17 +99,12 @@
 
 @media screen and (max-width: 768px) {
   .nav__link {
-    margin-left: 20px; /* Reduce el margen entre los enlaces */
-    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
-    padding: 2% 0%; /* Ajusta el padding para más espacio */
-  }
-
-  .navbar__nav {
-    justify-content: space-around; /* Ajusta la distribución para evitar desbordamientos */
+    margin-left: 9px; 
+    font-size: 0.9rem; 
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 608px) {
   .nav__list {
     display: none;
   }
@@ -147,12 +124,6 @@
     z-index: 1;
     transform: translateY(0%);
     /* transition: all 0.5s ease; */
-  }
-
-  .navbar__mobile-menu.open {
-    transform: translateY(0);
-    opacity: 1;
-    /* animation: slideDown 0.5s ease; */
   }
 
   @keyframes slideDown {
@@ -203,15 +174,11 @@
     margin: 0 10px;
   }
 
-  .carousel {
-    transition: transform 0.3s ease;
-  }
-
   .shifted {
     transform: translateY(260px);
     transition: all 0.5s ease-in-out;
   }
   .dropdown-menu li a {
-    color: #000;
+    color: var(--black);
   }
 }
