@@ -67,6 +67,16 @@
   background-position-x: left;
 }
 
+.nav__link.no-hover-effect {
+  background: none !important;
+  transition: none;
+}
+
+.nav__link.no-hover-effect:hover {
+  background-size: 0% 100%;
+}
+
+
 .nav__link a {
   color: var(--white);
   text-decoration: none;

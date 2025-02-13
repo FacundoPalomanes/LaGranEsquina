@@ -1,0 +1,89 @@
+p.text-right {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  width: 100%;
+}
+
+#productos-container {
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  white-space: nowrap; /* Evita que los elementos se vayan a una nueva línea */
+}
+
+#items {
+    display: flex;
+    overflow-x: auto; /* Scroll horizontal */
+    gap: 16px;
+    padding-bottom: 10px;
+    white-space: nowrap; /* Evita que los productos se salten de línea */
+  }
+  
+  .card {
+    flex: 0 0 auto;
+    width: 220px; /* Tamaño fijo */
+    height: 350px; /* Ajusta según necesites */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 150px; /* Altura fija para todas las imágenes */
+    object-fit: contain; /* Evita que se deformen */
+    border-radius: 5px;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuye elementos */
+    flex-grow: 1; /* Hace que el contenido se distribuya bien */
+    width: 100%;
+  }
+  
+  .card-text {
+    max-height: 60px; /* Asegura que el texto no crezca indefinidamente */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto es muy largo */
+    display: block;
+    word-wrap: break-word; /* Asegura que las palabras largas se dividan */
+    white-space: normal; /* Permite saltos de línea */
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  #items .btn {
+    width: 80%;
+    margin-top: auto; /* Empuja el botón hacia abajo */
+  }
+  
+  .cart-btn {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

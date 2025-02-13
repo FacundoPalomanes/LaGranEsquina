@@ -8,8 +8,9 @@
 
     <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/global-styles.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/productos.css">
     <link rel="stylesheet" href="./css/footer.css">
 
 
@@ -29,6 +30,7 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header">
         <section class="header__info">
             <p>¡No pierdas más tiempo! Llama ahora a la zinguería al <span class="phone-number">0230 4421831</span> y
@@ -72,13 +74,19 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav__link">
+                        <li class="nav__link no-hover-effect">
                             <a href="#" id="dark-mode-toggle">🌙</a>
                         </li>
                     </ul>
                     <button id="dark-mode-toggle-mobile" class="navbar__toggle-btn">
                         🌙
                     </button>
+                    <button class="navbar__toggle-btn btn cart-btn" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span id="cart-count" class="cart-count">0</span>
+                    </button>
+
                     <button class="navbar__toggle-btn" id="toggle-menu">
                         <img src="/assets/menu-icon.svg" alt="Menu Icon">
                     </button>
@@ -127,7 +135,38 @@
             <div class="main-row"></div>
         </main>
 
+        <div class="container">
+            <h4 id="categoria-titulo" class="text-center my-3"></h4> <!-- Título dinámico -->
+            <div class="row">
+                <div id="productos-container" class="d-flex overflow-auto p-2">
+                    <main id="items" class="d-flex gap-3"></main>
+                </div>
+            </div>
+        </div>
 
+
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <aside class="col-12">
+                    <!-- Elementos del carrito -->
+                    <ul id="carrito" class="list-group"></ul>
+                    <hr>
+                    <!-- Precio total -->
+                    <p class="text-right">Comprar <span id="total"></span></p>
+                    <div class="d-flex gap-2">
+                        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                        <button id="boton-comprar" class="btn btn-primary">Comprar</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Footer -->
         <div id="footer" class="footer-basic">
             <footer>
                 <div class="social">
