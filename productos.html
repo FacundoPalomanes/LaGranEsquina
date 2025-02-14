@@ -166,6 +166,33 @@
             </div>
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="modalEdicion" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalProductoNombre"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
+                        <p id="modalProductoDescripcion"></p>
+                        <div class="d-flex align-items-center">
+                            <button id="btnMenos" class="btn btn-danger">-</button>
+                            <input type="number" id="inputCantidad" class="form-control mx-2" value="1" min="1">
+                            <button id="btnMas" class="btn btn-success">+</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <!-- Footer -->
         <div id="footer" class="footer-basic">
             <footer>

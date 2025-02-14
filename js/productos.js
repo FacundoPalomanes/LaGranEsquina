@@ -235,6 +235,8 @@ function actualizarContadorCarrito() {
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 actualizarContadorCarrito();
 
+let productoEnEdicion = null; // Variable para almacenar el producto actual en el modal
+
 function renderizarCarrito(productos) {
     // Vaciar HTML del carrito
     DOMcarrito.textContent = "";
@@ -250,19 +252,31 @@ function renderizarCarrito(productos) {
 
         // Crear nodo para mostrar el producto en el carrito
         const miNodo = document.createElement("li");
-        miNodo.classList.add("list-group-item", "text-right", "mx-2");
-        miNodo.textContent = `${numeroUnidadesItem} x ${miItem.nombre} - ${miItem.descripcion}`;
+        miNodo.classList.add("list-group-item", "text-right", "mx-2", "d-flex", "align-items-center", "justify-content-between");
 
-        // Botón de eliminar
-        const miBoton = document.createElement("button");
-        miBoton.classList.add("btn", "btn-danger");
-        miBoton.textContent = "X";
-        miBoton.style.marginLeft = "1rem";
-        miBoton.dataset.item = item;
-        miBoton.addEventListener("click", (evento) => borrarItemCarrito(evento, productos));
+        // Nombre del producto
+        const texto = document.createElement("span");
+        texto.textContent = `${numeroUnidadesItem} - ${miItem.nombre} - ${miItem.descripcion}`;
+
+        // Botón de editar
+        const btnEditar = document.createElement("button");
+        btnEditar.classList.add("btn", "btn-primary", "btn-sm");
+        btnEditar.textContent = "Editar";
+        btnEditar.dataset.item = item;
+        btnEditar.addEventListener("click", () => abrirModalEdicion(miItem, numeroUnidadesItem, productos));
+
+        // Botón para eliminar completamente el producto
+        const btnEliminar = document.createElement("button");
+        btnEliminar.classList.add("btn", "btn-danger", "btn-sm", "ms-2");
+        btnEliminar.textContent = "X";
+        btnEliminar.dataset.item = item;
+        btnEliminar.addEventListener("click", (evento) => borrarItemCarrito(evento, productos));
 
         // Mezclar nodos
-        miNodo.appendChild(miBoton);
+        miNodo.appendChild(texto);
+        miNodo.appendChild(btnEditar);
+        miNodo.appendChild(btnEliminar);
+
         DOMcarrito.appendChild(miNodo);
     });
 
@@ -270,12 +284,68 @@ function renderizarCarrito(productos) {
     DOMtotal.textContent = `${carrito.length} Productos`;
 }
 
+function abrirModalEdicion(producto, cantidadActual, productos) {
+  productoEnEdicion = producto;
+
+  document.getElementById("modalProductoNombre").textContent = producto.nombre;
+  document.getElementById("modalProductoDescripcion").textContent = producto.descripcion;
+  document.getElementById("modalProductoImagen").src = producto.imagen;
+  document.getElementById("inputCantidad").value = cantidadActual;
+
+  document.getElementById("btnMenos").onclick = () => actualizarCantidadModal(-1);
+  document.getElementById("btnMas").onclick = () => actualizarCantidadModal(1);
+  
+  // Asegurar que el botón "Guardar" usa el array correcto
+  document.getElementById("btnGuardar").onclick = () => guardarCambiosCantidad(productos);
+
+  const modal = new bootstrap.Modal(document.getElementById("modalEdicion"));
+  modal.show();
+}
+
+
+
+// Función para actualizar la cantidad dentro del modal
+function actualizarCantidadModal(cambio) {
+  let inputCantidad = document.getElementById("inputCantidad");
+  let nuevaCantidad = parseInt(inputCantidad.value) + cambio;
+  if (nuevaCantidad < 1) return; // Evita valores negativos o 0
+  inputCantidad.value = nuevaCantidad;
+}
+
+// Función para guardar los cambios en el carrito
+function guardarCambiosCantidad(productos) {
+  if (!productoEnEdicion) return;
+
+  let nuevaCantidad = parseInt(document.getElementById("inputCantidad").value);
+  if (nuevaCantidad < 1) return;
+
+  // Actualizar el carrito eliminando todas las instancias previas del producto
+  carrito = carrito.filter((id) => id !== String(productoEnEdicion.id));
+
+  // Agregar la nueva cantidad de productos
+  for (let i = 0; i < nuevaCantidad; i++) {
+      carrito.push(String(productoEnEdicion.id));
+  }
+
+  // Volver a renderizar
+  renderizarCarrito(productos);
+  guardarCarritoEnLocalStorage();
+  actualizarContadorCarrito();
+
+  // Cerrar el modal después de guardar
+  bootstrap.Modal.getInstance(document.getElementById("modalEdicion")).hide();
+}
+
 function borrarItemCarrito(evento, productos) {
-    const id = evento.target.dataset.item;
-    carrito = carrito.filter((carritoId) => carritoId !== id);
-    renderizarCarrito(productos);
-    guardarCarritoEnLocalStorage();
-    actualizarContadorCarrito();
+  const idProducto = evento.target.dataset.item;
+
+  // Filtra el carrito para eliminar todas las instancias del producto seleccionado
+  carrito = carrito.filter((id) => id !== idProducto);
+
+  // Volver a renderizar el carrito
+  renderizarCarrito(productos);
+  guardarCarritoEnLocalStorage();
+  actualizarContadorCarrito();
 }
 
 
@@ -311,5 +381,5 @@ function borrarItemCarrito(evento, productos) {
   // Inicio
   cargarCarritoDeLocalStorage();
   renderizarProductos(baseDeDatos, "Babetas");
-  renderizarCarrito();
+  renderizarCarrito(baseDeDatos);
 });

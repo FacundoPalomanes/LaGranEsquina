@@ -21,6 +21,23 @@ p {
   font-size: 14px;
 }
 
+.logo-container {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  justify-items: center;
+  align-items: center;
+  max-width: 800px; /* Ajusta según el diseño */
+  margin: 20px auto; /* Centra el contenedor */
+}
+
+.logo-container img {
+  width: 140px; /* Ajusta el tamaño según necesidad */
+  height: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+
 /* Estilo para medios de pago */
 .payment-grid {
   display: grid;
