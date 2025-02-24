@@ -136,79 +136,79 @@
         </main>
 
         <div class="container">
-            <h4 id="categoria-titulo" class="text-center my-3"></h4> <!-- Título dinámico -->
-            <div class="row">
-                <div id="productos-container" class="d-flex overflow-auto p-2">
-                    <main id="items" class="d-flex gap-3"></main>
+
+                    <h2 class="text-center my-3">Productos Destacados</h>
+                    <div id="items" class="item-gap d-flex overflow-auto p-2"></div>
+
+                    <h2 class="text-center my-3">Canaletas</h2>
+                    <div id="items-canaletas" class="item-gap d-flex overflow-auto p-2"></div>
+
+
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <aside class="col-12">
+                        <!-- Elementos del carrito -->
+                        <ul id="carrito" class="list-group"></ul>
+                        <hr>
+                        <!-- Precio total -->
+                        <p class="text-right">Comprar <span id="total"></span></p>
+                        <div class="d-flex gap-2">
+                            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                            <button id="boton-comprar" class="btn btn-primary">Comprar</button>
+                        </div>
+                    </aside>
                 </div>
             </div>
-        </div>
 
-
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <aside class="col-12">
-                    <!-- Elementos del carrito -->
-                    <ul id="carrito" class="list-group"></ul>
-                    <hr>
-                    <!-- Precio total -->
-                    <p class="text-right">Comprar <span id="total"></span></p>
-                    <div class="d-flex gap-2">
-                        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-                        <button id="boton-comprar" class="btn btn-primary">Comprar</button>
-                    </div>
-                </aside>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="modalEdicion" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalProductoNombre"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
-                        <p id="modalProductoDescripcion"></p>
-                        <div class="d-flex align-items-center">
-                            <button id="btnMenos" class="btn btn-danger">-</button>
-                            <input type="number" id="inputCantidad" class="form-control mx-2" value="1" min="1">
-                            <button id="btnMas" class="btn btn-success">+</button>
+            <!-- Modal -->
+            <div class="modal fade" id="modalEdicion" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalProductoNombre"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
+                            <p id="modalProductoDescripcion"></p>
+                            <div class="d-flex align-items-center">
+                                <button id="btnMenos" class="btn btn-danger">-</button>
+                                <input type="number" id="inputCantidad" class="form-control mx-2" value="1" min="1">
+                                <button id="btnMas" class="btn btn-success">+</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
-                    </div>
                 </div>
             </div>
+
+
+
+            <!-- Footer -->
+            <div id="footer" class="footer-basic">
+                <footer>
+                    <div class="social">
+                        <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
+                                name="logo-instagram"></ion-icon></a>
+                        <a target="_blank"
+                            href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
+                                name="logo-whatsapp"></ion-icon></a>
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
+                                name="logo-facebook"></ion-icon></a>
+                    </div>
+                    <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
+                </footer>
+            </div>
         </div>
-
-
-
-        <!-- Footer -->
-        <div id="footer" class="footer-basic">
-            <footer>
-                <div class="social">
-                    <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
-                            name="logo-instagram"></ion-icon></a>
-                    <a target="_blank"
-                        href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
-                            name="logo-whatsapp"></ion-icon></a>
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
-                            name="logo-facebook"></ion-icon></a>
-                </div>
-                <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
-            </footer>
-        </div>
-    </div>
 
 
 
