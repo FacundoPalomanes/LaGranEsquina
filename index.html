@@ -257,7 +257,7 @@
     </div>
 
     <!-- Formulario -->
-     <h2 class="text-center my-3">Deja tus datos para que te contactemos</h2>
+    <h2 class="text-center my-3">Deja tus datos para que te contactemos</h2>
     <form id="contact-form" class="row g-3 m-4">
       <div class="col-md-6">
         <label class="form-label">Nombre</label>
@@ -290,6 +290,20 @@
       </div>
     </form>
     <div id="response"></div>
+
+    <!-- TOASTER PARA CUANDO SE ENVIA EL FORMULARIO -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="/assets/icon/favicon.ico" width="30px" class="rounded me-2 bg-orange" alt="icono empresa">
+          <strong class="me-auto">La Gran Esquina</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+      </div>
+    </div>
+
 
     <!-- data de contacto -->
     <div class="container-column">
@@ -380,29 +394,30 @@
       const regexNombreApellido = /^[A-Za-záéíóúÁÉÍÓÚñÑ]+$/;
 
       let formValid = true;
+      let errors = [];
 
       if (!regexDNI.test(document.getElementById("dni").value)) {
-        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el DNI, no ingresar con puntos ni guiones</p>";
+        errors.push("Hay un error en el DNI, no ingresar con puntos ni guiones");
         document.getElementById("dni").value = "";
         formValid = false;
       }
 
       if (!regexEmail.test(document.getElementById("email").value)) {
-        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el email</p>";
+        errors.push("Hay un error en el email");
         document.getElementById("email").value = "";
         formValid = false;
       }
 
       if (!regexTelefono.test(document.getElementById("numero").value)) {
-        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el Telefono, no ingresar con puntos ni guiones</p>";
-        document.getElementById("numero").value = "";  // Reseteamos solo el campo de número
+        errors.push("Hay un error en el teléfono, no ingresar con puntos ni guiones");
+        document.getElementById("numero").value = "";
         formValid = false;
       }
 
       if (!regexNombreApellido.test(document.getElementById("nombre").value) || !regexNombreApellido.test(document.getElementById("apellido").value)) {
-        document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Hay un error en el Nombre y Apellido, no ingresar numeros ni simbolos</p>";
-        document.getElementById("nombre").value = "";  // Reseteamos solo el campo de nombre
-        document.getElementById("apellido").value = "";  // Reseteamos solo el campo de apellido
+        errors.push("Hay un error en el nombre y apellido, no ingresar números ni símbolos");
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellido").value = "";
         formValid = false;
       }
 
@@ -415,11 +430,22 @@
         emailjs.send("service_jnl3jqq", "template_4jxp403", params)
           .then(response => {
             document.getElementById("contact-form").reset();
-            document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Formulario enviado correctamente</p>";
+            const toastLiveExample = document.getElementById('liveToast')
+            document.getElementsByClassName("toast-body")[0].innerHTML = "<p>Formulario enviado correctamente, pronto nos contactaremos con usted</p>";
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastBootstrap.show()
+            document.getElementById("response").innerHTML = `<div class="alert alert-success m-5" role="alert">${textResponse}</div>`;
           }, error => {
-            document.getElementById("response").innerHTML = "<p class='text-center m-3 font-size-3'>Ha habido un error enviando el formulario</p>";
+            const toastLiveExample = document.getElementById('liveToast')
+            document.getElementsByClassName("toast-body")[0].innerHTML = "<p>Ha habido un error enviando el formulario</p>";
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastBootstrap.show()
+            document.getElementById("response").innerHTML = `<div class="alert alert-danger m-5" role="alert">Hubo un error intentando mandar el formulario</div>`;
             console.log(error);
           });
+      } else {
+        let textResponse = errors.map((err, index) => index === 0 ? err : err.toLowerCase()).join(", ");
+        document.getElementById("response").innerHTML = `<div class="alert alert-danger m-5" role="alert">${textResponse}</div>`;
       }
     });
 

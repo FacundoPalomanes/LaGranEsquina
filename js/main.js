@@ -10,21 +10,26 @@ document.addEventListener("DOMContentLoaded", () => {
     movePage.classList.remove("shifted");
   };
 
-  // Toggle dark mode 
-  document.getElementById('dark-mode-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-  }); 
+  // Toggle dark mode
+  document.getElementById("dark-mode-toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
 
-  document.getElementById('dark-mode-toggle-mobile').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-  }); 
+  document
+    .getElementById("dark-mode-toggle-mobile")
+    .addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
 
   // toggleButton.addEventListener("click", toggleMenu);
   window.addEventListener("resize", hideMenuResize);
   window.addEventListener("load", hideMenuResize);
 
   toggleButton.addEventListener("click", () => {
-    mobileMenu.style.display = mobileMenu.style.display === "none" || mobileMenu.style.display === "" ? "flex" : "none";
+    mobileMenu.style.display =
+      mobileMenu.style.display === "none" || mobileMenu.style.display === ""
+        ? "flex"
+        : "none";
     mobileMenu.classList.toggle("open"); // Alterna el estado visible del menú
     movePage.classList.toggle("shifted");
   });
