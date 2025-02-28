@@ -1,4 +1,4 @@
-@import url(style.css);
+@import url(global-styles.css);
 
 .header__info {
   background-color: var(--black);

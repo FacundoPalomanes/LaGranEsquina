@@ -2,7 +2,7 @@ export const productosDestacados = [
     {
       id: 1,
       nombre: "Kit Americana",
-      descripcion: "Canaleta resistentes para las terminaciones de techo.",
+      descripcion: "Canaleta resistentes para las terminaciones de techo", // 64 caracteres maximo descripcion corta
       imagen: "/assets/productos/kit-americana.webp",
     },
     {
