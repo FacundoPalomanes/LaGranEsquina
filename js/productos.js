@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const miNodoDescripcion = document.createElement("p");
         miNodoDescripcion.classList.add("card-text");
-        miNodoDescripcion.textContent = info.descripcion;
+        miNodoDescripcion.textContent = info.descripcionCorta;
 
         const miNodoBoton = document.createElement("button");
         miNodoBoton.classList.add("btn", "btn-primary");
@@ -109,7 +109,7 @@ function renderizarCarrito() {
         miNodo.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
 
         const texto = document.createElement("span");
-        texto.textContent = `${item.cantidad}x ${miItem.nombre} ${item.color ? " - Color: " + item.color : ""}`;
+        texto.textContent = `${item.cantidad}x ${miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre } ${item.color ? " - Color: " + item.color : ""}`;
 
         const contenedorBotones = document.createElement("div");
 
@@ -152,8 +152,15 @@ function abrirModalProducto(producto, cantidad = 1, esEditar = false, colorActua
   document.getElementById("btnModalAccion").textContent = esEditar ? "Guardar" : "Agregar";
 
   document.getElementById("btnModalAccion").onclick = () => {
-      esEditar ? guardarCambiosCantidad() : agregarProductoCarrito();
+      esEditar ? guardarCambiosCantidad(colorActual) : agregarProductoCarrito();
   };
+
+  document.getElementById("inputCantidad").addEventListener("keydown", (e) => {
+    if(e.key === "Enter") {
+      e.preventDefault()
+      esEditar ? guardarCambiosCantidad(colorActual) : agregarProductoCarrito();
+    }
+});
 
   const contenedorColores = document.getElementById("contenedorColores");
   contenedorColores.innerHTML = ""; 
@@ -207,17 +214,20 @@ function actualizarContadorCarrito() {
 
   // Función para guardar los cambios en el carrito
  
-  function guardarCambiosCantidad() {
+  function guardarCambiosCantidad(colorActual) {
     if (!productoEnEdicion) return;
 
     let nuevaCantidad = parseInt(document.getElementById("inputCantidad").value);
     const selectColor = document.getElementById("selectColor");
     const colorSeleccionado = selectColor && selectColor.value ? selectColor.value : null;
 
-    // Filtrar el carrito eliminando solo la entrada específica
-    carrito = carrito.filter(item => !(item.id === String(productoEnEdicion.id) && (item.color || null) === colorSeleccionado));
+    // Convertir colorActual vacío ("") en null para manejar la comparación correctamente
+    colorActual = colorActual === "" ? null : colorActual;
 
-    // Agregar la nueva cantidad del producto editado
+    // Primero, eliminar la variante anterior del producto con el color previo
+    carrito = carrito.filter(item => !(item.id === String(productoEnEdicion.id) && (item.color || null) === colorActual));
+
+    // Ahora agregar la nueva cantidad con el color actualizado
     for (let i = 0; i < nuevaCantidad; i++) {
         carrito.push({ id: String(productoEnEdicion.id), color: colorSeleccionado || null });
     }
@@ -227,6 +237,7 @@ function actualizarContadorCarrito() {
     actualizarContadorCarrito();
     bootstrap.Modal.getInstance(document.getElementById("modalProducto")).hide();
 }
+
 
 
 
