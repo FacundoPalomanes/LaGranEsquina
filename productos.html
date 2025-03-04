@@ -131,83 +131,161 @@
                 </div>
             </nav>
         </section>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
+                    <ul class="navbar-nav d-flex justify-content-center gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-destacados">Canaletas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-canaletas">Babetas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-babetas">Caballetes y Conversas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-caballetes_conversas">Curvas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-curvas">Caños y Grampas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-canios_grampas">Sombreros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-sombreros">Chapas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-chapas">Membranas y Aislantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-membranas_aislantes">Durlock</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-durlock">Policarbonato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items-policarbonato">Accesorios</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+
     </header>
 
     <main class="container" id="move-page">
-        <h1 class="text-center my-4">Nuestros Productos</h1>
-        <h2 class="text-center my-3">Productos Destacados</h>
-            <div id="items" class="item-gap d-flex overflow-auto p-2"></div>
 
-            <h2 class="text-center my-3">Canaletas</h2>
-            <div id="items-canaletas" class="item-gap d-flex overflow-auto p-2"></div>
+        <h2 class="text-center my-3 py-3">Productos Destacados</h2>
+        <div id="items-destacados" class="item-gap d-flex overflow-auto p-3"></div>
+
+        <h2 class="text-center my-3">Canaletas</h2>
+        <div id="items-canaletas" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Babetas</h2>
+        <div id="items-babetas" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Caballetes y Conversas</h2>
+        <div id="items-caballetes_conversas" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Curvas</h2>
+        <div id="items-curvas" class="items-centrados item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Caños y Grampas</h2>
+        <div id="items-canios_grampas" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Sombreros</h2>
+        <div id="items-sombreros" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Chapas</h2>
+        <div id="items-chapas_pinturas" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Membranas y Aislantes</h2>
+        <div id="items-membranas_aislantes" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Durlock</h2>
+        <div id="items-durlock" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Policarbonato</h2>
+        <div id="items-policarbonato" class="item-gap d-flex overflow-auto p-2"></div>
+
+        <h2 class="text-center my-3">Accesorios</h2>
+        <div id="items-accesorios" class="item-gap d-flex overflow-auto p-2"></div>
 
 
 
-            <!-- Modal único para agregar y editar -->
-            <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalProductoTitulo"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <!-- Modal único para agregar y editar -->
+        <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalProductoTitulo"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
+                        <p id="modalProductoDescripcion"></p>
+                        <div class="d-flex align-items-center">
+                            <button id="btnMenos" class="btn btn-danger">-</button>
+                            <input type="number" id="inputCantidad" class="form-control mx-2 text-center" value="1"
+                                min="1" style="width: 60px;">
+                            <button id="btnMas" class="btn btn-primary">+</button>
                         </div>
-                        <div class="modal-body">
-                            <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
-                            <p id="modalProductoDescripcion"></p>
-                            <div class="d-flex align-items-center">
-                                <button id="btnMenos" class="btn btn-danger">-</button>
-                                <input type="number" id="inputCantidad" class="form-control mx-2 text-center" value="1"
-                                    min="1" style="width: 60px;">
-                                <button id="btnMas" class="btn btn-primary">+</button>
-                            </div>
-                            <div id="contenedorColores"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                            <button id="btnModalAccion" class="btn btn-primary"></button>
-                        </div>
+                        <div id="contenedorColores"></div>
+                        <div id="contenedorMedidas"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button id="btnModalAccion" class="btn btn-primary"></button>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
 
-            <!-- CARRITO -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <aside class="col-12">
-                        <!-- Elementos del carrito -->
-                        <ul id="carrito" class="list-group"></ul>
-                        <hr>
-                        <!-- Precio total -->
-                        <p class="text-right">Comprar <span id="total"></span></p>
-                        <div class="d-flex gap-2">
-                            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-                            <button id="boton-comprar" class="btn btn-primary">Comprar</button>
-                        </div>
-                    </aside>
-                </div>
+        <!-- CARRITO -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+            <div class="offcanvas-body">
+                <aside class="col-12">
+                    <!-- Elementos del carrito -->
+                    <ul id="carrito" class="list-group"></ul>
+                    <hr>
+                    <!-- Precio total -->
+                    <p class="text-right">Comprar <span id="total"></span></p>
+                    <div class="d-flex gap-2">
+                        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                        <button id="boton-comprar" class="btn btn-primary">Comprar</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
 
-            <!-- Footer -->
-            <footer class="footer-basic" id="footer">
-                <div class="social">
-                    <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
-                            name="logo-instagram"></ion-icon></a>
-                    <a target="_blank"
-                        href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
-                            name="logo-whatsapp"></ion-icon></a>
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
-                            name="logo-facebook"></ion-icon></a>
-                </div>
-                <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
-            </footer>
+        <!-- Footer -->
+        <footer class="footer-basic" id="footer">
+            <div class="social">
+                <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
+                        name="logo-instagram"></ion-icon></a>
+                <a target="_blank"
+                    href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
+                        name="logo-whatsapp"></ion-icon></a>
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
+                        name="logo-facebook"></ion-icon></a>
+            </div>
+            <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
+        </footer>
     </main>
 
 
