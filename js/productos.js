@@ -1,7 +1,20 @@
-import { productosDestacados, canaletas, babetas, caballetes_y_conversas, curvas, canios_y_grampas, sombreros, chapas_pinturas } from "./items.js";
+import {
+  productosDestacados,
+  canaletas,
+  babetas,
+  caballetes_y_conversas,
+  curvas,
+  canios_y_grampas,
+  sombreros,
+  chapas_pinturas,
+  membranas_y_aislantes,
+  durlock,
+  policarbonato,
+  accesorios,
+  accesorios_dos,
+} from "./items.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const DOMcarrito = document.querySelector("#carrito");
   const DOMtotal = document.querySelector("#total");
@@ -18,6 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
   renderizarProductos(canios_y_grampas, "items-canios_grampas");
   renderizarProductos(sombreros, "items-sombreros");
   renderizarProductos(chapas_pinturas, "items-chapas_pinturas");
+  renderizarProductos(membranas_y_aislantes, "items-membranas_aislantes");
+  renderizarProductos(durlock, "items-durlock");
+  renderizarProductos(policarbonato, "items-policarbonato");
+  renderizarProductos(accesorios, "items-accesorios");
+  renderizarProductos(accesorios_dos, "items-accesorios-dos");
   renderizarCarrito();
 
   let productoEnEdicion = null;
@@ -29,155 +47,209 @@ document.addEventListener("DOMContentLoaded", () => {
     contenedor.innerHTML = "";
 
     productos.forEach((info) => {
-        const miNodo = document.createElement("div");
-        miNodo.classList.add("card");
+      const miNodo = document.createElement("div");
+      miNodo.classList.add("card");
 
-        const miNodoCardBody = document.createElement("div");
-        miNodoCardBody.classList.add("card-body");
+      const miNodoCardBody = document.createElement("div");
+      miNodoCardBody.classList.add("card-body");
 
-        const miNodoImagen = document.createElement("img");
-        miNodoImagen.setAttribute("src", info.imagen);
-        miNodoImagen.setAttribute("alt", info.nombre);
+      const miNodoImagen = document.createElement("img");
+      miNodoImagen.setAttribute("src", info.imagen);
+      miNodoImagen.setAttribute("alt", info.nombre);
 
-        const miNodoTitle = document.createElement("h5");
-        miNodoTitle.classList.add("card-title");
-        miNodoTitle.textContent = info.nombre;
+      const miNodoTitle = document.createElement("h5");
+      miNodoTitle.classList.add("card-title");
+      miNodoTitle.textContent = info.nombre;
 
-        const miNodoDescripcion = document.createElement("p");
-        miNodoDescripcion.classList.add("card-text");
-        miNodoDescripcion.textContent = info.descripcionCorta;
+      const miNodoDescripcion = document.createElement("p");
+      miNodoDescripcion.classList.add("card-text");
+      miNodoDescripcion.textContent = info.descripcionCorta;
 
-        const miNodoBoton = document.createElement("button");
-        miNodoBoton.classList.add("btn", "btn-primary");
-        miNodoBoton.textContent = "Agregar";
-        miNodoBoton.setAttribute("marcador", info.id);
-        miNodoBoton.addEventListener("click", () => abrirModalProducto(info));
+      const miNodoBoton = document.createElement("button");
+      miNodoBoton.classList.add("btn", "btn-primary");
+      miNodoBoton.textContent = "Agregar";
+      miNodoBoton.setAttribute("marcador", info.id);
+      miNodoBoton.addEventListener("click", () => abrirModalProducto(info));
 
-        miNodoCardBody.appendChild(miNodoImagen);
-        miNodoCardBody.appendChild(miNodoTitle);
-        miNodoCardBody.appendChild(miNodoDescripcion);
-        miNodoCardBody.appendChild(miNodoBoton);
-        miNodo.appendChild(miNodoCardBody);
+      miNodoCardBody.appendChild(miNodoImagen);
+      miNodoCardBody.appendChild(miNodoTitle);
+      miNodoCardBody.appendChild(miNodoDescripcion);
+      miNodoCardBody.appendChild(miNodoBoton);
+      miNodo.appendChild(miNodoCardBody);
 
-        contenedor.appendChild(miNodo);
+      contenedor.appendChild(miNodo);
     });
-}
+  }
 
-function agregarProductoCarrito() {
+  function agregarProductoCarrito() {
     let cantidad = parseInt(document.getElementById("inputCantidad").value);
     const selectColor = document.getElementById("selectColor");
-    const colorSeleccionado = selectColor && selectColor.value ? selectColor.value : null;
+    const colorSeleccionado =
+      selectColor && selectColor.value ? selectColor.value : null;
     const selectMedida = document.getElementById("selectMedida");
-    const medidaSeleccionada = selectMedida && selectMedida.value ? selectMedida.value : null;
+    const medidaSeleccionada =
+      selectMedida && selectMedida.value ? selectMedida.value : null;
+    const selectTipo = document.getElementById("selectTipo");
+    const tipoSeleccionada =
+      selectTipo && selectTipo.value ? selectTipo.value : null;
 
     for (let i = 0; i < cantidad; i++) {
-        let producto = { id: String(productoEnEdicion.id) };
+      let producto = { id: String(productoEnEdicion.id) };
 
-        if (colorSeleccionado) {
-            producto.color = colorSeleccionado;
-        }
-        if(medidaSeleccionada) {
-          producto.medida = medidaSeleccionada;
-        }
+      if (colorSeleccionado) {
+        producto.color = colorSeleccionado;
+      }
+      if (medidaSeleccionada) {
+        producto.medida = medidaSeleccionada;
+      }
+      if (tipoSeleccionada) {
+        producto.tipo = tipoSeleccionada;
+      }
 
-
-        carrito.push(producto);
+      carrito.push(producto);
     }
 
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
     actualizarContadorCarrito();
-    bootstrap.Modal.getInstance(document.getElementById("modalProducto")).hide();
-}
+    bootstrap.Modal.getInstance(
+      document.getElementById("modalProducto")
+    ).hide();
+  }
 
-console.log(carrito);
+  console.log(carrito);
 
+  // -------------------------------------------------------- FUNCTIONS CARRITO
 
+  actualizarContadorCarrito();
 
-// -------------------------------------------------------- FUNCTIONS CARRITO
-
-actualizarContadorCarrito();
-
-function renderizarCarrito() {
+  function renderizarCarrito() {
     DOMcarrito.textContent = "";
-    const productos = [...productosDestacados, ...canaletas, ...babetas, ...caballetes_y_conversas, ...curvas, ...canios_y_grampas, ...sombreros, ...chapas_pinturas];
+    const productos = [
+      ...productosDestacados,
+      ...canaletas,
+      ...babetas,
+      ...caballetes_y_conversas,
+      ...curvas,
+      ...canios_y_grampas,
+      ...sombreros,
+      ...chapas_pinturas,
+      ...membranas_y_aislantes,
+      ...durlock,
+      ...policarbonato,
+      ...accesorios,
+      ...accesorios_dos,
+    ];
 
     const carritoAgrupado = carrito.reduce((acc, item) => {
-      let key = `${item.id}-${item.color || "default"}-${item.medida || "default"}`;
+      let key = `${item.id}-${item.color || "default"}-${
+        item.medida || "default"
+      }-${item.tipo || "default"}`;
       if (!acc[key]) {
-          acc[key] = { ...item, cantidad: 1 };
+        acc[key] = { ...item, cantidad: 1 };
       } else {
-          acc[key].cantidad++;
+        acc[key].cantidad++;
       }
       return acc;
-  }, {});
-  
+    }, {});
 
     Object.values(carritoAgrupado).forEach((item) => {
-        const miItem = productos.find((p) => p.id === parseInt(item.id));
-        if (!miItem) return;
+      const miItem = productos.find((p) => p.id === parseInt(item.id));
+      if (!miItem) return;
 
-        const miNodo = document.createElement("li");
-        miNodo.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+      const miNodo = document.createElement("li");
+      miNodo.classList.add(
+        "list-group-item",
+        "d-flex",
+        "justify-content-between",
+        "align-items-center"
+      );
 
-        const texto = document.createElement("span");
-        texto.textContent = `${item.cantidad}x ${miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre } ${item.medida ? " - Medida: " + item.medida : ""} ${item.color ? " - Color: " + item.color : ""}`;
+      const texto = document.createElement("span");
+      texto.textContent = `${item.cantidad}x ${
+        miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
+      } ${item.medida ? " - Medida: " + item.medida : ""} ${
+        item.color ? " - Color: " + item.color : ""
+      } ${item.tipo ? " - Tipo: " + item.tipo : ""}`;
 
-        const contenedorBotones = document.createElement("div");
+      const contenedorBotones = document.createElement("div");
 
-        const btnEditar = document.createElement("button");
-        btnEditar.classList.add("btn", "btn-primary", "btn-sm");
-        btnEditar.textContent = "Editar";
-        btnEditar.onclick = () => abrirModalProducto(miItem, item.cantidad, true, item.color, item.medida);
+      const btnEditar = document.createElement("button");
+      btnEditar.classList.add("btn", "btn-primary", "btn-sm");
+      btnEditar.textContent = "Editar";
+      btnEditar.onclick = () =>
+        abrirModalProducto(
+          miItem,
+          item.cantidad,
+          true,
+          item.color,
+          item.medida,
+          item.tipo
+        );
 
-        const btnEliminar = document.createElement("button");
-        btnEliminar.classList.add("btn", "btn-sm");
-        btnEliminar.textContent = "❌";
-        btnEliminar.onclick = () => borrarItemCarrito(item.id, item.color, item.medida);
+      const btnEliminar = document.createElement("button");
+      btnEliminar.classList.add("btn", "btn-sm");
+      btnEliminar.textContent = "❌";
+      btnEliminar.onclick = () =>
+        borrarItemCarrito(item.id, item.color, item.medida, item.tipo);
 
-        contenedorBotones.appendChild(btnEditar);
-        contenedorBotones.appendChild(btnEliminar);
+      contenedorBotones.appendChild(btnEditar);
+      contenedorBotones.appendChild(btnEliminar);
 
-        miNodo.appendChild(texto);
-        miNodo.appendChild(contenedorBotones);
+      miNodo.appendChild(texto);
+      miNodo.appendChild(contenedorBotones);
 
-        DOMcarrito.appendChild(miNodo);
+      DOMcarrito.appendChild(miNodo);
     });
 
     DOMtotal.textContent = `${carrito.length} Productos`;
-}
+  }
 
+  function abrirModalProducto(
+    producto,
+    cantidad = 1,
+    esEditar = false,
+    colorActual = "",
+    medidaActual = "",
+    tipoActual = ""
+  ) {
+    productoEnEdicion = producto;
 
+    document.getElementById("modalProductoTitulo").textContent = esEditar
+      ? "Editar Producto"
+      : "Agregar al Carrito";
+    document.getElementById("modalProductoDescripcion").textContent =
+      producto.descripcion;
+    document.getElementById("modalProductoImagen").src = producto.imagen;
+    document.getElementById("inputCantidad").value = cantidad;
 
+    document.getElementById("btnMenos").onclick = () => actualizarCantidad(-1);
+    document.getElementById("btnMas").onclick = () => actualizarCantidad(1);
+    document.getElementById("btnModalAccion").textContent = esEditar
+      ? "Guardar"
+      : "Agregar";
 
+    document.getElementById("btnModalAccion").onclick = () => {
+      esEditar
+        ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual)
+        : agregarProductoCarrito();
+    };
 
-function abrirModalProducto(producto, cantidad = 1, esEditar = false, colorActual = "", medidaActual = "") {
-  productoEnEdicion = producto;
+    document
+      .getElementById("inputCantidad")
+      .addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          esEditar
+            ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual)
+            : agregarProductoCarrito();
+        }
+      });
 
-  document.getElementById("modalProductoTitulo").textContent = esEditar ? "Editar Producto" : "Agregar al Carrito";
-  document.getElementById("modalProductoDescripcion").textContent = producto.descripcion;
-  document.getElementById("modalProductoImagen").src = producto.imagen;
-  document.getElementById("inputCantidad").value = cantidad;
+    const contenedorColores = document.getElementById("contenedorColores");
+    contenedorColores.innerHTML = "";
 
-  document.getElementById("btnMenos").onclick = () => actualizarCantidad(-1);
-  document.getElementById("btnMas").onclick = () => actualizarCantidad(1);
-  document.getElementById("btnModalAccion").textContent = esEditar ? "Guardar" : "Agregar";
-
-  document.getElementById("btnModalAccion").onclick = () => {
-      esEditar ? guardarCambiosCantidad(colorActual, medidaActual) : agregarProductoCarrito();
-  };
-
-  document.getElementById("inputCantidad").addEventListener("keydown", (e) => {
-    if(e.key === "Enter") {
-      e.preventDefault()
-      esEditar ? guardarCambiosCantidad(colorActual, medidaActual) : agregarProductoCarrito();
-    }
-});
-
-  const contenedorColores = document.getElementById("contenedorColores");
-  contenedorColores.innerHTML = ""; 
-
-  if (producto.color && producto.color.length > 0) {
+    if (producto.color && producto.color.length > 0) {
       const label = document.createElement("label");
       label.textContent = "Selecciona un color:";
       label.setAttribute("for", "selectColor");
@@ -187,26 +259,26 @@ function abrirModalProducto(producto, cantidad = 1, esEditar = false, colorActua
       select.classList.add("form-control");
 
       producto.color.forEach((color) => {
-          const option = document.createElement("option");
-          option.value = color;
-          option.textContent = color;
+        const option = document.createElement("option");
+        option.value = color;
+        option.textContent = color;
 
-          // Preseleccionar el color actual
-          if (color === colorActual) {
-              option.selected = true;
-          }
+        // Preseleccionar el color actual
+        if (color === colorActual) {
+          option.selected = true;
+        }
 
-          select.appendChild(option);
+        select.appendChild(option);
       });
 
       contenedorColores.appendChild(label);
       contenedorColores.appendChild(select);
-  }
+    }
 
-  const contenedorMedidas = document.getElementById("contenedorMedidas");
-  contenedorMedidas.innerHTML = ""; 
+    const contenedorMedidas = document.getElementById("contenedorMedidas");
+    contenedorMedidas.innerHTML = "";
 
-  if (producto.medida && producto.medida.length > 0) {
+    if (producto.medida && producto.medida.length > 0) {
       const label = document.createElement("label");
       label.textContent = "Selecciona una medida:";
       label.setAttribute("for", "selectMedida");
@@ -216,27 +288,54 @@ function abrirModalProducto(producto, cantidad = 1, esEditar = false, colorActua
       select.classList.add("form-control");
 
       producto.medida.forEach((medida) => {
-          const option = document.createElement("option");
-          option.value = medida;
-          option.textContent = medida;
+        const option = document.createElement("option");
+        option.value = medida;
+        option.textContent = medida;
 
-          // Preseleccionar el color actual
-          if (medida === medidaActual) {
-              option.selected = true;
-          }
+        // Preseleccionar el color actual
+        if (medida === medidaActual) {
+          option.selected = true;
+        }
 
-          select.appendChild(option);
+        select.appendChild(option);
       });
 
-      contenedorColores.appendChild(label);
-      contenedorColores.appendChild(select);
+      contenedorMedidas.appendChild(label);
+      contenedorMedidas.appendChild(select);
+    }
+
+    const contenedorTipos = document.getElementById("contenedorTipos");
+    contenedorTipos.innerHTML = "";
+
+    if (producto.tipo && producto.tipo.length > 0) {
+      const label = document.createElement("label");
+      label.textContent = "Selecciona un tipo:";
+      label.setAttribute("for", "selectTipo");
+
+      const select = document.createElement("select");
+      select.id = "selectTipo";
+      select.classList.add("form-control");
+
+      producto.tipo.forEach((tipo) => {
+        const option = document.createElement("option");
+        option.value = tipo;
+        option.textContent = tipo;
+
+        // Preseleccionar el color actual
+        if (tipo === tipoActual) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      });
+
+      contenedorTipos.appendChild(label);
+      contenedorTipos.appendChild(select);
+    }
+
+    const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
+    modal.show();
   }
-
-  const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
-  modal.show();
-}
-
-
 
   // Función para actualizar la cantidad dentro del modal
   function actualizarCantidad(cambio) {
@@ -244,67 +343,99 @@ function abrirModalProducto(producto, cantidad = 1, esEditar = false, colorActua
     let nuevaCantidad = parseInt(inputCantidad.value) + cambio;
     if (nuevaCantidad < 1) return;
     inputCantidad.value = nuevaCantidad;
-}
-
+  }
 
   // Función para guardar los cambios en el carrito
- 
-  function guardarCambiosCantidad(colorActual, medidaActual) {
+
+  function guardarCambiosCantidad(colorActual, medidaActual, tipoActual) {
     if (!productoEnEdicion) return;
 
-    let nuevaCantidad = parseInt(document.getElementById("inputCantidad").value);
+    let nuevaCantidad = parseInt(
+      document.getElementById("inputCantidad").value
+    );
     const selectColor = document.getElementById("selectColor");
-    const colorSeleccionado = selectColor && selectColor.value ? selectColor.value : null;
+    const colorSeleccionado =
+      selectColor && selectColor.value ? selectColor.value : null;
     const selectMedida = document.getElementById("selectMedida");
-    const medidaSeleccionado = selectMedida && selectMedida.value ? selectMedida.value : null;
+    const medidaSeleccionado =
+      selectMedida && selectMedida.value ? selectMedida.value : null;
+    const selectTipo = document.getElementById("selectTipo");
+    const tipoSeleccionado =
+      selectTipo && selectTipo.value ? selectTipo.value : null;
 
     // Convertir colorActual vacío ("") en null para manejar la comparación correctamente
     colorActual = colorActual === "" ? null : colorActual;
     medidaActual = medidaActual === "" ? null : medidaActual;
+    tipoActual = tipoActual === "" ? null : tipoActual;
 
     // Primero, eliminar la variante anterior del producto con el color previo
-    carrito = carrito.filter(item => !(item.id === String(productoEnEdicion.id) && (item.color || null) === colorActual  && (item.medida || null) === medidaActual ));
+    carrito = carrito.filter(
+      (item) =>
+        !(
+          item.id === String(productoEnEdicion.id) &&
+          (item.color || null) === colorActual &&
+          (item.medida || null) === medidaActual &&
+          (item.tipo || null) === tipoActual
+        )
+    );
 
     // Ahora agregar la nueva cantidad con el color actualizado
     for (let i = 0; i < nuevaCantidad; i++) {
-        carrito.push({ id: String(productoEnEdicion.id), color: colorSeleccionado || null, medida: medidaSeleccionado || null });
+      carrito.push({
+        id: String(productoEnEdicion.id),
+        color: colorSeleccionado || null,
+        medida: medidaSeleccionado || null,
+        tipo: tipoSeleccionado || null,
+      });
     }
 
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
     actualizarContadorCarrito();
-    bootstrap.Modal.getInstance(document.getElementById("modalProducto")).hide();
-}
+    bootstrap.Modal.getInstance(
+      document.getElementById("modalProducto")
+    ).hide();
+  }
 
-function borrarItemCarrito(idProducto, colorProducto, medidaProducto) {
-  carrito = carrito.filter(item => !(item.id === idProducto && item.color === colorProducto && item.medida === medidaProducto));
+  function borrarItemCarrito(
+    idProducto,
+    colorProducto,
+    medidaProducto,
+    tipoProducto
+  ) {
+    carrito = carrito.filter(
+      (item) =>
+        !(
+          item.id === idProducto &&
+          item.color === colorProducto &&
+          item.medida === medidaProducto &&
+          item.tipo === tipoProducto
+        )
+    );
 
-  renderizarCarrito();
-  guardarCarritoEnLocalStorage();
-  actualizarContadorCarrito();
-}
+    renderizarCarrito();
+    guardarCarritoEnLocalStorage();
+    actualizarContadorCarrito();
+  }
 
-function actualizarContadorCarrito() {
-  const cartCount = document.getElementById("cart-count");
-  cartCount.textContent = carrito.length;
-  cartCount.style.display = carrito.length > 0 ? "flex" : "none";
-}
+  function actualizarContadorCarrito() {
+    const cartCount = document.getElementById("cart-count");
+    cartCount.textContent = carrito.length;
+    cartCount.style.display = carrito.length > 0 ? "flex" : "none";
+  }
 
-function guardarCarritoEnLocalStorage() {
-  miLocalStorage.setItem("carrito", JSON.stringify(carrito));
-}
+  function guardarCarritoEnLocalStorage() {
+    miLocalStorage.setItem("carrito", JSON.stringify(carrito));
+  }
 
+  DOMbotonVaciar.addEventListener("click", () => {
+    carrito = [];
+    renderizarCarrito();
+    actualizarContadorCarrito();
+    localStorage.clear();
+  });
 
-DOMbotonVaciar.addEventListener("click", () => {
-  carrito = [];
-  renderizarCarrito();
-  actualizarContadorCarrito();
-  localStorage.clear();
-});
-
-
-
-// ---------------------------------------------------  OTHER FUNCTIONS 
+  // ---------------------------------------------------  OTHER FUNCTIONS
 
   const toggleButton = document.querySelector("#toggle-menu");
   const mobileMenu = document.querySelector(".navbar__mobile-menu");
