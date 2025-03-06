@@ -428,12 +428,15 @@ document.addEventListener("DOMContentLoaded", () => {
     miLocalStorage.setItem("carrito", JSON.stringify(carrito));
   }
 
-  DOMbotonVaciar.addEventListener("click", () => {
+  function vaciarCarrito() {
     carrito = [];
     renderizarCarrito();
     actualizarContadorCarrito();
     localStorage.clear();
-  });
+  }
+
+
+  DOMbotonVaciar.addEventListener("click", () => vaciarCarrito());
 
   // ---------------------------------------------------  OTHER FUNCTIONS
 
@@ -467,5 +470,67 @@ document.addEventListener("DOMContentLoaded", () => {
         : "none";
     mobileMenu.classList.toggle("open");
     movePage.classList.toggle("shifted");
+  });
+
+  // Comprar function
+
+  document.getElementById("boton-comprar").addEventListener("click", () => {
+
+    const productos = [
+      ...productosDestacados,
+      ...canaletas,
+      ...babetas,
+      ...caballetes_y_conversas,
+      ...curvas,
+      ...canios_y_grampas,
+      ...sombreros,
+      ...chapas_pinturas,
+      ...membranas_y_aislantes,
+      ...durlock,
+      ...policarbonato,
+      ...accesorios,
+      ...accesorios_dos,
+    ];
+
+    const carritoAgrupado = carrito.reduce((acc, item) => {
+      let key = `${item.id}-${item.color || "default"}-${
+        item.medida || "default"
+      }-${item.tipo || "default"}`;
+
+      if (!acc[key]) {
+        acc[key] = { ...item, cantidad: 1 };
+      } else {
+        acc[key].cantidad++;
+      }
+      return acc;
+    }, {});
+
+    const productosTexto = Object.values(carritoAgrupado)
+      .map((item) => {
+        const miItem = productos.find((p) => p.id === parseInt(item.id));
+        if (!miItem) return "";
+
+        return (
+          `• ${item.cantidad}x ${
+            miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
+          }` +
+          `${item.medida ? " - Medida: " + item.medida : ""}` +
+          `${item.color ? " - Color: " + item.color : ""}` +
+          `${item.tipo ? " - Tipo: " + item.tipo : ""}`
+        );
+      })
+      .join("\n"); // Une cada elemento con un salto de línea
+
+    const mensaje =
+      `Hola, Gracias por contactar con Zinguería La Gran Esquina.\n\n` +
+      `Los productos son:\n\n${productosTexto}\n\n` +
+      `En breve te respondemos.`;
+
+    const numero = "5491164471868";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+    vaciarCarrito();
+    actualizarContadorCarrito();
+    window.open(url, "_blank");
   });
 });

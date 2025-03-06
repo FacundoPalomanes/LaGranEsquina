@@ -63,7 +63,7 @@ export const productosDestacados = [
     descripcionCorta: "Perfiles metálicos para terminaciones en techos.",
     descripcion:
       "Elemento de terminación en cubiertas de chapa, evita filtraciones y mejora la estética del techo.",
-    imagen: "/assets/productos/productosDestacados/durlock.png",
+    imagen: "/assets/productos/babetas/atornillar-c27.webp",
   },
   {
     id: 9,
@@ -154,39 +154,17 @@ export const canaletas = [
 export const babetas = [
   {
     id: 18,
-    nombre: "Para Atornillar C/30",
-    nombreCarrito: "Babeta Para Atornillar C/30",
+    nombre: "Babeta C/30",
+    nombreCarrito: "Babeta C/30",
+    tipo: ["Para Atornillar", "Para Amoladora", "Sobreteja"],
     imagen: "/assets/productos/babetas/atornillar-c30.webp",
   },
   {
-    id: 19,
-    nombre: "Para Amoladora C/30",
-    nombreCarrito: "Babeta Para Amoladora C/30",
-    imagen: "/assets/productos/canaletas.jpg",
-  },
-  {
-    id: 20,
-    nombre: "Sobreteja C/30",
-    nombreCarrito: "Babeta Sobreteja C/30",
-    imagen: "/assets/productos/canaletas.jpg",
-  },
-  {
     id: 21,
-    nombre: "Para Atornillar C/27",
-    nombreCarrito: "Babeta Para Atornillar C/27",
+    nombre: "Babeta C/27",
+    nombreCarrito: "Babeta C/27",
+    tipo: ["Para Atornillar", "Para Amoladora", "Sobreteja"],
     imagen: "/assets/productos/babetas/atornillar-c27.webp",
-  },
-  {
-    id: 22,
-    nombre: "Para Amoladora C/27",
-    nombreCarrito: "Babeta Para Amoladora C/27",
-    imagen: "/assets/productos/canaletas.jpg",
-  },
-  {
-    id: 23,
-    nombre: "Sobreteja C/27",
-    nombreCarrito: "Babeta Sobreteja C/27",
-    imagen: "/assets/productos/canaletas.jpg",
   },
   {
     id: 24,
@@ -196,7 +174,7 @@ export const babetas = [
       "Babeta para instalación sobre chapas, evita filtraciones.",
     descripcion:
       "Babeta diseñada para instalación sobre chapas con forma especial, garantizando un drenaje óptimo y evitando acumulación de agua en superficies metálicas.",
-    imagen: "/assets/productos/canaletas.jpg",
+    imagen: "/assets/productos/canaletas/sobrechapa-cforma.jpg",
   },
 ];
 
