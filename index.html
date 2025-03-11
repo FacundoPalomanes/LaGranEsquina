@@ -47,17 +47,28 @@
   <!-- add animation to header mobile menu -->
   <header class="header">
     <section class="header__info">
-      <p>¡No pierdas más tiempo! Llama ahora a la zinguería al <span class="phone-number">0230 4421831</span> y
-        nuestro equipo estará listo para asesorarte en todo lo que necesites. Ya sea que busques chapas, canaletas, o
-        soluciones personalizadas para tu proyecto, estamos aquí para ayudarte. ¡Contáctanos y descubre la calidad y
-        confianza que nos distinguen!</p>
+      <p>Estamos desde el año 2001 para asesorarte en lo que necesites. Llamenos al <span class="phone-number">0230
+          4421831</span> o al <span class="phone-number">6447 1868</span>!!</p>
     </section>
     <!-- navbar -->
     <section class="container-navbar">
       <nav class="navbar container">
-        <a href="index.html" class="navbar-logo">
-          <img src="assets/icon/icon.png" alt="logo-empresa">
-        </a>
+        <div class="navbar-left">
+          <a href="index.html" class="navbar-logo">
+            <img src="assets/icon/icon.png" alt="logo-empresa">
+          </a>
+
+          <!-- Contenedor de los logos de empresas -->
+          <div class="navbar-empresas">
+            <img src="assets/empresas/logo-durlock.png" alt="Durlock">
+            <img src="assets/empresas/logo-anclaflex.png" alt="AnclaFlex">
+            <img src="assets/empresas/logo-aislamax.png" alt="Aislamax">
+            <img src="assets/empresas/logo-zinacril.png" alt="Zinacril">
+            <img src="assets/empresas/logo-fischer.png" alt="Fischer">
+            <img src="assets/empresas/logo-termiun.png" alt="Ternium">
+          </div>
+        </div>
+
         <div class="navbar__nav">
           <ul class="nav__list">
             <li class="nav__link">
@@ -129,10 +140,9 @@
       </nav>
     </section>
   </header>
-  <div id="move-page">
     <!-- carousel -->
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+      <div class="carousel-inner" id="carouselInner">
         <div class="carousel-item active" data-bs-interval="10000">
           <img src="./assets/carrousel/img-1.jpg" class="d-block w-100" alt="Banner 1">
         </div>
@@ -143,17 +153,17 @@
           <img src="./assets/carrousel/img-3.jpg" class="d-block w-100" alt="Banner 3">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-        data-bs-slide="prev">
+    
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-        data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    
     <!-- Productos destacados -->
     <section>
       <div class="container mt-4">
@@ -164,14 +174,17 @@
             <img src="/assets/productos/productosDestacados/kit-americana.webp" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Kit Americana</h5>
-              <p class="card-text">Incluye todos los accesorios necesarios para la instalación de canaletas en techos, brindando una solución duradera y resistente al agua.</p>
+              <p class="card-text">Incluye todos los accesorios necesarios para la instalación de canaletas en techos,
+                brindando una solución duradera y resistente al agua.</p>
             </div>
           </div>
           <div class="card shadow-sm">
-            <img src="/assets/productos/productosDestacados/membrana-plastica.png" class="card-img-top" alt="Card Image">
+            <img src="/assets/productos/productosDestacados/membrana-plastica.png" class="card-img-top"
+              alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Membrana Asfaltica</h5>
-              <p class="card-text">Membrana asfáltica ideal para proteger superficies de la humedad y filtraciones, ofreciendo aislamiento térmico y acústico.</p>
+              <p class="card-text">Membrana asfáltica ideal para proteger superficies de la humedad y filtraciones,
+                ofreciendo aislamiento térmico y acústico.</p>
               <!-- <a href="#" class="btn btn-primary">Ir a productos</a> -->
             </div>
           </div>
@@ -179,7 +192,8 @@
             <img src="/assets/productos/productosDestacados/policarbonato.webp" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Policarbonato</h5>
-              <p class="card-text">Material liviano y de alta resistencia a impactos, ideal para techos y cerramientos translúcidos con protección UV.</p>
+              <p class="card-text">Material liviano y de alta resistencia a impactos, ideal para techos y cerramientos
+                translúcidos con protección UV.</p>
               <!-- <a href="#" class="btn btn-warning">Ir a productos</a> -->
             </div>
           </div>
@@ -187,7 +201,8 @@
             <img src="/assets/productos/productosDestacados/chapa-t101.jpeg" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Chapa Trapezoidal</h5>
-              <p class="card-text">Chapa estructural utilizada en techos y cerramientos industriales y residenciales, resistente a la corrosión y de fácil instalación.</p>
+              <p class="card-text">Chapa estructural utilizada en techos y cerramientos industriales y residenciales,
+                resistente a la corrosión y de fácil instalación.</p>
               <!-- <a href="#" class="btn btn-outline-warning">Ir a productos</a> -->
             </div>
           </div>
@@ -195,7 +210,8 @@
             <img src="/assets/productos/productosDestacados/chapa-acanalada.webp" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Chapa Acanalada</h5>
-              <p class="card-text">Fabricada en acero galvanizado, es ideal para cubiertas de viviendas, galpones y otras construcciones livianas.</p>
+              <p class="card-text">Fabricada en acero galvanizado, es ideal para cubiertas de viviendas, galpones y
+                otras construcciones livianas.</p>
               <!-- <a href="#" class="btn btn-outline-primary">Ir a productos</a> -->
             </div>
           </div>
@@ -203,28 +219,32 @@
             <img src="/assets/productos/productosDestacados/durlock.png" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Durlock</h5>
-              <p class="card-text">Sistema constructivo en seco para la realización de paredes, cielorrasos y revestimientos interiores, ofreciendo aislamiento acústico y térmico.</p>
+              <p class="card-text">Sistema constructivo en seco para la realización de paredes, cielorrasos y
+                revestimientos interiores, ofreciendo aislamiento acústico y térmico.</p>
             </div>
           </div>
           <div class="card shadow-sm">
             <img src="/assets/productos/productosDestacados/sellador.webp" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Sellador</h5>
-              <p class="card-text">Sellador de alta adherencia para grietas y juntas en distintas superficies, disponible en varios colores.</p>
+              <p class="card-text">Sellador de alta adherencia para grietas y juntas en distintas superficies,
+                disponible en varios colores.</p>
             </div>
           </div>
           <div class="card shadow-sm">
             <img src="/assets/productos/babetas/atornillar-c27.webp" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Babeta</h5>
-              <p class="card-text">Elemento de terminación en cubiertas de chapa, evita filtraciones y mejora la estética del techo.</p>
+              <p class="card-text">Elemento de terminación en cubiertas de chapa, evita filtraciones y mejora la
+                estética del techo.</p>
             </div>
           </div>
           <div class="card shadow-sm">
             <img src="/assets/productos/productosDestacados/canio-redondo.jpg" class="card-img-top" alt="Card Image">
             <div class="card-body">
               <h5 class="card-title">Caño redondo</h5>
-              <p class="card-text">Ideal para estructuras metálicas, barandas, soportes y múltiples aplicaciones industriales y arquitectónicas.</p>
+              <p class="card-text">Ideal para estructuras metálicas, barandas, soportes y múltiples aplicaciones
+                industriales y arquitectónicas.</p>
             </div>
           </div>
         </div>
@@ -277,10 +297,6 @@
         <label class="form-label">Celular</label>
         <input id="numero" type="tel" class="form-control" aria-label="numero">
       </div>
-      <div class="col-6">
-        <label class="form-label">DNI</label>
-        <input id="dni" type="number" class="form-control" aria-label="DNI" aria-controls="false">
-      </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
         <textarea id="consulta" class="form-control resize-none" id="exampleFormControlTextarea1" style="resize: none;"
@@ -293,19 +309,32 @@
     <div id="response"></div>
 
     <!-- TOASTER PARA CUANDO SE ENVIA EL FORMULARIO -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
       <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
           <img src="/assets/icon/favicon.ico" width="30px" class="rounded me-2 bg-orange" alt="icono empresa">
           <strong class="me-auto">La Gran Esquina</strong>
-          <small>11 mins ago</small>
+          <small>Ahora</small>
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body"></div>
       </div>
     </div>
 
-
+    <!-- TOASTER BIENVENIDA -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+      <div id="welcomeLiveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="/assets/icon/favicon.ico" width="30px" class="rounded me-2 bg-orange" alt="icono empresa">
+          <strong class="me-auto">La Gran Esquina</strong>
+          <small>Ahora</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <p>Bienvenido a la pagina de la Zingueria Gran Esquina, espero que tengas un excelente dia</p>
+        </div>
+      </div>
+    </div>
     <!-- data de contacto -->
     <div class="container-column">
       <!-- Fila 1: Ubicación -->
@@ -316,12 +345,14 @@
           width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
+
       <!-- Fila 2: Horarios -->
       <div class="row">
         <h3><ion-icon name="time-outline"></ion-icon> Horarios</h3>
         <p>Lunes a Viernes de 8-13hs y 14-17hs</p>
-        <p>Sabados 8-12hs</p>
+        <p>Sábados 8-12hs</p>
       </div>
+
       <!-- Fila 3: Empresas -->
       <div class="row">
         <h3><ion-icon name="business-outline"></ion-icon> Empresas</h3>
@@ -334,6 +365,7 @@
           <img src="assets/empresas/logo-termiun.png" alt="Ternium">
         </section>
       </div>
+
       <!-- Fila 4: Medios de Pago -->
       <div class="row">
         <h3><ion-icon name="wallet-outline"></ion-icon> Medios de Pago</h3>
@@ -359,26 +391,41 @@
         <p>
           ¡Retira tus pedidos de manera rápida y sencilla en nuestro local!
           Una vez realizado tu pedido, recibirás un mensaje cuando esté listo para ser retirado.
-          Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00 y sábados de 10:00 a 14:00.
+          Nuestro horario de atención es de lunes a viernes de 8:00 a 13:00 y de 14:00 a 17:00 y sábados de 8:00 a
+          12:00.
           No olvides traer tu comprobante de compra al momento de retirar.
         </p>
       </div>
-
+      <div class="row">
+        <h3><ion-icon name="send-outline"></ion-icon>Envios a coordinar con el cliente!</h3>
+        <p>
+          Para garantizar una entrega rápida y sin inconvenientes, todos los envíos deben ser coordinados directamente
+          con el cliente. Nos pondremos en contacto contigo para confirmar los detalles y asegurar que el envío se
+          realice de acuerdo a tus preferencias.
+        </p>
+      </div>
     </div>
+
     <!-- footer -->
-      <footer id="footer" class="footer-basic">
-        <div class="social">
-          <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
-              name="logo-instagram"></ion-icon></a>
-          <a target="_blank"
-            href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
-              name="logo-whatsapp"></ion-icon></a>
-          <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
-              name="logo-facebook"></ion-icon></a>
-        </div>
-        <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
-      </footer>
+    <footer id="footer" class="footer-basic">
+      <div class="social">
+        <a target="_blank" href="https://www.instagram.com/zinguerialagranesquina/"><ion-icon
+            name="logo-instagram"></ion-icon></a>
+        <a target="_blank"
+          href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0"><ion-icon
+            name="logo-whatsapp"></ion-icon></a>
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=100054211464079"><ion-icon
+            name="logo-facebook"></ion-icon></a>
+      </div>
+      <p class="copyright">Derechos Reservados a Facundo Palomanes © 2025</p>
+    </footer>
+  <div class="whatsapp-button">
+    <a href="https://walink.co/203f7e" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-logo" />
+    </a>
   </div>
+  
+
   </div>
 
   <script>
@@ -387,7 +434,6 @@
     document.getElementById("contact-form").addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const regexDNI = /^\d{8}$/;
       const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       const regexTelefono = /^\d{10}$/;
       const regexNombreApellido = /^[A-Za-záéíóúÁÉÍÓÚñÑ]+$/;
@@ -395,11 +441,6 @@
       let formValid = true;
       let errors = [];
 
-      if (!regexDNI.test(document.getElementById("dni").value)) {
-        errors.push("Hay un error en el DNI, no ingresar con puntos ni guiones");
-        document.getElementById("dni").value = "";
-        formValid = false;
-      }
 
       if (!regexEmail.test(document.getElementById("email").value)) {
         errors.push("Hay un error en el email");
@@ -423,7 +464,7 @@
       if (formValid) {
         const params = {
           from_name: document.getElementById("nombre").value + " " + document.getElementById("apellido").value,
-          message: `Email: ${document.getElementById("email").value}, Numero De Telefono: ${document.getElementById("numero").value}, DNI: ${document.getElementById("dni").value}, Consulta: ${document.getElementById("consulta").value}`
+          message: `Email: ${document.getElementById("email").value}, Numero De Telefono: ${document.getElementById("numero").value}, Consulta: ${document.getElementById("consulta").value}`
         }
 
         emailjs.send("service_jnl3jqq", "template_4jxp403", params)

@@ -45,3 +45,23 @@ body.dark-mode .footer-basic .social > a:hover {
   color: var(--black);
   transition: all 0.3s ease-in-out;
 }
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  background-color: #25D366;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-logo {
+  width: 35px;
+  height: 35px;
+}
+

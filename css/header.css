@@ -11,7 +11,7 @@
   font-weight: 700;
   padding: 10px 25px 0px 0;
   white-space: nowrap;
-  animation: moveText 30s linear infinite;
+  animation: moveText 20s linear infinite;
 }
 
 .phone-number {
@@ -20,6 +20,11 @@
 
 .container-navbar {
   background-color: var(--orange);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s; /* Transición suave */
 }
 
 .navbar-logo img {
@@ -98,6 +103,25 @@
   color: var(--black);
 }
 
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espacio entre el logo y los logos de empresas */
+}
+
+.navbar-empresas {
+  display: flex;
+  flex-wrap: wrap; /* Si hay poco espacio, que bajen de línea */
+  gap: 0.5rem; /* Espacio entre los logos */
+}
+
+.navbar-empresas img {
+  height: 20px; /* Ajustá el tamaño que más te guste */
+  object-fit: contain;
+  background-color: white;
+}
+
+
 @keyframes moveText {
   0% {
     transform: translateX(100%);
@@ -111,6 +135,26 @@
   .nav__link {
     margin-left: 9px; 
     font-size: 0.9rem; 
+  }
+  .navbar-empresas {
+    display: none; /* O podrías moverlos a otro lado si preferís */
+  }
+  .empresas-header {
+    display: inline-block; /* Visible en pantallas grandes */
+    padding: 10px 0;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .logo-container img {
+    max-height: 50px; /* Ajustá según el diseño */
+    object-fit: contain;
   }
 }
 
@@ -184,11 +228,13 @@
     margin: 0 10px;
   }
 
-  .shifted {
-    transform: translateY(260px);
-    transition: all 0.5s ease-in-out;
-  }
   .dropdown-menu li a {
     color: var(--black);
   }
 }
+
+
+/* .navbar-nav li a {
+  font-weight: bold;
+  font-size: 1.2rem;
+} */

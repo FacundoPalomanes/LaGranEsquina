@@ -11,10 +11,12 @@ export const productosDestacados = [
   {
     id: 2,
     nombre: "Membrana asfáltica",
-    descripcionCorta: "Membrana con aluminio impermeabilizante para techos y paredes.",
+    descripcionCorta:
+      "Membrana con aluminio impermeabilizante para techos y paredes.",
     descripcion:
       "Membrana asfáltica ideal para proteger superficies de la humedad y filtraciones.",
     imagen: "/assets/productos/productosDestacados/membrana-plastica.png",
+    tipo: ["35 Kilogramos", "40 Kilogramos"],
   },
   {
     id: 3,
@@ -28,8 +30,7 @@ export const productosDestacados = [
     id: 4,
     nombre: "Chapa Trapezoidal",
     descripcionCorta: "Chapa trapezoidal en varias medidas cincalum.",
-    descripcion:
-      "Chapa cincalum C/25 para todo tipo de techos y cerramientos.",
+    descripcion: "Chapa cincalum C/25 para todo tipo de techos y cerramientos.",
     imagen: "/assets/productos/productosDestacados/chapa-t101.jpeg",
   },
   {
@@ -134,15 +135,13 @@ export const canaletas = [
     nombre: "Interna P/Amurar",
     nombreCarrito: "Canaleta Interna Para Amurar",
     descripcionCorta: "Canaleta interna contra pared.",
-    descripcion:
-      "Zingueria utilizada para recibir caida de agua contra pared.",
+    descripcion: "Zingueria utilizada para recibir caida de agua contra pared.",
     imagen: "/assets/productos/canaletas/interna-amurar.jpg",
   },
   {
     id: 17,
     nombre: "Esquinero P/Canaletas",
-    descripcionCorta:
-      "Accesorio para unir canaletas en esquinas.",
+    descripcionCorta: "Accesorio para unir canaletas en esquinas.",
     descripcion:
       "Esquinero o rinconero diseñado para unir canaletas en esquinas.",
     imagen: "/assets/productos/canaletas/esquinero.jpg", // hacer medidas o sumar un objeto mas de esquinero
@@ -223,8 +222,7 @@ export const caballetes_y_conversas = [
   {
     id: 30,
     nombre: "Caballete C/Forma",
-    descripcionCorta:
-      "Caballete con forma sinusoidal y trapezoidal.",
+    descripcionCorta: "Caballete con forma sinusoidal y trapezoidal.",
     descripcion:
       "Caballete o cumbrera con diseño especial sinusoidal o trapezoidal para cierre superior de techo.",
     imagen: "/assets/productos/canaletas.jpg",
@@ -281,32 +279,11 @@ export const curvas = [
     ],
   },
   {
-    id: 33,
-    nombre: "Tee y Ramales",
-    descripcionCorta: `Conexión en "T" e "Y" para derivaciones en instalaciones.`,
-    descripcion:
-      `Pieza de conexión en forma de "T" e "Y" utilizada para derivar el flujo en instalaciones hidráulicas o de ventilación, permitiendo múltiples salidas.`,
-    imagen: "/assets/productos/curvas/tee-y-ramales.jpg",
-    medida: [`3"`, `4"`, `5"`, `6"`, `7"`, `8"`, `10"`, `12"`],
-  },
-  {
-    id: 34,
-    nombre: "Reduccion Galvanizado",
-    descripcionCorta: "Adaptador para unir tubos de distintos diámetros.",
-    descripcion:
-      "Reducción de galvanizado diseñada para conectar tubos de diferentes diámetros, asegurando una transición eficiente y sin pérdidas de flujo.",
-    imagen: "/assets/productos/curvas/reduccion-de-aluminio.webp",
-    medida: [
-      "4 a 3",
-      "5 a 4",
-      "6 a 4",
-      "6 a 5",
-      "7 a 6",
-      "8 a 6",
-      "10 a 8",
-      "12 a 10",
-      "Preguntar medidas especiales",
-    ],
+    id: 39,
+    nombre: "Codo soldado a 45*",
+    descripcionCorta: "Codo galvanizado de 5x10 cm.",
+    descripcion: "Codo de 5x10 cm a 45° a 90° // de frente y de costado.",
+    imagen: "/assets/productos/caniosYGrampas/codo-cinco-diez.jpg",
   },
 ];
 
@@ -320,20 +297,18 @@ export const canios_y_grampas = [
     descripcion:
       "Caño redondo disponible en medidas de 3” a 12”, con opciones en galvanizado o negro para mayor resistencia y versatilidad.",
     imagen: "/assets/productos/productosDestacados/canio-redondo.jpg",
-    medida: [`3"`, `4"`, `5"`, `6"`, `7"`, 	`8"`, `10"`, `12" y muchas medidas mas`],
+    medida: [
+      `3"`,
+      `4"`,
+      `5"`,
+      `6"`,
+      `7"`,
+      `8"`,
+      `10"`,
+      `12" y muchas medidas mas`,
+    ],
     color: ["Galvanizado", "Negro"],
   },
-  // {
-  //   id: 36,
-  //   nombre: "Redondo C/25",
-  //   nombreCarrito: "Caño Redondo",
-  //   descripcionCorta: "Caño redondo en distintas medidas y espesores.",
-  //   descripcion:
-  //     "Caño redondo disponible en medidas de 3” a 12”, con opciones en galvanizado o negro para mayor resistencia y versatilidad.",
-  //   imagen: "/assets/productos/productosDestacados/canio-redondo.jpg",
-  //   medida: [`8"`, `10"`, `12"`],
-  //   color: ["Galvanizado", "Negro"],
-  // },
   {
     id: 37,
     nombre: "Caño 5x10",
@@ -350,22 +325,6 @@ export const canios_y_grampas = [
       "Caño galvanizado utilizable para bajada de zingueria o conductos de aire.",
     imagen: "/assets/productos/productosDestacados/canio-rectangular.jpg",
   },
-  {
-    id: 39,
-    nombre: "Codo 5x10",
-    descripcionCorta: "Codo galvanizado de 5x10 cm.",
-    descripcion:
-      "Codo de 5x10 cm a 45° a 90° // de frente y de costado.",
-    imagen: "/assets/productos/caniosYGrampas/codo-cinco-diez.jpg",
-  },
-  {
-    id: 40,
-    nombre: "Codo 7x12",
-    descripcionCorta: "Codo galvanizado de 7x12 cm.",
-    descripcion:
-      "Codo de 7x12 cm a 45° a 90° // de frente y de costado.",
-    imagen: "/assets/productos/caniosYGrampas/codo-siete-doce.jpg",
-  },
 ];
 
 // DONE
@@ -376,8 +335,7 @@ export const sombreros = [
     nombreCarrito: "Sombrero Doble Aro",
     descripcionCorta:
       "Sombrero con doble aro para mejor resistencia al viento.",
-    descripcion:
-      "El Sombrero Doble Aro aprobado por gas natural.",
+    descripcion: "El Sombrero Doble Aro aprobado por gas natural.",
     imagen: "/assets/productos/sombreros/doble-aro.webp",
     medida: [
       `SDA 3"`,
@@ -466,9 +424,9 @@ export const chapas_pinturas = [
     id: 48,
     nombre: "Sinusoidal",
     nombreCarrito: "Chapa Sinusoidal",
-    descripcionCorta: "Chapa sinusoidal cortadas cada 50cm desde 2 hasta 8 Metros.",
-    descripcion:
-      "Varios Espesores y largos.",
+    descripcionCorta:
+      "Chapa sinusoidal cortadas cada 50cm desde 2 hasta 8 Metros.",
+    descripcion: "Varios Espesores y largos.",
     imagen: "/assets/productos/productosDestacados/chapa-acanalada.webp",
     medida: [
       "2.5 Metros",
@@ -513,9 +471,9 @@ export const chapas_pinturas = [
     id: 50,
     nombre: "Trapezoidal C/25",
     nombreCarrito: "Chapa Trapezoidal C/25",
-    descripcionCorta: "Chapa Trapezoidal C/25 cortadas cada 50cm desde 2 hasta 8 Metros.",
-    descripcion:
-      "Varios Espesores y largos.",
+    descripcionCorta:
+      "Chapa Trapezoidal C/25 cortadas cada 50cm desde 2 hasta 8 Metros.",
+    descripcion: "Varios Espesores y largos.",
     imagen: "/assets/productos/productosDestacados/chapa-t101.jpeg",
     medida: [
       "3 Metros",
@@ -854,9 +812,36 @@ export const accesorios = [
     descripcion: "Barra de estaño para soldaduras limpias y duraderas.",
     imagen: "/assets/productos/accesorios/barra-estanio.webp",
   },
+  {
+    id: 33,
+    nombre: "Tee y Ramales",
+    descripcionCorta: `Conexión en "T" e "Y" para derivaciones en instalaciones.`,
+    descripcion: `Pieza de conexión en forma de "T" e "Y" utilizada para derivar el flujo en instalaciones hidráulicas o de ventilación, permitiendo múltiples salidas.`,
+    imagen: "/assets/productos/curvas/tee-y-ramales.jpg",
+    medida: [`3"`, `4"`, `5"`, `6"`, `7"`, `8"`, `10"`, `12"`],
+  },
 ];
 
 export const accesorios_dos = [
+  {
+    id: 34,
+    nombre: "Reduccion Galvanizado",
+    descripcionCorta: "Adaptador para unir tubos de distintos diámetros.",
+    descripcion:
+      "Reducción de galvanizado diseñada para conectar tubos de diferentes diámetros, asegurando una transición eficiente y sin pérdidas de flujo.",
+    imagen: "/assets/productos/curvas/reduccion-de-aluminio.webp",
+    medida: [
+      "4 a 3",
+      "5 a 4",
+      "6 a 4",
+      "6 a 5",
+      "7 a 6",
+      "8 a 6",
+      "10 a 8",
+      "12 a 10",
+      "Preguntar medidas especiales",
+    ],
+  },
   {
     id: 82,
     nombre: "Sellaband",
@@ -936,6 +921,6 @@ export const accesorios_dos = [
     ],
     imagen: "/assets/productos/accesorios/vendas.png",
   },
-]
+];
 
 //COLOR , MEDIDA, TIPO
