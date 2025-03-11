@@ -112,9 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
     actualizarContadorCarrito();
+
+    // Cierra el modal
     bootstrap.Modal.getInstance(
       document.getElementById("modalProducto")
     ).hide();
+
+    // Muestra el toast con la info correcta
+    showToast(
+      {
+        nombre: productoEnEdicion.nombre,
+        medida: medidaSeleccionada,
+        color: colorSeleccionado,
+        tipo: tipoSeleccionada,
+      },
+      cantidad
+    );
   }
 
   // -------------------------------------------------------- FUNCTIONS CARRITO
@@ -605,4 +618,32 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("scrollRightAccesoriosDos")
     .addEventListener("click", () => scrollRight("items-accesorios-dos"));
+
+  function showToast(producto, cantidad) {
+    const toastElement = document.getElementById("liveToast");
+
+    if (!toastElement) {
+      console.error("No se encontró el elemento liveToast");
+      return;
+    }
+
+    const toastBody = toastElement.querySelector(".toast-body");
+    if (!toastBody) {
+      console.error("No se encontró el elemento .toast-body");
+      return;
+    }
+
+    toastBody.textContent = `Has agregado correctamente ${cantidad} de ${
+      producto.nombreCarrito ? producto.nombreCarrito : producto.nombre
+    }${producto.medida ? " - Medida: " + producto.medida : ""}${
+      producto.color ? " - Color: " + producto.color : ""
+    }${producto.tipo ? " - Tipo: " + producto.tipo : ""} al carrito.`;
+
+    const toast = new bootstrap.Toast(toastElement, {
+      autohide: true,
+      delay: 3000,
+    });
+
+    toast.show();
+  }
 });

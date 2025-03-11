@@ -45,9 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Welcome Message
   setTimeout(function () {
-    const welcomeToast = document.getElementById("welcomeLiveToast");
-    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(welcomeToast);
-    toastBootstrap.show();
+    const welcomeToastElement = document.getElementById("welcomeLiveToast");
+    const welcomeToast = new bootstrap.Toast(welcomeToastElement, {
+      autohide: false  // 👈 Evita que desaparezca solo
+    });
+    welcomeToast.show();
   }, 4000);
 
   // Navbar scroll
