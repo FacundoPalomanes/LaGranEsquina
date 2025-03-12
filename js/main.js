@@ -57,18 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".container-navbar");
 
   window.addEventListener("scroll", function () {
-    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+  let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-      // Bajando, ocultar el navbar
-      navbar.style.top = "-100px"; // o la altura de tu navbar
-    } else {
-      // Subiendo, mostrar el navbar
-      navbar.style.top = "0";
-    }
+  if (scrollTop === 0) {
+    // Arriba del todo: muestro el navbar
+    navbar.style.top = "0";
+  } else if (scrollTop > lastScrollTop) {
+    // Bajando, ocultar el navbar
+    navbar.style.top = "-100px"; 
+  } else {
+    // Subiendo, mostrar el navbar
+    navbar.style.top = "0";
+  }
 
-    lastScrollTop = scrollTop;
-  });
+  lastScrollTop = scrollTop;
+});
+
 
   const isMobile = window.innerWidth <= 600;
   const carouselInner = document.getElementById('carouselInner');

@@ -540,20 +540,24 @@ document.addEventListener("DOMContentLoaded", () => {
     window.open(url, "_blank");
   });
 
+  // Navbar Function
   let lastScrollTop = 0;
   const navbar = document.querySelector(".container-navbar");
 
   window.addEventListener("scroll", function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
+  
+    if (scrollTop === 0) {
+      // Arriba del todo: muestro el navbar
+      navbar.style.top = "0";
+    } else if (scrollTop > lastScrollTop) {
       // Bajando, ocultar el navbar
-      navbar.style.top = "-100px"; // o la altura de tu navbar
+      navbar.style.top = "-100px"; 
     } else {
       // Subiendo, mostrar el navbar
       navbar.style.top = "0";
     }
-
+  
     lastScrollTop = scrollTop;
   });
 

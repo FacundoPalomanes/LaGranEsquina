@@ -203,6 +203,22 @@ body.dark-mode .modal-content {
     gap: 12px;
     padding-left: 12px;
   }
+
+  .move-text {
+    margin-top: 40%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .move-text {
+    margin-top: 23%;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .move-text {
+    margin-top: 35%;
+  }
 }
 
 @media screen and (max-width: 480px) {
