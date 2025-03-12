@@ -472,11 +472,13 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", hideMenuResize);
 
   toggleButton.addEventListener("click", () => {
-    mobileMenu.style.display =
-      mobileMenu.style.display === "none" || mobileMenu.style.display === ""
-        ? "flex"
-        : "none";
-    mobileMenu.classList.toggle("open");
+    if (mobileMenu.classList.contains("d-none")) {
+      mobileMenu.classList.remove("d-none");
+      mobileMenu.classList.add("d-flex");
+    } else {
+      mobileMenu.classList.remove("d-flex");
+      mobileMenu.classList.add("d-none");
+    }
   });
 
   // Comprar function
@@ -546,18 +548,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-  
+
     if (scrollTop === 0) {
       // Arriba del todo: muestro el navbar
       navbar.style.top = "0";
     } else if (scrollTop > lastScrollTop) {
       // Bajando, ocultar el navbar
-      navbar.style.top = "-100px"; 
+      navbar.style.top = "-100px";
     } else {
       // Subiendo, mostrar el navbar
       navbar.style.top = "0";
     }
-  
+
     lastScrollTop = scrollTop;
   });
 

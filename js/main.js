@@ -24,11 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", hideMenuResize);
 
   toggleButton.addEventListener("click", () => {
-    mobileMenu.style.display =
-      mobileMenu.style.display === "none" || mobileMenu.style.display === ""
-        ? "flex"
-        : "none";
-    mobileMenu.classList.toggle("open"); // Alterna el estado visible del menú
+    if (mobileMenu.classList.contains("d-none")) {
+      mobileMenu.classList.remove("d-none");
+      mobileMenu.classList.add("d-flex");
+    } else {
+      mobileMenu.classList.remove("d-flex");
+      mobileMenu.classList.add("d-none");
+    }
   });
 
   // Add click event to cards product
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(function () {
     const welcomeToastElement = document.getElementById("welcomeLiveToast");
     const welcomeToast = new bootstrap.Toast(welcomeToastElement, {
-      autohide: false  // 👈 Evita que desaparezca solo
+      autohide: false,
     });
     welcomeToast.show();
   }, 4000);
@@ -57,48 +59,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".container-navbar");
 
   window.addEventListener("scroll", function () {
-  let scrollTop = window.scrollY || document.documentElement.scrollTop;
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-  if (scrollTop === 0) {
-    // Arriba del todo: muestro el navbar
-    navbar.style.top = "0";
-  } else if (scrollTop > lastScrollTop) {
-    // Bajando, ocultar el navbar
-    navbar.style.top = "-100px"; 
-  } else {
-    // Subiendo, mostrar el navbar
-    navbar.style.top = "0";
-  }
+    if (scrollTop === 0) {
+      navbar.style.top = "0";
+    } else if (scrollTop > lastScrollTop) {
+      navbar.style.top = "-100px";
+    } else {
+      navbar.style.top = "0";
+    }
 
-  lastScrollTop = scrollTop;
-});
-
+    lastScrollTop = scrollTop;
+  });
 
   const isMobile = window.innerWidth <= 600;
-  const carouselInner = document.getElementById('carouselInner');
+  const carouselInner = document.getElementById("carouselInner");
 
   if (isMobile) {
     // Creamos el nuevo item para mobile
-    const mobileItem = document.createElement('div');
-    mobileItem.className = 'carousel-item active'; // Va primero, así que es el activo
-    mobileItem.setAttribute('data-bs-interval', '10000');
+    const mobileItem = document.createElement("div");
+    mobileItem.className = "carousel-item active";
+    mobileItem.setAttribute("data-bs-interval", "10000");
 
-    const mobileImg = document.createElement('img');
-    mobileImg.src = './assets/carrousel/image-mobile.png';
-    mobileImg.className = 'd-block w-100';
-    mobileImg.alt = 'Banner Mobile';
+    const mobileImg = document.createElement("img");
+    mobileImg.src = "./assets/carrousel/image-mobile.png";
+    mobileImg.className = "d-block w-100";
+    mobileImg.alt = "Banner Mobile";
 
     mobileItem.appendChild(mobileImg);
 
     // Quitamos el active del primer item actual
-    const firstItem = carouselInner.querySelector('.carousel-item.active');
-    firstItem.classList.remove('active');
+    const firstItem = carouselInner.querySelector(".carousel-item.active");
+    firstItem.classList.remove("active");
 
     // Insertamos el nuevo item al principio
     carouselInner.insertBefore(mobileItem, firstItem);
   }
-
-  // Opcional: Si querés que se vuelva a chequear al redimensionar pantalla
-  // window.addEventListener('resize', () => location.reload());
-  
 });
