@@ -182,7 +182,6 @@ body.dark-mode .modal-content {
   right: 0;
 }
 
-/* Vista mobile mejorada */
 @media screen and (max-width: 768px) {
   .carousel-container {
     padding: 0 40px;
@@ -192,11 +191,6 @@ body.dark-mode .modal-content {
     width: 40px;
     height: 40px;
     font-size: 16px;
-  }
-
-  .card {
-    width: 180px; /* Más pequeñas en celular */
-    height: 300px;
   }
 
   .item-gap {
@@ -217,23 +211,12 @@ body.dark-mode .modal-content {
 
 @media screen and (max-width: 990px) {
   .move-text {
-    margin-top: 35%;
+    margin-top: 38%;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .carousel-container {
-    padding: 0 30px;
-  }
-
   .arrow {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
-
-  .card {
-    width: 160px;
-    height: 280px;
+    display: none;
   }
 }
