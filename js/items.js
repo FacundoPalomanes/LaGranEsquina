@@ -173,7 +173,7 @@ export const babetas = [
       "Babeta para instalación sobre chapas, evita filtraciones.",
     descripcion:
       "Babeta diseñada para instalación sobre chapas con forma sinusoidal o trapezoidal.",
-    imagen: "/assets/productos/canaletas.jpg",
+    imagen: "/assets/productos/babetas/sobrechapa-cforma.png",
   },
 ];
 
@@ -181,19 +181,12 @@ export const babetas = [
 export const caballetes_y_conversas = [
   {
     id: 25,
-    nombre: "Conversa 33",
+    nombre: "Conversa",
     descripcionCorta: "Conversa de unión para techos y cubiertas metálicas.",
     descripcion:
       "Se utiliza cuando convergen dos aguas de distintos niveles de techo.",
-    imagen: "/assets/productos/canaletas.jpg",
-  },
-  {
-    id: 26,
-    nombre: "Conversa 40",
-    descripcionCorta: "Conversa de mayor tamaño para unir cubiertas metálicas.",
-    descripcion:
-      "Se utiliza cuando convergen dos aguas de distintos niveles de techo de mayor tamaño.",
-    imagen: "/assets/productos/canaletas.jpg",
+    imagen: "/assets/productos/caballeteYConversas/conversa.png",
+    medida: ["33 Centimetros", "40 Centimetros"],
   },
   {
     id: 27,
@@ -201,23 +194,16 @@ export const caballetes_y_conversas = [
     descripcionCorta: "Conversa con división interna para mejor drenaje.",
     descripcion:
       "Se utiliza cuando convergen dos aguas de distintos niveles de techo con mucho caudal.",
-    imagen: "/assets/productos/canaletas.jpg",
+    imagen: "/assets/productos/caballeteYConversas/conversa-cdivision.png",
   },
   {
     id: 28,
-    nombre: "Caballete 33",
-    descripcionCorta: "Caballete de cierre para techos de 33 cm de desarrollo.",
+    nombre: "Caballete",
+    descripcionCorta: "Caballete de cierre para techos de desarrollo.",
     descripcion:
       "Caballete o cumbrera diseñado para el cierre superior de techos de 33 cm de desarrollo.",
-    imagen: "/assets/productos/canaletas.jpg",
-  },
-  {
-    id: 29,
-    nombre: "Caballete 40",
-    descripcionCorta: "Caballete de cierre para techos de 40 cm de desarrollo.",
-    descripcion:
-      "Caballete o cumbrera diseñado para el cierre superior de techos de 40 cm de desarrollo.",
-    imagen: "/assets/productos/canaletas.jpg",
+    imagen: "/assets/productos/caballeteYConversas/caballete.png",
+    medida: ["33 Centimetros", "40 Centimetros"],
   },
   {
     id: 30,
@@ -225,7 +211,7 @@ export const caballetes_y_conversas = [
     descripcionCorta: "Caballete con forma sinusoidal y trapezoidal.",
     descripcion:
       "Caballete o cumbrera con diseño especial sinusoidal o trapezoidal para cierre superior de techo.",
-    imagen: "/assets/productos/canaletas.jpg",
+    imagen: "/assets/productos/caballeteYConversas/caballete-cforma.png",
   },
 ];
 
@@ -280,10 +266,19 @@ export const curvas = [
   },
   {
     id: 39,
-    nombre: "Codo soldado a 45*",
+    nombre: "Codo 5x10",
     descripcionCorta: "Codo galvanizado de 5x10 cm.",
     descripcion: "Codo de 5x10 cm a 45° a 90° // de frente y de costado.",
+    medida: ["45°", "90°"],
     imagen: "/assets/productos/caniosYGrampas/codo-cinco-diez.jpg",
+  },
+  {
+    id: 40,
+    nombre: "Codo Soldado a 45°",
+    descripcionCorta: "Codo galvanizado a 45°",
+    medida: ["45°", "90°"],
+    descripcion: "Codo a 45° // de frente y de costado.",
+    imagen: "/assets/productos/caniosYGrampas/codo-siete-doce.jpg",
   },
 ];
 

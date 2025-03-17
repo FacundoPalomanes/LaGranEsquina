@@ -587,9 +587,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("scrollLeftCanaletas")
     .addEventListener("click", () => scrollLeft("items-canaletas"));
   document
-    .getElementById("scrollLeftCaballetes")
-    .addEventListener("click", () => scrollLeft("items-caballetes_conversas"));
-  document
     .getElementById("scrollLeftSombreros")
     .addEventListener("click", () => scrollLeft("items-sombreros"));
   document
@@ -609,9 +606,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("scrollRightCanaletas")
     .addEventListener("click", () => scrollRight("items-canaletas"));
-  document
-    .getElementById("scrollRightCaballetes")
-    .addEventListener("click", () => scrollRight("items-caballetes_conversas"));
   document
     .getElementById("scrollRightSombreros")
     .addEventListener("click", () => scrollRight("items-sombreros"));
