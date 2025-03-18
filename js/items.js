@@ -14,7 +14,7 @@ export const productosDestacados = [
     descripcionCorta:
       "Membrana con aluminio impermeabilizante para techos y paredes.",
     descripcion:
-      "Membrana asfáltica ideal para proteger superficies de la humedad y filtraciones.",
+      "Disponemos en stock de todos los productos para su instalacion.",
     imagen: "/assets/productos/productosDestacados/membrana-plastica.png",
     tipo: ["35 Kilogramos", "40 Kilogramos"],
   },
@@ -182,9 +182,9 @@ export const caballetes_y_conversas = [
   {
     id: 25,
     nombre: "Conversa",
-    descripcionCorta: "Conversa de unión para techos y cubiertas metálicas.",
+    descripcionCorta: "Conversa de mayor tamaño para unir cubiertas metálicas.",
     descripcion:
-      "Se utiliza cuando convergen dos aguas de distintos niveles de techo.",
+    "Se utiliza cuando convergen dos aguas de distintos niveles de techo de mayor tamaño.",
     imagen: "/assets/productos/caballeteYConversas/conversa.png",
     medida: ["33 Centimetros", "40 Centimetros"],
   },
@@ -199,9 +199,9 @@ export const caballetes_y_conversas = [
   {
     id: 28,
     nombre: "Caballete",
-    descripcionCorta: "Caballete de cierre para techos de desarrollo.",
+    descripcionCorta: "Caballete de cierre para techos",
     descripcion:
-      "Caballete o cumbrera diseñado para el cierre superior de techos de 33 cm de desarrollo.",
+      "Caballete o cumbrera diseñado para el cierre superior de techos.",
     imagen: "/assets/productos/caballeteYConversas/caballete.png",
     medida: ["33 Centimetros", "40 Centimetros"],
   },
@@ -438,30 +438,6 @@ export const chapas_pinturas = [
       "8 Metros",
     ],
   },
-  // {
-  //   id: 49, ///SACARLO
-  //   nombre: "Calibre 25",
-  //   nombreCarrito: "Chapa Calibre 25",
-  //   descripcionCorta: "Chapa resistente, ideal para usos estructurales.",
-  //   descripcion:
-  //     "La Chapa Calibre 25 con babeta es una opción resistente y duradera para techos y estructuras metálicas. Su espesor la hace ideal para ambientes de alta exigencia.",
-  //   imagen: "/assets/productos/chapas/calibre-25.webp",
-  //   medida: [
-  //     "2.5 Metros",
-  //     "3 Metros",
-  //     "3.5 Metros",
-  //     "4 Metros",
-  //     "4.5 Metros",
-  //     "5 Metros",
-  //     "5.5 Metros",
-  //     "6 Metros",
-  //     "6.5 Metros",
-  //     "7 Metros",
-  //     "7.5 Metros",
-  //     "8 Metros",
-  //   ],
-  //   color: ["Galvanizado", "Negro"],
-  // },
   {
     id: 50,
     nombre: "Trapezoidal C/25",
@@ -537,20 +513,20 @@ export const membranas_y_aislantes = [
   {
     id: 53,
     nombre: "Membrana N°4",
-    nombreCarrito: "Membrana N°4",
-    descripcionCorta: "Membrana asfáltica con babeta para impermeabilizar.",
+    nombreCarrito: "Membrana N°4 (35kg)",
+    descripcionCorta: "Membrana asfáltica con babeta para impermeabilizar de 35kg.",
     descripcion:
       "La Membrana N°4 con aluminio es ideal para impermeabilización de techos y terrazas. Su composición asfáltica garantiza una excelente protección contra filtraciones.",
-    imagen: "/assets/productos/membranasYAislantes/membrana-4mm.webp",
+    imagen: "/assets/productos/membranasYAislantes/membrana-asfaltica.webp",
   },
   {
     id: 54,
-    nombre: "Membrana 4 MM",
+    nombre: "Membrana 4 MM (40kg)",
     nombreCarrito: "Membrana 4 MM",
-    descripcionCorta: "Membrana de 4 mm para techos y superficies expuestas.",
+    descripcionCorta: "Membrana de 4 mm para techos y superficies expuestas de 40kg.",
     descripcion:
       "La Membrana 4 MM con aluminio proporciona un alto nivel de impermeabilización en superficies expuestas a la intemperie, protegiendo contra humedad y filtraciones.",
-    imagen: "/assets/productos/membranasYAislantes/membrana-n4.jpg",
+    imagen: "/assets/productos/membranasYAislantes/mem-asfaltica-aislamax.jpg",
   },
   {
     id: 55,
@@ -582,13 +558,23 @@ export const membranas_y_aislantes = [
     imagen: "/assets/productos/membranasYAislantes/lana-de-vidrio.jpg",
     tipo: ["Sola", "Aluminio"],
   },
+  {
+    id: 49,
+    nombre: "Pintura Asfaltica",
+    nombreCarrito: "Pintura Asfaltica",
+    descripcionCorta: "Aislante térmico y acústico de fibra de vidrio.",
+    descripcion:
+      "La Lana de Vidrio es un material aislante térmico y acústico ideal para techos, paredes y entrepisos. Su composición le otorga resistencia al fuego y durabilidad.",
+    imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
+    tipo: ["Sola", "Aluminio"],
+  },
 ];
 
 export const durlock = [
   {
     id: 58,
-    nombre: "Placa Durlock 9,5mm 1.20x2.40 mts",
-    descripcionCorta: "Placa de yeso para construcción en seco.",
+    nombre: "Placa Durlock 9,5mm",
+    descripcionCorta: "Placa de yeso para construcción en seco 1.20x2.40 mts.",
     descripcion:
       "Placa de yeso Durlock de 9,5mm 1.20x2.40m, ideal para tabiques y cielorrasos. Disponible en versiones para humedad y temperatura.",
     imagen: "/assets/productos/productosDestacados/durlock.png",
@@ -596,8 +582,8 @@ export const durlock = [
   },
   {
     id: 59,
-    nombre: "Placa Durlock 12,5mm 1.20x2.40 mts",
-    descripcionCorta: "Placa de yeso para construcción en seco.",
+    nombre: "Placa Durlock 12,5mm",
+    descripcionCorta: "Placa de yeso para construcción en seco 1.20x2.40 mts.",
     descripcion:
       "Placa de yeso Durlock de 12,5mm 1.20x2.40m, ideal para tabiques y cielorrasos. Disponible en versiones para humedad y temperatura.",
     imagen: "/assets/productos/productosDestacados/durlock.png",
@@ -727,10 +713,28 @@ export const policarbonato = [
   },
   {
     id: 73,
-    nombre: "Alveolar Acanalado",
-    descripcionCorta: "Policarbonato acanalado para techos y cubiertas.",
+    nombre: "Chapa de Policarbonato Sinusoidal",
+    descripcionCorta: "Policarbonato sinusoidal para techos y cubiertas.",
     descripcion:
-      "Placa de policarbonato alveolar acanalado, ideal para techos, disponible en varias longitudes y colores cristal y fume.",
+      "Chapa de policarbonato sinusoidal, ideal para techos, disponible en varias longitudes y colores cristal y fume.",
+    imagen: "/assets/productos/policarbonato/acanalada.png",
+    medida: [
+      "3 Metros",
+      "3.5 Metros",
+      "4 Metros",
+      "4.5 Metros",
+      "5 Metros",
+      "5.5 Metros",
+      "6 Metros",
+    ],
+    tipo: ["Cristal", "Fume"],
+  },
+  {
+    id: 90,
+    nombre: "Chapa de Policarbonato Trapezoidal",
+    descripcionCorta: "Policarbonato trapezoidal para techos y cubiertas.",
+    descripcion:
+      "Chapa de policarbonato trapezoidal, ideal para techos, disponible en varias longitudes y colores cristal y fume.",
     imagen: "/assets/productos/policarbonato/acanalada.png",
     medida: [
       "3 Metros",
@@ -749,32 +753,33 @@ export const accesorios = [
   {
     id: 74,
     nombre: "Boqueta Americana",
-    descripcionCorta: "Boqueta de terminación para sistemas americanos.",
+    descripcionCorta: "Boqueta de terminación para canaleta americana.",
     descripcion:
-      "Boqueta de terminación para estructuras con sistema americano.",
+      "Boqueta (puntera con tapa y bajada soldada) de terminación para estructuras con sistema americano.",
     imagen: "/assets/productos/accesorios/boqueta-americana.jpg",
     tipo: ["Derecha", "Izquierda", "Ambas"],
   },
   {
     id: 75,
     nombre: "Terminal Americana",
-    descripcionCorta: "Terminal para cierre de estructuras americanas.",
-    descripcion: "Pieza terminal para cierre y terminación de estructuras.",
+    descripcionCorta: "Terminal para cierre de canaletas americana.",
+    descripcion: "Terminal (tapa soldada en 20cm de canaleta) para cierre y terminación de canaleta americana.",
     tipo: ["Derecha", "Izquierda", "Ambas"],
     imagen: "/assets/productos/accesorios/terminal-americana.jpg",
   },
   {
     id: 76,
-    nombre: "Soporte Americana",
+    nombre: "Soportes",
     descripcionCorta: "Soporte resistente para estructuras americanas.",
     descripcion: "Soporte diseñado para refuerzo en estructuras americanas.",
     imagen: "/assets/productos/accesorios/soporte-americana.jpg",
+    tipo: ["Americana", "7x15x10", "Pecho Paloma"],
   },
   {
     id: 77,
     nombre: "Esquinero Americana",
     descripcionCorta: "Esquinero de unión para estructuras americanas.",
-    descripcion: "Esquinero para refuerzo y terminación de estructuras.",
+    descripcion: "Esquinero soldado a 90° para refuerzo y terminación de estructuras.",
     imagen: "/assets/productos/accesorios/esquinero-americana.jpg",
   },
   {
@@ -860,7 +865,7 @@ export const accesorios_dos = [
     descripcionCorta: "Sellador de alta adherencia en varios colores.",
     descripcion: "Sellador de uso general con alta adherencia y flexibilidad.",
     color: ["Negro", "Gris", "Blanco", "Incoloro"],
-    imagen: "/assets/productos/accesorios/sellador.jpg",
+    imagen: "/assets/productos/productosDestacados/sellador.webp",
   },
   {
     id: 85,
@@ -892,7 +897,7 @@ export const accesorios_dos = [
     descripcion:
       "Pintura formulada para protección y acabado en chapas metálicas.",
     medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/accesorios/pintura-chapa.jpg",
+    imagen: "/assets/productos/accesorios/pintura-chapa.png",
   },
   {
     id: 88,
@@ -901,7 +906,7 @@ export const accesorios_dos = [
     descripcion: "Sealer sellador para protección en diversas superficies.",
     color: ["Gris", "Negro"],
     medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/accesorios/sealer.jpg",
+    imagen: "/assets/productos/accesorios/sealer.png",
   },
   {
     id: 89,

@@ -59,6 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const miNodoTitle = document.createElement("h5");
       miNodoTitle.classList.add("card-title");
+      if (info.nombre.length > 25) {
+        miNodoTitle.classList.add("titulo-largo");
+      }
       miNodoTitle.textContent = info.nombre;
 
       const miNodoDescripcion = document.createElement("p");
@@ -590,6 +593,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("scrollLeftSombreros")
     .addEventListener("click", () => scrollLeft("items-sombreros"));
   document
+    .getElementById("scrollLeftMembranas")
+    .addEventListener("click", () => scrollLeft("items-membranas_aislantes"));
+  document
     .getElementById("scrollLeftDurlock")
     .addEventListener("click", () => scrollLeft("items-durlock"));
   document
@@ -609,6 +615,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("scrollRightSombreros")
     .addEventListener("click", () => scrollRight("items-sombreros"));
+  document
+    .getElementById("scrollRightMembranas")
+    .addEventListener("click", () => scrollRight("items-membranas_aislantes"));
   document
     .getElementById("scrollRightDurlock")
     .addEventListener("click", () => scrollRight("items-durlock"));

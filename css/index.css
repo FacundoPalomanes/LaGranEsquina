@@ -56,4 +56,31 @@
       width: 90%;
     }
   }
+
+  .left-index {
+    left: 8%;
+  }
+
+  .right-index {
+    right: 8%;
+  }
+
+  @media screen and (max-width: 1780px) {
+    .left-index {
+      left: 4%;
+    }
   
+    .right-index {
+      right: 4%;
+    }
+  }
+
+  @media screen and (max-width: 1550px) {
+    .left-index {
+      left: 1.5%;
+    }
+  
+    .right-index {
+      right: 1.5%;
+    }
+  }

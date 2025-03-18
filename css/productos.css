@@ -110,17 +110,6 @@ body.dark-mode .modal-content {
     padding-bottom: 10px;
     white-space: nowrap;
   }
-
-  /* EXCEPCIÓN: hasta que haya 1220px, el items-membranas_aislantes no se centra */
-  #items-membranas_aislantes {
-    justify-content: flex-start;
-  }
-}
-
-@media screen and (min-width: 1220px) {
-  #items-membranas_aislantes {
-    justify-content: center;
-  }
 }
 
 
@@ -219,4 +208,12 @@ body.dark-mode .modal-content {
   .arrow {
     display: none;
   }
+}
+
+.titulo-largo {
+  font-size: 1.3rem;
+  white-space: normal;
+  overflow-wrap: break-word; 
+  line-height: 1.2;
+  min-height: 3rem;
 }

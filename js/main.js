@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.querySelector("#toggle-menu");
   const mobileMenu = document.querySelector(".navbar__mobile-menu");
-  const prev = document.querySelector("#prev");
-  const next = document.querySelector("#next");
+  const prev = document.querySelector("#scrollLeft");
+  const next = document.querySelector("#scrollRight");
 
   const hideMenuResize = () => {
     mobileMenu.style.display = "none";

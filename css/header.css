@@ -245,3 +245,8 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+.nav-item .nav-link {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
