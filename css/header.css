@@ -250,3 +250,18 @@
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+.navbar-nav {
+  align-items: center;
+}
+
+
+@media screen and (max-width: 1550px) {
+  .navbar-nav {
+    flex-wrap: wrap;
+  }
+  .nav-item .nav-link {
+    font-size: 0.9rem; /* Reducimos el tamaño */
+    padding: 5px 10px;
+  }
+}

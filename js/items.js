@@ -64,7 +64,7 @@ export const productosDestacados = [
     descripcionCorta: "Perfiles metálicos para terminaciones en techos.",
     descripcion:
       "Elemento de terminación en cubiertas de chapa, tejas, etc. que evita filtraciones y mejora la estética del techo.",
-    imagen: "/assets/productos/productosDestacados/durlock.png",
+    imagen: "/assets/productos/babetas/atornillar-c30.webp",
   },
   {
     id: 9,
@@ -93,7 +93,7 @@ export const productosDestacados = [
 ];
 
 // DONE
-export const canaletas = [
+const canaletas = [
   {
     id: 12,
     nombre: "Americana",
@@ -139,18 +139,24 @@ export const canaletas = [
     imagen: "/assets/productos/canaletas/interna-amurar.jpg",
   },
   {
-    id: 17,
-    nombre: "Esquinero P/Canaletas",
-    descripcionCorta: "Accesorio para unir canaletas en esquinas.",
-    descripcion:
-      "Esquinero o rinconero diseñado para unir canaletas en esquinas.",
-    imagen: "/assets/productos/canaletas/esquinero.jpg", // hacer medidas o sumar un objeto mas de esquinero
-    medida: ["15x15", "20x20"],
+    id: 91,
+    nombre: "Capuchon",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/canaletas/capuchon.jpg",
+  },
+  {
+    id: 92,
+    nombre: "Esquinero",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: ["10x10", "15x15", "20x20"],
+    imagen: "/assets/productos/canaletas/esquinero-canaleta.jpg",
   },
 ];
 
 // DONE   REMAINS CSS ///SACAR TODAS LAS BABETAS DE C/30 Y C/27 Y SOLO PONER UNA SOLA DE CADA UNA QUE SE LLAME BABETA Y TE DEJE ELEGIR ENTRE P/ATORNILLAR, AMOLADORA O SOBRETEJA
-export const babetas = [
+const babetas = [
   {
     id: 18,
     nombre: "Babeta C/30",
@@ -178,7 +184,7 @@ export const babetas = [
 ];
 
 // DONE   REMAINS CSS
-export const caballetes_y_conversas = [
+const caballetes_y_conversas = [
   {
     id: 25,
     nombre: "Conversa",
@@ -216,7 +222,7 @@ export const caballetes_y_conversas = [
 ];
 
 // DONE
-export const curvas = [
+const curvas = [
   {
     id: 31,
     nombre: "Articulada",
@@ -283,7 +289,7 @@ export const curvas = [
 ];
 
 // DONE
-export const canios_y_grampas = [
+const canios_y_grampas = [
   {
     id: 35,
     nombre: "Redondo",
@@ -323,7 +329,7 @@ export const canios_y_grampas = [
 ];
 
 // DONE
-export const sombreros = [
+const sombreros = [
   {
     id: 41,
     nombre: "Doble Aro",
@@ -396,7 +402,7 @@ export const sombreros = [
 ];
 
 // DONE
-export const chapas_pinturas = [
+const chapas_pinturas = [
   {
     id: 47,
     nombre: "Lisa",
@@ -508,8 +514,51 @@ export const chapas_pinturas = [
   },
 ];
 
+const selladores_y_pinturas = [
+  {
+    id: 89,
+    nombre: "Vendas",
+    descripcionCorta: "Vendas para aislamiento en diversas medidas.",
+    descripcion: "Cinta de vendaje para aislamiento y protección estructural.",
+    medida: [
+      "4 Centimetros x 25 Metros",
+      "10 Centimetros x 25 Metros",
+      "20 Centimetros x 25 Metros",
+      "100 Centimetros x 25 Metros",
+    ],
+    imagen: "/assets/productos/selladores_y_pinturas/vendas.png",
+  },
+  {
+    id: 87,
+    nombre: "Pintura Para Chapa",
+    descripcionCorta: "Pintura especial para protección de chapas.",
+    descripcion:
+      "Pintura formulada para protección y acabado en chapas metálicas.",
+    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
+    imagen: "/assets/productos/selladores_y_pinturas/pintura-chapa.webp",
+  },
+  {
+    id: 88,
+    nombre: "Sealer",
+    descripcionCorta: "Sealer protector en colores gris y negro.",
+    descripcion: "Sealer sellador para protección en diversas superficies.",
+    color: ["Gris", "Negro"],
+    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
+    imagen: "/assets/productos/selladores_y_pinturas/sealer.png",
+  },
+  {
+    id: 99,
+    nombre: "Losalum",
+    descripcionCorta: "",
+    descripcion:
+      "",
+    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
+    imagen: "/assets/productos/selladores_y_pinturas/losalum.png",
+  },
+];
+
 //
-export const membranas_y_aislantes = [
+const membranas_y_aislantes = [
   {
     id: 53,
     nombre: "Membrana N°4",
@@ -527,6 +576,16 @@ export const membranas_y_aislantes = [
     descripcion:
       "La Membrana 4 MM con aluminio proporciona un alto nivel de impermeabilización en superficies expuestas a la intemperie, protegiendo contra humedad y filtraciones.",
     imagen: "/assets/productos/membranasYAislantes/mem-asfaltica-aislamax.jpg",
+  },
+  {
+    id: 49,
+    nombre: "Pintura Asfaltica",
+    nombreCarrito: "Pintura Asfaltica",
+    descripcionCorta: "Aislante térmico y acústico de fibra de vidrio.",
+    descripcion:
+      "La Lana de Vidrio es un material aislante térmico y acústico ideal para techos, paredes y entrepisos. Su composición le otorga resistencia al fuego y durabilidad.",
+    imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
+    tipo: ["Sola", "Aluminio"],
   },
   {
     id: 55,
@@ -558,19 +617,9 @@ export const membranas_y_aislantes = [
     imagen: "/assets/productos/membranasYAislantes/lana-de-vidrio.jpg",
     tipo: ["Sola", "Aluminio"],
   },
-  {
-    id: 49,
-    nombre: "Pintura Asfaltica",
-    nombreCarrito: "Pintura Asfaltica",
-    descripcionCorta: "Aislante térmico y acústico de fibra de vidrio.",
-    descripcion:
-      "La Lana de Vidrio es un material aislante térmico y acústico ideal para techos, paredes y entrepisos. Su composición le otorga resistencia al fuego y durabilidad.",
-    imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
-    tipo: ["Sola", "Aluminio"],
-  },
 ];
 
-export const durlock = [
+const durlock = [
   {
     id: 58,
     nombre: "Placa Durlock 9,5mm",
@@ -599,6 +648,15 @@ export const durlock = [
     medida: ["35 Milimetros", "70 Milimetros"],
   },
   {
+    id: 94,
+    nombre: "Placa Cementicia",
+    descripcionCorta: "",
+    descripcion:
+      "",
+    imagen: "/assets/productos/durlock/placa-cementicia.jpg",
+    medida: ["6 Milimetros", "8 Milimetros", "10 Milimetros"],
+  },
+  {
     id: 61,
     nombre: "Solera",
     descripcionCorta: "Perfil solera para sistema Durlock.",
@@ -624,12 +682,45 @@ export const durlock = [
     imagen: "/assets/productos/durlock/bunia-perimetral.jpg",
   },
   {
+    id: 95,
+    nombre: "Travesaño",
+    descripcionCorta: "",
+    descripcion:
+      "",
+      medida: ["26 x 0,61 Metros","26 x 1,22 Metros"],
+    imagen: "/assets/productos/durlock/travesaño.jpg",
+  },
+  {
+    id: 96,
+    nombre: "Larguero",
+    descripcionCorta: "",
+    descripcion:
+      "",
+    imagen: "/assets/productos/durlock/larguero.webp",
+  },
+  {
+    id: 97,
+    nombre: "Perimetral",
+    descripcionCorta: "",
+    descripcion:
+      "",
+    imagen: "/assets/productos/durlock/perimetral.jpg",
+  },
+  {
     id: 64,
     nombre: "Omega",
     descripcionCorta: "Perfil omega para cielorrasos 2600 milimetros.",
     descripcion:
       "Perfil metálico omega de 2600mm para cielorrasos desmontables en sistemas de construcción en seco.",
     imagen: "/assets/productos/durlock/omega.png",
+  },
+  {
+    id: 98,
+    nombre: "Omega con ata",
+    descripcionCorta: "",
+    descripcion:
+      "",
+    imagen: "/assets/productos/durlock/omega-cpata.jpg",
   },
   {
     id: 65,
@@ -683,13 +774,21 @@ export const durlock = [
   },
   {
     id: 70,
-    nombre: "Tornillos o Fijaciones",
+    nombre: "Tornillos",
     descripcionCorta: "Tornillos para placas y estructuras.",
     descripcion:
-      "Tornillos autoperforantes y fijaciones para estructuras y placas de yeso. Tornillos Tipos: T1, T2, T3. // Fijaciones Medidas: 6mm y 8mm.",
+      "Tornillos autoperforantes. Tornillos Tipos: T1, T2, T3..",
     tipo: ["T1", "T2", "T3"],
+    imagen: "/assets/productos/durlock/tornillos.png",
+  },
+  {
+    id: 93,
+    nombre: "Fijaciones",
+    descripcionCorta: "Tornillos para placas y estructuras.",
+    descripcion:
+      "Fijaciones para estructuras y placas de yeso. Fijaciones Medidas: 6mm y 8mm.",
     medida: ["6", "8"],
-    imagen: "/assets/productos/durlock/tornillos-y-fijaciones.webp",
+    imagen: "/assets/productos/durlock/fijacion.jpg",
   },
   {
     id: 71,
@@ -697,11 +796,11 @@ export const durlock = [
     descripcionCorta: "Puerta MDF de 70cm, línea 2000.",
     descripcion:
       "Puerta de MDF de la línea 2000, con un ancho de 70cm, ideal para interiores.",
-    imagen: "/assets/productos/durlock/puerta.webp",
+    imagen: "/assets/productos/durlock/puerta.jpg",
   },
 ];
 
-export const policarbonato = [
+const policarbonato = [
   {
     id: 72,
     nombre: "Alveolar Cristal",
@@ -735,7 +834,7 @@ export const policarbonato = [
     descripcionCorta: "Policarbonato trapezoidal para techos y cubiertas.",
     descripcion:
       "Chapa de policarbonato trapezoidal, ideal para techos, disponible en varias longitudes y colores cristal y fume.",
-    imagen: "/assets/productos/policarbonato/acanalada.png",
+    imagen: "/assets/productos/policarbonato/trapezoidal.png",
     medida: [
       "3 Metros",
       "3.5 Metros",
@@ -749,7 +848,7 @@ export const policarbonato = [
   },
 ];
 
-export const accesorios = [
+const accesorios = [
   {
     id: 74,
     nombre: "Boqueta Americana",
@@ -768,12 +867,29 @@ export const accesorios = [
     imagen: "/assets/productos/accesorios/terminal-americana.jpg",
   },
   {
+    id: 79,
+    nombre: "Grampas",
+    descripcionCorta: "Grampas metálicas de sujeción en varias medidas.",
+    descripcion: "Grampas metálicas resistentes para fijación estructural.",
+    medida: ["5 x 10", "7 x 12"],
+    imagen: "/assets/productos/accesorios/grampa.jpg",
+  },
+  {
     id: 76,
     nombre: "Soportes",
     descripcionCorta: "Soporte resistente para estructuras americanas.",
     descripcion: "Soporte diseñado para refuerzo en estructuras americanas.",
-    imagen: "/assets/productos/accesorios/soporte-americana.jpg",
+    imagen: "/assets/productos/accesorios/soporte.jpg",
     tipo: ["Americana", "7x15x10", "Pecho Paloma"],
+  },
+  {
+    id: 17,
+    nombre: "Esquinero P/Canaletas",
+    descripcionCorta: "Accesorio para unir canaletas en esquinas.",
+    descripcion:
+      "Esquinero o rinconero diseñado para unir canaletas en esquinas.",
+    imagen: "/assets/productos/canaletas/esquinero.jpg", // hacer medidas o sumar un objeto mas de esquinero
+    medida: ["15x15", "20x20"],
   },
   {
     id: 77,
@@ -788,14 +904,6 @@ export const accesorios = [
     descripcionCorta: "Rinconero para refuerzo en esquinas estructurales.",
     descripcion: "Pieza de refuerzo para esquinas en estructuras americanas.",
     imagen: "/assets/productos/accesorios/rinconero-americana.webp",
-  },
-  {
-    id: 79,
-    nombre: "Grampas",
-    descripcionCorta: "Grampas metálicas de sujeción en varias medidas.",
-    descripcion: "Grampas metálicas resistentes para fijación estructural.",
-    medida: ["5 x 10", "7 x 12"],
-    imagen: "/assets/productos/accesorios/grampa.webp",
   },
   {
     id: 80,
@@ -822,7 +930,7 @@ export const accesorios = [
   },
 ];
 
-export const accesorios_dos = [
+const accesorios_dos = [
   {
     id: 34,
     nombre: "Reduccion Galvanizado",
@@ -881,7 +989,7 @@ export const accesorios_dos = [
       `Chapa 2"`,
       `Chapa 2.5"`,
     ],
-    imagen: "/assets/productos/accesorios/tornillo-autoperforante.jpg",
+    imagen: "/assets/productos/accesorios/tornillo-autoperforante.png",
   },
   {
     id: 86,
@@ -890,37 +998,24 @@ export const accesorios_dos = [
     descripcion: "Separador de plástico duradero para diferentes aplicaciones.",
     imagen: "/assets/productos/accesorios/separador-plastico.webp",
   },
-  {
-    id: 87,
-    nombre: "Pintura Para Chapa",
-    descripcionCorta: "Pintura especial para protección de chapas.",
-    descripcion:
-      "Pintura formulada para protección y acabado en chapas metálicas.",
-    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/accesorios/pintura-chapa.png",
-  },
-  {
-    id: 88,
-    nombre: "Sealer",
-    descripcionCorta: "Sealer protector en colores gris y negro.",
-    descripcion: "Sealer sellador para protección en diversas superficies.",
-    color: ["Gris", "Negro"],
-    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/accesorios/sealer.png",
-  },
-  {
-    id: 89,
-    nombre: "Vendas",
-    descripcionCorta: "Vendas para aislamiento en diversas medidas.",
-    descripcion: "Cinta de vendaje para aislamiento y protección estructural.",
-    medida: [
-      "4 Centimetros x 25 Metros",
-      "10 Centimetros x 25 Metros",
-      "20 Centimetros x 25 Metros",
-      "100 Centimetros x 25 Metros",
-    ],
-    imagen: "/assets/productos/accesorios/vendas.png",
-  },
 ];
 
 //COLOR , MEDIDA, TIPO
+
+
+export const productos = [
+  { items: productosDestacados, id: "items-destacados" },
+  { items: canaletas, id: "items-canaletas" },
+  { items: babetas, id: "items-babetas" },
+  { items: caballetes_y_conversas, id: "items-caballetes_conversas" },
+  { items: curvas, id: "items-curvas" },
+  { items: canios_y_grampas, id: "items-canios_grampas" },
+  { items: sombreros, id: "items-sombreros" },
+  { items: chapas_pinturas, id: "items-chapas_pinturas" },
+  { items: selladores_y_pinturas, id: "items-selladores_pinturas" },
+  { items: membranas_y_aislantes, id: "items-membranas_aislantes" },
+  { items: durlock, id: "items-durlock" },
+  { items: policarbonato, id: "items-policarbonato" },
+  { items: accesorios, id: "items-accesorios" },
+  { items: accesorios_dos, id: "items-accesorios-dos" },
+];

@@ -1,18 +1,12 @@
+import { productos } from "./items.js";
 import {
-  productosDestacados,
-  canaletas,
-  babetas,
-  caballetes_y_conversas,
-  curvas,
-  canios_y_grampas,
-  sombreros,
-  chapas_pinturas,
-  membranas_y_aislantes,
-  durlock,
-  policarbonato,
-  accesorios,
-  accesorios_dos,
-} from "./items.js";
+  darkMode,
+  header_movement,
+  hideMenuResize,
+  scrollLeft,
+  scrollRight,
+  toggleMenu,
+} from "./global-functions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -23,19 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
-  renderizarProductos(canaletas, "items-canaletas");
-  renderizarProductos(productosDestacados, "items-destacados");
-  renderizarProductos(babetas, "items-babetas");
-  renderizarProductos(caballetes_y_conversas, "items-caballetes_conversas");
-  renderizarProductos(curvas, "items-curvas");
-  renderizarProductos(canios_y_grampas, "items-canios_grampas");
-  renderizarProductos(sombreros, "items-sombreros");
-  renderizarProductos(chapas_pinturas, "items-chapas_pinturas");
-  renderizarProductos(membranas_y_aislantes, "items-membranas_aislantes");
-  renderizarProductos(durlock, "items-durlock");
-  renderizarProductos(policarbonato, "items-policarbonato");
-  renderizarProductos(accesorios, "items-accesorios");
-  renderizarProductos(accesorios_dos, "items-accesorios-dos");
+  productos.forEach(({ items, id }) => renderizarProductos(items, id));
+
   renderizarCarrito();
 
   let productoEnEdicion = null;
@@ -139,21 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderizarCarrito() {
     DOMcarrito.textContent = "";
-    const productos = [
-      ...productosDestacados,
-      ...canaletas,
-      ...babetas,
-      ...caballetes_y_conversas,
-      ...curvas,
-      ...canios_y_grampas,
-      ...sombreros,
-      ...chapas_pinturas,
-      ...membranas_y_aislantes,
-      ...durlock,
-      ...policarbonato,
-      ...accesorios,
-      ...accesorios_dos,
-    ];
 
     const carritoAgrupado = carrito.reduce((acc, item) => {
       let key = `${item.id}-${item.color || "default"}-${
@@ -168,7 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, {});
 
     Object.values(carritoAgrupado).forEach((item) => {
-      const miItem = productos.find((p) => p.id === parseInt(item.id));
+      const miItem = productos
+        .flatMap((p) => p.items)
+        .find((p) => p.id === parseInt(item.id));
       if (!miItem) return;
 
       const miNodo = document.createElement("li");
@@ -452,37 +422,14 @@ document.addEventListener("DOMContentLoaded", () => {
   DOMbotonVaciar.addEventListener("click", () => vaciarCarrito());
 
   // ---------------------------------------------------  OTHER FUNCTIONS
-
-  const toggleButton = document.querySelector("#toggle-menu");
-  const mobileMenu = document.querySelector(".navbar__mobile-menu");
-
-  const hideMenuResize = () => {
-    mobileMenu.style.display = "none";
-  };
-
   // Toggle dark mode
-  document.getElementById("dark-mode-toggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-  });
-
-  document
-    .getElementById("dark-mode-toggle-mobile")
-    .addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-    });
+  darkMode();
 
   window.addEventListener("resize", hideMenuResize);
   window.addEventListener("load", hideMenuResize);
 
-  toggleButton.addEventListener("click", () => {
-    if (mobileMenu.classList.contains("d-none")) {
-      mobileMenu.classList.remove("d-none");
-      mobileMenu.classList.add("d-flex");
-    } else {
-      mobileMenu.classList.remove("d-flex");
-      mobileMenu.classList.add("d-none");
-    }
-  });
+  // Toggle Mobile Menu
+  toggleMenu();
 
   // Comprar function
 
@@ -546,87 +493,71 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Navbar Function
-  let lastScrollTop = 0;
-  const navbar = document.querySelector(".container-navbar");
+  header_movement();
 
-  window.addEventListener("scroll", function () {
-    let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (scrollTop === 0) {
-      // Arriba del todo: muestro el navbar
-      navbar.style.top = "0";
-    } else if (scrollTop > lastScrollTop) {
-      // Bajando, ocultar el navbar
-      navbar.style.top = "-100px";
-    } else {
-      // Subiendo, mostrar el navbar
-      navbar.style.top = "0";
-    }
-
-    lastScrollTop = scrollTop;
+  // Scroll
+  scrollRight({
+    buttonId: "scrollRightItemsDestacados",
+    scrollerContainerId: "items-destacados",
+  });
+  scrollLeft({
+    buttonId: "scrollLeftItemsDestacados",
+    scrollerContainerId: "items-destacados",
   });
 
-  function scrollLeft(id) {
-    const container = document.getElementById(id);
-    container.scrollBy({
-      left: -200,
-      behavior: "smooth",
-    });
-  }
+  scrollLeft({
+    buttonId: "scrollLeftCanaletas",
+    scrollerContainerId: "items-canaletas",
+  });
+  scrollRight({
+    buttonId: "scrollRightCanaletas",
+    scrollerContainerId: "items-canaletas",
+  });
 
-  function scrollRight(id) {
-    const container = document.getElementById(id);
-    container.scrollBy({
-      left: 200, // mueve a la derecha
-      behavior: "smooth",
-    });
-  }
+  scrollLeft({
+    buttonId: "scrollLeftSombreros",
+    scrollerContainerId: "items-sombreros",
+  });
+  scrollRight({
+    buttonId: "scrollRightSombreros",
+    scrollerContainerId: "items-sombreros",
+  });
 
-  // Scroll Left
-  document
-    .getElementById("scrollLeftItemsDestacados")
-    .addEventListener("click", () => scrollLeft("items-destacados"));
-  document
-    .getElementById("scrollLeftCanaletas")
-    .addEventListener("click", () => scrollLeft("items-canaletas"));
-  document
-    .getElementById("scrollLeftSombreros")
-    .addEventListener("click", () => scrollLeft("items-sombreros"));
-  document
-    .getElementById("scrollLeftMembranas")
-    .addEventListener("click", () => scrollLeft("items-membranas_aislantes"));
-  document
-    .getElementById("scrollLeftDurlock")
-    .addEventListener("click", () => scrollLeft("items-durlock"));
-  document
-    .getElementById("scrollLeftAccesorios")
-    .addEventListener("click", () => scrollLeft("items-accesorios"));
-  document
-    .getElementById("scrollLeftAccesoriosDos")
-    .addEventListener("click", () => scrollLeft("items-accesorios-dos"));
+  scrollLeft({
+    buttonId: "scrollLeftMembranas",
+    scrollerContainerId: "items-membranas_aislantes",
+  });
+  scrollRight({
+    buttonId: "scrollRightMembranas",
+    scrollerContainerId: "items-membranas_aislantes",
+  });
 
-  // Scroll Right
-  document
-    .getElementById("scrollRightItemsDestacados")
-    .addEventListener("click", () => scrollRight("items-destacados"));
-  document
-    .getElementById("scrollRightCanaletas")
-    .addEventListener("click", () => scrollRight("items-canaletas"));
-  document
-    .getElementById("scrollRightSombreros")
-    .addEventListener("click", () => scrollRight("items-sombreros"));
-  document
-    .getElementById("scrollRightMembranas")
-    .addEventListener("click", () => scrollRight("items-membranas_aislantes"));
-  document
-    .getElementById("scrollRightDurlock")
-    .addEventListener("click", () => scrollRight("items-durlock"));
-  document
-    .getElementById("scrollRightAccesorios")
-    .addEventListener("click", () => scrollRight("items-accesorios"));
-  document
-    .getElementById("scrollRightAccesoriosDos")
-    .addEventListener("click", () => scrollRight("items-accesorios-dos"));
+  scrollLeft({
+    buttonId: "scrollLeftDurlock",
+    scrollerContainerId: "items-durlock",
+  });
+  scrollRight({
+    buttonId: "scrollRightDurlock",
+    scrollerContainerId: "items-durlock",
+  });
+
+  scrollLeft({
+    buttonId: "scrollLeftAccesorios",
+    scrollerContainerId: "items-accesorios",
+  });
+  scrollRight({
+    buttonId: "scrollRightAccesorios",
+    scrollerContainerId: "items-accesorios",
+  });
+
+  scrollLeft({
+    buttonId: "scrollLeftAccesoriosDos",
+    scrollerContainerId: "items-accesorios-dos",
+  });
+  scrollRight({
+    buttonId: "scrollRightAccesoriosDos",
+    scrollerContainerId: "items-accesorios-dos",
+  });
 
   function showToast(producto, cantidad) {
     const toastElement = document.getElementById("liveToast");

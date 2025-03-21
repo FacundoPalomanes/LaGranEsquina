@@ -40,7 +40,7 @@
   <!-- emailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <!-- javascript -->
-  <script src="./js/main.js"></script>
+  <script src="./js/main.js" type="module"></script>
 </head>
 
 <body>
@@ -169,96 +169,18 @@
   </view>
 
   <!-- Productos destacados -->
-  <section class="block">
-    <div class="container mt-4">
-      <h2 class="mb-4 text-center">Nuestros Productos Destacados</h2>
-      <button class="arrow left-index" id="scrollLeft">&#10094;</button>
-      <div class="scroll-container d-flex overflow-auto mx-2"
-        style="gap: 1rem; scroll-snap-type: x mandatory; margin-right: 50px; padding-right: 20px; overflow-x: auto;">
-        <div class="card shadow-sm mx-3">
-          <img src="/assets/productos/productosDestacados/kit-americana.webp" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Kit Americana</h5>
-            <p class="card-text">Incluye todos los accesorios necesarios para la instalación de canaletas en techos,
-              brindando una solución duradera y resistente al agua.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/membrana-plastica.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Membrana Asfaltica</h5>
-            <p class="card-text">Membrana asfáltica ideal para proteger superficies de la humedad y filtraciones,
-              ofreciendo aislamiento térmico y acústico.</p>
-            <!-- <a href="#" class="btn btn-primary">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/policarbonato.webp" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Policarbonato</h5>
-            <p class="card-text">Material liviano y de alta resistencia a impactos, ideal para techos y cerramientos
-              translúcidos con protección UV.</p>
-            <!-- <a href="#" class="btn btn-warning">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/chapa-t101.jpeg" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Chapa Trapezoidal</h5>
-            <p class="card-text">Chapa estructural utilizada en techos y cerramientos industriales y residenciales,
-              resistente a la corrosión y de fácil instalación.</p>
-            <!-- <a href="#" class="btn btn-outline-warning">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/chapa-acanalada.webp" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Chapa Acanalada</h5>
-            <p class="card-text">Fabricada en acero galvanizado, es ideal para cubiertas de viviendas, galpones y
-              otras construcciones livianas.</p>
-            <!-- <a href="#" class="btn btn-outline-primary">Ir a productos</a> -->
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/durlock.png" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Durlock</h5>
-            <p class="card-text">Sistema constructivo en seco para la realización de paredes, cielorrasos y
-              revestimientos interiores, ofreciendo aislamiento acústico y térmico.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/sellador.webp" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Sellador</h5>
-            <p class="card-text">Sellador de alta adherencia para grietas y juntas en distintas superficies,
-              disponible en varios colores.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/babetas/atornillar-c27.webp" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Babeta</h5>
-            <p class="card-text">Elemento de terminación en cubiertas de chapa, evita filtraciones y mejora la
-              estética del techo.</p>
-          </div>
-        </div>
-        <div class="card shadow-sm">
-          <img src="/assets/productos/productosDestacados/canio-redondo.jpg" class="card-img-top" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Caño redondo</h5>
-            <p class="card-text">Ideal para estructuras metálicas, barandas, soportes y múltiples aplicaciones
-              industriales y arquitectónicas.</p>
-          </div>
-        </div>
-      </div>
-      <button class="arrow right-index" id="scrollRight">&#10095;</button>
+   <div class="container">
+     <div class="block carousel-container position-relative my-5">
+       <h2 class="text-center my-3">Nuestros Productos Destacados</h2>
+       <button class="arrow left" id="scrollLeft">&#10094;</button>
+       <div id="items-destacados" class="item-gap d-flex overflow-auto p-3"></div>
+       <button class="arrow right" id="scrollRight">&#10095;</button>
+     </div>
+   </div>
+   <div class="text-center mt-5">
+    <a href="/productos" class="btn btn-outline-primary btn-lg">Ver todo el catálogo</a>
+  </div>
 
-    </div>
-    <div class="text-center mt-5">
-      <a href="/productos.html" class="btn btn-outline-primary btn-lg">Ver todo el catálogo</a>
-    </div>
-  </section>
 
   <!-- Google maps reviews -->
   <view class="block">
@@ -269,36 +191,37 @@
   </view>
 
   <!-- Formulario -->
-   <view class="block">
-     <h2 class="text-center my-3">Deja tus datos para que te contactemos</h2>
-     <form id="contact-form" class="row g-3 m-4 block">
-       <div class="col-md-6">
-         <label class="form-label">Nombre</label>
-         <input id="nombre" type="text" class="form-control" aria-label="First name">
-       </div>
-       <div class="col-md-6">
-         <label class="form-label">Apellido</label>
-         <input id="apellido" type="text" class="form-control" aria-label="Last name">
-       </div>
-       <div class="col-12">
-         <label for="exampleFormControlInput1" class="form-label">Email</label>
-         <input id="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-       </div>
-       <div class="col-6">
-         <label class="form-label">Celular</label>
-         <input id="numero" type="tel" class="form-control" aria-label="numero">
-       </div>
-       <div class="mb-3">
-         <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-         <textarea id="consulta" class="form-control resize-none" id="exampleFormControlTextarea1" style="resize: none;"
-           rows="3"></textarea>
-       </div>
-       <div class="col-12 d-flex justify-content-center">
-         <button type="submit" class="btn btn-primary">Enviar</button>
-       </div>
-     </form>
-     <div id="response"></div>
-   </view>
+  <view class="block">
+    <h2 class="text-center my-3">Deja tus datos para que te contactemos</h2>
+    <form id="contact-form" class="row g-3 m-4 block">
+      <div class="col-md-6">
+        <label class="form-label">Nombre</label>
+        <input id="nombre" type="text" class="form-control" aria-label="First name">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Apellido</label>
+        <input id="apellido" type="text" class="form-control" aria-label="Last name">
+      </div>
+      <div class="col-12">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input id="email" type="email" class="form-control" id="exampleFormControlInput1"
+          placeholder="name@example.com">
+      </div>
+      <div class="col-6">
+        <label class="form-label">Celular</label>
+        <input id="numero" type="tel" class="form-control" aria-label="numero">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+        <textarea id="consulta" class="form-control resize-none" id="exampleFormControlTextarea1" style="resize: none;"
+          rows="3"></textarea>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+    <div id="response"></div>
+  </view>
 
   <!-- TOASTER PARA CUANDO SE ENVIA EL FORMULARIO -->
   <div class="toast-container position-fixed bottom-0 start-0 p-3">
@@ -397,6 +320,35 @@
       </p>
     </div>
   </div>
+
+  <!-- Modal único para ver producto -->
+  <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalProductoTitulo"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
+                <p id="modalProductoDescripcion"></p>
+                <div class="d-flex align-items-center">
+                    <button id="btnMenos" class="btn btn-danger">-</button>
+                    <input type="number" id="inputCantidad" class="form-control mx-2 text-center" value="1"
+                        min="1" style="width: 60px;">
+                    <button id="btnMas" class="btn btn-primary">+</button>
+                </div>
+                <div id="contenedorColores"></div>
+                <div id="contenedorMedidas"></div>
+                <div id="contenedorTipos"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button id="btnModalAccion" class="btn btn-primary"></button>
+            </div>
+        </div>
+    </div>
+</div>
 
   <!-- footer -->
   <footer id="footer" class="footer-basic block">
