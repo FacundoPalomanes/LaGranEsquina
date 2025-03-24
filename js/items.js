@@ -1,4 +1,3 @@
-//// DONE
 export const productosDestacados = [
   {
     id: 1,
@@ -92,7 +91,6 @@ export const productosDestacados = [
   },
 ];
 
-// DONE
 const canaletas = [
   {
     id: 12,
@@ -100,7 +98,7 @@ const canaletas = [
     nombreCarrito: "Canaleta Americana",
     descripcionCorta: "Canaleta tipo Americana por metro.",
     descripcion:
-      "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.",
+      "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.", // NECESITO CODEAR INPUT METROS en vez de cantidad en todas las canaletas
     imagen: "/assets/productos/canaletas/americana.webp",
   },
   {
@@ -122,12 +120,83 @@ const canaletas = [
     imagen: "/assets/productos/canaletas/7-15-10.jpg",
   },
   {
-    id: 15,
-    nombre: "Banda Peine",
-    nombreCarrito: "Canaleta Banda Peine",
-    descripcionCorta: "Banda lateral con division.",
+    id: 92,
+    nombre: "Esquinero",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: ["10x10", "15x15", "20x20"],
+    imagen: "/assets/productos/canaletas/esquinero-canaleta.jpg",
+  },
+  {
+    id: 100,
+    nombre: "Pecho Paloma",
+    nombreCarrito: "Canaleta Pecho Paloma",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/canaletas/pecho-paloma.jpg",
+  },
+  {
+    id: 78,
+    nombre: "Rinconero Americana",
+    descripcionCorta: "Rinconero para refuerzo en esquinas estructurales.",
+    descripcion: "Pieza de refuerzo para esquinas en estructuras americanas.",
+    imagen: "/assets/productos/accesorios/rinconero-americana.webp",
+  },
+  {
+    id: 77,
+    nombre: "Esquinero Americana",
+    descripcionCorta: "Esquinero de unión para estructuras americanas.",
     descripcion:
-      "Zingueria lateral con division utilizada bajo chapa o bajo teja.",
+      "Esquinero soldado a 90° para refuerzo y terminación de estructuras.",
+    imagen: "/assets/productos/accesorios/esquinero-americana.jpg",
+  },
+  {
+    id: 74,
+    nombre: "Boqueta Americana",
+    descripcionCorta: "Boqueta de terminación para canaleta americana.",
+    descripcion:
+      "Boqueta (puntera con tapa y bajada soldada) de terminación para estructuras con sistema americano.",
+    imagen: "/assets/productos/accesorios/boqueta-americana.jpg",
+    tipo: ["Derecha", "Izquierda", "Ambas"],
+  },
+  {
+    id: 75,
+    nombre: "Terminal Americana",
+    descripcionCorta: "Terminal para cierre de canaletas americana.",
+    descripcion:
+      "Terminal (tapa soldada en 20cm de canaleta) para cierre y terminación de canaleta americana.",
+    tipo: ["Derecha", "Izquierda", "Ambas"],
+    imagen: "/assets/productos/canaletas/terminal-americana.jpg",
+  },
+  {
+    id: 76,
+    nombre: "Soportes",
+    descripcionCorta: "Soporte resistente para estructuras americanas.",
+    descripcion: "Soporte diseñado para refuerzo en estructuras americanas.",
+    imagen: "/assets/productos/accesorios/soporte.jpg",
+    tipo: ["Americana", "7x15x10", "Pecho Paloma"],
+  },
+  {
+    id: 101,
+    nombre: "Tapas",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/canaletas/tapas.jpg",
+    tipo: ["Americana", "7x15x10"],
+  },
+  {
+    id: 91,
+    nombre: "Capuchon",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/canaletas/capuchon.jpg",
+  },
+  {
+    id: 102,
+    nombre: "Recibidor",
+    nombreCarrito: "Canaleta Recibidor",
+    descripcionCorta: "",
+    descripcion: "",
     imagen: "/assets/productos/canaletas/banda-peine.jpg",
   },
   {
@@ -139,23 +208,16 @@ const canaletas = [
     imagen: "/assets/productos/canaletas/interna-amurar.jpg",
   },
   {
-    id: 91,
-    nombre: "Capuchon",
-    descripcionCorta: "",
-    descripcion: "",
-    imagen: "/assets/productos/canaletas/capuchon.jpg",
-  },
-  {
-    id: 92,
-    nombre: "Esquinero",
-    descripcionCorta: "",
-    descripcion: "",
-    medida: ["10x10", "15x15", "20x20"],
-    imagen: "/assets/productos/canaletas/esquinero-canaleta.jpg",
+    id: 15,
+    nombre: "Banda Peine",
+    nombreCarrito: "Canaleta Banda Peine",
+    descripcionCorta: "Banda lateral con division.",
+    descripcion:
+      "Zingueria lateral con division utilizada bajo chapa o bajo teja.",
+    imagen: "/assets/productos/canaletas/banda-peine.jpg",
   },
 ];
 
-// DONE   REMAINS CSS ///SACAR TODAS LAS BABETAS DE C/30 Y C/27 Y SOLO PONER UNA SOLA DE CADA UNA QUE SE LLAME BABETA Y TE DEJE ELEGIR ENTRE P/ATORNILLAR, AMOLADORA O SOBRETEJA
 const babetas = [
   {
     id: 18,
@@ -179,18 +241,18 @@ const babetas = [
       "Babeta para instalación sobre chapas, evita filtraciones.",
     descripcion:
       "Babeta diseñada para instalación sobre chapas con forma sinusoidal o trapezoidal.",
+    tipo: ["Sinusoidal", "Trapezoidal"],
     imagen: "/assets/productos/babetas/sobrechapa-cforma.png",
   },
 ];
 
-// DONE   REMAINS CSS
 const caballetes_y_conversas = [
   {
     id: 25,
     nombre: "Conversa",
     descripcionCorta: "Conversa de mayor tamaño para unir cubiertas metálicas.",
     descripcion:
-    "Se utiliza cuando convergen dos aguas de distintos niveles de techo de mayor tamaño.",
+      "Se utiliza cuando convergen dos aguas de distintos niveles de techo de mayor tamaño.",
     imagen: "/assets/productos/caballeteYConversas/conversa.png",
     medida: ["33 Centimetros", "40 Centimetros"],
   },
@@ -217,11 +279,11 @@ const caballetes_y_conversas = [
     descripcionCorta: "Caballete con forma sinusoidal y trapezoidal.",
     descripcion:
       "Caballete o cumbrera con diseño especial sinusoidal o trapezoidal para cierre superior de techo.",
+    tipo: ["Sinusoidal", "Trapezoidal"],
     imagen: "/assets/productos/caballeteYConversas/caballete-cforma.png",
   },
 ];
 
-// DONE
 const curvas = [
   {
     id: 31,
@@ -272,23 +334,29 @@ const curvas = [
   },
   {
     id: 39,
-    nombre: "Codo 5x10",
+    nombre: "Codos",
     descripcionCorta: "Codo galvanizado de 5x10 cm.",
     descripcion: "Codo de 5x10 cm a 45° a 90° // de frente y de costado.",
+    tipo: [
+      "De Frente 5 x 10",
+      "De Frente 7 x 12",
+      "De Costado 5 x 10",
+      "De Costado 7 x 12",
+    ],
     medida: ["45°", "90°"],
     imagen: "/assets/productos/caniosYGrampas/codo-cinco-diez.jpg",
   },
   {
     id: 40,
-    nombre: "Codo Soldado a 45°",
-    descripcionCorta: "Codo galvanizado a 45°",
-    medida: ["45°", "90°"],
+    nombre: "Codo Redondo Soldado",
+    descripcionCorta: "Codo galvanizado",
+    tipo: ["45°", "90°"],
+    medida: ["3 Pulgadas", "4 Pulgadas", "5 Pulgadas", "6 Pulgadas"],
     descripcion: "Codo a 45° // de frente y de costado.",
     imagen: "/assets/productos/caniosYGrampas/codo-siete-doce.jpg",
   },
 ];
 
-// DONE
 const canios_y_grampas = [
   {
     id: 35,
@@ -307,8 +375,22 @@ const canios_y_grampas = [
       `8"`,
       `10"`,
       `12" y muchas medidas mas`,
+      `10" Negro`,
+      `12" Negro`,
     ],
-    color: ["Galvanizado", "Negro"],
+  },
+  {
+    id: 103,
+    nombre: "Reducciones Conicas",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: [
+      "4 a 3 Pulgadas",
+      "5 a 4 Pulgadas",
+      "6 a 4 Pulgadas",
+      "6 a 5 Pulgadas",
+    ],
+    imagen: "/assets/productos/caniosYGrampas/reducciones-conicas.jpg",
   },
   {
     id: 37,
@@ -326,9 +408,49 @@ const canios_y_grampas = [
       "Caño galvanizado utilizable para bajada de zingueria o conductos de aire.",
     imagen: "/assets/productos/productosDestacados/canio-rectangular.jpg",
   },
+  {
+    id: 104,
+    nombre: "Embudos",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["Embudo Americano", "Embudo Mini", "Embudo Artistico"],
+    imagen: "/assets/productos/caniosYGrampas/embudo.jpg",
+  },
+  {
+    id: 79,
+    nombre: "Grampas",
+    descripcionCorta: "Grampas metálicas de sujeción en varias medidas.",
+    descripcion: "Grampas metálicas resistentes para fijación estructural.",
+    medida: ["5 x 10", "7 x 12"],
+    imagen: "/assets/productos/accesorios/grampa.jpg",
+  },
+  {
+    id: 80,
+    nombre: "Grampas Omega",
+    descripcionCorta: "Grampas Omega para fijación segura y resistente.",
+    descripcion: "Grampas Omega metálicas en varias medidas para sujeción.",
+    medida: [`3"`, `4"`, `5"`, `6"`, `7"`, `8"`, `10"`, `12"`],
+    imagen: "/assets/productos/accesorios/grampa-omega.jpg",
+  },
+  {
+    id: 105,
+    nombre: "Grampas Para Amurar",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: [
+      `3" x 20 Centimetros`,
+      `4" x 20 Centimetros`,
+      `5" x 20 Centimetros`,
+      `6" x 20 Centimetros`,
+      `7" x 20 Centimetros`,
+      `8" x 20 Centimetros`,
+      `10" x 20 Centimetros`,
+      `12" x 20 Centimetros`,
+    ],
+    imagen: "/assets/productos/caniosYGrampas/grampas-pamurar.jpg",
+  },
 ];
 
-// DONE
 const sombreros = [
   {
     id: 41,
@@ -357,8 +479,7 @@ const sombreros = [
     descripcion:
       "El Sombrero Americano Venturi es ideal para chimeneas, parrillas y ductos que requieren una eficiente extracción de humos y gases.",
     imagen: "/assets/productos/sombreros/americano-venturi.webp",
-    medida: [`3"`, `4"`, `6"`, `8"`, `10"`, `12"`],
-    color: ["Galvanizado", "Negro"],
+    medida: [`3"`, `4"`, `6"`, `8"`, `10"`, `12"`, `10" Negro`, `12" Negro`],
   },
   {
     id: 43,
@@ -401,7 +522,6 @@ const sombreros = [
   },
 ];
 
-// DONE
 const chapas_pinturas = [
   {
     id: 47,
@@ -411,15 +531,7 @@ const chapas_pinturas = [
     descripcion:
       "La Chapa Lisa galvanizada es ideal para zingueria, cubiertas, revestimientos y aplicaciones estructurales. Su acabado uniforme permite una instalación sencilla y una estética limpia.",
     imagen: "/assets/productos/chapas/lisa.jpg",
-    medida: [
-      "C/30 1x2",
-      "C/28 1x2",
-      "C/27 4x8",
-      "C/25 4x8",
-      "C/25 4x8 color",
-      "C/22 1x2",
-      "C/22 4x8",
-    ],
+    medida: ["C/30 1x2", "C/28 1x2", "C/27 4x8", "C/25 4x8", "C/25 4x8 color", "C/22 4x8"],
   },
   {
     id: 48,
@@ -443,6 +555,7 @@ const chapas_pinturas = [
       "7.5 Metros",
       "8 Metros",
     ],
+    tipo: ["Calibre 25", "Calibre 27"]
   },
   {
     id: 50,
@@ -465,7 +578,6 @@ const chapas_pinturas = [
       "7.5 Metros",
       "8 Metros",
     ],
-    color: ["Galvanizado", "Negro"],
   },
   {
     id: 51,
@@ -493,6 +605,14 @@ const chapas_pinturas = [
     color: ["Natural", "Blanco"],
   },
   {
+    id: 106,
+    nombre: "Clavos",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["Clavo Cabeza De Plomo", `Clavo de 3" con Accesorio`],
+    imagen: "/assets/productos/chapas/clavos.jpg",
+  },
+  {
     id: 52,
     nombre: "Perfil C",
     nombreCarrito: "Perfil C Para Chapa",
@@ -512,9 +632,90 @@ const chapas_pinturas = [
       "120 x 50 x 1,6 x 8 Metros",
     ],
   },
+  {
+    id: 107,
+    nombre: "Perfiles Galvanizados x 6 Mts",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["Tipo C", "Tipo U"],
+    imagen: "/assets/productos/chapas/pgc.jpg",
+  },
+  {
+    id: 85,
+    nombre: "Tornillo Autoperforante",
+    descripcionCorta: "Tornillos autoperforantes para madera y chapa.",
+    descripcion:
+      "Tornillos resistentes con punta autoperforante para fijación.",
+    tipo: [
+      `Madera 1.5"`,
+      `Madera 2"`,
+      `Madera 2.5"`,
+      `Hierro 1"`,
+      `Hierro 1.5"`,
+      `Hierro 2"`,
+      `Hierro 2.5"`,
+    ],
+    imagen: "/assets/productos/accesorios/tornillo-autoperforante.png",
+  },
+  {
+    id: 86,
+    nombre: "Separador Plastico",
+    descripcionCorta: "Separador plástico resistente para estructuras.",
+    descripcion: "Separador de plástico duradero para diferentes aplicaciones.",
+    imagen: "/assets/productos/accesorios/separador-plastico.webp",
+  },
 ];
 
 const selladores_y_pinturas = [
+  {
+    id: 84,
+    nombre: "Sellacanaletas",
+    descripcionCorta: "Sellador de alta adherencia en varios colores.",
+    descripcion: "Sellador de uso general con alta adherencia y flexibilidad.",
+    color: ["Negro", "Gris", "Blanco", "Incoloro"],
+    imagen: "/assets/productos/productosDestacados/sellador.webp",
+  },
+  {
+    id: 108,
+    nombre: "Sellagrietas",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/selladores_y_pinturas/sellagrietas.jpg",
+  },
+  {
+    id: 87,
+    nombre: "Pintura Para Chapa",
+    descripcionCorta: "Pintura especial para protección de chapas.",
+    descripcion:
+      "Pintura formulada para protección y acabado en chapas metálicas.",
+    medida: ["1 Litro", "4 Litros", "20 Litros"],
+    color: ["Negro", "Negro Mate", "Blanco", "Gris", "Verde", "Rojo"],
+    imagen: "/assets/productos/selladores_y_pinturas/pintura-pchapa.jpg",
+  },
+  {
+    id: 99,
+    nombre: "Losalum",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: ["1 Litro", "4 Litros", "20 Litros"],
+    imagen: "/assets/productos/selladores_y_pinturas/losalum.png",
+  },
+  {
+    id: 88,
+    nombre: "Sealer",
+    descripcionCorta: "Sealer protector en colores gris y negro.",
+    descripcion: "Sealer sellador para protección en diversas superficies.",
+    color: ["Gris", "Negro"],
+    medida: ["1 Litro", "4 Litros", "20 Litros"],
+    imagen: "/assets/productos/selladores_y_pinturas/sealer.png",
+  },
+  {
+    id: 109,
+    nombre: "Sellador de Alta Temperatura",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/selladores_y_pinturas/sellador-alta-temperatura.jpg",
+  },
   {
     id: 89,
     nombre: "Vendas",
@@ -528,54 +729,94 @@ const selladores_y_pinturas = [
     ],
     imagen: "/assets/productos/selladores_y_pinturas/vendas.png",
   },
+];
+
+const claraboyas_y_te = [
   {
-    id: 87,
-    nombre: "Pintura Para Chapa",
-    descripcionCorta: "Pintura especial para protección de chapas.",
-    descripcion:
-      "Pintura formulada para protección y acabado en chapas metálicas.",
-    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/selladores_y_pinturas/pintura-chapa.webp",
-  },
-  {
-    id: 88,
-    nombre: "Sealer",
-    descripcionCorta: "Sealer protector en colores gris y negro.",
-    descripcion: "Sealer sellador para protección en diversas superficies.",
-    color: ["Gris", "Negro"],
-    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/selladores_y_pinturas/sealer.png",
-  },
-  {
-    id: 99,
-    nombre: "Losalum",
+    id: 110,
+    nombre: "Claraboyas",
     descripcionCorta: "",
-    descripcion:
-      "",
-    medida: ["1 Litro", "4 Litros", "10 Litros", "20 Litros"],
-    imagen: "/assets/productos/selladores_y_pinturas/losalum.png",
+    descripcion: "",
+    medida: ["40 x 40", "40 x 60", "50 x 50", "60 x 60"],
+    imagen: "/assets/productos/claraboyasYTes/claraboyas.jpg",
+  },
+  {
+    id: 111,
+    nombre: "Claraboyas para Tejas",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: ["60 x 55 con Ventilacion"],
+    imagen: "/assets/productos/claraboyasYTes/claraboya-pteja.jpg",
+  },
+  {
+    id: 112,
+    nombre: "Claraboyas soldadas en Chapa",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["Fijo", "De Abrir"],
+    imagen: "/assets/productos/claraboyasYTes/claraboya-soldada.jpg",
+  },
+  {
+    id: 113,
+    nombre: "Puerta Trampa",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/claraboyasYTes/puerta-trampa.jpg",
+  },
+  {
+    id: 114,
+    nombre: "Campanas",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: ["60 x 60", "100 x 60 x 60", "Especial a Medida"],
+    imagen: "/assets/productos/claraboyasYTes/campanas.jpg",
+  },
+  {
+    id: 115,
+    nombre: "Cenefas",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/claraboyasYTes/cenefas.webp",
+  },
+  {
+    id: 116,
+    nombre: "Flor de Lis",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["Chica", "Grande", "Grande Color"],
+    imagen: "/assets/productos/claraboyasYTes/flor-de-lis.jpg",
   },
 ];
 
-//
 const membranas_y_aislantes = [
   {
     id: 53,
     nombre: "Membrana N°4",
     nombreCarrito: "Membrana N°4 (35kg)",
-    descripcionCorta: "Membrana asfáltica con babeta para impermeabilizar de 35kg.",
+    descripcionCorta:
+      "Membrana asfáltica con babeta para impermeabilizar de 35kg.",
     descripcion:
       "La Membrana N°4 con aluminio es ideal para impermeabilización de techos y terrazas. Su composición asfáltica garantiza una excelente protección contra filtraciones.",
+    tipo: ["Emapi", "Aislamax"],
     imagen: "/assets/productos/membranasYAislantes/membrana-asfaltica.webp",
   },
   {
     id: 54,
     nombre: "Membrana 4 MM (40kg)",
     nombreCarrito: "Membrana 4 MM",
-    descripcionCorta: "Membrana de 4 mm para techos y superficies expuestas de 40kg.",
+    descripcionCorta:
+      "Membrana de 4 mm para techos y superficies expuestas de 40kg.",
     descripcion:
       "La Membrana 4 MM con aluminio proporciona un alto nivel de impermeabilización en superficies expuestas a la intemperie, protegiendo contra humedad y filtraciones.",
     imagen: "/assets/productos/membranasYAislantes/mem-asfaltica-aislamax.jpg",
+  },
+  {
+    id: 117,
+    nombre: "Membranas Adhesivas o En Frio",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/membranasYAislantes/membrana-adhesiva.jpg",
+    medida: ["10 Centimetros", "15 Centimetros", "25 Centimetros"],
   },
   {
     id: 49,
@@ -585,7 +826,7 @@ const membranas_y_aislantes = [
     descripcion:
       "La Lana de Vidrio es un material aislante térmico y acústico ideal para techos, paredes y entrepisos. Su composición le otorga resistencia al fuego y durabilidad.",
     imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
-    tipo: ["Sola", "Aluminio"],
+    medida: ["1 Litro","4 Litros", "18 Litros"]
   },
   {
     id: 55,
@@ -617,6 +858,27 @@ const membranas_y_aislantes = [
     imagen: "/assets/productos/membranasYAislantes/lana-de-vidrio.jpg",
     tipo: ["Sola", "Aluminio"],
   },
+  {
+    id: 118,
+    nombre: "Cinta Aluminizada",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/membranasYAislantes/cinta-aluminizada.jpg",
+  },
+  {
+    id: 119,
+    nombre: "Cintas de Aluminio Reforzada",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/membranasYAislantes/cinta-aluminizada-reforzada.jpg",
+  },
+  {
+    id: 120,
+    nombre: "House Cover 1,5 x 20 Metros",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
+  },
 ];
 
 const durlock = [
@@ -627,7 +889,6 @@ const durlock = [
     descripcion:
       "Placa de yeso Durlock de 9,5mm 1.20x2.40m, ideal para tabiques y cielorrasos. Disponible en versiones para humedad y temperatura.",
     imagen: "/assets/productos/productosDestacados/durlock.png",
-    tipo: ["Normal"],
   },
   {
     id: 59,
@@ -646,15 +907,6 @@ const durlock = [
       "Perfil montante de acero galvanizado para estructuras de construcción en seco. Disponible en 35mm y 70mm.",
     imagen: "/assets/productos/durlock/montante.webp",
     medida: ["35 Milimetros", "70 Milimetros"],
-  },
-  {
-    id: 94,
-    nombre: "Placa Cementicia",
-    descripcionCorta: "",
-    descripcion:
-      "",
-    imagen: "/assets/productos/durlock/placa-cementicia.jpg",
-    medida: ["6 Milimetros", "8 Milimetros", "10 Milimetros"],
   },
   {
     id: 61,
@@ -682,29 +934,12 @@ const durlock = [
     imagen: "/assets/productos/durlock/bunia-perimetral.jpg",
   },
   {
-    id: 95,
-    nombre: "Travesaño",
-    descripcionCorta: "",
+    id: 65,
+    nombre: "Angulo de Ajuste",
+    descripcionCorta: "Ángulo metálico para ajuste 2600 milimetros.",
     descripcion:
-      "",
-      medida: ["26 x 0,61 Metros","26 x 1,22 Metros"],
-    imagen: "/assets/productos/durlock/travesaño.jpg",
-  },
-  {
-    id: 96,
-    nombre: "Larguero",
-    descripcionCorta: "",
-    descripcion:
-      "",
-    imagen: "/assets/productos/durlock/larguero.webp",
-  },
-  {
-    id: 97,
-    nombre: "Perimetral",
-    descripcionCorta: "",
-    descripcion:
-      "",
-    imagen: "/assets/productos/durlock/perimetral.jpg",
+      "Ángulo de ajuste de 2600mm utilizado en estructuras de cielorrasos y tabiques.",
+    imagen: "/assets/productos/durlock/angulo-ajuste.webp",
   },
   {
     id: 64,
@@ -715,20 +950,26 @@ const durlock = [
     imagen: "/assets/productos/durlock/omega.png",
   },
   {
-    id: 98,
-    nombre: "Omega con ata",
+    id: 95,
+    nombre: "Travesaño DM",
     descripcionCorta: "",
-    descripcion:
-      "",
-    imagen: "/assets/productos/durlock/omega-cpata.jpg",
+    descripcion: "",
+    medida: ["26 x 0,61 Metros", "26 x 1,22 Metros"],
+    imagen: "/assets/productos/durlock/travesaño.jpg",
   },
   {
-    id: 65,
-    nombre: "Angulo de Ajuste",
-    descripcionCorta: "Ángulo metálico para ajuste 2600 milimetros.",
-    descripcion:
-      "Ángulo de ajuste de 2600mm utilizado en estructuras de cielorrasos y tabiques.",
-    imagen: "/assets/productos/durlock/angulo-ajuste.webp",
+    id: 96,
+    nombre: "Largueros DM",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/durlock/larguero.webp",
+  },
+  {
+    id: 97,
+    nombre: "Perimetral DM",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/durlock/perimetral.jpg",
   },
   {
     id: 66,
@@ -776,8 +1017,7 @@ const durlock = [
     id: 70,
     nombre: "Tornillos",
     descripcionCorta: "Tornillos para placas y estructuras.",
-    descripcion:
-      "Tornillos autoperforantes. Tornillos Tipos: T1, T2, T3..",
+    descripcion: "Tornillos autoperforantes. Tornillos Tipos: T1, T2, T3..",
     tipo: ["T1", "T2", "T3"],
     imagen: "/assets/productos/durlock/tornillos.png",
   },
@@ -798,12 +1038,27 @@ const durlock = [
       "Puerta de MDF de la línea 2000, con un ancho de 70cm, ideal para interiores.",
     imagen: "/assets/productos/durlock/puerta.jpg",
   },
+  {
+    id: 94,
+    nombre: "Placa Cementicia",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/durlock/placa-cementicia.jpg",
+    medida: ["6 Milimetros", "8 Milimetros", "10 Milimetros"],
+  },
+  {
+    id: 121,
+    nombre: "Base Coat x 25 Kg",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/durlock/base-coat.jpg",
+  },
 ];
 
 const policarbonato = [
   {
     id: 72,
-    nombre: "Alveolar Cristal",
+    nombre: "Alveolar Cristal 2,10 x 5,80 Mts",
     descripcionCorta: "Panel de policarbonato translúcido y resistente.",
     descripcion:
       "Placa de policarbonato alveolar cristal, liviana y resistente, ideal para techos y cerramientos. Disponible en varias medidas.",
@@ -850,72 +1105,8 @@ const policarbonato = [
 
 const accesorios = [
   {
-    id: 74,
-    nombre: "Boqueta Americana",
-    descripcionCorta: "Boqueta de terminación para canaleta americana.",
-    descripcion:
-      "Boqueta (puntera con tapa y bajada soldada) de terminación para estructuras con sistema americano.",
-    imagen: "/assets/productos/accesorios/boqueta-americana.jpg",
-    tipo: ["Derecha", "Izquierda", "Ambas"],
-  },
-  {
-    id: 75,
-    nombre: "Terminal Americana",
-    descripcionCorta: "Terminal para cierre de canaletas americana.",
-    descripcion: "Terminal (tapa soldada en 20cm de canaleta) para cierre y terminación de canaleta americana.",
-    tipo: ["Derecha", "Izquierda", "Ambas"],
-    imagen: "/assets/productos/accesorios/terminal-americana.jpg",
-  },
-  {
-    id: 79,
-    nombre: "Grampas",
-    descripcionCorta: "Grampas metálicas de sujeción en varias medidas.",
-    descripcion: "Grampas metálicas resistentes para fijación estructural.",
-    medida: ["5 x 10", "7 x 12"],
-    imagen: "/assets/productos/accesorios/grampa.jpg",
-  },
-  {
-    id: 76,
-    nombre: "Soportes",
-    descripcionCorta: "Soporte resistente para estructuras americanas.",
-    descripcion: "Soporte diseñado para refuerzo en estructuras americanas.",
-    imagen: "/assets/productos/accesorios/soporte.jpg",
-    tipo: ["Americana", "7x15x10", "Pecho Paloma"],
-  },
-  {
-    id: 17,
-    nombre: "Esquinero P/Canaletas",
-    descripcionCorta: "Accesorio para unir canaletas en esquinas.",
-    descripcion:
-      "Esquinero o rinconero diseñado para unir canaletas en esquinas.",
-    imagen: "/assets/productos/canaletas/esquinero.jpg", // hacer medidas o sumar un objeto mas de esquinero
-    medida: ["15x15", "20x20"],
-  },
-  {
-    id: 77,
-    nombre: "Esquinero Americana",
-    descripcionCorta: "Esquinero de unión para estructuras americanas.",
-    descripcion: "Esquinero soldado a 90° para refuerzo y terminación de estructuras.",
-    imagen: "/assets/productos/accesorios/esquinero-americana.jpg",
-  },
-  {
-    id: 78,
-    nombre: "Rinconero Americana",
-    descripcionCorta: "Rinconero para refuerzo en esquinas estructurales.",
-    descripcion: "Pieza de refuerzo para esquinas en estructuras americanas.",
-    imagen: "/assets/productos/accesorios/rinconero-americana.webp",
-  },
-  {
-    id: 80,
-    nombre: "Grampas Omega",
-    descripcionCorta: "Grampas Omega para fijación segura y resistente.",
-    descripcion: "Grampas Omega metálicas en varias medidas para sujeción.",
-    medida: [`3"`, `4"`, `5"`, `6"`, `7"`, `8"`, `10"`, `12"`],
-    imagen: "/assets/productos/accesorios/grampa-omega.jpg",
-  },
-  {
     id: 81,
-    nombre: "Barra de Estaño",
+    nombre: "Barra de Estaño 50%",
     descripcionCorta: "Barra de estaño de alta pureza para soldaduras.",
     descripcion: "Barra de estaño para soldaduras limpias y duraderas.",
     imagen: "/assets/productos/accesorios/barra-estanio.webp",
@@ -928,9 +1119,6 @@ const accesorios = [
     imagen: "/assets/productos/curvas/tee-y-ramales.jpg",
     medida: [`3"`, `4"`, `5"`, `6"`, `7"`, `8"`, `10"`, `12"`],
   },
-];
-
-const accesorios_dos = [
   {
     id: 34,
     nombre: "Reduccion Galvanizado",
@@ -968,40 +1156,69 @@ const accesorios_dos = [
     imagen: "/assets/productos/accesorios/compriband.jpg",
   },
   {
-    id: 84,
-    nombre: "Sellador",
-    descripcionCorta: "Sellador de alta adherencia en varios colores.",
-    descripcion: "Sellador de uso general con alta adherencia y flexibilidad.",
-    color: ["Negro", "Gris", "Blanco", "Incoloro"],
-    imagen: "/assets/productos/productosDestacados/sellador.webp",
+    id: 122,
+    nombre: "Malla Plastica",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/accesorios/malla-plastica.jpg",
   },
   {
-    id: 85,
-    nombre: "Tornillo Autoperforante",
-    descripcionCorta: "Tornillos autoperforantes para madera y chapa.",
-    descripcion:
-      "Tornillos resistentes con punta autoperforante para fijación.",
-    tipo: [
-      `Madera 2"`,
-      `Madera 2.5"`,
-      `Chapa 1"`,
-      `Chapa 1.5"`,
-      `Chapa 2"`,
-      `Chapa 2.5"`,
-    ],
-    imagen: "/assets/productos/accesorios/tornillo-autoperforante.png",
+    id: 123,
+    nombre: "Boquilla 3/8",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/accesorios/boquilla-38.jpg",
+  },
+];
+
+const accesorios_dos = [
+  {
+    id: 124,
+    nombre: "Punta Phillips",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/accesorios/punta-phillips.jpg",
   },
   {
-    id: 86,
-    nombre: "Separador Plastico",
-    descripcionCorta: "Separador plástico resistente para estructuras.",
-    descripcion: "Separador de plástico duradero para diferentes aplicaciones.",
-    imagen: "/assets/productos/accesorios/separador-plastico.webp",
+    id: 125,
+    nombre: "Ganchos J",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["J50", "J70"],
+    imagen: "/assets/productos/accesorios/gancho-j.jpg",
+  },
+  {
+    id: 126,
+    nombre: "Transformaciones",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/accesorios/transformaciones.jpg",
+  },
+  {
+    id: 127,
+    nombre: "Martillo de Cobre",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/accesorios/martillo-cobre.jpg",
+  },
+  {
+    id: 128,
+    nombre: "Gargola de Bronce",
+    descripcionCorta: "",
+    descripcion: "",
+    imagen: "/assets/productos/accesorios/gargola-bronce.jpg",
+  },
+  {
+    id: 129,
+    nombre: "Dektite",
+    descripcionCorta: "",
+    descripcion: "",
+    tipo: ["Gris N°3","Gris N°4", "Rojo N°3", "Rojo N°4"],
+    imagen: "/assets/productos/accesorios/dektite.jpg",
   },
 ];
 
 //COLOR , MEDIDA, TIPO
-
 
 export const productos = [
   { items: productosDestacados, id: "items-destacados" },
@@ -1013,6 +1230,7 @@ export const productos = [
   { items: sombreros, id: "items-sombreros" },
   { items: chapas_pinturas, id: "items-chapas_pinturas" },
   { items: selladores_y_pinturas, id: "items-selladores_pinturas" },
+  { items: claraboyas_y_te, id: "items-claraboyas_trabajos-especiales" },
   { items: membranas_y_aislantes, id: "items-membranas_aislantes" },
   { items: durlock, id: "items-durlock" },
   { items: policarbonato, id: "items-policarbonato" },

@@ -28,44 +28,54 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderizarProductos(productos, seccion) {
     const contenedor = document.getElementById(seccion);
     contenedor.innerHTML = "";
-
+  
+    const fragmento = document.createDocumentFragment();
+  
     productos.forEach((info) => {
       const miNodo = document.createElement("div");
       miNodo.classList.add("card");
-
+  
       const miNodoCardBody = document.createElement("div");
       miNodoCardBody.classList.add("card-body");
-
+  
       const miNodoImagen = document.createElement("img");
       miNodoImagen.setAttribute("src", info.imagen);
       miNodoImagen.setAttribute("alt", info.nombre);
-
+      miNodoImagen.setAttribute("loading", "lazy");
+      miNodoImagen.addEventListener('load', () => {
+        miNodoImagen.classList.add('loaded');
+      });
+  
       const miNodoTitle = document.createElement("h5");
       miNodoTitle.classList.add("card-title");
       if (info.nombre.length > 25) {
         miNodoTitle.classList.add("titulo-largo");
       }
       miNodoTitle.textContent = info.nombre;
-
+  
       const miNodoDescripcion = document.createElement("p");
       miNodoDescripcion.classList.add("card-text");
       miNodoDescripcion.textContent = info.descripcionCorta;
-
+  
       const miNodoBoton = document.createElement("button");
       miNodoBoton.classList.add("btn", "btn-primary");
       miNodoBoton.textContent = "Agregar";
       miNodoBoton.setAttribute("marcador", info.id);
-
+  
       miNodoCardBody.appendChild(miNodoImagen);
       miNodoCardBody.appendChild(miNodoTitle);
       miNodoCardBody.appendChild(miNodoDescripcion);
       miNodoCardBody.appendChild(miNodoBoton);
       miNodo.appendChild(miNodoCardBody);
+  
       miNodo.addEventListener("click", () => abrirModalProducto(info));
-
-      contenedor.appendChild(miNodo);
+  
+      fragmento.appendChild(miNodo);
     });
+  
+    contenedor.appendChild(fragmento);
   }
+  
 
   function agregarProductoCarrito() {
     let cantidad = parseInt(document.getElementById("inputCantidad").value);
@@ -434,23 +444,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Comprar function
 
   document.getElementById("boton-comprar").addEventListener("click", () => {
-    const productos = [
-      ...productosDestacados,
-      ...canaletas,
-      ...babetas,
-      ...caballetes_y_conversas,
-      ...curvas,
-      ...canios_y_grampas,
-      ...sombreros,
-      ...chapas_pinturas,
-      ...membranas_y_aislantes,
-      ...durlock,
-      ...policarbonato,
-      ...accesorios,
-      ...accesorios_dos,
-    ];
-
     const carritoAgrupado = carrito.reduce((acc, item) => {
+      // this could be a function
       let key = `${item.id}-${item.color || "default"}-${
         item.medida || "default"
       }-${item.tipo || "default"}`;
@@ -465,7 +460,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const productosTexto = Object.values(carritoAgrupado)
       .map((item) => {
-        const miItem = productos.find((p) => p.id === parseInt(item.id));
+        const miItem = productos
+          .flatMap((p) => p.items)
+          .find((p) => p.id === parseInt(item.id));
         if (!miItem) return "";
 
         return (
