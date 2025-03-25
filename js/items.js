@@ -133,21 +133,12 @@ const canaletas = [
     metros: true,
   },
   {
-    id: 92,
-    nombre: "Esquinero",
-    descripcionCorta: "",
-    descripcion: "",
-    medida: ["10x10", "15x15", "20x20"],
-    imagen: "/assets/productos/canaletas/esquinero-canaleta.jpg",
-    metros: true,
-  },
-  {
     id: 100,
     nombre: "Pecho Paloma",
     nombreCarrito: "Canaleta Pecho Paloma",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/canaletas/pecho-paloma.jpg",
+    imagen: "/assets/productos/canaletas/pecho-paloma.webp",
     metros: true,
   },
   {
@@ -209,6 +200,15 @@ const canaletas = [
     descripcionCorta: "",
     descripcion: "",
     imagen: "/assets/productos/canaletas/capuchon.jpg",
+    metros: true,
+  },
+  {
+    id: 92,
+    nombre: "Esquinero",
+    descripcionCorta: "",
+    descripcion: "",
+    medida: ["10x10", "15x15", "20x20"],
+    imagen: "/assets/productos/canaletas/esquinero-canaleta.jpg",
     metros: true,
   },
   {
