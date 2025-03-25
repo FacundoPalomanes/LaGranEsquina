@@ -165,10 +165,12 @@
                                 <a class="nav-link" href="#items-chapas_pinturas">Selladores y Pinturas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#items-selladores_pinturas">Claraboyas y Trabajos Especiales</a>
+                                <a class="nav-link" href="#items-selladores_pinturas">Claraboyas y Trabajos
+                                    Especiales</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#items-claraboyas_trabajos-especiales">Membranas y Aislantes</a>
+                                <a class="nav-link" href="#items-claraboyas_trabajos-especiales">Membranas y
+                                    Aislantes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#items-membranas_aislantes">Durlock y Placa Cementicia</a>
@@ -248,7 +250,7 @@
             <button class="arrow right" id="scrollRightChapasPinturas">&#10095;</button>
         </div>
 
-        
+
 
         <!-- Selladores y Pinturas -->
         <div class="block carousel-container position-relative">
@@ -272,7 +274,7 @@
             <div id="items-membranas_aislantes" class="item-gap d-flex overflow-auto p-2"></div>
             <button class="arrow right" id="scrollRightMembranas">&#10095;</button>
         </div>
-        
+
 
         <!-- Durlock -->
         <div class="block carousel-container position-relative">
@@ -317,12 +319,19 @@
                     <div class="modal-body">
                         <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
                         <p id="modalProductoDescripcion"></p>
-                        <h6>Cantidad</h6>
-                        <div class="d-flex align-items-center">
-                            <button id="btnMenos" class="btn btn-danger">-</button>
-                            <input type="number" id="inputCantidad" class="form-control mx-2 text-center" value="1"
+                        <div id="cantidad">
+                            <h6>Cantidad</h6>
+                            <div class="d-flex align-items-center">
+                                <button id="btnMenos" class="btn btn-danger">-</button>
+                                <input type="number" id="inputCantidad" class="form-control mx-2 text-center" value="1"
+                                    min="1" style="width: 80px;">
+                                <button id="btnMas" class="btn btn-primary">+</button>
+                            </div>
+                        </div>
+                        <div id="metros">
+                            <h6>Metros</h6>
+                            <input type="number" id="inputMetros" class="form-control mx-2 text-center" value="1"
                                 min="1" style="width: 80px;">
-                            <button id="btnMas" class="btn btn-primary">+</button>
                         </div>
                         <div id="contenedorColores"></div>
                         <div id="contenedorMedidas"></div>

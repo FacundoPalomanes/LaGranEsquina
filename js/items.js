@@ -110,6 +110,7 @@ const canaletas = [
     descripcion:
       "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.", // NECESITO CODEAR INPUT METROS en vez de cantidad en todas las canaletas
     imagen: "/assets/productos/canaletas/americana.webp",
+    metros: true,
   },
   {
     id: 13,
@@ -119,6 +120,7 @@ const canaletas = [
     descripcion:
       "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.",
     imagen: "/assets/productos/canaletas/media-cania.jpg",
+    metros: true,
   },
   {
     id: 14,
@@ -128,6 +130,7 @@ const canaletas = [
     descripcion:
       "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.",
     imagen: "/assets/productos/canaletas/7-15-10.jpg",
+    metros: true,
   },
   {
     id: 92,
@@ -136,6 +139,7 @@ const canaletas = [
     descripcion: "",
     medida: ["10x10", "15x15", "20x20"],
     imagen: "/assets/productos/canaletas/esquinero-canaleta.jpg",
+    metros: true,
   },
   {
     id: 100,
@@ -144,6 +148,7 @@ const canaletas = [
     descripcionCorta: "",
     descripcion: "",
     imagen: "/assets/productos/canaletas/pecho-paloma.jpg",
+    metros: true,
   },
   {
     id: 78,
@@ -151,6 +156,7 @@ const canaletas = [
     descripcionCorta: "Rinconero para refuerzo en esquinas estructurales.",
     descripcion: "Pieza de refuerzo para esquinas en estructuras americanas.",
     imagen: "/assets/productos/accesorios/rinconero-americana.webp",
+    metros: true,
   },
   {
     id: 77,
@@ -159,6 +165,7 @@ const canaletas = [
     descripcion:
       "Esquinero soldado a 90° para refuerzo y terminación de estructuras.",
     imagen: "/assets/productos/accesorios/esquinero-americana.jpg",
+    metros: true,
   },
   {
     id: 74,
@@ -168,6 +175,7 @@ const canaletas = [
       "Boqueta (puntera con tapa y bajada soldada) de terminación para estructuras con sistema americano.",
     imagen: "/assets/productos/accesorios/boqueta-americana.jpg",
     tipo: ["Derecha", "Izquierda", "Ambas"],
+    metros: true,
   },
   {
     id: 75,
@@ -177,6 +185,7 @@ const canaletas = [
       "Terminal (tapa soldada en 20cm de canaleta) para cierre y terminación de canaleta americana.",
     tipo: ["Derecha", "Izquierda", "Ambas"],
     imagen: "/assets/productos/canaletas/terminal-americana.jpg",
+    metros: true,
   },
   {
     id: 76,
@@ -200,6 +209,7 @@ const canaletas = [
     descripcionCorta: "",
     descripcion: "",
     imagen: "/assets/productos/canaletas/capuchon.jpg",
+    metros: true,
   },
   {
     id: 102,
@@ -208,6 +218,7 @@ const canaletas = [
     descripcionCorta: "",
     descripcion: "",
     imagen: "/assets/productos/canaletas/recibidor.jpg",
+    metros: true,
   },
   {
     id: 16,
@@ -216,6 +227,7 @@ const canaletas = [
     descripcionCorta: "Canaleta interna contra pared.",
     descripcion: "Zingueria utilizada para recibir caida de agua contra pared.",
     imagen: "/assets/productos/canaletas/interna-amurar.jpg",
+    metros: true,
   },
   {
     id: 15,
@@ -225,6 +237,7 @@ const canaletas = [
     descripcion:
       "Zingueria lateral con division utilizada bajo chapa o bajo teja.",
     imagen: "/assets/productos/canaletas/banda-peine.jpg",
+    metros: true,
   },
 ];
 

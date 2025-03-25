@@ -28,65 +28,74 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderizarProductos(productos, seccion) {
     const contenedor = document.getElementById(seccion);
     contenedor.innerHTML = "";
-  
+
     const fragmento = document.createDocumentFragment();
-  
+
     productos.forEach((info) => {
-      const miNodo = document.createElement(seccion === 'items-destacados' && info.id !== 1 ? "a" : "div");
+      const miNodo = document.createElement(
+        seccion === "items-destacados" && info.id !== 1 ? "a" : "div"
+      );
       miNodo.classList.add("card");
 
-      if (seccion === 'items-destacados' && info.href && info.id !== 1) {
+      if (seccion === "items-destacados" && info.href && info.id !== 1) {
         miNodo.setAttribute("href", info.href);
         miNodo.setAttribute("target", "_self"); // Opcional, si quieres que abra en la misma pestaña
       }
-  
+
       const miNodoCardBody = document.createElement("div");
       miNodoCardBody.classList.add("card-body");
-  
+
       const miNodoImagen = document.createElement("img");
       miNodoImagen.setAttribute("src", info.imagen);
       miNodoImagen.setAttribute("alt", info.nombre);
       miNodoImagen.setAttribute("loading", "lazy");
-      miNodoImagen.addEventListener('load', () => {
-        miNodoImagen.classList.add('loaded');
+      miNodoImagen.addEventListener("load", () => {
+        miNodoImagen.classList.add("loaded");
       });
-  
+
       const miNodoTitle = document.createElement("h5");
       miNodoTitle.classList.add("card-title");
       if (info.nombre.length > 25) {
         miNodoTitle.classList.add("titulo-largo");
       }
       miNodoTitle.textContent = info.nombre;
-  
+
       const miNodoDescripcion = document.createElement("p");
       miNodoDescripcion.classList.add("card-text");
       miNodoDescripcion.textContent = info.descripcionCorta;
-  
+
       const miNodoBoton = document.createElement("button");
       miNodoBoton.classList.add("btn", "btn-primary");
-      miNodoBoton.textContent = seccion === 'items-destacados' && info.id !== 1  ? "Ver Producto" : "Agregar";
-      
+      miNodoBoton.textContent =
+        seccion === "items-destacados" && info.id !== 1
+          ? "Ver Producto"
+          : "Agregar";
+
       miNodoBoton.setAttribute("marcador", info.id);
       miNodoCardBody.appendChild(miNodoImagen);
       miNodoCardBody.appendChild(miNodoTitle);
       miNodoCardBody.appendChild(miNodoDescripcion);
       miNodoCardBody.appendChild(miNodoBoton);
       miNodo.appendChild(miNodoCardBody);
-  
-      if (seccion !== "items-destacados" || info.id === 1 ) {
+
+      if (seccion !== "items-destacados" || info.id === 1) {
         miNodo.addEventListener("click", () => abrirModalProducto(info));
       }
-  
+
       fragmento.appendChild(miNodo);
     });
-  
-    contenedor.appendChild(fragmento);
-}
 
-  
+    contenedor.appendChild(fragmento);
+  }
 
   function agregarProductoCarrito() {
     let cantidad = parseInt(document.getElementById("inputCantidad").value);
+    let metrosSelecionados;
+    if (productoEnEdicion.metros) {
+      const cantidadMetros = document.getElementById("inputMetros");
+      metrosSelecionados =
+        cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
+    }
     const selectColor = document.getElementById("selectColor");
     const colorSeleccionado =
       selectColor && selectColor.value ? selectColor.value : null;
@@ -109,6 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (tipoSeleccionada) {
         producto.tipo = tipoSeleccionada;
       }
+      if (metrosSelecionados) {
+        producto.metros = metrosSelecionados;
+      }
 
       carrito.push(producto);
     }
@@ -129,10 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
         medida: medidaSeleccionada,
         color: colorSeleccionado,
         tipo: tipoSeleccionada,
+        metros: metrosSelecionados,
       },
       cantidad
     );
   }
+
+  //FALTA EN EL TOAST
 
   // -------------------------------------------------------- FUNCTIONS CARRITO
 
@@ -144,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const carritoAgrupado = carrito.reduce((acc, item) => {
       let key = `${item.id}-${item.color || "default"}-${
         item.medida || "default"
-      }-${item.tipo || "default"}`;
+      }-${item.tipo || "default"}-${item.metros || "default"}`;
       if (!acc[key]) {
         acc[key] = { ...item, cantidad: 1 };
       } else {
@@ -170,9 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const texto = document.createElement("span");
       texto.textContent = `${item.cantidad}x ${
         miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
-      } ${item.medida ? " - Medida: " + item.medida : ""} ${
-        item.color ? " - Color: " + item.color : ""
-      } ${item.tipo ? " - Tipo: " + item.tipo : ""}`;
+      } ${item.metros ? "- Metros: " + item.metros : ""} ${
+        item.medida ? " - Medida: " + item.medida : ""
+      } ${item.color ? " - Color: " + item.color : ""} ${
+        item.tipo ? " - Tipo: " + item.tipo : ""
+      }`;
 
       const contenedorBotones = document.createElement("div");
 
@@ -186,14 +203,21 @@ document.addEventListener("DOMContentLoaded", () => {
           true,
           item.color,
           item.medida,
-          item.tipo
+          item.tipo,
+          item.metros
         );
 
       const btnEliminar = document.createElement("button");
       btnEliminar.classList.add("btn", "btn-sm");
       btnEliminar.textContent = "❌";
       btnEliminar.onclick = () =>
-        borrarItemCarrito(item.id, item.color, item.medida, item.tipo);
+        borrarItemCarrito(
+          item.id,
+          item.color,
+          item.medida,
+          item.tipo,
+          item.metros
+        );
 
       contenedorBotones.appendChild(btnEditar);
       contenedorBotones.appendChild(btnEliminar);
@@ -213,9 +237,15 @@ document.addEventListener("DOMContentLoaded", () => {
     esEditar = false,
     colorActual = "",
     medidaActual = "",
-    tipoActual = ""
+    tipoActual = "",
+    metros = 1
   ) {
     productoEnEdicion = producto;
+    const inputCantidad = document.getElementById("inputCantidad");
+    const inputMetros = document.getElementById("inputMetros");
+
+    const cantidadContainer = document.getElementById("cantidad");
+    const metrosContainer = document.getElementById("metros");
 
     document.getElementById("modalProductoTitulo").textContent = esEditar
       ? "Editar Producto"
@@ -223,7 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modalProductoDescripcion").textContent =
       producto.descripcion;
     document.getElementById("modalProductoImagen").src = producto.imagen;
-    document.getElementById("inputCantidad").value = cantidad;
+    inputCantidad.value = cantidad;
+    inputMetros.value = metros;
 
     document.getElementById("btnMenos").onclick = () => actualizarCantidad(-1);
     document.getElementById("btnMas").onclick = () => actualizarCantidad(1);
@@ -233,20 +264,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btnModalAccion").onclick = () => {
       esEditar
-        ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual)
+        ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual, metros)
         : agregarProductoCarrito();
     };
 
-    document
-      .getElementById("inputCantidad")
-      .addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          esEditar
-            ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual)
-            : agregarProductoCarrito();
-        }
-      });
+    if (producto.metros) {
+      cantidadContainer.style.display = "none"; // Oculta cantidad
+      metrosContainer.style.display = "block"; // Muestra metros
+    } else {
+      cantidadContainer.style.display = "block"; // Muestra cantidad
+      metrosContainer.style.display = "none"; // Oculta metros
+    }
+
+    inputCantidad.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        esEditar
+          ? guardarCambiosCantidad(
+              colorActual,
+              medidaActual,
+              tipoActual,
+              metros
+            )
+          : agregarProductoCarrito();
+      }
+    });
+    inputMetros.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        esEditar
+          ? guardarCambiosCantidad(
+              colorActual,
+              medidaActual,
+              tipoActual,
+              metros
+            )
+          : agregarProductoCarrito();
+      }
+    });
 
     const contenedorColores = document.getElementById("contenedorColores");
     contenedorColores.innerHTML = "";
@@ -339,7 +394,6 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.show();
   }
 
-  // Función para actualizar la cantidad dentro del modal
   function actualizarCantidad(cambio) {
     let inputCantidad = document.getElementById("inputCantidad");
     let nuevaCantidad = parseInt(inputCantidad.value) + cambio;
@@ -347,14 +401,24 @@ document.addEventListener("DOMContentLoaded", () => {
     inputCantidad.value = nuevaCantidad;
   }
 
-  // Función para guardar los cambios en el carrito
-
-  function guardarCambiosCantidad(colorActual, medidaActual, tipoActual) {
+  function guardarCambiosCantidad(
+    colorActual,
+    medidaActual,
+    tipoActual,
+    metrosActual
+  ) {
     if (!productoEnEdicion) return;
 
     let nuevaCantidad = parseInt(
       document.getElementById("inputCantidad").value
     );
+    let metrosSelecionados;
+    if (productoEnEdicion.metros) {
+      const cantidadMetros = document.getElementById("inputMetros");
+      metrosSelecionados =
+        cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
+    }
+
     const selectColor = document.getElementById("selectColor");
     const colorSeleccionado =
       selectColor && selectColor.value ? selectColor.value : null;
@@ -369,6 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
     colorActual = colorActual === "" ? null : colorActual;
     medidaActual = medidaActual === "" ? null : medidaActual;
     tipoActual = tipoActual === "" ? null : tipoActual;
+    metrosActual = metrosActual === "" ? null : metrosActual;
 
     // Primero, eliminar la variante anterior del producto con el color previo
     carrito = carrito.filter(
@@ -377,7 +442,8 @@ document.addEventListener("DOMContentLoaded", () => {
           item.id === String(productoEnEdicion.id) &&
           (item.color || null) === colorActual &&
           (item.medida || null) === medidaActual &&
-          (item.tipo || null) === tipoActual
+          (item.tipo || null) === tipoActual &&
+          (item.metros || null) === metrosActual
         )
     );
 
@@ -388,6 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
         color: colorSeleccionado || null,
         medida: medidaSeleccionado || null,
         tipo: tipoSeleccionado || null,
+        metros: metrosSelecionados || null,
       });
     }
 
@@ -403,7 +470,8 @@ document.addEventListener("DOMContentLoaded", () => {
     idProducto,
     colorProducto,
     medidaProducto,
-    tipoProducto
+    tipoProducto,
+    metrosProducto
   ) {
     carrito = carrito.filter(
       (item) =>
@@ -411,7 +479,8 @@ document.addEventListener("DOMContentLoaded", () => {
           item.id === idProducto &&
           item.color === colorProducto &&
           item.medida === medidaProducto &&
-          item.tipo === tipoProducto
+          item.tipo === tipoProducto &&
+          item.metros === metrosProducto
         )
     );
 
@@ -456,7 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // this could be a function
       let key = `${item.id}-${item.color || "default"}-${
         item.medida || "default"
-      }-${item.tipo || "default"}`;
+      }-${item.tipo || "default"}-${item.metros || "default"}`;
 
       if (!acc[key]) {
         acc[key] = { ...item, cantidad: 1 };
@@ -477,6 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `• ${item.cantidad}x ${
             miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
           }` +
+          `${item.metros ? "- Metros: " + item.metros : ""}` +
           `${item.medida ? " - Medida: " + item.medida : ""}` +
           `${item.color ? " - Color: " + item.color : ""}` +
           `${item.tipo ? " - Tipo: " + item.tipo : ""}`
@@ -545,7 +615,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonId: "scrollRightChapasPinturas",
     scrollerContainerId: "items-chapas_pinturas",
   });
- 
+
   scrollLeft({
     buttonId: "scrollLeftSelladoresPinturas",
     scrollerContainerId: "items-selladores_pinturas",
@@ -554,7 +624,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonId: "scrollRightSelladoresPinturas",
     scrollerContainerId: "items-selladores_pinturas",
   });
- 
+
   scrollLeft({
     buttonId: "scrollLeftClaraboyas",
     scrollerContainerId: "items-claraboyas_trabajos-especiales",
@@ -616,9 +686,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toastBody.textContent = `Has agregado correctamente ${cantidad} de ${
       producto.nombreCarrito ? producto.nombreCarrito : producto.nombre
-    }${producto.medida ? " - Medida: " + producto.medida : ""}${
-      producto.color ? " - Color: " + producto.color : ""
-    }${producto.tipo ? " - Tipo: " + producto.tipo : ""} al carrito.`;
+    }${producto.metros ? "- Metros: " + producto.metros : ""}${
+      producto.medida ? " - Medida: " + producto.medida : ""
+    }${producto.color ? " - Color: " + producto.color : ""}${
+      producto.tipo ? " - Tipo: " + producto.tipo : ""
+    } al carrito.`;
 
     const toast = new bootstrap.Toast(toastElement, {
       autohide: true,
