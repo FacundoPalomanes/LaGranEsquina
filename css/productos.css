@@ -217,3 +217,8 @@ body.dark-mode .modal-content {
   line-height: 1.2;
   min-height: 3rem;
 }
+
+.card {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Mantiene el color del texto original */
+}

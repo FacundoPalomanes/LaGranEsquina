@@ -165,7 +165,10 @@
                                 <a class="nav-link" href="#items-chapas_pinturas">Selladores y Pinturas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#items-selladores_pinturas">Membranas y Aislantes</a>
+                                <a class="nav-link" href="#items-selladores_pinturas">Claraboyas y Trabajos Especiales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#items-claraboyas_trabajos-especiales">Membranas y Aislantes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#items-membranas_aislantes">Durlock y Placa Cementicia</a>
@@ -222,9 +225,11 @@
         </div>
 
         <!-- Redondos y Rectangulares -->
-        <div class="block">
+        <div class="block carousel-container position-relative">
             <h2 class="text-center my-3">Caños Redondos y Rectangulares</h2>
+            <button class="arrow left" id="scrollLeftCaniosGrampas">&#10094;</button>
             <div id="items-canios_grampas" class="item-gap d-flex overflow-auto p-2"></div>
+            <button class="arrow right" id="scrollRightCaniosGrampas">&#10095;</button>
         </div>
 
         <!-- Sombreros -->
@@ -236,9 +241,11 @@
         </div>
 
         <!-- Chapas -->
-        <div class="block">
+        <div class="block carousel-container position-relative">
             <h2 class="text-center my-3">Chapas</h2>
+            <button class="arrow left" id="scrollLeftChapasPinturas">&#10094;</button>
             <div id="items-chapas_pinturas" class=" item-gap d-flex overflow-auto p-2"></div>
+            <button class="arrow right" id="scrollRightChapasPinturas">&#10095;</button>
         </div>
 
         
@@ -246,12 +253,16 @@
         <!-- Selladores y Pinturas -->
         <div class="block carousel-container position-relative">
             <h2 class="text-center my-3">Selladores y Pinturas</h2>
+            <button class="arrow left" id="scrollLeftSelladoresPinturas">&#10094;</button>
             <div id="items-selladores_pinturas" class=" item-gap d-flex overflow-auto p-2"></div>
+            <button class="arrow right" id="scrollRightSelladoresPinturas">&#10095;</button>
         </div>
 
         <div class="block carousel-container position-relative">
             <h2 class="text-center my-3">Claraboyas y Trabajos Especiales</h2>
+            <button class="arrow left" id="scrollLeftClaraboyas">&#10094;</button>
             <div id="items-claraboyas_trabajos-especiales" class=" item-gap d-flex overflow-auto p-2"></div>
+            <button class="arrow right" id="scrollRightClaraboyas">&#10095;</button>
         </div>
 
         <!-- Membranas y Aislantes -->
@@ -306,10 +317,11 @@
                     <div class="modal-body">
                         <img id="modalProductoImagen" src="" alt="Imagen del producto" style="width: 100%;">
                         <p id="modalProductoDescripcion"></p>
+                        <h6>Cantidad</h6>
                         <div class="d-flex align-items-center">
                             <button id="btnMenos" class="btn btn-danger">-</button>
                             <input type="number" id="inputCantidad" class="form-control mx-2 text-center" value="1"
-                                min="1" style="width: 60px;">
+                                min="1" style="width: 80px;">
                             <button id="btnMas" class="btn btn-primary">+</button>
                         </div>
                         <div id="contenedorColores"></div>

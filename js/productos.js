@@ -32,8 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const fragmento = document.createDocumentFragment();
   
     productos.forEach((info) => {
-      const miNodo = document.createElement("div");
+      const miNodo = document.createElement(seccion === 'items-destacados' && info.id !== 1 ? "a" : "div");
       miNodo.classList.add("card");
+
+      if (seccion === 'items-destacados' && info.href && info.id !== 1) {
+        miNodo.setAttribute("href", info.href);
+        miNodo.setAttribute("target", "_self"); // Opcional, si quieres que abra en la misma pestaña
+      }
   
       const miNodoCardBody = document.createElement("div");
       miNodoCardBody.classList.add("card-body");
@@ -59,22 +64,25 @@ document.addEventListener("DOMContentLoaded", () => {
   
       const miNodoBoton = document.createElement("button");
       miNodoBoton.classList.add("btn", "btn-primary");
-      miNodoBoton.textContent = "Agregar";
+      miNodoBoton.textContent = seccion === 'items-destacados' && info.id !== 1  ? "Ver Producto" : "Agregar";
+      
       miNodoBoton.setAttribute("marcador", info.id);
-  
       miNodoCardBody.appendChild(miNodoImagen);
       miNodoCardBody.appendChild(miNodoTitle);
       miNodoCardBody.appendChild(miNodoDescripcion);
       miNodoCardBody.appendChild(miNodoBoton);
       miNodo.appendChild(miNodoCardBody);
   
-      miNodo.addEventListener("click", () => abrirModalProducto(info));
+      if (seccion !== "items-destacados" || info.id === 1 ) {
+        miNodo.addEventListener("click", () => abrirModalProducto(info));
+      }
   
       fragmento.appendChild(miNodo);
     });
   
     contenedor.appendChild(fragmento);
-  }
+}
+
   
 
   function agregarProductoCarrito() {
@@ -512,12 +520,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   scrollLeft({
+    buttonId: "scrollLeftCaniosGrampas",
+    scrollerContainerId: "items-canios_grampas",
+  });
+  scrollRight({
+    buttonId: "scrollRightCaniosGrampas",
+    scrollerContainerId: "items-canios_grampas",
+  });
+
+  scrollLeft({
     buttonId: "scrollLeftSombreros",
     scrollerContainerId: "items-sombreros",
   });
   scrollRight({
     buttonId: "scrollRightSombreros",
     scrollerContainerId: "items-sombreros",
+  });
+
+  scrollLeft({
+    buttonId: "scrollLeftChapasPinturas",
+    scrollerContainerId: "items-chapas_pinturas",
+  });
+  scrollRight({
+    buttonId: "scrollRightChapasPinturas",
+    scrollerContainerId: "items-chapas_pinturas",
+  });
+ 
+  scrollLeft({
+    buttonId: "scrollLeftSelladoresPinturas",
+    scrollerContainerId: "items-selladores_pinturas",
+  });
+  scrollRight({
+    buttonId: "scrollRightSelladoresPinturas",
+    scrollerContainerId: "items-selladores_pinturas",
+  });
+ 
+  scrollLeft({
+    buttonId: "scrollLeftClaraboyas",
+    scrollerContainerId: "items-claraboyas_trabajos-especiales",
+  });
+  scrollRight({
+    buttonId: "scrollRightClaraboyas",
+    scrollerContainerId: "items-claraboyas_trabajos-especiales",
   });
 
   scrollLeft({

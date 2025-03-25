@@ -16,6 +16,7 @@ export const productosDestacados = [
       "Disponemos en stock de todos los productos para su instalacion.",
     imagen: "/assets/productos/productosDestacados/membrana-plastica.png",
     tipo: ["35 Kilogramos", "40 Kilogramos"],
+    href: '#items-claraboyas_trabajos-especiales'
   },
   {
     id: 3,
@@ -24,6 +25,7 @@ export const productosDestacados = [
     descripcion:
       "Material liviano y de alta resistencia a impactos, ideal para techos y cerramientos translúcidos con protección UV.",
     imagen: "/assets/productos/productosDestacados/policarbonato.webp",
+     href: '#items-durlock'
   },
   {
     id: 4,
@@ -31,6 +33,7 @@ export const productosDestacados = [
     descripcionCorta: "Chapa trapezoidal en varias medidas cincalum.",
     descripcion: "Chapa cincalum C/25 para todo tipo de techos y cerramientos.",
     imagen: "/assets/productos/productosDestacados/chapa-t101.jpeg",
+    href: '#items-sombreros'
   },
   {
     id: 5,
@@ -39,6 +42,7 @@ export const productosDestacados = [
     descripcion:
       "Chapa cincalum C/25 o 27 para todo tipo de techos y cerramientos.",
     imagen: "/assets/productos/productosDestacados/chapa-acanalada.webp",
+    href: '#items-sombreros'
   },
   {
     id: 6,
@@ -47,6 +51,7 @@ export const productosDestacados = [
     descripcion:
       "Sistema constructivo en seco para la realización de paredes, cielorrasos y revestimientos interiores, ofreciendo aislamiento acústico y térmico.",
     imagen: "/assets/productos/productosDestacados/durlock.png",
+    href: '#items-membranas_aislantes'
   },
   {
     id: 7,
@@ -56,6 +61,7 @@ export const productosDestacados = [
       "Sellador de alta adherencia para zinguerias, grietas y juntas en distintas superficies, disponible en varios colores.",
     color: ["Negro", "Gris", "Blanco", "Incoloro"],
     imagen: "/assets/productos/productosDestacados/sellador.webp",
+    href: '#items-chapas_pinturas'
   },
   {
     id: 8,
@@ -64,6 +70,7 @@ export const productosDestacados = [
     descripcion:
       "Elemento de terminación en cubiertas de chapa, tejas, etc. que evita filtraciones y mejora la estética del techo.",
     imagen: "/assets/productos/babetas/atornillar-c30.webp",
+    href: '#items-canaletas'
   },
   {
     id: 9,
@@ -72,6 +79,7 @@ export const productosDestacados = [
     descripcion:
       "Material galvanizado utilizado en bajadas de zingueria, conductos de aire, etc.",
     imagen: "/assets/productos/productosDestacados/canio-redondo.jpg",
+    href: "#items-curvas"
   },
   {
     id: 10,
@@ -80,6 +88,7 @@ export const productosDestacados = [
     descripcion:
       "Material galvanizado utilizado en bajadas de zingueria, conductos de aire, etc.",
     imagen: "/assets/productos/productosDestacados/canio-rectangular.jpg",
+    href: "#items-curvas"
   },
   {
     id: 11,
@@ -88,6 +97,7 @@ export const productosDestacados = [
     descripcion:
       "Accesorio para la protección de ductos de ventilación y chimeneas, evitando la entrada de agua y objetos externos.",
     imagen: "/assets/productos/productosDestacados/sombrero.jpg",
+    href: "#items-canios_grampas"
   },
 ];
 
@@ -197,7 +207,7 @@ const canaletas = [
     nombreCarrito: "Canaleta Recibidor",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/canaletas/banda-peine.jpg",
+    imagen: "/assets/productos/canaletas/recibidor.jpg",
   },
   {
     id: 16,
@@ -680,7 +690,7 @@ const selladores_y_pinturas = [
     nombre: "Sellagrietas",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/selladores_y_pinturas/sellagrietas.jpg",
+    imagen: "/assets/productos/selladores_y_pinturas/sellagrietas.png",
   },
   {
     id: 87,
@@ -714,7 +724,7 @@ const selladores_y_pinturas = [
     nombre: "Sellador de Alta Temperatura",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/selladores_y_pinturas/sellador-alta-temperatura.jpg",
+    imagen: "/assets/productos/selladores_y_pinturas/sellador-alta-temperatura.png",
   },
   {
     id: 89,
@@ -877,7 +887,7 @@ const membranas_y_aislantes = [
     nombre: "House Cover 1,5 x 20 Metros",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
+    imagen: "/assets/productos/membranasYAislantes/house-cover.jpg",
   },
 ];
 
