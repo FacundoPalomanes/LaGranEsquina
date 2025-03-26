@@ -267,13 +267,17 @@
   }
 }
 
-.navbar-nav .nav-item a[href="#items-caballetes_conversas"], a[href="#items-curvas"], a[href="#items-canios_grampas"] {
+.navbar-nav .nav-item a[href="#items-caballetes_conversas"],
+.navbar-nav .nav-item a[href="#items-curvas"],
+.navbar-nav .nav-item a[href="#items-canios_grampas"] {
   color: #0c2ff0;
 }
 
-.navbar-nav .nav-item a[href="#items-sombreros"], a[href="#items-chapas_pinturas"] {
+.navbar-nav .nav-item a[href="#items-sombreros"],
+.navbar-nav .nav-item a[href="#items-chapas_pinturas"] {
   color: #34ed13;
 }
+
 .navbar-nav .nav-item a[href="#items-selladores_pinturas"] {
   color: #d209f2;
 }
