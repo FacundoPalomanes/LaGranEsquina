@@ -18,8 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderAllSections();
 
-async function renderAllSections() {
-    const data = await fetch("/data");
+  async function renderAllSections() {
+    const data = await fetch("http://localhost:3000/data", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      cache: "default",
+    });
     const productos = await data.json();
 
     const sections = [
@@ -41,13 +48,11 @@ async function renderAllSections() {
     ];
 
     // Iterar sobre cada sección y crear una tabla
-    sections.forEach(({ items, id }) => { 
+    sections.forEach(({ items, id }) => {
       if (productos[items]) {
         renderizarProductos(productos[items], id);
       } else {
-        console.error(
-          `La sección ${id} no está definida en los productos.`
-        );
+        console.error(`La sección ${id} no está definida en los productos.`);
       }
     });
   }
@@ -745,23 +750,18 @@ async function renderAllSections() {
       formData.append("file", fileInput.files[0]);
 
       // Enviar el archivo al servidor
-      fetch("/upload", {
+      fetch("http://localhost:3000/upload", {
         method: "POST",
         body: formData,
       })
-        .then((response) => response.json()) // Convertir la respuesta a JSON
-        .then((data) => {
-          // Una vez que el archivo ha sido subido, obtener el archivo JSON
-          fetch("/data")
-            .then((response) => response.json()) // Obtener los datos en formato JSON
-            .then((jsonData) => {
-              renderData(jsonData); // Mostrar los datos en la página
-            })
-            .catch((err) =>
-              console.error("Error al obtener los datos JSON:", err)
-            );
+        .then((response) => {
+          console.log(response); // Corregido el error de sintaxis
+          return response.json(); // Si esperas un JSON en la respuesta, puedes parsearlo aquí
         })
-        .catch((err) => console.error("Error al subir el archivo:", err));
-    });
-
-});
+        .then((data) => {
+          console.log(data); // Maneja la respuesta de la API
+        })
+        .catch((err) => {
+          console.error("Error al obtener los datos JSON:", err);
+        })      
+})})

@@ -66,50 +66,65 @@ document.addEventListener("DOMContentLoaded", () => {
   renderizarProductos();
 
   async function renderizarProductos() {
-    const data = await fetch("/data");
-    const productos = await data.json();
+    try{
 
-    const contenedor = document.getElementById("items-destacados");
-    contenedor.innerHTML = "";
-
-    productos["productosDestacados"].splice(-2);
-
-    productos["productosDestacados"].forEach((info) => {
-      const miNodo = document.createElement("div");
-      miNodo.classList.add("card");
-
-      const miNodoCardBody = document.createElement("div");
-      miNodoCardBody.classList.add("card-body");
-
-      const miNodoImagen = document.createElement("img");
-      miNodoImagen.setAttribute("src", info.imagen);
-      miNodoImagen.setAttribute("alt", info.nombre);
-
-      const miNodoTitle = document.createElement("h5");
-      miNodoTitle.classList.add("card-title");
-      if (info.nombre.length > 25) {
-        miNodoTitle.classList.add("titulo-largo");
-      }
-      miNodoTitle.textContent = info.nombre;
-
-      const miNodoDescripcion = document.createElement("p");
-      miNodoDescripcion.classList.add("card-text");
-      miNodoDescripcion.textContent = info.descripcionCorta;
-
-      const miNodoBoton = document.createElement("button");
-      miNodoBoton.classList.add("btn", "btn-color");
-      miNodoBoton.textContent = "Ver Producto";
-      miNodoBoton.setAttribute("marcador", info.id);
-
-      miNodoCardBody.appendChild(miNodoImagen);
-      miNodoCardBody.appendChild(miNodoTitle);
-      miNodoCardBody.appendChild(miNodoDescripcion);
-      miNodoCardBody.appendChild(miNodoBoton);
-      miNodo.appendChild(miNodoCardBody);
-      miNodo.addEventListener("click", () => abrirModalProducto(info));
-
-      contenedor.appendChild(miNodo);
-    });
+      const data = await fetch("http://localhost:3000/data", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "cors",
+        cache: "default",
+      });
+      
+      const productos = await data.json();
+  
+      console.log(productos)
+  
+      const contenedor = document.getElementById("items-destacados");
+      contenedor.innerHTML = "";
+  
+      productos["productosDestacados"].splice(-2);
+  
+      productos["productosDestacados"].forEach((info) => {
+        const miNodo = document.createElement("div");
+        miNodo.classList.add("card");
+  
+        const miNodoCardBody = document.createElement("div");
+        miNodoCardBody.classList.add("card-body");
+  
+        const miNodoImagen = document.createElement("img");
+        miNodoImagen.setAttribute("src", info.imagen);
+        miNodoImagen.setAttribute("alt", info.nombre);
+  
+        const miNodoTitle = document.createElement("h5");
+        miNodoTitle.classList.add("card-title");
+        if (info.nombre.length > 25) {
+          miNodoTitle.classList.add("titulo-largo");
+        }
+        miNodoTitle.textContent = info.nombre;
+  
+        const miNodoDescripcion = document.createElement("p");
+        miNodoDescripcion.classList.add("card-text");
+        miNodoDescripcion.textContent = info.descripcionCorta;
+  
+        const miNodoBoton = document.createElement("button");
+        miNodoBoton.classList.add("btn", "btn-color");
+        miNodoBoton.textContent = "Ver Producto";
+        miNodoBoton.setAttribute("marcador", info.id);
+  
+        miNodoCardBody.appendChild(miNodoImagen);
+        miNodoCardBody.appendChild(miNodoTitle);
+        miNodoCardBody.appendChild(miNodoDescripcion);
+        miNodoCardBody.appendChild(miNodoBoton);
+        miNodo.appendChild(miNodoCardBody);
+        miNodo.addEventListener("click", () => abrirModalProducto(info));
+  
+        contenedor.appendChild(miNodo);
+      });
+    }catch(err) {
+      console.log(err);
+    }
   }
 
   function abrirModalProducto(
