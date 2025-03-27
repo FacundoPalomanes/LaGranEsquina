@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderAllSections();
 
   async function renderAllSections() {
-    const data = await fetch("http://localhost:3000/data", {
+    const data = await fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/data", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -750,7 +750,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formData.append("file", fileInput.files[0]);
 
       // Enviar el archivo al servidor
-      fetch("http://localhost:3000/upload", {
+      fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/upload", {
         method: "POST",
         body: formData,
       })

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function renderizarProductos() {
     try{
 
-      const data = await fetch("http://localhost:3000/data", {
+      const data = await fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/data", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
