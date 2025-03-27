@@ -15,6 +15,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.row img {
+  width: 17%;
+}
+
 p {
   margin: 0;
   color: var(--grid-p-dark-gray);
@@ -54,9 +58,9 @@ p {
   display: contents; /* Permitir que los ítems usen las celdas del grid */
 }
 
-.pay-item ion-icon {
-  font-size: 24px;
-  justify-self: center; /* Centrar íconos en su columna */
+.pay-item img {
+  width: 75%;
+  justify-self: center; 
 }
 
 .pay-item p {
@@ -70,6 +74,11 @@ body.dark-mode p {
 
 body.dark-mode .row {
   background-color: var(--black);
+}
+
+body.dark-mode .row img {
+  background-color: var(--white);
+  filter: invert(1); 
 }
 
 /* Pantallas pequeñas: 1 columna */

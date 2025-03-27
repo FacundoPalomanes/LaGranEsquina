@@ -3,101 +3,97 @@ export const productosDestacados = [
     id: 1,
     nombre: "Kit Americana",
     descripcionCorta: "Kit completo para instalación de canaletas.",
-    descripcion:
-      "Incluye todos los accesorios necesarios para la instalación de canaletas y desagues.",
+    descripcion: "Incluye todos los accesorios necesarios para la instalación.",
     imagen: "/assets/productos/productosDestacados/kit-americana.webp",
   },
   {
     id: 2,
-    nombre: "Membrana asfáltica",
+    nombre: "Membranas asfálticas",
     descripcionCorta:
       "Membrana con aluminio impermeabilizante para techos y paredes.",
     descripcion:
       "Disponemos en stock de todos los productos para su instalacion.",
     imagen: "/assets/productos/productosDestacados/membrana-plastica.png",
     tipo: ["35 Kilogramos", "40 Kilogramos"],
-    href: '#items-claraboyas_trabajos-especiales'
+    href: "#items-claraboyas_trabajos-especiales",
   },
   {
     id: 3,
-    nombre: "Policarbonato",
+    nombre: "Policarbonatos",
     descripcionCorta: "Placa translúcidas resistentes y flexibles.",
     descripcion:
       "Material liviano y de alta resistencia a impactos, ideal para techos y cerramientos translúcidos con protección UV.",
     imagen: "/assets/productos/productosDestacados/policarbonato.webp",
-     href: '#items-durlock'
+    href: "#items-durlock",
   },
   {
     id: 4,
-    nombre: "Chapa Trapezoidal",
+    nombre: "Chapas Trapezoidales",
     descripcionCorta: "Chapa trapezoidal en varias medidas cincalum.",
     descripcion: "Chapa cincalum C/25 para todo tipo de techos y cerramientos.",
     imagen: "/assets/productos/productosDestacados/chapa-t101.jpeg",
-    href: '#items-sombreros'
+    href: "#items-sombreros",
   },
   {
     id: 5,
-    nombre: "Chapa Acanalada",
+    nombre: "Chapas Sinusoidales",
     descripcionCorta: "Chapa sinusoidal cincalum varias medidas.",
-    descripcion:
-      "Chapa cincalum C/25 o 27 para todo tipo de techos y cerramientos.",
+    descripcion: "Chapa cincalum C/25 o 27 en varias medidas.",
     imagen: "/assets/productos/productosDestacados/chapa-acanalada.webp",
-    href: '#items-sombreros'
+    href: "#items-sombreros",
   },
   {
     id: 6,
     nombre: "Durlock",
     descripcionCorta: "Placas de yeso para divisiones y cielorrasos.",
-    descripcion:
-      "Sistema constructivo en seco para la realización de paredes, cielorrasos y revestimientos interiores, ofreciendo aislamiento acústico y térmico.",
+    descripcion: "Placas de yeso para divisiones y cielorrasos.",
     imagen: "/assets/productos/productosDestacados/durlock.png",
-    href: '#items-membranas_aislantes'
+    href: "#items-membranas_aislantes",
   },
   {
     id: 7,
-    nombre: "Sellador",
-    descripcionCorta: "Compuesto para sellado de juntas y grietas.",
+    nombre: "Selladores",
+    descripcionCorta: "Sellador de alta adherencia en varios colores.",
     descripcion:
-      "Sellador de alta adherencia para zinguerias, grietas y juntas en distintas superficies, disponible en varios colores.",
+      "Sellador de multiples usos generales con alta adherencia y flexibilidad.",
     color: ["Negro", "Gris", "Blanco", "Incoloro"],
     imagen: "/assets/productos/productosDestacados/sellador.webp",
-    href: '#items-chapas_pinturas'
+    href: "#items-chapas_pinturas",
   },
   {
     id: 8,
-    nombre: "Babeta",
+    nombre: "Babetas",
     descripcionCorta: "Perfiles metálicos para terminaciones en techos.",
-    descripcion:
-      "Elemento de terminación en cubiertas de chapa, tejas, etc. que evita filtraciones y mejora la estética del techo.",
+    descripcion: "Elemento de terminación que evita filtraciones.",
     imagen: "/assets/productos/babetas/atornillar-c30.webp",
-    href: '#items-canaletas'
+    href: "#items-canaletas",
   },
   {
     id: 9,
-    nombre: "Caño redondo",
+    nombre: "Caños redondos",
     descripcionCorta: "Varias medidas en stock.",
     descripcion:
-      "Material galvanizado utilizado en bajadas de zingueria, conductos de aire, etc.",
+      "Material galvanizado utilizado para bajadas de zingueria, conductos de aire, etc.",
     imagen: "/assets/productos/productosDestacados/canio-redondo.jpg",
-    href: "#items-curvas"
+    href: "#items-curvas",
   },
   {
     id: 10,
-    nombre: "Caño rectangular",
+    nombre: "Caños rectangulares",
     descripcionCorta: "Caño rectangular de 5x10 o 7x12 cm.",
     descripcion:
       "Material galvanizado utilizado en bajadas de zingueria, conductos de aire, etc.",
     imagen: "/assets/productos/productosDestacados/canio-rectangular.jpg",
-    href: "#items-curvas"
+    href: "#items-curvas",
   },
   {
     id: 11,
-    nombre: "Sombrero",
+    nombre: "Sombreros",
     descripcionCorta: "Terminación metálica para chimeneas y ventilaciones.",
     descripcion:
       "Accesorio para la protección de ductos de ventilación y chimeneas, evitando la entrada de agua y objetos externos.",
     imagen: "/assets/productos/productosDestacados/sombrero.jpg",
-    href: "#items-canios_grampas"
+    href: "#items-canios_grampas",
   },
 ];
 
@@ -246,7 +242,7 @@ const babetas = [
     id: 18,
     nombre: "Babeta C/30",
     nombreCarrito: "Babeta C/30",
-    tipo: ["Para Atornillar", "Para Amoladora", "Sobreteja"],
+    tipo: ["Para Atornillar", "Para Amoladora", "Para Amurar"],
     imagen: "/assets/productos/babetas/atornillar-c30.webp",
   },
   {
@@ -254,7 +250,7 @@ const babetas = [
     nombre: "Babeta C/27",
     nombreCarrito: "Babeta Para Atornillar C/27",
     imagen: "/assets/productos/babetas/atornillar-c27.webp",
-    tipo: ["Para Atornillar", "Para Amoladora", "Sobreteja"],
+    tipo: ["Para Atornillar", "Para Amoladora", "Para Amurar"],
   },
   {
     id: 24,
@@ -275,7 +271,7 @@ const caballetes_y_conversas = [
     nombre: "Conversa",
     descripcionCorta: "Conversa de mayor tamaño para unir cubiertas metálicas.",
     descripcion:
-      "Se utiliza cuando convergen dos aguas de distintos niveles de techo de mayor tamaño.",
+      "Se utiliza cuando convergen dos aguas de distintos niveles del mismo techo.",
     imagen: "/assets/productos/caballeteYConversas/conversa.png",
     medida: ["33 Centimetros", "40 Centimetros"],
   },
@@ -289,7 +285,7 @@ const caballetes_y_conversas = [
   },
   {
     id: 28,
-    nombre: "Caballete",
+    nombre: "Caballetes",
     descripcionCorta: "Caballete de cierre para techos",
     descripcion:
       "Caballete o cumbrera diseñado para el cierre superior de techos.",
@@ -301,7 +297,7 @@ const caballetes_y_conversas = [
     nombre: "Caballete C/Forma",
     descripcionCorta: "Caballete con forma sinusoidal y trapezoidal.",
     descripcion:
-      "Caballete o cumbrera con diseño especial sinusoidal o trapezoidal para cierre superior de techo.",
+      "Caballete o cumbrera (en 2 partes) con diseño especial sinusoidal o trapezoidal para cierre superior de techo.",
     tipo: ["Sinusoidal", "Trapezoidal"],
     imagen: "/assets/productos/caballeteYConversas/caballete-cforma.png",
   },
@@ -310,7 +306,7 @@ const caballetes_y_conversas = [
 const curvas = [
   {
     id: 31,
-    nombre: "Articulada",
+    nombre: "Curvas Articuladas",
     nombreCarrito: "Curva Articulada",
     descripcionCorta: "Curva flexible para ajuste en instalaciones diversas.",
     descripcion:
@@ -338,7 +334,7 @@ const curvas = [
   },
   {
     id: 32,
-    nombre: "Corrugada",
+    nombre: "Curvas Corrugadas",
     nombreCarrito: "Curva Corrugada",
     descripcionCorta: "Curva reforzada con diseño corrugado resistente.",
     descripcion:
@@ -357,22 +353,22 @@ const curvas = [
   },
   {
     id: 39,
-    nombre: "Codos",
+    nombre: "Codos 5x10 y 7x12",
     descripcionCorta: "Codo galvanizado de 5x10 cm.",
-    descripcion: "Codo de 5x10 cm a 45° a 90° // de frente y de costado.",
+    descripcion: "Codos de 5x10 cm a 45° a 90° // de frente y de costado.",
     tipo: [
       "De Frente 5 x 10",
       "De Frente 7 x 12",
       "De Costado 5 x 10",
       "De Costado 7 x 12",
     ],
-    medida: ["45°", "90°"],
+    medida: ["45°", "90°", "de frente y de costado"],
     imagen: "/assets/productos/caniosYGrampas/codo-cinco-diez.jpg",
   },
   {
     id: 40,
-    nombre: "Codo Redondo Soldado",
-    descripcionCorta: "Codo galvanizado",
+    nombre: "Codos Redondos Soldados",
+    descripcionCorta: "Codo galvanizado a 45°",
     tipo: ["45°", "90°"],
     medida: ["3 Pulgadas", "4 Pulgadas", "5 Pulgadas", "6 Pulgadas"],
     descripcion: "Codo a 45° // de frente y de costado.",
@@ -383,7 +379,7 @@ const curvas = [
 const canios_y_grampas = [
   {
     id: 35,
-    nombre: "Redondo",
+    nombre: "Caños Redondos",
     nombreCarrito: "Caño Redondo",
     descripcionCorta: "Caño redondo en distintas medidas y espesores.",
     descripcion:
@@ -417,7 +413,7 @@ const canios_y_grampas = [
   },
   {
     id: 37,
-    nombre: "Caño 5x10",
+    nombre: "Caños 5x10",
     descripcionCorta: "Caño rectangular de 5x10 cm.",
     descripcion:
       "Caño galvanizado utilizable para bajada de zingueria o conductos de aire.",
@@ -425,7 +421,7 @@ const canios_y_grampas = [
   },
   {
     id: 38,
-    nombre: "Caño 7x12",
+    nombre: "Caños 7x12",
     descripcionCorta: "Caño rectangular de 7x12 cm.",
     descripcion:
       "Caño galvanizado utilizable para bajada de zingueria o conductos de aire.",
@@ -442,8 +438,8 @@ const canios_y_grampas = [
   {
     id: 79,
     nombre: "Grampas",
-    descripcionCorta: "Grampas metálicas de sujeción en varias medidas.",
-    descripcion: "Grampas metálicas resistentes para fijación estructural.",
+    descripcionCorta: "Grampas para caños de bajada 5x10 o 7x12.",
+    descripcion: "Grampas para caños de bajada 5x10 o 7x12.",
     medida: ["5 x 10", "7 x 12"],
     imagen: "/assets/productos/accesorios/grampa.jpg",
   },
@@ -496,11 +492,11 @@ const sombreros = [
   },
   {
     id: 42,
-    nombre: "Americano Venturi",
+    nombre: "Americano o Venturi",
     nombreCarrito: "Sombrero Americano Venturi",
     descripcionCorta: "Diseño americano con efecto Venturi para mejor flujo.",
     descripcion:
-      "El Sombrero Americano Venturi es ideal para chimeneas, parrillas y ductos que requieren una eficiente extracción de humos y gases.",
+      "El Sombrero Americano o Venturi es ideal para chimeneas, parrillas y ductos que requieren una eficiente extracción de humos y gases.",
     imagen: "/assets/productos/sombreros/americano-venturi.webp",
     medida: [`3"`, `4"`, `6"`, `8"`, `10"`, `12"`, `10" Negro`, `12" Negro`],
   },
@@ -526,11 +522,11 @@ const sombreros = [
   },
   {
     id: 45,
-    nombre: "Giratorio Eolico",
+    nombre: "Giratorio o Eolico",
     nombreCarrito: "Sombrero Giratorio Eolico",
     descripcionCorta: "Sistema giratorio para optimizar la extracción de aire.",
     descripcion:
-      "El Sombrero Giratorio Eólico aprovecha la fuerza del viento para mejorar la ventilación y extracción de humos sin consumo eléctrico. Es una solución ecológica y eficiente.",
+      "El Sombrero Giratorio o Eólico aprovecha la fuerza del viento para mejorar la ventilación y extracción de humos sin consumo eléctrico (ideal para galpones). Es una solución ecológica y eficiente.",
     imagen: "/assets/productos/sombreros/eolico.jpg",
     medida: [`4"`, `6"`, `8"`, `10"`, `12"`, `16"`, `20"`, `24"`, `30"`],
   },
@@ -539,7 +535,7 @@ const sombreros = [
     nombre: "Base Eolico Giratorio",
     descripcionCorta: "Base para sombrero giratorio, mejora la estabilidad.",
     descripcion:
-      "La Base Eólico Giratorio con bandeja proporciona una estructura sólida y estable para la instalación de sombreros giratorios.",
+      "La Base de los Sombreros Eolicos o Giratorios proporciona una estructura sólida y estable para la instalación de sombreros giratorios.",
     imagen: "/assets/productos/sombreros/base-eolico.png",
     medida: [`16"`, `20"`, `24"`],
   },
@@ -548,13 +544,20 @@ const sombreros = [
 const chapas_pinturas = [
   {
     id: 47,
-    nombre: "Lisa",
+    nombre: "Chapas Lisas",
     nombreCarrito: "Chapa Lisa",
     descripcionCorta: "Chapa lisa galvanizada.",
     descripcion:
       "La Chapa Lisa galvanizada es ideal para zingueria, cubiertas, revestimientos y aplicaciones estructurales. Su acabado uniforme permite una instalación sencilla y una estética limpia.",
     imagen: "/assets/productos/chapas/lisa.jpg",
-    medida: ["C/30 1x2", "C/28 1x2", "C/27 4x8", "C/25 4x8", "C/25 4x8 color", "C/22 4x8"],
+    medida: [
+      "C/30 1x2",
+      "C/28 1x2",
+      "C/27 4x8",
+      "C/25 4x8",
+      "C/25 4x8 color",
+      "C/22 4x8",
+    ],
   },
   {
     id: 48,
@@ -578,7 +581,7 @@ const chapas_pinturas = [
       "7.5 Metros",
       "8 Metros",
     ],
-    tipo: ["Calibre 25", "Calibre 27"]
+    tipo: ["Calibre 25", "Calibre 27"],
   },
   {
     id: 50,
@@ -604,7 +607,7 @@ const chapas_pinturas = [
   },
   {
     id: 51,
-    nombre: "Plastica",
+    nombre: "Chapas Plasticas",
     nombreCarrito: "Chapa Plástica",
     descripcionCorta: "Chapa sinusoidal plastica de varios largos.",
     descripcion:
@@ -665,7 +668,7 @@ const chapas_pinturas = [
   },
   {
     id: 85,
-    nombre: "Tornillo Autoperforante",
+    nombre: "Tornillos Autoperforantes",
     descripcionCorta: "Tornillos autoperforantes para madera y chapa.",
     descripcion:
       "Tornillos resistentes con punta autoperforante para fijación.",
@@ -682,8 +685,8 @@ const chapas_pinturas = [
   },
   {
     id: 86,
-    nombre: "Separador Plastico",
-    descripcionCorta: "Separador plástico resistente para estructuras.",
+    nombre: "Separadores Plasticos",
+    descripcionCorta: "Separadores plásticos resistente para estructuras.",
     descripcion: "Separador de plástico duradero para diferentes aplicaciones.",
     imagen: "/assets/productos/accesorios/separador-plastico.webp",
   },
@@ -737,7 +740,8 @@ const selladores_y_pinturas = [
     nombre: "Sellador de Alta Temperatura",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/selladores_y_pinturas/sellador-alta-temperatura.png",
+    imagen:
+      "/assets/productos/selladores_y_pinturas/sellador-alta-temperatura.png",
   },
   {
     id: 89,
@@ -814,18 +818,18 @@ const claraboyas_y_te = [
 const membranas_y_aislantes = [
   {
     id: 53,
-    nombre: "Membrana N°4",
+    nombre: "Membrana Asfaltica N°4 (35kg)",
     nombreCarrito: "Membrana N°4 (35kg)",
     descripcionCorta:
       "Membrana asfáltica con babeta para impermeabilizar de 35kg.",
     descripcion:
-      "La Membrana N°4 con aluminio es ideal para impermeabilización de techos y terrazas. Su composición asfáltica garantiza una excelente protección contra filtraciones.",
+      "La Membrana N°4 Isomanta (Emapi) con aluminio es ideal para impermeabilización de techos y terrazas. Su composición asfáltica garantiza una excelente protección contra filtraciones.",
     tipo: ["Emapi", "Aislamax"],
     imagen: "/assets/productos/membranasYAislantes/membrana-asfaltica.webp",
   },
   {
     id: 54,
-    nombre: "Membrana 4 MM (40kg)",
+    nombre: "Membrana Asfaltica 4 MM (40kg)",
     nombreCarrito: "Membrana 4 MM",
     descripcionCorta:
       "Membrana de 4 mm para techos y superficies expuestas de 40kg.",
@@ -843,17 +847,17 @@ const membranas_y_aislantes = [
   },
   {
     id: 49,
-    nombre: "Pintura Asfaltica",
+    nombre: "Pinturas Asfalticas",
     nombreCarrito: "Pintura Asfaltica",
-    descripcionCorta: "Aislante térmico y acústico de fibra de vidrio.",
+    descripcionCorta: "Imprimacion de adherencia para membranas asfalticas.",
     descripcion:
-      "La Lana de Vidrio es un material aislante térmico y acústico ideal para techos, paredes y entrepisos. Su composición le otorga resistencia al fuego y durabilidad.",
+      "Producto impermeabilizante y actua como recubrimiento anticorrosivo, se emplea como imprimacion de membranas.",
     imagen: "/assets/productos/membranasYAislantes/pinturas-emapi.webp",
-    medida: ["1 Litro","4 Litros", "18 Litros"]
+    medida: ["1 Litro", "4 Litros", "18 Litros"],
   },
   {
     id: 55,
-    nombre: "Aislante 5MM",
+    nombre: "Aislamax Aislante 5MM",
     nombreCarrito: "Aislante 5MM",
     descripcionCorta: "Aislante térmico y acústico de 5 mm con babeta.",
     descripcion:
@@ -863,7 +867,7 @@ const membranas_y_aislantes = [
   },
   {
     id: 56,
-    nombre: "Aislante 10MM",
+    nombre: "Aislamax Aislante 10MM",
     nombreCarrito: "Aislante 10MM",
     descripcionCorta: "Mayor aislamiento térmico con 10 mm de espesor.",
     descripcion:
@@ -893,7 +897,8 @@ const membranas_y_aislantes = [
     nombre: "Cintas de Aluminio Reforzada",
     descripcionCorta: "",
     descripcion: "",
-    imagen: "/assets/productos/membranasYAislantes/cinta-aluminizada-reforzada.jpg",
+    imagen:
+      "/assets/productos/membranasYAislantes/cinta-aluminizada-reforzada.jpg",
   },
   {
     id: 120,
@@ -996,7 +1001,7 @@ const durlock = [
   },
   {
     id: 66,
-    nombre: "Masilla",
+    nombre: "Masillas",
     descripcionCorta: "Masilla para juntas en placas Durlock.",
     descripcion:
       "Masilla para tratamiento de juntas en placas de yeso Durlock. Disponible en presentaciones de 1.8kg, 7kg, 18kg y 32kg.",
@@ -1005,7 +1010,7 @@ const durlock = [
   },
   {
     id: 67,
-    nombre: "Enduido",
+    nombre: "Enduidos",
     descripcionCorta: "Enduido para superficies lisas.",
     descripcion:
       "Enduido plástico para alisar superficies antes de pintar. Disponible en envases de 4L y 20L.",
@@ -1014,7 +1019,7 @@ const durlock = [
   },
   {
     id: 68,
-    nombre: "Yeso",
+    nombre: "Yesos",
     descripcionCorta: "Yeso en polvo para construcción.",
     descripcion:
       "Yeso en polvo de rápido fraguado para trabajos de construcción y terminaciones. Presentaciones: 1kg, 3.5kg y 40kg.",
@@ -1023,7 +1028,7 @@ const durlock = [
   },
   {
     id: 69,
-    nombre: "Cinta",
+    nombre: "Cintas",
     descripcionCorta: "Cinta para juntas en placas Durlock.",
     descripcion:
       "Cinta de fibra o papel para refuerzo de juntas en placas de yeso. Disponible en distintas medidas.",
@@ -1129,7 +1134,7 @@ const policarbonato = [
 const accesorios = [
   {
     id: 81,
-    nombre: "Barra de Estaño 50%",
+    nombre: "Barras de Estaño 50%",
     descripcionCorta: "Barra de estaño de alta pureza para soldaduras.",
     descripcion: "Barra de estaño para soldaduras limpias y duraderas.",
     imagen: "/assets/productos/accesorios/barra-estanio.webp",
@@ -1144,7 +1149,7 @@ const accesorios = [
   },
   {
     id: 34,
-    nombre: "Reduccion Galvanizado",
+    nombre: "Reducciones Galvanizadas",
     descripcionCorta: "Adaptador para unir tubos de distintos diámetros.",
     descripcion:
       "Reducción de galvanizado diseñada para conectar tubos de diferentes diámetros, asegurando una transición eficiente y sin pérdidas de flujo.",
@@ -1174,7 +1179,7 @@ const accesorios = [
     id: 83,
     nombre: "Compriband",
     descripcionCorta: "Cinta de sellado Compriband para techos.",
-    descripcion: "Cinta de sellado expandible para techos y estructuras.",
+    descripcion: "Sellador flexible para techos con forma trapezoidal.",
     tipo: ["Trapesoidal", "Sinusoidal"],
     imagen: "/assets/productos/accesorios/compriband.jpg",
   },
@@ -1236,7 +1241,7 @@ const accesorios_dos = [
     nombre: "Dektite",
     descripcionCorta: "",
     descripcion: "",
-    tipo: ["Gris N°3","Gris N°4", "Rojo N°3", "Rojo N°4"],
+    tipo: ["Gris N°3", "Gris N°4", "Rojo N°3", "Rojo N°4"],
     imagen: "/assets/productos/accesorios/dektite.jpg",
   },
 ];

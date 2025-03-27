@@ -6,7 +6,6 @@ import {
   darkMode,
   toggleMenu,
 } from "./global-functions.js";
-import { productosDestacados } from "./items.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Toggle dark mode
@@ -66,13 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderizarProductos();
 
-  function renderizarProductos() {
+  async function renderizarProductos() {
+    const data = await fetch("/data");
+    const productos = await data.json();
+
     const contenedor = document.getElementById("items-destacados");
     contenedor.innerHTML = "";
 
-    productosDestacados.splice(-2);
+    productos["productosDestacados"].splice(-2);
 
-    productosDestacados.forEach((info) => {
+    productos["productosDestacados"].forEach((info) => {
       const miNodo = document.createElement("div");
       miNodo.classList.add("card");
 
@@ -95,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       miNodoDescripcion.textContent = info.descripcionCorta;
 
       const miNodoBoton = document.createElement("button");
-      miNodoBoton.classList.add("btn", "btn-primary");
+      miNodoBoton.classList.add("btn", "btn-color");
       miNodoBoton.textContent = "Ver Producto";
       miNodoBoton.setAttribute("marcador", info.id);
 

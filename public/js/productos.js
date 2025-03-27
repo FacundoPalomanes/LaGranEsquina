@@ -1,4 +1,3 @@
-import { productos } from "./items.js";
 import {
   darkMode,
   header_movement,
@@ -17,7 +16,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
-  productos.forEach(({ items, id }) => renderizarProductos(items, id));
+  renderAllSections();
+
+async function renderAllSections() {
+    const data = await fetch("/data");
+    const productos = await data.json();
+
+    const sections = [
+      { items: "productosDestacados", id: "items-destacados" },
+      { items: "canaletas", id: "items-canaletas" },
+      { items: "babetas", id: "items-babetas" },
+      { items: "caballetes_y_conversas", id: "items-caballetes_conversas" },
+      { items: "curvas", id: "items-curvas" },
+      { items: "canios_y_grampas", id: "items-canios_grampas" },
+      { items: "sombreros", id: "items-sombreros" },
+      { items: "chapas_pinturas", id: "items-chapas_pinturas" },
+      { items: "selladores_y_pinturas", id: "items-selladores_pinturas" },
+      { items: "claraboyas_y_te", id: "items-claraboyas_trabajos-especiales" },
+      { items: "membranas_y_aislantes", id: "items-membranas_aislantes" },
+      { items: "durlock", id: "items-durlock" },
+      { items: "policarbonato", id: "items-policarbonato" },
+      { items: "accesorios", id: "items-accesorios" },
+      { items: "accesorios_dos", id: "items-accesorios-dos" },
+    ];
+
+    // Iterar sobre cada sección y crear una tabla
+    sections.forEach(({ items, id }) => { 
+      if (productos[items]) {
+        renderizarProductos(productos[items], id);
+      } else {
+        console.error(
+          `La sección ${id} no está definida en los productos.`
+        );
+      }
+    });
+  }
 
   renderizarCarrito();
 
@@ -65,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       miNodoDescripcion.textContent = info.descripcionCorta;
 
       const miNodoBoton = document.createElement("button");
-      miNodoBoton.classList.add("btn", "btn-primary");
+      miNodoBoton.classList.add("btn", "btn-color");
       miNodoBoton.textContent =
         seccion === "items-destacados" && info.id !== 1
           ? "Ver Producto"
@@ -699,4 +732,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toast.show();
   }
+
+  /// testing
+  // SUBIR EXCEL
+  document
+    .getElementById("uploadForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault(); // Evitar que se recargue la página
+
+      const formData = new FormData();
+      const fileInput = document.getElementById("fileInput");
+      formData.append("file", fileInput.files[0]);
+
+      // Enviar el archivo al servidor
+      fetch("/upload", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json()) // Convertir la respuesta a JSON
+        .then((data) => {
+          // Una vez que el archivo ha sido subido, obtener el archivo JSON
+          fetch("/data")
+            .then((response) => response.json()) // Obtener los datos en formato JSON
+            .then((jsonData) => {
+              renderData(jsonData); // Mostrar los datos en la página
+            })
+            .catch((err) =>
+              console.error("Error al obtener los datos JSON:", err)
+            );
+        })
+        .catch((err) => console.error("Error al subir el archivo:", err));
+    });
+
 });

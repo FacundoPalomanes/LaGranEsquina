@@ -267,7 +267,22 @@
   }
 }
 
-.navbar-nav .nav-item a[href="#items-caballetes_conversas"],
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px; /* Ajusta el padding según sea necesario */
+  background: transparent;
+  border: none;
+}
+
+.cart-btn img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* .navbar-nav .nav-item a[href="#items-caballetes_conversas"],
 .navbar-nav .nav-item a[href="#items-curvas"],
 .navbar-nav .nav-item a[href="#items-canios_grampas"] {
   color: #0c2ff0;
@@ -296,4 +311,4 @@
 
 .navbar-nav .nav-item a[href="#items-policarbonato"] {
   color: #ec6629;
-}
+} */

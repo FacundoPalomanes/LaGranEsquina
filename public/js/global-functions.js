@@ -5,11 +5,11 @@ export function header_movement() {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollTop === 0) {
-      navbar.style.top = "0";
+      navbar.style.top = "4%";
     } else if (scrollTop > lastScrollTop) {
       navbar.style.top = "-100px";
     } else {
-      navbar.style.top = "0";
+      navbar.style.top = "0%";
     }
 
     lastScrollTop = scrollTop;

@@ -42,3 +42,14 @@ body.dark-mode {
   animation-timeline: view();
   animation-range: entry 0;
 }
+
+.btn.btn-color {
+  background-color: var(--orange);
+  color: var(--white);
+  border: none; 
+}
+
+.btn.btn-color:hover {
+  background-color: var(--grid-p-dark-gray); /* Cambia el fondo a negro */
+  color: var(--white); /* Mantiene las letras blancas */
+}
