@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productos.forEach((info) => {
       const miNodo = document.createElement(
-        seccion === "items-destacados" && info.id !== 1 ? "a" : "div"
+        seccion === "destacados" && info.id !== 1 ? "a" : "div"
       );
       miNodo.classList.add("card");
 
-      if (seccion === "items-destacados" && info.href && info.id !== 1) {
+      if (seccion === "destacados" && info.href && info.id !== 1) {
         miNodo.setAttribute("href", info.href);
         miNodo.setAttribute("target", "_self"); // Opcional, si quieres que abra en la misma pestaña
       }
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const miNodoBoton = document.createElement("button");
       miNodoBoton.classList.add("btn", "btn-color");
       miNodoBoton.textContent =
-        seccion === "items-destacados" && info.id !== 1
+        seccion === "destacados" && info.id !== 1
           ? "Ver Producto"
           : "Agregar";
 
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       miNodoCardBody.appendChild(miNodoBoton);
       miNodo.appendChild(miNodoCardBody);
 
-      if (seccion !== "items-destacados" || info.id === 1) {
+      if (seccion !== "destacados" || info.id === 1) {
         miNodo.addEventListener("click", () => abrirModalProducto(info));
       }
 
