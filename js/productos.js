@@ -180,83 +180,95 @@ document.addEventListener("DOMContentLoaded", () => {
 
   actualizarContadorCarrito();
 
-  function renderizarCarrito() {
+  async function renderizarCarrito() {
     DOMcarrito.textContent = "";
 
+    // Realizar el fetcheo de productos desde el endpoint
+    const data = await fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/data", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        mode: "cors",
+        cache: "default",
+    });
+
+    const productos = await data.json();
+
     const carritoAgrupado = carrito.reduce((acc, item) => {
-      let key = `${item.id}-${item.color || "default"}-${
-        item.medida || "default"
-      }-${item.tipo || "default"}-${item.metros || "default"}`;
-      if (!acc[key]) {
-        acc[key] = { ...item, cantidad: 1 };
-      } else {
-        acc[key].cantidad++;
-      }
-      return acc;
+        let key = `${item.id}-${item.color || "default"}-${item.medida || "default"}-${item.tipo || "default"}-${item.metros || "default"}`;
+        if (!acc[key]) {
+            acc[key] = { ...item, cantidad: 1 };
+        } else {
+            acc[key].cantidad++;
+        }
+        return acc;
     }, {});
 
     Object.values(carritoAgrupado).forEach((item) => {
-      const miItem = productos
-        .flatMap((p) => p.items)
-        .find((p) => p.id === parseInt(item.id));
-      if (!miItem) return;
+        // Recorremos todas las secciones buscando el producto con el ID dado
+        const miItem = Object.values(productos)
+            .flat()
+            .find((p) => p.id === parseInt(item.id));
 
-      const miNodo = document.createElement("li");
-      miNodo.classList.add(
-        "list-group-item",
-        "d-flex",
-        "justify-content-between",
-        "align-items-center"
-      );
+        if (!miItem) return;
 
-      const texto = document.createElement("span");
-      texto.textContent = `${item.cantidad}x ${
-        miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
-      } ${item.metros ? "- Metros: " + item.metros : ""} ${
-        item.medida ? " - Medida: " + item.medida : ""
-      } ${item.color ? " - Color: " + item.color : ""} ${
-        item.tipo ? " - Tipo: " + item.tipo : ""
-      }`;
-
-      const contenedorBotones = document.createElement("div");
-
-      const btnEditar = document.createElement("button");
-      btnEditar.classList.add("btn", "btn-primary", "btn-sm");
-      btnEditar.textContent = "Editar";
-      btnEditar.onclick = () =>
-        abrirModalProducto(
-          miItem,
-          item.cantidad,
-          true,
-          item.color,
-          item.medida,
-          item.tipo,
-          item.metros
+        const miNodo = document.createElement("li");
+        miNodo.classList.add(
+            "list-group-item",
+            "d-flex",
+            "justify-content-between",
+            "align-items-center"
         );
 
-      const btnEliminar = document.createElement("button");
-      btnEliminar.classList.add("btn", "btn-sm");
-      btnEliminar.textContent = "❌";
-      btnEliminar.onclick = () =>
-        borrarItemCarrito(
-          item.id,
-          item.color,
-          item.medida,
-          item.tipo,
-          item.metros
-        );
+        const texto = document.createElement("span");
+        texto.textContent = `${item.cantidad}x ${
+            miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
+        } ${item.metros ? "- Metros: " + item.metros : ""} ${
+            item.medida ? " - Medida: " + item.medida : ""
+        } ${item.color ? " - Color: " + item.color : ""} ${
+            item.tipo ? " - Tipo: " + item.tipo : ""
+        }`;
 
-      contenedorBotones.appendChild(btnEditar);
-      contenedorBotones.appendChild(btnEliminar);
+        const contenedorBotones = document.createElement("div");
 
-      miNodo.appendChild(texto);
-      miNodo.appendChild(contenedorBotones);
+        const btnEditar = document.createElement("button");
+        btnEditar.classList.add("btn", "btn-primary", "btn-sm");
+        btnEditar.textContent = "Editar";
+        btnEditar.onclick = () =>
+            abrirModalProducto(
+                miItem,
+                item.cantidad,
+                true,
+                item.color,
+                item.medida,
+                item.tipo,
+                item.metros
+            );
 
-      DOMcarrito.appendChild(miNodo);
+        const btnEliminar = document.createElement("button");
+        btnEliminar.classList.add("btn", "btn-sm");
+        btnEliminar.textContent = "❌";
+        btnEliminar.onclick = () =>
+            borrarItemCarrito(
+                item.id,
+                item.color,
+                item.medida,
+                item.tipo,
+                item.metros
+            );
+
+        contenedorBotones.appendChild(btnEditar);
+        contenedorBotones.appendChild(btnEliminar);
+
+        miNodo.appendChild(texto);
+        miNodo.appendChild(contenedorBotones);
+
+        DOMcarrito.appendChild(miNodo);
     });
 
     DOMtotal.textContent = `${carrito.length} Productos`;
-  }
+}
 
   function abrirModalProducto(
     producto,
