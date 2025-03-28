@@ -23,7 +23,6 @@ const server = http.createServer((req, res) => {
   } else if (req.url === "/productos") {
     filePath = path.join(__dirname, "productos.html");
   } else {
-    // Manejo de archivos estáticos (imágenes, CSS, JS, etc.)
     filePath = path.join(__dirname, req.url);
   }
 

@@ -27,35 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
       mode: "cors",
       cache: "default",
     });
+  
     const productos = await data.json();
-
-    const sections = [
-      { items: "productosDestacados", id: "items-destacados" },
-      { items: "canaletas", id: "items-canaletas" },
-      { items: "babetas", id: "items-babetas" },
-      { items: "caballetes_y_conversas", id: "items-caballetes_conversas" },
-      { items: "curvas", id: "items-curvas" },
-      { items: "canios_y_grampas", id: "items-canios_grampas" },
-      { items: "sombreros", id: "items-sombreros" },
-      { items: "chapas_pinturas", id: "items-chapas_pinturas" },
-      { items: "selladores_y_pinturas", id: "items-selladores_pinturas" },
-      { items: "claraboyas_y_te", id: "items-claraboyas_trabajos-especiales" },
-      { items: "membranas_y_aislantes", id: "items-membranas_aislantes" },
-      { items: "durlock", id: "items-durlock" },
-      { items: "policarbonato", id: "items-policarbonato" },
-      { items: "accesorios", id: "items-accesorios" },
-      { items: "accesorios_dos", id: "items-accesorios-dos" },
-    ];
-
+  
+    // Obtener las secciones del JSON dinámicamente
+    const sections = Object.keys(productos).map((key) => ({
+      seccion: key,
+    }));
+  
     // Iterar sobre cada sección y crear una tabla
-    sections.forEach(({ items, id }) => {
-      if (productos[items]) {
-        renderizarProductos(productos[items], id);
+    sections.forEach(({ seccion }) => {
+      if (productos[seccion]) {
+        renderizarProductos(productos[seccion], seccion);
       } else {
-        console.error(`La sección ${id} no está definida en los productos.`);
+        console.error(`La sección ${seccion} no está definida en los productos.`);
       }
     });
   }
+  
 
   renderizarCarrito();
 

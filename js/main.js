@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
   
       console.log(productos)
   
-      const contenedor = document.getElementById("items-destacados");
+      const contenedor = document.getElementById("destacados");
       contenedor.innerHTML = "";
   
-      productos["productosDestacados"].splice(-2);
+      productos["destacados"].splice(-2);
   
-      productos["productosDestacados"].forEach((info) => {
+      productos["destacados"].forEach((info) => {
         const miNodo = document.createElement("div");
         miNodo.classList.add("card");
   
