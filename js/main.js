@@ -14,17 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", hideMenuResize);
   window.addEventListener("load", hideMenuResize);
 
+  // const fecthUrl = "http://localhost:8000";
+  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+
   // Toggle mobile menu
   toggleMenu();
 
   // Add click event to cards product
   scrollLeft({
     buttonId: "scrollLeft",
-    scrollerContainerId: "items-destacados",
+    scrollerContainerId: "destacados",
   });
   scrollRight({
     buttonId: "scrollRight",
-    scrollerContainerId: "items-destacados",
+    scrollerContainerId: "destacados",
   });
 
   // Welcome Message
@@ -68,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function renderizarProductos() {
     try{
 
-      const data = await fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/data", {
+      const data = await fetch(`${fecthUrl}/data`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

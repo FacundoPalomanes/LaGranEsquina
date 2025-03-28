@@ -14,12 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const DOMbotonVaciar = document.querySelector("#boton-vaciar");
   const miLocalStorage = window.localStorage;
 
+  // const fecthUrl = "http://localhost:8000";
+  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
   renderAllSections();
 
   async function renderAllSections() {
-    const data = await fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/data", {
+    const data = await fetch(`${fecthUrl}/data`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const miNodoTitle = document.createElement("h5");
       miNodoTitle.classList.add("card-title");
-      if (info.nombre.length > 25) {
+      if (info.nombre.length > 22) {
         miNodoTitle.classList.add("titulo-largo");
       }
       miNodoTitle.textContent = info.nombre;
@@ -184,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     DOMcarrito.textContent = "";
 
     // Realizar el fetcheo de productos desde el endpoint
-    const data = await fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/data", {
+    const data = await fetch(`${fecthUrl}/data`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -612,101 +615,101 @@ document.addEventListener("DOMContentLoaded", () => {
   // Scroll
   scrollRight({
     buttonId: "scrollRightItemsDestacados",
-    scrollerContainerId: "items-destacados",
+    scrollerContainerId: "destacados",
   });
   scrollLeft({
     buttonId: "scrollLeftItemsDestacados",
-    scrollerContainerId: "items-destacados",
+    scrollerContainerId: "destacados",
   });
 
   scrollLeft({
     buttonId: "scrollLeftCanaletas",
-    scrollerContainerId: "items-canaletas",
+    scrollerContainerId: "canaletas",
   });
   scrollRight({
     buttonId: "scrollRightCanaletas",
-    scrollerContainerId: "items-canaletas",
+    scrollerContainerId: "canaletas",
   });
 
   scrollLeft({
     buttonId: "scrollLeftCaniosGrampas",
-    scrollerContainerId: "items-canios_grampas",
+    scrollerContainerId: "canios_grampas",
   });
   scrollRight({
     buttonId: "scrollRightCaniosGrampas",
-    scrollerContainerId: "items-canios_grampas",
+    scrollerContainerId: "canios_grampas",
   });
 
   scrollLeft({
     buttonId: "scrollLeftSombreros",
-    scrollerContainerId: "items-sombreros",
+    scrollerContainerId: "sombreros",
   });
   scrollRight({
     buttonId: "scrollRightSombreros",
-    scrollerContainerId: "items-sombreros",
+    scrollerContainerId: "sombreros",
   });
 
   scrollLeft({
     buttonId: "scrollLeftChapasPinturas",
-    scrollerContainerId: "items-chapas_pinturas",
+    scrollerContainerId: "chapas",
   });
   scrollRight({
     buttonId: "scrollRightChapasPinturas",
-    scrollerContainerId: "items-chapas_pinturas",
+    scrollerContainerId: "chapas",
   });
 
   scrollLeft({
     buttonId: "scrollLeftSelladoresPinturas",
-    scrollerContainerId: "items-selladores_pinturas",
+    scrollerContainerId: "selladores_pinturas",
   });
   scrollRight({
     buttonId: "scrollRightSelladoresPinturas",
-    scrollerContainerId: "items-selladores_pinturas",
+    scrollerContainerId: "selladores_pinturas",
   });
 
   scrollLeft({
     buttonId: "scrollLeftClaraboyas",
-    scrollerContainerId: "items-claraboyas_trabajos-especiales",
+    scrollerContainerId: "claraboyas",
   });
   scrollRight({
     buttonId: "scrollRightClaraboyas",
-    scrollerContainerId: "items-claraboyas_trabajos-especiales",
+    scrollerContainerId: "claraboyas",
   });
 
   scrollLeft({
     buttonId: "scrollLeftMembranas",
-    scrollerContainerId: "items-membranas_aislantes",
+    scrollerContainerId: "membranas_aislantes",
   });
   scrollRight({
     buttonId: "scrollRightMembranas",
-    scrollerContainerId: "items-membranas_aislantes",
+    scrollerContainerId: "membranas_aislantes",
   });
 
   scrollLeft({
     buttonId: "scrollLeftDurlock",
-    scrollerContainerId: "items-durlock",
+    scrollerContainerId: "durlock",
   });
   scrollRight({
     buttonId: "scrollRightDurlock",
-    scrollerContainerId: "items-durlock",
+    scrollerContainerId: "durlock",
   });
 
   scrollLeft({
     buttonId: "scrollLeftAccesorios",
-    scrollerContainerId: "items-accesorios",
+    scrollerContainerId: "accesorios",
   });
   scrollRight({
     buttonId: "scrollRightAccesorios",
-    scrollerContainerId: "items-accesorios",
+    scrollerContainerId: "accesorios",
   });
 
   scrollLeft({
     buttonId: "scrollLeftAccesoriosDos",
-    scrollerContainerId: "items-accesorios-dos",
+    scrollerContainerId: "accesorios_dos",
   });
   scrollRight({
     buttonId: "scrollRightAccesoriosDos",
-    scrollerContainerId: "items-accesorios-dos",
+    scrollerContainerId: "accesorios_dos",
   });
 
   function showToast(producto, cantidad) {
@@ -741,28 +744,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /// testing
   // SUBIR EXCEL
-  document
-    .getElementById("uploadForm")
-    .addEventListener("submit", function (e) {
-      e.preventDefault(); // Evitar que se recargue la página
-
-      const formData = new FormData();
-      const fileInput = document.getElementById("fileInput");
-      formData.append("file", fileInput.files[0]);
-
-      // Enviar el archivo al servidor
-      fetch("https://worthwhile-max-darshed-c84f137f.koyeb.app/upload", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => {
-          console.log(response); // Corregido el error de sintaxis
-          return response.json(); // Si esperas un JSON en la respuesta, puedes parsearlo aquí
-        })
-        .then((data) => {
-          console.log(data); // Maneja la respuesta de la API
-        })
-        .catch((err) => {
-          console.error("Error al obtener los datos JSON:", err);
-        })      
-})})
+  })

@@ -7,7 +7,10 @@ const PORT = 5000;
 const server = http.createServer((req, res) => {
   // Agregar encabezados para permitir CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   // Si la solicitud es de tipo OPTIONS, responder rápidamente
@@ -22,6 +25,8 @@ const server = http.createServer((req, res) => {
     filePath = path.join(__dirname, "index.html");
   } else if (req.url === "/productos") {
     filePath = path.join(__dirname, "productos.html");
+  } else if (req.url === "/admin") {
+    filePath = path.join(__dirname, "admin.html");
   } else {
     filePath = path.join(__dirname, req.url);
   }
