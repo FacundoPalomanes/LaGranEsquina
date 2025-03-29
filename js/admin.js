@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     // const fetchUrl = "http://localhost:8000";
     const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
-  
+
     let jwt = localStorage.getItem("jwt");
     if (jwt) {
       const page = await fetch(`${fetchUrl}/editar`, {
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         container.innerHTML = htmlContent; // Insertar el HTML en el contenedor
         initializeNavLinks();
       } else {
+        localStorage.clear("jwt");
         console.log("Error al obtener la página.");
       }
     } else {
