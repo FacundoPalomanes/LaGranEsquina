@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const fetchUrl = "http://localhost:8000";
-  // const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  // const fetchUrl = "http://localhost:8000";
+  const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   let jwt = localStorage.getItem("jwt");
   if (jwt) {

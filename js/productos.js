@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const DOMbotonVaciar = document.querySelector("#boton-vaciar");
   const miLocalStorage = window.localStorage;
 
-  const fecthUrl = "http://localhost:8000";
-  // const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  // const fecthUrl = "http://localhost:8000";
+  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
