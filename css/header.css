@@ -282,33 +282,29 @@
   object-fit: contain;
 }
 
-/* .navbar-nav .nav-item a[href="#items-caballetes_conversas"],
-.navbar-nav .nav-item a[href="#items-curvas"],
-.navbar-nav .nav-item a[href="#items-canios_grampas"] {
-  color: #0c2ff0;
+.navbar-nav .nav-item .nav-link[href] {
+  text-decoration: underline; 
 }
 
-.navbar-nav .nav-item a[href="#items-sombreros"],
-.navbar-nav .nav-item a[href="#items-chapas_pinturas"] {
-  color: #34ed13;
+
+.group-1 {
+  display: flex;
+  align-items: center;
+  background-color: var(--orange); 
+  padding: 10px;
+  border-radius: 8px;
 }
 
-.navbar-nav .nav-item a[href="#items-selladores_pinturas"] {
-  color: #d209f2;
+.navbar-nav .nav-item .nav-link[href="#babetas"] {
+  width: 120px;
 }
 
-.navbar-nav .nav-item a[href="#items-claraboyas_trabajos-especiales"] {
-  color: #f20909;
+/* Grupo 2 - Fondo Azul */
+.group-2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(3, 226, 103); /* Azul */
+  padding: 10px;
+  border-radius: 8px;
 }
-
-.navbar-nav .nav-item a[href="#items-membranas_aislantes"] {
-  color: #f2ee09;
-}
-
-.navbar-nav .nav-item a[href="#items-durlock"] {
-  color: #a8a4a4;
-}
-
-.navbar-nav .nav-item a[href="#items-policarbonato"] {
-  color: #ec6629;
-} */
