@@ -263,6 +263,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const agregarMedidaBtn = document.getElementById("agregarMedidaBtn");
     const agregarTipoBtn = document.getElementById("agregarTipoBtn");
     const btnGuardarCambios = document.getElementById("btnGuardarCambios");
+    const btnBorrarObjeto = document.getElementById("btnBorrarObjeto");
 
     let currentItem = null;
 
@@ -358,7 +359,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       currentItem.tipo = getEditableListValues(contenedorTipos);
 
       // Verificar si hay imagen cargada
-      const imagenInput = document.querySelector("#imagen-input"); // Asumiendo que tienes un input de tipo file para la imagen
+      const imagenInput = document.querySelector("#modalImagenInput"); // Asumiendo que tienes un input de tipo file para la imagen
       let imagenFile = imagenInput ? imagenInput.files[0] : null;
 
       // Crear un objeto FormData para enviar la información
@@ -376,6 +377,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Si hay imagen, agregarla al FormData
       if (imagenFile) {
+        console.log('Imagen File: ',imagenFile)
         formData.append("image", imagenFile);
       }
 
@@ -410,6 +412,40 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Cerrar el modal
       bootstrap.Modal.getInstance(modalProducto).hide();
     });
+
+    btnBorrarObjeto.addEventListener("click", async() => {
+      try {
+        console.log(currentItem.category)
+        console.log(currentItem.id)
+        const response = await fetch(`${fetchUrl}/delete-item`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwt}`,
+          },
+          body: JSON.stringify({
+            seccion: currentItem.category,
+            id: currentItem.id,
+          })
+        });
+
+        // Verificar si la respuesta es exitosa
+        if (!response.ok) {
+          const errorData = await response.json(); // Intentar leer el JSON de error
+          console.error(errorData.error || "Error desconocido");
+          alert(errorData.error || "Hubo un problema al guardar los cambios.");
+          return;
+        }
+
+        const data = await response.json();
+        console.log(data);
+        alert("Cambios guardados correctamente!");
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Hubo un problema al enviar los datos.");
+      }
+      bootstrap.Modal.getInstance(modalProducto).hide();
+    })
 
     // Función para obtener los valores de los campos de texto de los colores, medidas y tipos
     function getEditableListValues(container) {
