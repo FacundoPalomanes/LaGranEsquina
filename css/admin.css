@@ -99,8 +99,13 @@ body {
 
 
 .navbar-brand img {
-    width: 120px;
-    height: auto;
+    margin-left: 7%;
+    width: 200px;
+    height: 150px;
     background-color: #ec6629;
     border-radius: 30%;
 }
+
+.item-card img {
+    max-width: 150px;
+} 

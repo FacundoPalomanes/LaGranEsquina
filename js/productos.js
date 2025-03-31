@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const DOMbotonVaciar = document.querySelector("#boton-vaciar");
   const miLocalStorage = window.localStorage;
 
-  // const fecthUrl = "http://localhost:8000";
-  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  const fecthUrl = "http://localhost:8000";
+  // const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
@@ -30,24 +30,25 @@ document.addEventListener("DOMContentLoaded", () => {
       mode: "cors",
       cache: "default",
     });
-  
+
     const productos = await data.json();
-  
+
     // Obtener las secciones del JSON dinámicamente
     const sections = Object.keys(productos).map((key) => ({
       seccion: key,
     }));
-  
+
     // Iterar sobre cada sección y crear una tabla
     sections.forEach(({ seccion }) => {
       if (productos[seccion]) {
         renderizarProductos(productos[seccion], seccion);
       } else {
-        console.error(`La sección ${seccion} no está definida en los productos.`);
+        console.error(
+          `La sección ${seccion} no está definida en los productos.`
+        );
       }
     });
   }
-  
 
   renderizarCarrito();
 
@@ -97,9 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const miNodoBoton = document.createElement("button");
       miNodoBoton.classList.add("btn", "btn-color");
       miNodoBoton.textContent =
-        seccion === "destacados" && info.id !== 1
-          ? "Ver Producto"
-          : "Agregar";
+        seccion === "destacados" && info.id !== 1 ? "Ver Producto" : "Agregar";
 
       miNodoBoton.setAttribute("marcador", info.id);
       miNodoCardBody.appendChild(miNodoImagen);
@@ -188,90 +187,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Realizar el fetcheo de productos desde el endpoint
     const data = await fetch(`${fecthUrl}/data`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        mode: "cors",
-        cache: "default",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      cache: "default",
     });
 
     const productos = await data.json();
 
     const carritoAgrupado = carrito.reduce((acc, item) => {
-        let key = `${item.id}-${item.color || "default"}-${item.medida || "default"}-${item.tipo || "default"}-${item.metros || "default"}`;
-        if (!acc[key]) {
-            acc[key] = { ...item, cantidad: 1 };
-        } else {
-            acc[key].cantidad++;
-        }
-        return acc;
+      let key = `${item.id}-${item.color || "default"}-${
+        item.medida || "default"
+      }-${item.tipo || "default"}-${item.metros || "default"}`;
+      if (!acc[key]) {
+        acc[key] = { ...item, cantidad: 1 };
+      } else {
+        acc[key].cantidad++;
+      }
+      return acc;
     }, {});
 
     Object.values(carritoAgrupado).forEach((item) => {
-        // Recorremos todas las secciones buscando el producto con el ID dado
-        const miItem = Object.values(productos)
-            .flat()
-            .find((p) => p.id === parseInt(item.id));
+      // Recorremos todas las secciones buscando el producto con el ID dado
+      const miItem = Object.values(productos)
+        .flat()
+        .find((p) => p.id === parseInt(item.id));
 
-        if (!miItem) return;
+      if (!miItem) return;
 
-        const miNodo = document.createElement("li");
-        miNodo.classList.add(
-            "list-group-item",
-            "d-flex",
-            "justify-content-between",
-            "align-items-center"
+      const miNodo = document.createElement("li");
+      miNodo.classList.add(
+        "list-group-item",
+        "d-flex",
+        "justify-content-between",
+        "align-items-center"
+      );
+
+      const texto = document.createElement("span");
+      texto.textContent = `${item.cantidad}x ${miItem.nombre} ${
+        item.metros ? "- Metros: " + item.metros : ""
+      } ${item.medida ? " - Medida: " + item.medida : ""} ${
+        item.color ? " - Color: " + item.color : ""
+      } ${item.tipo ? " - Tipo: " + item.tipo : ""}`;
+
+      const contenedorBotones = document.createElement("div");
+
+      const btnEditar = document.createElement("button");
+      btnEditar.classList.add("btn", "btn-primary", "btn-sm");
+      btnEditar.textContent = "Editar";
+      btnEditar.onclick = () =>
+        abrirModalProducto(
+          miItem,
+          item.cantidad,
+          true,
+          item.color,
+          item.medida,
+          item.tipo,
+          item.metros
         );
 
-        const texto = document.createElement("span");
-        texto.textContent = `${item.cantidad}x ${
-            miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
-        } ${item.metros ? "- Metros: " + item.metros : ""} ${
-            item.medida ? " - Medida: " + item.medida : ""
-        } ${item.color ? " - Color: " + item.color : ""} ${
-            item.tipo ? " - Tipo: " + item.tipo : ""
-        }`;
+      const btnEliminar = document.createElement("button");
+      btnEliminar.classList.add("btn", "btn-sm");
+      btnEliminar.textContent = "❌";
+      btnEliminar.onclick = () =>
+        borrarItemCarrito(
+          item.id,
+          item.color,
+          item.medida,
+          item.tipo,
+          item.metros
+        );
 
-        const contenedorBotones = document.createElement("div");
+      contenedorBotones.appendChild(btnEditar);
+      contenedorBotones.appendChild(btnEliminar);
 
-        const btnEditar = document.createElement("button");
-        btnEditar.classList.add("btn", "btn-primary", "btn-sm");
-        btnEditar.textContent = "Editar";
-        btnEditar.onclick = () =>
-            abrirModalProducto(
-                miItem,
-                item.cantidad,
-                true,
-                item.color,
-                item.medida,
-                item.tipo,
-                item.metros
-            );
+      miNodo.appendChild(texto);
+      miNodo.appendChild(contenedorBotones);
 
-        const btnEliminar = document.createElement("button");
-        btnEliminar.classList.add("btn", "btn-sm");
-        btnEliminar.textContent = "❌";
-        btnEliminar.onclick = () =>
-            borrarItemCarrito(
-                item.id,
-                item.color,
-                item.medida,
-                item.tipo,
-                item.metros
-            );
-
-        contenedorBotones.appendChild(btnEditar);
-        contenedorBotones.appendChild(btnEliminar);
-
-        miNodo.appendChild(texto);
-        miNodo.appendChild(contenedorBotones);
-
-        DOMcarrito.appendChild(miNodo);
+      DOMcarrito.appendChild(miNodo);
     });
 
     DOMtotal.textContent = `${carrito.length} Productos`;
-}
+  }
 
   function abrirModalProducto(
     producto,
@@ -585,9 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!miItem) return "";
 
         return (
-          `• ${item.cantidad}x ${
-            miItem.nombreCarrito ? miItem.nombreCarrito : miItem.nombre
-          }` +
+          `• ${item.cantidad}x ${miItem.nombre}` +
           `${item.metros ? "- Metros: " + item.metros : ""}` +
           `${item.medida ? " - Medida: " + item.medida : ""}` +
           `${item.color ? " - Color: " + item.color : ""}` +
@@ -726,9 +723,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    toastBody.textContent = `Has agregado correctamente ${cantidad} de ${
-      producto.nombreCarrito ? producto.nombreCarrito : producto.nombre
-    }${producto.metros ? "- Metros: " + producto.metros : ""}${
+    toastBody.textContent = `Has agregado correctamente ${cantidad} de 
+    ${producto.nombre}${producto.metros ? "- Metros: " + producto.metros : ""}${
       producto.medida ? " - Medida: " + producto.medida : ""
     }${producto.color ? " - Color: " + producto.color : ""}${
       producto.tipo ? " - Tipo: " + producto.tipo : ""
@@ -741,5 +737,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toast.show();
   }
-
-  })
+});
