@@ -1,20 +1,22 @@
 @import url(global-styles.css);
 
 .footer-basic {
-  padding: 40px 0;
+  padding: 40px 20px;
+  background-color: var(--white);
+  border-top: 1px solid #eaeaea;
 }
 
 .footer-basic .social {
   display: flex;
-  justify-content: center; /* Centra los íconos horizontalmente */
+  justify-content: center;
   align-items: center;
-  gap: 15px; /* Espacio entre los íconos */
+  gap: 15px;
   padding-bottom: 25px;
 }
 
 .footer-basic .social > a {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,26 +24,23 @@
   border: 1.5px solid #ccc;
   color: inherit;
   overflow: hidden;
-  position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
 .footer-basic .social > a:hover {
   background-color: var(--black);
   color: var(--white);
-  transition: all 0.3s ease-in-out;
 }
 
 .footer-basic .copyright {
   margin-top: 15px;
   text-align: center;
-  font-size: 15px;
-  color: #aaa;
+  font-size: 14px;
+  color: #888;
 }
 
-
-/* Modo normal (fondo blanco, icono negro) */
 .footer-basic .social a img {
-  width: 70%;
+  width: 60%;
   transition: filter 0.3s ease-in-out;
 }
 
@@ -49,33 +48,75 @@
   filter: invert(1);
 }
 
-body.dark-mode .footer-basic .social a img {
-  filter: invert(1);
+body.dark-mode .footer-basic {
+  background-color: var(--black);
+  color: var(--white);
 }
 
-body.dark-mode .footer-basic .social a:hover img {
-  filter: invert(0); 
+body.dark-mode .footer-basic .social a {
+  border-color: #555;
 }
 
 body.dark-mode .footer-basic .social a:hover {
   background-color: var(--white);
 }
 
+body.dark-mode .footer-basic .copyright {
+  color: #777;
+}
+
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  background-color: #25D366;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 1000;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .whatsapp-logo {
-  width: 35px;
-  height: 35px;
+  width: 60%;
+  height: 60%;
 }
 
+@media screen and (max-width: 768px) {
+  .footer-basic {
+    padding: 30px 10px;
+  }
+  .footer-basic .social > a {
+    width: 40px;
+    height: 40px;
+  }
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-basic .social > a {
+    width: 35px;
+    height: 35px;
+  }
+  .whatsapp-button {
+    width: 45px;
+    height: 45px;
+    bottom: 10px;
+    right: 10px;
+  }
+}

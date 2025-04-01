@@ -3,9 +3,10 @@
   --white: #fff;
   --orange: #ec6629;
   --red: #ff0000;
-  --gray: #f5f5f5; /* Updated to a lighter shade for better appeal */
+  --gray: #f5f5f5;
   --grid-gray: #f9f9f9;
   --grid-p-dark-gray: #555;
+  --transition-speed: 0.4s;
 }
 
 * {
@@ -17,39 +18,48 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--gray);
-  transition: all 0.5s ease-in-out;
+  color: var(--black);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 body.dark-mode {
-  transition: all 0.5s ease-in-out;
   background-color: var(--black);
   color: var(--white);
 }
 
 @keyframes appear {
-  from {
+  0% {
     opacity: 0;
-    scale: 0.5;
+    transform: scale(0.5);
   }
-  to {
+  100% {
     opacity: 1;
-    scale: 1;
+    transform: scale(1);
   }
+}
+
+.btn {
+  background-color: var(--orange) !important;
 }
 
 .block {
-  animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 0;
+  animation: appear var(--transition-speed) ease-in-out;
 }
 
-.btn.btn-color {
-  background-color: var(--orange);
-  color: var(--white);
-  border: none; 
+@media screen and (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
 }
 
-.btn.btn-color:hover {
-  background-color: var(--grid-p-dark-gray); /* Cambia el fondo a negro */
-  color: var(--white); /* Mantiene las letras blancas */
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 12px;
+  }
 }

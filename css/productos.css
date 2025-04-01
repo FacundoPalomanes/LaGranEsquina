@@ -14,17 +14,16 @@ p.text-right {
 
 .item-gap {
   display: flex;
-  overflow-x: auto;
   gap: 16px;
   padding-bottom: 10px;
   white-space: nowrap;
-  scroll-behavior: smooth; /* Animación al mover las flechas */
+  scroll-behavior: smooth;
   padding-left: 16px;
 }
 
 .modal-img {
-  max-height: 500px; 
-  width: 100%; 
+  max-height: 500px;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -43,6 +42,11 @@ p.text-right {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card img {
@@ -62,11 +66,11 @@ p.text-right {
 }
 
 .card-text {
-  max-height: 60px; 
+  max-height: 60px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
-  white-space: normal; 
+  white-space: normal;
   font-size: 14px;
   text-align: center;
   padding: 0 10px;
@@ -75,10 +79,6 @@ p.text-right {
 .item-gap .btn {
   width: 80%;
   margin-top: auto;
-}
-
-.item-gap .card .card-body p {
-  font-weight: 400;
 }
 
 .cart-btn {
@@ -101,50 +101,9 @@ p.text-right {
   justify-content: center;
 }
 
-body.dark-mode .modal-content {
-  background-color: var(--white);
-  color: var(--black);
-}
-
-
-@media screen and (min-width: 992px) {
-  .items-centrados {
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
-    gap: 16px;
-    padding-bottom: 10px;
-    white-space: nowrap;
-  }
-}
-
-
-#selectColor, #selectMedida, #selectTipo {
-  appearance: none; 
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding-right: 30px; 
-  background: #fff url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7"%3E%3Cpath d="M1 1l5 5 5-5" stroke="%23666" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E') no-repeat right 10px center;
-  background-size: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-#selectColor:focus, #selectMedida:focus, #selectTipo:focus {
-  border-color: #007BFF; 
-  outline: none;
-}
-
-.move-text {
-  margin-top: 15%;
-}
-
-/* === CARRUSEL === */
 .carousel-container {
   position: relative;
-  padding: 0 50px; /* Espacio para flechas fuera del contenido */
+  padding: 0 50px;
 }
 
 .arrow {
@@ -155,8 +114,8 @@ body.dark-mode .modal-content {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   z-index: 10;
   cursor: pointer;
   display: flex;
@@ -179,13 +138,12 @@ body.dark-mode .modal-content {
 
 @media screen and (max-width: 768px) {
   .carousel-container {
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   .arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    width: 35px;
+    height: 35px;
   }
 
   .item-gap {
@@ -193,20 +151,9 @@ body.dark-mode .modal-content {
     padding-left: 12px;
   }
 
-  .move-text {
-    margin-top: 40%;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .move-text {
-    margin-top: 23%;
-  }
-}
-
-@media screen and (max-width: 990px) {
-  .move-text {
-    margin-top: 38%;
+  .card {
+    width: 180px;
+    height: 320px;
   }
 }
 
@@ -214,17 +161,51 @@ body.dark-mode .modal-content {
   .arrow {
     display: none;
   }
+
+  .card {
+    width: 160px;
+    height: 300px;
+  }
 }
 
 .titulo-largo {
   font-size: 1.3rem;
   white-space: normal;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
   line-height: 1.2;
   min-height: 3rem;
 }
 
 .card {
-  text-decoration: none; /* Elimina el subrayado */
-  color: inherit; /* Mantiene el color del texto original */
+  text-decoration: none;
+  color: inherit;
+}
+
+body.dark-mode .modal-content {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.items-centrados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Esto las centra horizontalmente */
+}
+
+/* Centrado vertical y horizontal */
+.fullscreen-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Alternativamente, si solo quieres centrar cuando son pocas */
+.items-centrados.few-items {
+  justify-content: center;
+}
+
+.move-text {
+  margin-top: 250px;
 }
