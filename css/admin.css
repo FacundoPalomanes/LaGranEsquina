@@ -109,3 +109,7 @@ body {
 .item-card img {
     max-width: 150px;
 } 
+
+.hidden {
+    display: none;
+}

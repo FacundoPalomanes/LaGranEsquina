@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const fetchUrl = "http://localhost:8000";
-  // const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  // const fetchUrl = "http://localhost:8000";
+  const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   let jwt = localStorage.getItem("jwt");
   if (jwt) {
@@ -248,6 +248,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       openModal(item);
     }
 
+    const agregarColorBtn = document.getElementById("agregarColorBtn");
+    const agregarMedidaBtn = document.getElementById("agregarMedidaBtn");
+    const agregarTipoBtn = document.getElementById("agregarTipoBtn");
+    const btnBorrarObjeto = document.getElementById("btnBorrarObjeto");
+
+    const btnAgregarItem = document.getElementById("btnAgregarItem");
     const modalProducto = document.getElementById("modalProducto");
     const modalProductoImagen = document.getElementById("modalProductoImagen");
     const modalImagenInput = document.getElementById("modalImagenInput");
@@ -258,16 +264,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const contenedorColores = document.getElementById("contenedorColores");
     const contenedorMedidas = document.getElementById("contenedorMedidas");
     const contenedorTipos = document.getElementById("contenedorTipos");
-
-    const agregarColorBtn = document.getElementById("agregarColorBtn");
-    const agregarMedidaBtn = document.getElementById("agregarMedidaBtn");
-    const agregarTipoBtn = document.getElementById("agregarTipoBtn");
+    const metrosCheckbox = document.querySelector("#modalProductoMetros");
+    const hrefDropdown = document.querySelector("#modalProductoHref");
     const btnGuardarCambios = document.getElementById("btnGuardarCambios");
-    const btnBorrarObjeto = document.getElementById("btnBorrarObjeto");
 
     let currentItem = null;
 
     function openModal(item) {
+      document.getElementById("hidden").classList.add("hidden");
       currentItem = item;
 
       modalProductoImagen.src = item.imagen || "";
@@ -277,6 +281,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderList(contenedorColores, item.color, "color");
       renderList(contenedorMedidas, item.medida, "medida");
       renderList(contenedorTipos, item.tipo, "tipo");
+
+      new bootstrap.Modal(modalProducto).show();
+    }
+
+    function openModalForNewItem() {
+      document.getElementById("hidden").classList.remove("hidden");
+      currentItem = {}; // Limpiar currentItem para crear uno nuevo
+
+      document.getElementById("modalProductoTitulo").innerText =
+        "Agregar Producto";
+      modalProductoImagen.src = "";
+      modalProductoNombre.value = "";
+      modalProductoDescripcion.value = "";
+      metrosCheckbox.checked = false;
+      hrefDropdown.value = "";
+      contenedorColores.innerHTML = "";
+      contenedorMedidas.innerHTML = "";
+      contenedorTipos.innerHTML = "";
 
       new bootstrap.Modal(modalProducto).show();
     }
@@ -316,19 +338,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     agregarColorBtn.addEventListener("click", () => {
       currentItem.color = currentItem.color || [];
-      currentItem.color.push(""); // Agregar un nuevo campo vacío
+      currentItem.color.push("");
       renderList(contenedorColores, currentItem.color, "color");
     });
-
     agregarMedidaBtn.addEventListener("click", () => {
       currentItem.medida = currentItem.medida || [];
-      currentItem.medida.push(""); // Agregar un nuevo campo vacío
+      currentItem.medida.push("");
       renderList(contenedorMedidas, currentItem.medida, "medida");
     });
 
     agregarTipoBtn.addEventListener("click", () => {
       currentItem.tipo = currentItem.tipo || [];
-      currentItem.tipo.push(""); // Agregar un nuevo campo vacío
+      currentItem.tipo.push("");
       renderList(contenedorTipos, currentItem.tipo, "tipo");
     });
 
@@ -348,78 +369,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-    btnGuardarCambios.addEventListener("click", async () => {
-      currentItem.nombre = modalProductoNombre.value;
-      currentItem.descripcion = modalProductoDescripcion.value;
-
-      // Guardar los colores, medidas y tipos (los valores que el usuario ha ingresado)
-      currentItem.color = getEditableListValues(contenedorColores);
-      currentItem.medida = getEditableListValues(contenedorMedidas);
-      currentItem.tipo = getEditableListValues(contenedorTipos);
-
-      // Obtener el estado del checkbox 'metros'
-      const metrosCheckbox = document.querySelector("#modalProductoMetros");
-      const metrosChecked = metrosCheckbox.checked; // Devuelve true si está marcado, false si no.
-
-      // Guardar el valor del dropdown 'href'
-      const hrefDropdown = document.querySelector("#modalProductoHref");
-      currentItem.href =
-        hrefDropdown.value !== "none" ? hrefDropdown.value : "";
-
-      // Verificar si hay imagen cargada
-      const imagenInput = document.querySelector("#modalImagenInput");
-      let imagenFile = imagenInput ? imagenInput.files[0] : null;
-
-      // Crear un objeto FormData para enviar la información
-      const formData = new FormData();
-
-      // Agregar los datos al FormData
-      formData.append("id", currentItem.id);
-      formData.append("nombre", currentItem.nombre);
-      formData.append("descripcion", currentItem.descripcion);
-      formData.append("color", currentItem.color.join(","));
-      formData.append("medida", currentItem.medida.join(","));
-      formData.append("tipo", currentItem.tipo.join(","));
-      formData.append("href", currentItem.href || "");
-      formData.append("seccion", currentItem.category);
-      formData.append("metros", metrosChecked); 
-
-      // Si hay imagen, agregarla al FormData
-      if (imagenFile) {
-        console.log("Imagen File: ", imagenFile);
-        formData.append("image", imagenFile);
-      }
-
-      console.log(formData);
-
-      // Hacer el fetch para enviar los datos al servidor
-      try {
-        const response = await fetch(`${fetchUrl}/update-item`, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
-          body: formData,
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.error(errorData.error || "Error desconocido");
-          alert(errorData.error || "Hubo un problema al guardar los cambios.");
-          return;
-        }
-
-        const data = await response.json();
-        console.log(data);
-        alert("Cambios guardados correctamente!");
-      } catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("Hubo un problema al enviar los datos.");
-      }
-
-      // Cerrar el modal
-      bootstrap.Modal.getInstance(modalProducto).hide();
-    });
+    btnAgregarItem.addEventListener("click", openModalForNewItem);
 
     btnBorrarObjeto.addEventListener("click", async () => {
       try {
@@ -457,8 +407,139 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Función para obtener los valores de los campos de texto de los colores, medidas y tipos
     function getEditableListValues(container) {
-      const inputs = container.querySelectorAll("input");
-      return Array.from(inputs).map((input) => input.value);
+      const inputs = container.querySelectorAll("input[type='text']");
+      return Array.from(inputs)
+        .map((input) => input.value.trim())
+        .filter((value) => value !== "");
+    }
+
+    async function editarObjeto() {
+      currentItem.nombre = modalProductoNombre.value;
+      currentItem.descripcion = modalProductoDescripcion.value;
+
+      currentItem.color = getEditableListValues(contenedorColores);
+      currentItem.medida = getEditableListValues(contenedorMedidas);
+      currentItem.tipo = getEditableListValues(contenedorTipos);
+
+      const metrosChecked = metrosCheckbox.checked; // Devuelve true si está marcado, false si no.
+      currentItem.href =
+        hrefDropdown.value !== "none" ? hrefDropdown.value : "";
+
+      // Verificar si hay imagen cargada
+      const imagenInput = document.querySelector("#modalImagenInput");
+      let imagenFile = imagenInput ? imagenInput.files[0] : null;
+
+      // Crear un objeto FormData para enviar la información
+      const formData = new FormData();
+
+      // Agregar los datos al FormData
+      formData.append("id", currentItem.id);
+      formData.append("nombre", currentItem.nombre);
+      formData.append("descripcion", currentItem.descripcion);
+      formData.append("color", currentItem.color.join(","));
+      formData.append("medida", currentItem.medida.join(","));
+      formData.append("tipo", currentItem.tipo.join(","));
+      formData.append("href", currentItem.href || "");
+      formData.append("seccion", currentItem.category);
+      formData.append("metros", metrosChecked);
+
+      // Si hay imagen, agregarla al FormData
+      if (imagenFile) {
+        console.log("Imagen File: ", imagenFile);
+        formData.append("image", imagenFile);
+      }
+
+      console.log(formData);
+
+      try {
+        const response = await fetch(`${fetchUrl}/update-item`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error(errorData.error, "Error Desconocido");
+          alert(errorData.error, "Hubo un problema al guardar los cambios");
+          return;
+        }
+        const data = await response.json();
+        console.log(data);
+        alert("Cambios guardados correctamente");
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Hubo un problema al enviar los datos.");
+      }
+    }
+
+    async function crearObjeto() {
+      currentItem.nombre = modalProductoNombre.value;
+      currentItem.descripcion = modalProductoDescripcion.value;
+
+      currentItem.color = getEditableListValues(contenedorColores);
+      currentItem.medida = getEditableListValues(contenedorMedidas);
+      currentItem.tipo = getEditableListValues(contenedorTipos);
+
+      const metrosChecked = metrosCheckbox.checked; // Devuelve true si está marcado, false si no.
+
+      // Guardar el valor del dropdown 'href'
+      currentItem.href =
+        hrefDropdown.value !== "none" ? hrefDropdown.value : "";
+
+      // Verificar si hay imagen cargada
+      const imagenInput = document.querySelector("#modalImagenInput");
+      let imagenFile = imagenInput ? imagenInput.files[0] : null;
+
+      const seccionDropdown = document.querySelector("#modalProductoSeccion");
+      currentItem.seccion = seccionDropdown.value;
+
+      // Crear un objeto FormData para enviar la información
+      const formData = new FormData();
+
+      // Agregar los datos al FormData
+      formData.append("id", currentItem.id);
+      formData.append("nombre", currentItem.nombre);
+      formData.append("descripcion", currentItem.descripcion);
+      formData.append("color", currentItem.color.join(","));
+      formData.append("medida", currentItem.medida.join(","));
+      formData.append("tipo", currentItem.tipo.join(","));
+      formData.append("href", currentItem.href || "");
+      formData.append("metros", metrosChecked);
+      formData.append("seccion", currentItem.seccion); // <- IMPORTANTE, AÑADIDO AQUÍ
+
+      // Si hay imagen, agregarla al FormData
+      if (imagenFile) {
+        console.log("Imagen File: ", imagenFile);
+        formData.append("image", imagenFile);
+      }
+
+      console.log(formData);
+
+      try {
+        const response = await fetch(`${fetchUrl}/add-item`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error(errorData.error, "Error Desconocido");
+          alert(errorData.error, "Hubo un problema al guardar los cambios");
+          return;
+        }
+        const data = await response.json();
+        console.log(data);
+        alert("Cambios guardados correctamente");
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Hubo un problema al enviar los datos.");
+      }
     }
 
     window.openModal = openModal;
@@ -471,6 +552,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         item.nombre.toLowerCase().includes(searchText)
       );
       renderItems(filteredItems);
+    });
+
+    btnGuardarCambios.addEventListener("click", async () => {
+      if (!currentItem.id) {
+        crearObjeto();
+      } else {
+        editarObjeto();
+      }
+      // Cerrar el modal después de guardar
+      bootstrap.Modal.getInstance(modalProducto).hide();
     });
 
     fetchItems();
