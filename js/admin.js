@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // const fetchUrl = "http://localhost:8000";
-  const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  const fetchUrl = "http://localhost:8000";
+  // const fetchUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   let jwt = localStorage.getItem("jwt");
   if (jwt) {
@@ -349,7 +349,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     btnGuardarCambios.addEventListener("click", async () => {
-      // Guardar los valores de los campos de texto
       currentItem.nombre = modalProductoNombre.value;
       currentItem.descripcion = modalProductoDescripcion.value;
 
@@ -358,8 +357,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       currentItem.medida = getEditableListValues(contenedorMedidas);
       currentItem.tipo = getEditableListValues(contenedorTipos);
 
+      // Obtener el estado del checkbox 'metros'
+      const metrosCheckbox = document.querySelector("#modalProductoMetros");
+      const metrosChecked = metrosCheckbox.checked; // Devuelve true si está marcado, false si no.
+
+      // Guardar el valor del dropdown 'href'
+      const hrefDropdown = document.querySelector("#modalProductoHref");
+      currentItem.href =
+        hrefDropdown.value !== "none" ? hrefDropdown.value : "";
+
       // Verificar si hay imagen cargada
-      const imagenInput = document.querySelector("#modalImagenInput"); // Asumiendo que tienes un input de tipo file para la imagen
+      const imagenInput = document.querySelector("#modalImagenInput");
       let imagenFile = imagenInput ? imagenInput.files[0] : null;
 
       // Crear un objeto FormData para enviar la información
@@ -374,14 +382,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       formData.append("tipo", currentItem.tipo.join(","));
       formData.append("href", currentItem.href || "");
       formData.append("seccion", currentItem.category);
+      formData.append("metros", metrosChecked); 
 
       // Si hay imagen, agregarla al FormData
       if (imagenFile) {
-        console.log('Imagen File: ',imagenFile)
+        console.log("Imagen File: ", imagenFile);
         formData.append("image", imagenFile);
       }
 
-      console.log(formData)
+      console.log(formData);
 
       // Hacer el fetch para enviar los datos al servidor
       try {
@@ -390,12 +399,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           headers: {
             Authorization: `Bearer ${jwt}`,
           },
-          body: formData, // Enviar el FormData con los datos y la imagen
+          body: formData,
         });
 
-        // Verificar si la respuesta es exitosa
         if (!response.ok) {
-          const errorData = await response.json(); // Intentar leer el JSON de error
+          const errorData = await response.json();
           console.error(errorData.error || "Error desconocido");
           alert(errorData.error || "Hubo un problema al guardar los cambios.");
           return;
@@ -413,10 +421,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       bootstrap.Modal.getInstance(modalProducto).hide();
     });
 
-    btnBorrarObjeto.addEventListener("click", async() => {
+    btnBorrarObjeto.addEventListener("click", async () => {
       try {
-        console.log(currentItem.category)
-        console.log(currentItem.id)
+        console.log(currentItem.category);
+        console.log(currentItem.id);
         const response = await fetch(`${fetchUrl}/delete-item`, {
           method: "DELETE",
           headers: {
@@ -426,7 +434,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           body: JSON.stringify({
             seccion: currentItem.category,
             id: currentItem.id,
-          })
+          }),
         });
 
         // Verificar si la respuesta es exitosa
@@ -445,7 +453,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert("Hubo un problema al enviar los datos.");
       }
       bootstrap.Modal.getInstance(modalProducto).hide();
-    })
+    });
 
     // Función para obtener los valores de los campos de texto de los colores, medidas y tipos
     function getEditableListValues(container) {
