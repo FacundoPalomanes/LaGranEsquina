@@ -564,7 +564,109 @@ document.addEventListener("DOMContentLoaded", async () => {
       bootstrap.Modal.getInstance(modalProducto).hide();
     });
 
+    let currentData = {}; // Variable global para mantener los datos cargados
+
+    async function loadSections() {
+      const response = await fetch(`${fetchUrl}/data`);
+      const data = await response.json();
+      currentData = data; // Almacenar los datos en la variable global
+
+      const sectionSelect = document.getElementById("sectionSelect");
+      sectionSelect.innerHTML = ""; // Limpiar opciones anteriores
+
+      const sectionNames = Object.keys(data);
+
+      sectionNames.forEach((section) => {
+        const option = document.createElement("option");
+        option.value = section;
+        option.textContent = section;
+        sectionSelect.appendChild(option);
+      });
+
+      if (sectionNames.length > 0) {
+        const firstSection = sectionNames[0];
+        sectionSelect.value = firstSection;
+        renderSectionItems(firstSection);
+      }
+
+      sectionSelect.addEventListener("change", () =>
+        renderSectionItems(sectionSelect.value)
+      );
+    }
+
+    function renderSectionItems(section) {
+      const itemsList = currentData[section] || [];
+      const sectionItemsList = document.getElementById("sectionItemsList");
+      sectionItemsList.innerHTML = "";
+
+      itemsList.forEach((item, index) => {
+        const itemRow = document.createElement("div");
+        itemRow.classList.add("item-row");
+        itemRow.innerHTML = `
+              <div>
+                  <img src="${item.imagen}" alt="${item.nombre}">
+                  <strong>${item.nombre}</strong>
+                  <em>${item.descripcion}</em>
+              </div>
+              <div>
+                  <button class="move-btn" data-index="${index}" data-direction="up">Subir</button>
+                  <button class="move-btn" data-index="${index}" data-direction="down">Bajar</button>
+              </div>
+          `;
+        sectionItemsList.appendChild(itemRow);
+      });
+
+      // Mover esta parte dentro de la función renderSectionItems
+      document.querySelectorAll(".move-btn").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const index = parseInt(e.target.getAttribute("data-index"));
+          const direction = e.target.getAttribute("data-direction");
+          const section = document.getElementById("sectionSelect").value; // Obtener la sección actual
+
+          moveItem(section, index, direction);
+        });
+      });
+    }
+
+    function moveItem(section, index, direction) {
+      const items = currentData[section];
+
+      if (direction === "up" && index > 0) {
+        [items[index - 1], items[index]] = [items[index], items[index - 1]];
+      } else if (direction === "down" && index < items.length - 1) {
+        [items[index], items[index + 1]] = [items[index + 1], items[index]];
+      }
+
+      renderSectionItems(section); // Renderizar nuevamente sin hacer fetch
+    }
+
+    document
+      .getElementById("mover-items")
+      .addEventListener("click", async (e) => {
+        if (e.target && e.target.id === "btnAgregarItem") {
+          console.log("Botón detectado y clickeado.");
+          const sectionSelect = document.getElementById("sectionSelect");
+          const seccion = sectionSelect.value;
+          const items = currentData[seccion];
+
+          const response = await fetch(`${fetchUrl}/update-section`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${jwt}`,
+            },
+            body: JSON.stringify({ seccion, items }),
+          });
+
+          if (!response.ok) {
+            alert("Error al guardar la sección. Intenta nuevamente.");
+          } else {
+            alert("Sección guardada con éxito.");
+          }
+        }
+      });
+    loadSections();
+
     fetchItems();
   }
 });
-// Cerrar sesión
