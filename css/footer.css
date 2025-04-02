@@ -72,7 +72,7 @@ body.dark-mode .footer-basic .copyright {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-color: #25D366;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,8 @@ body.dark-mode .footer-basic .copyright {
 
 .whatsapp-logo {
   width: 60%;
-  height: 60%;
+  display: block;
+  margin: auto;
 }
 
 @media screen and (max-width: 768px) {

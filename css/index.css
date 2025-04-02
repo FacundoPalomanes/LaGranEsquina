@@ -82,3 +82,45 @@ body.dark-mode .card p {
   right: 1rem;
   transform: translateY(-50%);
 }
+
+.container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slide-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-track {
+  display: flex;
+  gap: 100px; /* Espacio entre imágenes */
+  animation: scroll 10s linear infinite;
+}
+
+/* Cada imagen tiene el mismo tamaño */
+.slide-item {
+  width: 160px;
+  height: 80px;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+/* Efecto hover */
+.slide-item:hover {
+  filter: grayscale(0%);
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+/* Animación de desplazamiento */
+@keyframes scroll {
+  0% { transform: translateX(100%); } /* Empieza fuera de la pantalla por la derecha */
+  80% { transform: translateX(-120%); } /* Se desplaza hasta que todas las imágenes se salen por la izquierda */
+  100% { transform: translateX(-130%); } /* Punto final para reiniciar la animación */
+}

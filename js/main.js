@@ -42,30 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Navbar scroll
   header_movement();
 
-  const isMobile = window.innerWidth <= 600;
-  const carouselInner = document.getElementById("carouselInner");
-
-  if (isMobile) {
-    // Creamos el nuevo item para mobile
-    const mobileItem = document.createElement("div");
-    mobileItem.className = "carousel-item active";
-    mobileItem.setAttribute("data-bs-interval", "10000");
-
-    const mobileImg = document.createElement("img");
-    mobileImg.src = "./assets/carrousel/image-mobile.png";
-    mobileImg.className = "d-block w-100";
-    mobileImg.alt = "Banner Mobile";
-
-    mobileItem.appendChild(mobileImg);
-
-    // Quitamos el active del primer item actual
-    const firstItem = carouselInner.querySelector(".carousel-item.active");
-    firstItem.classList.remove("active");
-
-    // Insertamos el nuevo item al principio
-    carouselInner.insertBefore(mobileItem, firstItem);
-  }
-
   renderizarProductos();
 
   async function renderizarProductos() {

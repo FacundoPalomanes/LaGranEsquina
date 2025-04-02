@@ -45,7 +45,8 @@
   <!-- add animation to header mobile menu -->
   <header class="header">
     <section class="header__info">
-      <p>Estamos desde el año 2001 para asesorarte en lo que necesites. Llamenos al <span class="phone-number">0230 4421831</span> o enviando un mensaje al <span class="phone-number">11 6447-1868</span>!!</p>
+      <p>Estamos desde el año 2001 para asesorarte en lo que necesites. Llamenos al <span class="phone-number">0230
+          4421831</span> o enviando un mensaje al <span class="phone-number">11 6447-1868</span>!!</p>
     </section>
     <!-- navbar -->
     <section class="container-navbar">
@@ -54,18 +55,6 @@
           <a href="index.html" class="navbar-logo">
             <img src="assets/icon/icon.png" alt="logo-empresa">
           </a>
-
-          <!-- Contenedor de los logos de empresas -->
-          <div class="navbar-empresas">
-            <img src="assets/empresas/logo-termiun.png" alt="Ternium">
-            <img src="assets/empresas/logo-durlock.png" alt="Durlock">
-            <img src="assets/empresas/logo-anclaflex.png" alt="AnclaFlex">
-            <img src="assets/empresas/logo-aislamax.png" alt="Aislamax">
-            <img src="assets/empresas/logo-zinacril.png" alt="Zinacril">
-            <img src="assets/empresas/logo-fischer.png" alt="Fischer">
-          </div>
-        </div>
-
         <div class="navbar__nav">
           <ul class="nav__list">
             <li class="nav__link">
@@ -169,23 +158,38 @@
 
 
   <!-- Productos destacados -->
-  <div class="container">
+  <div class="container p-3">
     <div class="block carousel-container position-relative my-5">
-      <h2 class="text-center mt-5" style="font-size: 3rem;">Nuestros Productos Destacados</h2>
+      <h2 class="text-center mt-5 fw-bold" style="font-size: 2.5rem;">Nuestros Productos Destacados</h2>
       <button class="arrow left" id="scrollLeft">&#10094;</button>
       <div id="destacados" class="item-gap d-flex overflow-auto p-5"></div>
       <button class="arrow right" id="scrollRight">&#10095;</button>
     </div>
   </div>
-  <div class="text-center mt-5">
+  <div class="text-center mt-5 p-5">
     <a href="/productos" class="btn btn-color btn-lg">Ver todo el catálogo</a>
   </div>
 
 
+  
+  <div class="container d-flex flex-column align-items-center justify-content-center p-5 gap-3">
+    <h2 class="display-4 fw-bold" style="font-size: 2.5rem;">Nuestras Marcas</h2>
+    <div class="slide-container m-3">
+      <div class="slide-track">
+        <img src="assets/empresas/logo-termiun.png"  class="slide-item" alt="Ternium">
+        <img src="assets/empresas/logo-durlock.png"  class="slide-item" alt="Durlock">
+        <img src="assets/empresas/logo-anclaflex.png"  class="slide-item" alt="AnclaFlex">
+        <img src="assets/empresas/logo-aislamax.png"  class="slide-item" alt="Aislamax">
+        <img src="assets/empresas/logo-zinacril.png"  class="slide-item" alt="Zinacril">
+        <img src="assets/empresas/logo-fischer.png"  class="slide-item" alt="Fischer">
+      </div>
+    </div>
+  </div>
+
   <!-- Google maps reviews -->
-  <view class="block">
+  <view class="block p-5">
     <div class="block google-reviews-container">
-      <h3>Lo que dicen nuestros clientes</h3>
+      <h3 class="fw-bold" style="font-size: 2.5rem;">Lo que dicen nuestros clientes</h3>
       <div class="elfsight-app-1c9c319f-302a-48ec-9e80-ec9f93fbcb2c" data-elfsight-app-lazy></div>
     </div>
   </view>
@@ -254,7 +258,7 @@
   <div class="container-column block">
     <!-- Fila 1: Ubicación -->
     <div class="row">
-      <h3><img src="/assets/svg/location.svg" alt="ubicacion"/> Ubicación</h3>
+      <h3><img src="/assets/svg/location.svg" alt="ubicacion" /> Ubicación</h3>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6580.43101025251!2d-58.903755000000004!3d-34.446677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9d98b2920baf%3A0xcecee08d68548792!2sZingueria%20%22La%20Gran%20Esquina%22!5e0!3m2!1ses!2sar!4v1737067352573!5m2!1ses!2sar"
         width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
@@ -263,14 +267,14 @@
 
     <!-- Fila 2: Horarios -->
     <div class="row">
-      <h3><img src="/assets/svg/time.svg" alt="time"/> Horarios</h3>
+      <h3><img src="/assets/svg/time.svg" alt="time" /> Horarios</h3>
       <p>Lunes a Viernes de 8-13hs y 14-17hs</p>
       <p>Sábados 8-12hs</p>
     </div>
 
-    <!-- Fila 3: Empresas -->
+    <!-- Fila 3: Empresas
     <div class="row">
-      <h3><img src="/assets/svg/building.svg" alt="business"/> Empresas</h3>
+      <h3><img src="/assets/svg/building.svg" alt="business" /> Empresas</h3>
       <section class="logo-container">
         <img src="assets/empresas/logo-durlock.png" alt="Durlock">
         <img src="assets/empresas/logo-anclaflex.png" alt="AnclaFlex">
@@ -279,22 +283,22 @@
         <img src="assets/empresas/logo-fischer.png" alt="Fischer">
         <img src="assets/empresas/logo-termiun.png" alt="Ternium">
       </section>
-    </div>
+    </div> -->
 
     <!-- Fila 4: Medios de Pago -->
     <div class="row">
-      <h3><img src="/assets/svg/wallet.svg" alt="wallet"/> Medios de Pago</h3>
+      <h3><img src="/assets/svg/wallet.svg" alt="wallet" /> Medios de Pago</h3>
       <div class="payment-grid">
         <div class="pay-item">
-          <img src="/assets/svg/payment-card.svg" alt="payment-card"/>
+          <img src="/assets/svg/payment-card.svg" alt="payment-card" />
           <p>Débito Crédito Transferencia</p>
         </div>
         <div class="pay-item">
-          <img src="/assets/svg/cash.svg" alt="cash"/>
+          <img src="/assets/svg/cash.svg" alt="cash" />
           <p>Efectivo</p>
         </div>
         <div class="pay-item">
-          <img src="/assets/svg/qr-code-scan.svg" alt="mercado-pago"/>
+          <img src="/assets/svg/qr-code-scan.svg" alt="mercado-pago" />
           <p>Mercado Pago</p>
         </div>
       </div>
@@ -302,7 +306,7 @@
 
     <!-- Fila 5: Retiros en el local -->
     <div class="row">
-      <h3><img src="/assets/svg/log-in.svg" alt="log-in"/>Retiros en el local</h3>
+      <h3><img src="/assets/svg/log-in.svg" alt="log-in" />Retiros en el local</h3>
       <p>
         ¡Retira tus pedidos de manera rápida y sencilla en nuestro local!
         Una vez realizado tu pedido, recibirás un mensaje cuando esté listo para ser retirado.
@@ -312,7 +316,7 @@
       </p>
     </div>
     <div class="row">
-      <h3><img src="/assets/svg/shipping.svg" alt="shipping"/>Envios a coordinar con el cliente!</h3>
+      <h3><img src="/assets/svg/shipping.svg" alt="shipping" />Envios a coordinar con el cliente!</h3>
       <p>
         Para garantizar una entrega rápida y sin inconvenientes, todos los envíos deben ser coordinados directamente
         con el cliente. Nos pondremos en contacto contigo para confirmar los detalles y asegurar que el envío se
@@ -330,8 +334,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img id="modalProductoImagen" src="" alt="Imagen del producto"
-            class="modal-img">
+          <img id="modalProductoImagen" src="" alt="Imagen del producto" class="modal-img">
           <p id="modalProductoDescripcion"></p>
           <div class="d-flex align-items-center">
             <button id="btnMenos" class="btn btn-danger">-</button>
