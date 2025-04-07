@@ -32,16 +32,11 @@
   color: var(--white);
 }
 
-.footer-basic .copyright {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-  color: #888;
-}
 
 .footer-basic .social a img {
   width: 60%;
   transition: filter 0.3s ease-in-out;
+  filter: none;
 }
 
 .footer-basic .social a:hover img {
@@ -59,6 +54,28 @@ body.dark-mode .footer-basic .social a {
 
 body.dark-mode .footer-basic .social a:hover {
   background-color: var(--white);
+}
+
+body.dark-mode .footer-basic .social > a {
+background-color: var(--black);
+}
+
+
+body.dark-mode .footer-basic .social a img {
+  filter: invert(1);
+}
+
+/* En modo oscuro, al hacer hover, se muestra normal */
+body.dark-mode .footer-basic .social a:hover img {
+  filter: invert(0);
+}
+
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
 }
 
 body.dark-mode .footer-basic .copyright {

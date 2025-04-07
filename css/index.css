@@ -98,7 +98,7 @@ body.dark-mode .card p {
 .slide-track {
   display: flex;
   gap: 100px; /* Espacio entre imágenes */
-  animation: scroll 10s linear infinite;
+  animation: scroll 15s linear infinite;
 }
 
 /* Cada imagen tiene el mismo tamaño */
@@ -121,6 +121,5 @@ body.dark-mode .slide-track .slide-item[alt="AnclaFlex"] {
 /* Animación de desplazamiento */
 @keyframes scroll {
   0% { transform: translateX(100%); } /* Empieza fuera de la pantalla por la derecha */
-  80% { transform: translateX(-140%); } /* Se desplaza hasta que todas las imágenes se salen por la izquierda */
-  100% { transform: translateX(-150%); } /* Punto final para reiniciar la animación */
+  100% { transform: translateX(-150%); } /* Se desplaza hasta que todas las imágenes se salen por la izquierda */
 }

@@ -23,7 +23,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
   transition: top 0.3s; /* Transición suave */
 }
 
@@ -303,4 +303,12 @@
 .navbar-nav .nav-item .nav-link[href="#canios_grampas"] {
   position: relative; 
   right: 15px; 
+}
+
+.container-navbar {
+  overflow: visible; /* Asegura que el dropdown no se corte */
+}
+
+.navbar {
+  overflow: visible; /* También importante */
 }

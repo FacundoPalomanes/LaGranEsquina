@@ -55,13 +55,37 @@ export function scrollRight({ buttonId, scrollerContainerId }) {
 }
 
 export function darkMode() {
-  document.getElementById("dark-mode-toggle").addEventListener("click", () => {
+  const toggleBtn = document.getElementById("dark-mode-toggle");
+  const toggleBtnMobile = document.getElementById("dark-mode-toggle-mobile");
+
+  if (!toggleBtn || !toggleBtnMobile) return;
+
+  const isDark = localStorage.getItem("darkMode") === "true";
+  
+  if (isDark) {
+    document.body.classList.add("dark-mode");
+    toggleBtn.textContent = "🌙";
+    toggleBtnMobile.textContent = "🌙";
+  } else {
+    document.body.classList.remove("dark-mode");
+    toggleBtn.textContent = "☀️";
+    toggleBtnMobile.textContent = "☀️";
+  }
+
+  // Toggle al hacer click
+  toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
+    const isNowDark = document.body.classList.contains("dark-mode");
+    toggleBtn.textContent = isNowDark ? "🌙" : "☀️";
+    toggleBtnMobile.textContent = isNowDark ? "🌙" : "☀️";
+    localStorage.setItem("darkMode", isNowDark);
   });
 
-  document
-    .getElementById("dark-mode-toggle-mobile")
-    .addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-    });
+  toggleBtnMobile.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isNowDark = document.body.classList.contains("dark-mode");
+    toggleBtn.textContent = isNowDark ? "🌙" : "☀️";
+    toggleBtnMobile.textContent = isNowDark ? "🌙" : "☀️";
+    localStorage.setItem("darkMode", isNowDark);
+  });
 }

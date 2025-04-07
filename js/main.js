@@ -8,8 +8,8 @@ import {
 } from "./global-functions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Toggle dark mode
-  darkMode();
+    // Toggle dark mode
+    darkMode();
 
   window.addEventListener("resize", hideMenuResize);
   window.addEventListener("load", hideMenuResize);
@@ -218,4 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
     modal.show();
   }
+
+
 });
