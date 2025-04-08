@@ -225,7 +225,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "align-items-center"
       );
 
-      const texto = document.createElement("span");
+      const texto = document.createElement("div");
+      texto.classList.add("flex-grow-1", "me-3", "text-break");
       texto.textContent = `${item.cantidad}x ${miItem.nombre} ${
         item.metros ? "- Metros: " + item.metros : ""
       } ${item.medida ? " - Medida: " + item.medida : ""} ${
@@ -233,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } ${item.tipo ? " - Tipo: " + item.tipo : ""}`;
 
       const contenedorBotones = document.createElement("div");
+      contenedorBotones.classList.add("d-flex", "gap-2");
 
       const btnEditar = document.createElement("button");
       btnEditar.classList.add("btn", "btn-primary", "btn-sm");
@@ -304,14 +306,30 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Agregar";
 
     document.getElementById("btnModalAccion").onclick = () => {
+      const metrosActual = parseFloat(inputMetros.value);
       esEditar
-        ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual, metros)
+        ? guardarCambiosCantidad(
+            colorActual,
+            medidaActual,
+            tipoActual,
+            metrosActual
+          )
         : agregarProductoCarrito();
     };
 
     if (producto.metros) {
       cantidadContainer.style.display = "none"; // Oculta cantidad
       metrosContainer.style.display = "block"; // Muestra metros
+      if (
+        producto.id === 54 ||
+        producto.id === 55 ||
+        producto.id === 56 ||
+        producto.id === 108 ||
+        producto.id === 109
+      ) {
+        cantidadContainer.style.display = "block"; // Muestra cantidad
+        metrosContainer.style.display = "block"; // Muestra metros
+      }
     } else {
       cantidadContainer.style.display = "block"; // Muestra cantidad
       metrosContainer.style.display = "none"; // Oculta metros
@@ -333,12 +351,13 @@ document.addEventListener("DOMContentLoaded", () => {
     inputMetros.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
+        const metrosActual = parseFloat(inputMetros.value);
         esEditar
           ? guardarCambiosCantidad(
               colorActual,
               medidaActual,
               tipoActual,
-              metros
+              metrosActual
             )
           : agregarProductoCarrito();
       }
