@@ -297,12 +297,19 @@
   width: 120px;
 }
 .navbar-nav .nav-item .nav-link[href="#curvas"] {
-  width: 165px;
+  width: 170px;
 }
 
 .navbar-nav .nav-item .nav-link[href="#canios_grampas"] {
   position: relative; 
-  right: 15px; 
+  right: 20px; 
+}
+
+.navbar-nav .nav-item .nav-link[href="#caballetes_conversas"] {
+  width: 90px; 
+  position: relative; 
+  left: 12px;
+
 }
 
 .container-navbar {

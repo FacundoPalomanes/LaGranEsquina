@@ -299,8 +299,14 @@ document.addEventListener("DOMContentLoaded", () => {
     inputCantidad.value = cantidad;
     inputMetros.value = metros;
 
-    document.getElementById("btnMenos").onclick = () => actualizarCantidad(-1);
-    document.getElementById("btnMas").onclick = () => actualizarCantidad(1);
+    document.getElementById("btnMenos").onclick = () =>
+      [60, 101].includes(producto.id)
+        ? actualizarCantidad(-10)
+        : actualizarCantidad(-1);
+    document.getElementById("btnMas").onclick = () =>
+      [60, 101].includes(producto.id)
+        ? actualizarCantidad(10)
+        : actualizarCantidad(1);
     document.getElementById("btnModalAccion").textContent = esEditar
       ? "Guardar"
       : "Agregar";
@@ -320,15 +326,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (producto.metros) {
       cantidadContainer.style.display = "none"; // Oculta cantidad
       metrosContainer.style.display = "block"; // Muestra metros
-      if (
-        producto.id === 54 ||
-        producto.id === 55 ||
-        producto.id === 56 ||
-        producto.id === 108 ||
-        producto.id === 109
-      ) {
+      if ([54, 55, 56, 108, 109].includes(producto.id)) {
         cantidadContainer.style.display = "block"; // Muestra cantidad
         metrosContainer.style.display = "block"; // Muestra metros
+        if ([54, 55, 56].includes(producto.id)) {
+          inputMetros.setAttribute("min", "2");
+          inputMetros.setAttribute("max", "8");
+          inputMetros.setAttribute("step", "0.5");
+          inputMetros.value = "2"; // Establece valor por defecto a 2
+        }
+      } else {
+        // Productos con metros pero no en la lista especial
+        inputMetros.setAttribute("min", "1");
+        inputMetros.removeAttribute("max");
+        inputMetros.removeAttribute("step");
+        inputMetros.value = "1"; // Valor por defecto normal
       }
     } else {
       cantidadContainer.style.display = "block"; // Muestra cantidad
@@ -365,6 +377,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const contenedorColores = document.getElementById("contenedorColores");
     contenedorColores.innerHTML = "";
+
+    if (producto.color && producto.color.length > 0) {
+      const label = document.createElement("label");
+      label.textContent = "Selecciona una color:";
+      label.setAttribute("for", "selectColor");
+
+      const select = document.createElement("select");
+      select.id = "selectColor";
+      select.classList.add("form-control");
+
+      producto.color.forEach((color) => {
+        const option = document.createElement("option");
+        option.value = color;
+        option.textContent = color;
+
+        // Preseleccionar el color actual
+        if (color === colorActual) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      });
+
+      contenedorColor.appendChild(label);
+      contenedorColor.appendChild(select);
+    }
 
     if (producto.color && producto.color.length > 0) {
       const label = document.createElement("label");
