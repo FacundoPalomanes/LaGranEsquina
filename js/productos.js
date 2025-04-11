@@ -404,32 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
       contenedorColores.appendChild(select);
     }
 
-    if (producto.color && producto.color.length > 0) {
-      const label = document.createElement("label");
-      label.textContent = "Selecciona un color:";
-      label.setAttribute("for", "selectColor");
-
-      const select = document.createElement("select");
-      select.id = "selectColor";
-      select.classList.add("form-control");
-
-      producto.color.forEach((color) => {
-        const option = document.createElement("option");
-        option.value = color;
-        option.textContent = color;
-
-        // Preseleccionar el color actual
-        if (color === colorActual) {
-          option.selected = true;
-        }
-
-        select.appendChild(option);
-      });
-
-      contenedorColores.appendChild(label);
-      contenedorColores.appendChild(select);
-    }
-
     const contenedorMedidas = document.getElementById("contenedorMedidas");
     contenedorMedidas.innerHTML = "";
 
