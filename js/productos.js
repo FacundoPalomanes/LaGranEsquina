@@ -400,8 +400,8 @@ document.addEventListener("DOMContentLoaded", () => {
         select.appendChild(option);
       });
 
-      contenedorColor.appendChild(label);
-      contenedorColor.appendChild(select);
+      contenedorColores.appendChild(label);
+      contenedorColores.appendChild(select);
     }
 
     if (producto.color && producto.color.length > 0) {
