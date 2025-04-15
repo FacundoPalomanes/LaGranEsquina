@@ -138,6 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const cantidadMetros = document.getElementById("inputMetros");
       metrosSelecionados =
         cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
+        if ([54, 55, 56].includes(productoEnEdicion.id) && (metrosSelecionados > 8 || metrosSelecionados < 2)){
+          document.getElementById("errorMetros").innerHTML= "Hubo un error con los metros ingresados, el maximo es 8 y el minimo 1"
+          return;
+        }
     }
     const selectColor = document.getElementById("selectColor");
     const colorSeleccionado =
@@ -486,6 +490,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cantidadMetros && cantidadMetros.value
           ? parseFloat(cantidadMetros.value)
           : null;
+
+          if([54, 55, 56].includes(productoEnEdicion.id) && (metrosSeleccionados > 8 || metrosSeleccionados < 2)){
+            alert("Hubo un error con los metros ingresados, el maximo es 8 y el minimo 1")
+            return;
+          }
     } else {
       metrosSeleccionados = null;
     }
@@ -804,109 +813,106 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastSelectedProduct = null; // Guardamos el último producto seleccionado
 
-  // Función para manejar la búsqueda desde cualquier input
-  async function handleSearch(inputId, listId) {
-    const query = document.getElementById(inputId).value.trim().toLowerCase();
-    const list = document.getElementById(listId);
-    list.innerHTML = "";
+// Función para manejar la búsqueda desde cualquier input
+async function handleSearch(inputId, listId) {
+  const query = document.getElementById(inputId).value.trim().toLowerCase();
+  const list = document.getElementById(listId);
+  list.innerHTML = "";
 
-    if (query.length === 0) return;
+  if (query.length === 0) return;
 
-    try {
-      const data = await fetchData();
+  try {
+    const data = await fetchData();
 
-      if (data && typeof data === "object") {
-        const secciones = Object.keys(data);
+    if (data && typeof data === "object") {
+      const secciones = Object.keys(data);
 
-        secciones.forEach((seccion, index) => {
-          data[seccion].forEach((obj) => {
-            if (obj.nombre.toLowerCase().includes(query)) {
-              const li = document.createElement("li");
-              li.className = "list-group-item list-group-item-action";
-              li.textContent = obj.nombre;
+      secciones.forEach((seccion) => {
+        if (seccion === "destacados") return;
 
-              li.onclick = () => {
-                document.getElementById(inputId).value = obj.nombre;
-                list.innerHTML = "";
-                lastSelectedProduct = obj.nombre; // Guardamos lo seleccionado
+        data[seccion].forEach((obj) => {
+          if (obj.nombre.toLowerCase().includes(query)) {
+            const li = document.createElement("li");
+            li.className = "list-group-item list-group-item-action";
+            li.textContent = obj.nombre;
 
-                const seccionAnterior =
-                  index > 0 ? secciones[index - 1] : secciones[0];
-                const targetSection = document.getElementById(seccionAnterior);
-                if (targetSection) {
-                  targetSection.scrollIntoView({ behavior: "smooth" });
-                }
-              };
+            li.onclick = () => {
+              document.getElementById(inputId).value = obj.nombre;
+              list.innerHTML = "";
+              lastSelectedProduct = obj.nombre;
 
-              list.appendChild(li);
-            }
-          });
-        });
-      }
-    } catch (error) {
-      console.error("Error buscando objetos:", error);
-    }
-  }
+              // 👉 En vez de hacer scroll, abrimos el modal
+              abrirModalProducto(obj);
+            };
 
-  // Escuchar el input del formulario de escritorio
-  document
-    .getElementById("searchInput")
-    .addEventListener("input", () =>
-      handleSearch("searchInput", "suggestionsList")
-    );
-
-  // Escuchar el input del formulario móvil
-  document
-    .getElementById("mobileSearchInput")
-    .addEventListener("input", () =>
-      handleSearch("mobileSearchInput", "mobileSuggestionsList")
-    );
-
-  // Función de búsqueda cuando se hace clic en el botón
-  async function handleButtonSearch(inputId, listId) {
-    const value = document.getElementById(inputId).value.trim().toLowerCase();
-    if (!value) return;
-
-    try {
-      const data = await fetchData();
-
-      if (data && typeof data === "object") {
-        const secciones = Object.keys(data);
-
-        for (let i = 0; i < secciones.length; i++) {
-          const productos = data[secciones[i]];
-          const encontrado = productos.find(
-            (obj) => obj.nombre.toLowerCase() === value
-          );
-
-          if (encontrado) {
-            lastSelectedProduct = encontrado.nombre;
-
-            const seccionAnterior = i > 0 ? secciones[i - 1] : secciones[0];
-            const targetSection = document.getElementById(seccionAnterior);
-            if (targetSection) {
-              targetSection.scrollIntoView({ behavior: "smooth" });
-            }
-            break;
+            list.appendChild(li);
           }
+        });
+      });
+    }
+  } catch (error) {
+    console.error("Error buscando objetos:", error);
+  }
+}
+
+// Escuchar input del formulario de escritorio
+document
+  .getElementById("searchInput")
+  .addEventListener("input", () =>
+    handleSearch("searchInput", "suggestionsList")
+  );
+
+// Escuchar input del formulario móvil
+document
+  .getElementById("mobileSearchInput")
+  .addEventListener("input", () =>
+    handleSearch("mobileSearchInput", "mobileSuggestionsList")
+  );
+
+// Función de búsqueda al hacer clic en el botón
+async function handleButtonSearch(inputId, listId) {
+  const value = document.getElementById(inputId).value.trim().toLowerCase();
+  if (!value) return;
+
+  try {
+    const data = await fetchData();
+
+    if (data && typeof data === "object") {
+      const secciones = Object.keys(data);
+
+      for (let i = 0; i < secciones.length; i++) {
+        const productos = data[secciones[i]];
+        const encontrado = productos.find(
+          (obj) => obj.nombre.toLowerCase() === value
+        );
+
+        if (encontrado) {
+          lastSelectedProduct = encontrado.nombre;
+
+          // 👉 En vez de hacer scroll, abrimos el modal
+          abrirModalProducto(encontrado);
+
+          break;
         }
       }
-    } catch (error) {
-      console.error("Error al buscar desde el botón:", error);
     }
+  } catch (error) {
+    console.error("Error al buscar desde el botón:", error);
   }
+}
 
-  // Escuchar el botón de búsqueda en el formulario de escritorio
-  document
-    .querySelector("button.btn.btn-outline-success")
-    .addEventListener("click", () =>
-      handleButtonSearch("searchInput", "suggestionsList")
-    );
+// Botón de búsqueda - escritorio
+document
+  .querySelector("button.btn.btn-outline-success")
+  .addEventListener("click", () =>
+    handleButtonSearch("searchInput", "suggestionsList")
+  );
 
-  // Escuchar el botón de búsqueda en el formulario móvil
-  document
-    .querySelectorAll("button.btn.btn-outline-success")[1] // Escucha el segundo botón (móvil)
-    .addEventListener("click", () =>
-      handleButtonSearch("mobileSearchInput", "mobileSuggestionsList")
-    );
+// Botón de búsqueda - móvil
+document
+  .querySelectorAll("button.btn.btn-outline-success")[1]
+  .addEventListener("click", () =>
+    handleButtonSearch("mobileSearchInput", "mobileSuggestionsList")
+  );
+
 });
