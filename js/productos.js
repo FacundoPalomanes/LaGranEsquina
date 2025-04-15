@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const DOMbotonVaciar = document.querySelector("#boton-vaciar");
   const miLocalStorage = window.localStorage;
 
-  // const fecthUrl = "http://localhost:8000";
-  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  const fecthUrl = "http://localhost:8000";
+  // const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
@@ -136,20 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
       selectTipo && selectTipo.value ? selectTipo.value : null;
 
     for (let i = 0; i < cantidad; i++) {
-      let producto = { id: String(productoEnEdicion.id) };
-
-      if (colorSeleccionado) {
-        producto.color = colorSeleccionado;
-      }
-      if (medidaSeleccionada) {
-        producto.medida = medidaSeleccionada;
-      }
-      if (tipoSeleccionada) {
-        producto.tipo = tipoSeleccionada;
-      }
-      if (metrosSelecionados) {
-        producto.metros = metrosSelecionados;
-      }
+      let producto = {
+        id: String(productoEnEdicion.id),
+        color: colorSeleccionado || null,
+        medida: medidaSeleccionada || null,
+        tipo: tipoSeleccionada || null,
+        metros: metrosSelecionados || null,
+      };
 
       carrito.push(producto);
     }
@@ -297,14 +290,13 @@ document.addEventListener("DOMContentLoaded", () => {
       producto.descripcion;
     document.getElementById("modalProductoImagen").src = producto.imagen;
     inputCantidad.value = cantidad;
-    inputMetros.value = metros;
 
     document.getElementById("btnMenos").onclick = () =>
-      [60, 101].includes(producto.id)
+      [60,61,101,102].includes(producto.id)
         ? actualizarCantidad(-10)
         : actualizarCantidad(-1);
     document.getElementById("btnMas").onclick = () =>
-      [60, 101].includes(producto.id)
+      [60,61,101,102].includes(producto.id)
         ? actualizarCantidad(10)
         : actualizarCantidad(1);
     document.getElementById("btnModalAccion").textContent = esEditar
@@ -312,13 +304,12 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Agregar";
 
     document.getElementById("btnModalAccion").onclick = () => {
-      const metrosActual = parseFloat(inputMetros.value);
       esEditar
         ? guardarCambiosCantidad(
             colorActual,
             medidaActual,
             tipoActual,
-            metrosActual
+            metros 
           )
         : agregarProductoCarrito();
     };
@@ -340,11 +331,15 @@ document.addEventListener("DOMContentLoaded", () => {
         inputMetros.setAttribute("min", "1");
         inputMetros.removeAttribute("max");
         inputMetros.removeAttribute("step");
-        inputMetros.value = "1"; // Valor por defecto normal
+        inputMetros.value = esEditar ? metros : "1"; // Valor por defecto normal
       }
     } else {
       cantidadContainer.style.display = "block"; // Muestra cantidad
       metrosContainer.style.display = "none"; // Oculta metros
+      if([60,61,101,102].includes(producto.id)) {
+        inputCantidad.setAttribute("min", "0");
+        inputCantidad.value = "0"
+      }
     }
 
     inputCantidad.addEventListener("keydown", (e) => {
@@ -363,13 +358,12 @@ document.addEventListener("DOMContentLoaded", () => {
     inputMetros.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        const metrosActual = parseFloat(inputMetros.value);
         esEditar
           ? guardarCambiosCantidad(
               colorActual,
               medidaActual,
               tipoActual,
-              metrosActual
+              metros
             )
           : agregarProductoCarrito();
       }
@@ -479,54 +473,87 @@ document.addEventListener("DOMContentLoaded", () => {
     tipoActual,
     metrosActual
   ) {
+    console.log("Metros pasados: ", metrosActual);
     if (!productoEnEdicion) return;
 
     let nuevaCantidad = parseInt(
       document.getElementById("inputCantidad").value
     );
-    let metrosSelecionados;
+
+    let metrosSeleccionados;
     if (productoEnEdicion.metros) {
       const cantidadMetros = document.getElementById("inputMetros");
-      metrosSelecionados =
-        cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
+      metrosSeleccionados =
+        cantidadMetros && cantidadMetros.value
+          ? parseFloat(cantidadMetros.value)
+          : null;
+    } else {
+      metrosSeleccionados = null;
     }
 
-    const selectColor = document.getElementById("selectColor");
+    // Normalizar valores para comparación
+    colorActual = colorActual || null;
+    medidaActual = medidaActual || null;
+    tipoActual = tipoActual || null;
+    metrosActual = metrosActual !== "" ? parseFloat(metrosActual) : null;
+
+    carrito = carrito.filter((item) => {
+      if (item.id !== String(productoEnEdicion.id)) {
+        return true;
+      }
+
+      const coincideColor =
+        item.color === null ||
+        colorActual === null ||
+        item.color === colorActual;
+      const coincideMedida =
+        item.medida === null ||
+        medidaActual === null ||
+        item.medida === medidaActual;
+      const coincideTipo =
+        item.tipo === null || tipoActual === null || item.tipo === tipoActual;
+      const coincideMetros =
+        item.metros === null ||
+        metrosActual === null ||
+        metrosActual === "" ||
+        Number(item.metros) === Number(metrosActual);
+
+      if (coincideColor && coincideMedida && coincideTipo && coincideMetros) {
+        return false; // eliminar
+      }
+      console.log(
+        "Metros item: ",
+        item.metros,
+        "typeof : ",
+        typeof item.metros
+      );
+      console.log(
+        "Metros pasados ",
+        metrosActual,
+        "typeof : ",
+        typeof metrosActual
+      );
+
+      return true; // mantener
+    });
+
+    // Recolectar los nuevos valores seleccionados para agregar
     const colorSeleccionado =
-      selectColor && selectColor.value ? selectColor.value : null;
-    const selectMedida = document.getElementById("selectMedida");
+      document.getElementById("selectColor")?.value || null;
     const medidaSeleccionado =
-      selectMedida && selectMedida.value ? selectMedida.value : null;
-    const selectTipo = document.getElementById("selectTipo");
+      document.getElementById("selectMedida")?.value || null;
     const tipoSeleccionado =
-      selectTipo && selectTipo.value ? selectTipo.value : null;
+      document.getElementById("selectTipo")?.value || null;
 
-    // Convertir colorActual vacío ("") en null para manejar la comparación correctamente
-    colorActual = colorActual === "" ? null : colorActual;
-    medidaActual = medidaActual === "" ? null : medidaActual;
-    tipoActual = tipoActual === "" ? null : tipoActual;
-    metrosActual = metrosActual === "" ? null : metrosActual;
+    console.log("Metros seleccionados: ", metrosSeleccionados);
 
-    // Primero, eliminar la variante anterior del producto con el color previo
-    carrito = carrito.filter(
-      (item) =>
-        !(
-          item.id === String(productoEnEdicion.id) &&
-          (item.color || null) === colorActual &&
-          (item.medida || null) === medidaActual &&
-          (item.tipo || null) === tipoActual &&
-          (item.metros || null) === metrosActual
-        )
-    );
-
-    // Ahora agregar la nueva cantidad con el color actualizado
     for (let i = 0; i < nuevaCantidad; i++) {
       carrito.push({
         id: String(productoEnEdicion.id),
-        color: colorSeleccionado || null,
-        medida: medidaSeleccionado || null,
-        tipo: tipoSeleccionado || null,
-        metros: metrosSelecionados || null,
+        color: colorSeleccionado,
+        medida: medidaSeleccionado,
+        tipo: tipoSeleccionado,
+        metros: metrosSeleccionados,
       });
     }
 
@@ -539,22 +566,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function borrarItemCarrito(
-    idProducto,
-    colorProducto,
-    medidaProducto,
-    tipoProducto,
-    metrosProducto
+    id,
+    color = null,
+    medida = null,
+    tipo = null,
+    metros = null
   ) {
-    carrito = carrito.filter(
-      (item) =>
-        !(
-          item.id === idProducto &&
-          item.color === colorProducto &&
-          item.medida === medidaProducto &&
-          item.tipo === tipoProducto &&
-          item.metros === metrosProducto
-        )
-    );
+    carrito = carrito.filter((item) => {
+      if (item.id !== String(id)) {
+        return true;
+      }
+
+      const coincideColor = item.color === null || item.color === color;
+      const coincideMedida = item.medida === null || item.medida === medida;
+      const coincideTipo = item.tipo === null || item.tipo === tipo;
+      const coincideMetros =
+        item.metros === null || Number(item.metros) === Number(metros);
+
+      if (coincideColor && coincideMedida && coincideTipo && coincideMetros) {
+        return false;
+      }
+
+      return true;
+    });
 
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
