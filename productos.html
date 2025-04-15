@@ -79,6 +79,17 @@
                         <li class="nav__link no-hover-effect">
                             <a href="#" id="dark-mode-toggle">🌙</a>
                         </li>
+
+                        <div class="container-fluid d-none d-lg-block">
+                            <form class="d-flex position-relative" role="search" onsubmit="return false">
+                                <input class="form-control me-2" type="search" id="searchInput" placeholder="Buscar"
+                                    aria-label="Search" autocomplete="off">
+                                <button type="button" class="btn btn-outline-success">
+                                    <img src="/assets/svg/search.svg" alt="Search Icon" class="search-icon">
+                                </button>
+                                <ul id="suggestionsList" class="list-group position-absolute w-100 z-3"></ul>
+                            </form>
+                        </div>
                     </ul>
                     <button id="dark-mode-toggle-mobile" class="navbar__toggle-btn">
                         🌙
@@ -129,12 +140,21 @@
                 </div>
             </nav>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <div class="container-fluid d-flex align-items-center justify-content-between">
+                    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    <form class="d-flex align-items-center search-bar d-lg-none" role="search">
+                        <input class="form-control move-input mx-2" type="search" id="mobileSearchInput"
+                            placeholder="Buscar" aria-label="Buscar">
+                        <button type="button" class="btn btn-outline-success">
+                            <img src="/assets/svg/search.svg" alt="Search Icon" class="search-icon">
+                        </button>
+                        <ul id="mobileSuggestionsList" class="list-group position-absolute w-100 z-3"></ul>
+                    </form>
                     <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
                         <ul class="navbar-nav d-flex justify-content-center">
                             <div class="group">
@@ -333,8 +353,8 @@
                         </div>
                         <div id="metros" class="mt-2">
                             <h6>Metros</h6>
-                            <input type="number" id="inputMetros" class="form-control mx-2 text-center"
-                                min="1" style="width: 80px;">
+                            <input type="number" id="inputMetros" class="form-control mx-2 text-center" min="1"
+                                style="width: 80px;">
                         </div>
                         <div class="mt-2" id="contenedorColores"></div>
                         <div class="mt-2" id="contenedorMedidas"></div>

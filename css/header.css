@@ -319,3 +319,42 @@
 .navbar {
   overflow: visible; /* También importante */
 }
+
+.container-fluid {
+  padding: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.move-input {
+  margin-left: 50px;
+}
+
+#suggestionsList {
+  top: 100%;
+  background: white;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+#mobileSuggestionsList {
+  max-height: 300px;  /* Limita la altura máxima */
+  overflow-y: auto;   /* Agrega scroll si las opciones exceden la altura */
+  position: absolute;
+  width: 100%;
+  top: 100%;  /* Asegura que las sugerencias se muestren debajo del input */
+  left: 0;
+  z-index: 3;  /* Asegura que las sugerencias estén por encima de otros elementos */
+  background-color: white;  /* Fondo blanco para las sugerencias */
+  border-radius: 0 0 4px 4px;  /* Bordes redondeados solo en la parte inferior */
+}

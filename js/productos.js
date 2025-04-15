@@ -14,24 +14,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const DOMbotonVaciar = document.querySelector("#boton-vaciar");
   const miLocalStorage = window.localStorage;
 
-  const fecthUrl = "http://localhost:8000";
-  // const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  // const fecthUrl = "http://localhost:8000";
+  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
-  renderAllSections();
+  let cachedDataPromise = null;
 
-  async function renderAllSections() {
-    const data = await fetch(`${fecthUrl}/data`, {
+  async function fetchData() {
+    if (cachedDataPromise) return cachedDataPromise; // Si ya existe, lo retornamos directamente
+
+    // Creamos una nueva promesa para hacer el fetch de los datos
+    cachedDataPromise = fetch(`${fecthUrl}/data`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       mode: "cors",
       cache: "default",
-    });
+    })
+      .then((res) => res.json())
+      .catch((error) => {
+        console.error("Error al obtener los datos:", error);
+        return null;
+      });
 
-    const productos = await data.json();
+    return cachedDataPromise; // Retornamos la promesa
+  }
+
+  renderAllSections();
+
+  async function renderAllSections() {
+    const productos = await fetchData();
 
     // Obtener las secciones del JSON dinámicamente
     const sections = Object.keys(productos).map((key) => ({
@@ -178,17 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function renderizarCarrito() {
     DOMcarrito.textContent = "";
 
-    // Realizar el fetcheo de productos desde el endpoint
-    const data = await fetch(`${fecthUrl}/data`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      cache: "default",
-    });
-
-    const productos = await data.json();
+    const productos = await fetchData();
 
     const carritoAgrupado = carrito.reduce((acc, item) => {
       let key = `${item.id}-${item.color || "default"}-${
@@ -292,11 +296,11 @@ document.addEventListener("DOMContentLoaded", () => {
     inputCantidad.value = cantidad;
 
     document.getElementById("btnMenos").onclick = () =>
-      [60,61,101,102].includes(producto.id)
+      [60, 61, 101, 102].includes(producto.id)
         ? actualizarCantidad(-10)
         : actualizarCantidad(-1);
     document.getElementById("btnMas").onclick = () =>
-      [60,61,101,102].includes(producto.id)
+      [60, 61, 101, 102].includes(producto.id)
         ? actualizarCantidad(10)
         : actualizarCantidad(1);
     document.getElementById("btnModalAccion").textContent = esEditar
@@ -305,12 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btnModalAccion").onclick = () => {
       esEditar
-        ? guardarCambiosCantidad(
-            colorActual,
-            medidaActual,
-            tipoActual,
-            metros 
-          )
+        ? guardarCambiosCantidad(colorActual, medidaActual, tipoActual, metros)
         : agregarProductoCarrito();
     };
 
@@ -336,9 +335,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       cantidadContainer.style.display = "block"; // Muestra cantidad
       metrosContainer.style.display = "none"; // Oculta metros
-      if([60,61,101,102].includes(producto.id)) {
+      if ([60, 61, 101, 102].includes(producto.id)) {
         inputCantidad.setAttribute("min", "0");
-        inputCantidad.value = "0"
+        inputCantidad.value = "0";
       }
     }
 
@@ -802,4 +801,112 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toast.show();
   }
+
+  let lastSelectedProduct = null; // Guardamos el último producto seleccionado
+
+  // Función para manejar la búsqueda desde cualquier input
+  async function handleSearch(inputId, listId) {
+    const query = document.getElementById(inputId).value.trim().toLowerCase();
+    const list = document.getElementById(listId);
+    list.innerHTML = "";
+
+    if (query.length === 0) return;
+
+    try {
+      const data = await fetchData();
+
+      if (data && typeof data === "object") {
+        const secciones = Object.keys(data);
+
+        secciones.forEach((seccion, index) => {
+          data[seccion].forEach((obj) => {
+            if (obj.nombre.toLowerCase().includes(query)) {
+              const li = document.createElement("li");
+              li.className = "list-group-item list-group-item-action";
+              li.textContent = obj.nombre;
+
+              li.onclick = () => {
+                document.getElementById(inputId).value = obj.nombre;
+                list.innerHTML = "";
+                lastSelectedProduct = obj.nombre; // Guardamos lo seleccionado
+
+                const seccionAnterior =
+                  index > 0 ? secciones[index - 1] : secciones[0];
+                const targetSection = document.getElementById(seccionAnterior);
+                if (targetSection) {
+                  targetSection.scrollIntoView({ behavior: "smooth" });
+                }
+              };
+
+              list.appendChild(li);
+            }
+          });
+        });
+      }
+    } catch (error) {
+      console.error("Error buscando objetos:", error);
+    }
+  }
+
+  // Escuchar el input del formulario de escritorio
+  document
+    .getElementById("searchInput")
+    .addEventListener("input", () =>
+      handleSearch("searchInput", "suggestionsList")
+    );
+
+  // Escuchar el input del formulario móvil
+  document
+    .getElementById("mobileSearchInput")
+    .addEventListener("input", () =>
+      handleSearch("mobileSearchInput", "mobileSuggestionsList")
+    );
+
+  // Función de búsqueda cuando se hace clic en el botón
+  async function handleButtonSearch(inputId, listId) {
+    const value = document.getElementById(inputId).value.trim().toLowerCase();
+    if (!value) return;
+
+    try {
+      const data = await fetchData();
+
+      if (data && typeof data === "object") {
+        const secciones = Object.keys(data);
+
+        for (let i = 0; i < secciones.length; i++) {
+          const productos = data[secciones[i]];
+          const encontrado = productos.find(
+            (obj) => obj.nombre.toLowerCase() === value
+          );
+
+          if (encontrado) {
+            lastSelectedProduct = encontrado.nombre;
+
+            const seccionAnterior = i > 0 ? secciones[i - 1] : secciones[0];
+            const targetSection = document.getElementById(seccionAnterior);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+            break;
+          }
+        }
+      }
+    } catch (error) {
+      console.error("Error al buscar desde el botón:", error);
+    }
+  }
+
+  // Escuchar el botón de búsqueda en el formulario de escritorio
+  document
+    .querySelector("button.btn.btn-outline-success")
+    .addEventListener("click", () =>
+      handleButtonSearch("searchInput", "suggestionsList")
+    );
+
+  // Escuchar el botón de búsqueda en el formulario móvil
+  document
+    .querySelectorAll("button.btn.btn-outline-success")[1] // Escucha el segundo botón (móvil)
+    .addEventListener("click", () =>
+      handleButtonSearch("mobileSearchInput", "mobileSuggestionsList")
+    );
 });
