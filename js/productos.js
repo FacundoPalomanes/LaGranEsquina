@@ -138,8 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const cantidadMetros = document.getElementById("inputMetros");
       metrosSelecionados =
         cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
-        if ([54, 55, 56].includes(productoEnEdicion.id) && (metrosSelecionados > 8 || metrosSelecionados < 2)){
-          document.getElementById("errorMetros").innerHTML= "Hubo un error con los metros ingresados, el maximo es 8 y el minimo 1"
+        if ([54, 55, 56].includes(productoEnEdicion.id) && (metrosSelecionados > 6 || metrosSelecionados < 2)){
+          document.getElementById("errorMetros").innerHTML= "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1"
           return;
         }
     }
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
         metrosContainer.style.display = "block"; // Muestra metros
         if ([54, 55, 56].includes(producto.id)) {
           inputMetros.setAttribute("min", "2");
-          inputMetros.setAttribute("max", "8");
+          inputMetros.setAttribute("max", "6");
           inputMetros.setAttribute("step", "0.5");
           inputMetros.value = "2"; // Establece valor por defecto a 2
         }
@@ -491,8 +491,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ? parseFloat(cantidadMetros.value)
           : null;
 
-          if([54, 55, 56].includes(productoEnEdicion.id) && (metrosSeleccionados > 8 || metrosSeleccionados < 2)){
-            alert("Hubo un error con los metros ingresados, el maximo es 8 y el minimo 1")
+          if([54, 55, 56].includes(productoEnEdicion.id) && (metrosSeleccionados > 6 || metrosSeleccionados < 2)){
+            alert("Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1")
             return;
           }
     } else {
