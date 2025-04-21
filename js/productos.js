@@ -138,10 +138,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const cantidadMetros = document.getElementById("inputMetros");
       metrosSelecionados =
         cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
-        if ([54, 55, 56].includes(productoEnEdicion.id) && (metrosSelecionados > 6 || metrosSelecionados < 2)){
-          document.getElementById("errorMetros").innerHTML= "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1"
-          return;
-        }
+      if (
+        [54, 55, 56, 108, 109].includes(productoEnEdicion.id) &&
+        (metrosSelecionados > 6 || metrosSelecionados < 2)
+      ) {
+        document.getElementById("errorMetros").innerHTML =
+          "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1";
+        return;
+      }
     }
     const selectColor = document.getElementById("selectColor");
     const colorSeleccionado =
@@ -323,12 +327,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if ([54, 55, 56, 108, 109].includes(producto.id)) {
         cantidadContainer.style.display = "block"; // Muestra cantidad
         metrosContainer.style.display = "block"; // Muestra metros
-        if ([54, 55, 56].includes(producto.id)) {
-          inputMetros.setAttribute("min", "2");
-          inputMetros.setAttribute("max", "6");
-          inputMetros.setAttribute("step", "0.5");
-          inputMetros.value = "2"; // Establece valor por defecto a 2
-        }
+        inputMetros.setAttribute("min", "2");
+        inputMetros.setAttribute("max", "6");
+        inputMetros.setAttribute("step", "0.5");
+        inputMetros.value = "2"; // Establece valor por defecto a 2
       } else {
         // Productos con metros pero no en la lista especial
         inputMetros.setAttribute("min", "1");
@@ -476,7 +478,6 @@ document.addEventListener("DOMContentLoaded", () => {
     tipoActual,
     metrosActual
   ) {
-    console.log("Metros pasados: ", metrosActual);
     if (!productoEnEdicion) return;
 
     let nuevaCantidad = parseInt(
@@ -491,10 +492,15 @@ document.addEventListener("DOMContentLoaded", () => {
           ? parseFloat(cantidadMetros.value)
           : null;
 
-          if([54, 55, 56].includes(productoEnEdicion.id) && (metrosSeleccionados > 6 || metrosSeleccionados < 2)){
-            alert("Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1")
-            return;
-          }
+      if (
+        [54, 55, 56, 108, 109].includes(productoEnEdicion.id) &&
+        (metrosSeleccionados > 6 || metrosSeleccionados < 2)
+      ) {
+        alert(
+          "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1"
+        );
+        return;
+      }
     } else {
       metrosSeleccionados = null;
     }
@@ -634,50 +640,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Comprar function
 
-  document.getElementById("boton-comprar").addEventListener("click", () => {
-    const carritoAgrupado = carrito.reduce((acc, item) => {
-      // this could be a function
-      let key = `${item.id}-${item.color || "default"}-${
-        item.medida || "default"
-      }-${item.tipo || "default"}-${item.metros || "default"}`;
+  document
+    .getElementById("boton-comprar")
+    .addEventListener("click", async () => {
+      const productos = await fetchData();
+      //This could be a function bcause its used a lot of times
+      const carritoAgrupado = carrito.reduce((acc, item) => {
+        let key = `${item.id}-${item.color || "default"}-${
+          item.medida || "default"
+        }-${item.tipo || "default"}-${item.metros || "default"}`;
+        if (!acc[key]) {
+          acc[key] = { ...item, cantidad: 1 };
+        } else {
+          acc[key].cantidad++;
+        }
+        return acc;
+      }, {});
 
-      if (!acc[key]) {
-        acc[key] = { ...item, cantidad: 1 };
-      } else {
-        acc[key].cantidad++;
-      }
-      return acc;
-    }, {});
+      const productosTexto = Object.values(carritoAgrupado)
+        .map((item) => {
+          const miItem = Object.values(productos)
+            .flat()
+            .find((p) => p.id === parseInt(item.id));
+          if (!miItem) return "";
 
-    const productosTexto = Object.values(carritoAgrupado)
-      .map((item) => {
-        const miItem = productos
-          .flatMap((p) => p.items)
-          .find((p) => p.id === parseInt(item.id));
-        if (!miItem) return "";
+          return (
+            `• ${item.cantidad}x ${miItem.nombre}` +
+            `${item.metros ? "- Metros: " + item.metros : ""}` +
+            `${item.medida ? " - Medida: " + item.medida : ""}` +
+            `${item.color ? " - Color: " + item.color : ""}` +
+            `${item.tipo ? " - Tipo: " + item.tipo : ""}`
+          );
+        })
+        .join("\n"); // Une cada elemento con un salto de línea
 
-        return (
-          `• ${item.cantidad}x ${miItem.nombre}` +
-          `${item.metros ? "- Metros: " + item.metros : ""}` +
-          `${item.medida ? " - Medida: " + item.medida : ""}` +
-          `${item.color ? " - Color: " + item.color : ""}` +
-          `${item.tipo ? " - Tipo: " + item.tipo : ""}`
-        );
-      })
-      .join("\n"); // Une cada elemento con un salto de línea
+      const mensaje =
+        `Hola, Gracias por contactar con Zinguería La Gran Esquina.\n\n` +
+        `Los productos son:\n\n${productosTexto}\n\n` +
+        `En breve te respondemos.`;
 
-    const mensaje =
-      `Hola, Gracias por contactar con Zinguería La Gran Esquina.\n\n` +
-      `Los productos son:\n\n${productosTexto}\n\n` +
-      `En breve te respondemos.`;
+      const numero = "5491164471868";
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
-    const numero = "5491164471868";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-    vaciarCarrito();
-    actualizarContadorCarrito();
-    window.open(url, "_blank");
-  });
+      vaciarCarrito();
+      actualizarContadorCarrito();
+      window.open(url, "_blank");
+    });
 
   // Navbar Function
   header_movement();
@@ -813,106 +821,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastSelectedProduct = null; // Guardamos el último producto seleccionado
 
-// Función para manejar la búsqueda desde cualquier input
-async function handleSearch(inputId, listId) {
-  const query = document.getElementById(inputId).value.trim().toLowerCase();
-  const list = document.getElementById(listId);
-  list.innerHTML = "";
+  // Función para manejar la búsqueda desde cualquier input
+  async function handleSearch(inputId, listId) {
+    const query = document.getElementById(inputId).value.trim().toLowerCase();
+    const list = document.getElementById(listId);
+    list.innerHTML = "";
 
-  if (query.length === 0) return;
+    if (query.length === 0) return;
 
-  try {
-    const data = await fetchData();
+    try {
+      const data = await fetchData();
 
-    if (data && typeof data === "object") {
-      const secciones = Object.keys(data);
+      if (data && typeof data === "object") {
+        const secciones = Object.keys(data);
 
-      secciones.forEach((seccion) => {
-        if (seccion === "destacados") return;
+        secciones.forEach((seccion) => {
+          if (seccion === "destacados") return;
 
-        data[seccion].forEach((obj) => {
-          if (obj.nombre.toLowerCase().includes(query)) {
-            const li = document.createElement("li");
-            li.className = "list-group-item list-group-item-action";
-            li.textContent = obj.nombre;
+          data[seccion].forEach((obj) => {
+            if (obj.nombre.toLowerCase().includes(query)) {
+              const li = document.createElement("li");
+              li.className = "list-group-item list-group-item-action";
+              li.textContent = obj.nombre;
 
-            li.onclick = () => {
-              document.getElementById(inputId).value = obj.nombre;
-              list.innerHTML = "";
-              lastSelectedProduct = obj.nombre;
+              li.onclick = () => {
+                document.getElementById(inputId).value = obj.nombre;
+                list.innerHTML = "";
+                lastSelectedProduct = obj.nombre;
 
-              // 👉 En vez de hacer scroll, abrimos el modal
-              abrirModalProducto(obj);
-            };
+                // 👉 En vez de hacer scroll, abrimos el modal
+                abrirModalProducto(obj);
+              };
 
-            list.appendChild(li);
-          }
+              list.appendChild(li);
+            }
+          });
         });
-      });
+      }
+    } catch (error) {
+      console.error("Error buscando objetos:", error);
     }
-  } catch (error) {
-    console.error("Error buscando objetos:", error);
   }
-}
 
-// Escuchar input del formulario de escritorio
-document
-  .getElementById("searchInput")
-  .addEventListener("input", () =>
-    handleSearch("searchInput", "suggestionsList")
-  );
+  // Escuchar input del formulario de escritorio
+  document
+    .getElementById("searchInput")
+    .addEventListener("input", () =>
+      handleSearch("searchInput", "suggestionsList")
+    );
 
-// Escuchar input del formulario móvil
-document
-  .getElementById("mobileSearchInput")
-  .addEventListener("input", () =>
-    handleSearch("mobileSearchInput", "mobileSuggestionsList")
-  );
+  // Escuchar input del formulario móvil
+  document
+    .getElementById("mobileSearchInput")
+    .addEventListener("input", () =>
+      handleSearch("mobileSearchInput", "mobileSuggestionsList")
+    );
 
-// Función de búsqueda al hacer clic en el botón
-async function handleButtonSearch(inputId, listId) {
-  const value = document.getElementById(inputId).value.trim().toLowerCase();
-  if (!value) return;
+  // Función de búsqueda al hacer clic en el botón
+  async function handleButtonSearch(inputId, listId) {
+    const value = document.getElementById(inputId).value.trim().toLowerCase();
+    if (!value) return;
 
-  try {
-    const data = await fetchData();
+    try {
+      const data = await fetchData();
 
-    if (data && typeof data === "object") {
-      const secciones = Object.keys(data);
+      if (data && typeof data === "object") {
+        const secciones = Object.keys(data);
 
-      for (let i = 0; i < secciones.length; i++) {
-        const productos = data[secciones[i]];
-        const encontrado = productos.find(
-          (obj) => obj.nombre.toLowerCase() === value
-        );
+        for (let i = 0; i < secciones.length; i++) {
+          const productos = data[secciones[i]];
+          const encontrado = productos.find(
+            (obj) => obj.nombre.toLowerCase() === value
+          );
 
-        if (encontrado) {
-          lastSelectedProduct = encontrado.nombre;
+          if (encontrado) {
+            lastSelectedProduct = encontrado.nombre;
 
-          // 👉 En vez de hacer scroll, abrimos el modal
-          abrirModalProducto(encontrado);
+            // 👉 En vez de hacer scroll, abrimos el modal
+            abrirModalProducto(encontrado);
 
-          break;
+            break;
+          }
         }
       }
+    } catch (error) {
+      console.error("Error al buscar desde el botón:", error);
     }
-  } catch (error) {
-    console.error("Error al buscar desde el botón:", error);
   }
-}
 
-// Botón de búsqueda - escritorio
-document
-  .querySelector("button.btn.btn-outline-success")
-  .addEventListener("click", () =>
-    handleButtonSearch("searchInput", "suggestionsList")
-  );
+  // Botón de búsqueda - escritorio
+  document
+    .querySelector("button.btn.btn-outline-success")
+    .addEventListener("click", () =>
+      handleButtonSearch("searchInput", "suggestionsList")
+    );
 
-// Botón de búsqueda - móvil
-document
-  .querySelectorAll("button.btn.btn-outline-success")[1]
-  .addEventListener("click", () =>
-    handleButtonSearch("mobileSearchInput", "mobileSuggestionsList")
-  );
-
+  // Botón de búsqueda - móvil
+  document
+    .querySelectorAll("button.btn.btn-outline-success")[1]
+    .addEventListener("click", () =>
+      handleButtonSearch("mobileSearchInput", "mobileSuggestionsList")
+    );
 });
