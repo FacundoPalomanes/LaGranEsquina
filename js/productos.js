@@ -99,10 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const miNodoTitle = document.createElement("h5");
-      miNodoTitle.classList.add("card-title");
-      if (info.nombre.length > 22) {
-        miNodoTitle.classList.add("titulo-largo");
-      }
+      miNodoTitle.classList.add("titulo-largo");
       miNodoTitle.textContent = info.nombre;
 
       const miNodoDescripcion = document.createElement("p");
@@ -202,17 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const productos = await fetchData();
 
-    const carritoAgrupado = carrito.reduce((acc, item) => {
-      let key = `${item.id}-${item.color || "default"}-${
-        item.medida || "default"
-      }-${item.tipo || "default"}-${item.metros || "default"}`;
-      if (!acc[key]) {
-        acc[key] = { ...item, cantidad: 1 };
-      } else {
-        acc[key].cantidad++;
-      }
-      return acc;
-    }, {});
+    const carritoAgrupado = reduceCart();
 
     Object.values(carritoAgrupado).forEach((item) => {
       // Recorremos todas las secciones buscando el producto con el ID dado
@@ -645,17 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", async () => {
       const productos = await fetchData();
       //This could be a function bcause its used a lot of times
-      const carritoAgrupado = carrito.reduce((acc, item) => {
-        let key = `${item.id}-${item.color || "default"}-${
-          item.medida || "default"
-        }-${item.tipo || "default"}-${item.metros || "default"}`;
-        if (!acc[key]) {
-          acc[key] = { ...item, cantidad: 1 };
-        } else {
-          acc[key].cantidad++;
-        }
-        return acc;
-      }, {});
+      const carritoAgrupado = reduceCart();
 
       const productosTexto = Object.values(carritoAgrupado)
         .map((item) => {
@@ -690,104 +667,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // Navbar Function
   header_movement();
 
-  // Scroll
-  scrollRight({
-    buttonId: "scrollRightItemsDestacados",
-    scrollerContainerId: "destacados",
-  });
-  scrollLeft({
-    buttonId: "scrollLeftItemsDestacados",
-    scrollerContainerId: "destacados",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftCanaletas",
-    scrollerContainerId: "canaletas",
-  });
-  scrollRight({
-    buttonId: "scrollRightCanaletas",
-    scrollerContainerId: "canaletas",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftCaniosGrampas",
-    scrollerContainerId: "canios_grampas",
-  });
-  scrollRight({
-    buttonId: "scrollRightCaniosGrampas",
-    scrollerContainerId: "canios_grampas",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftSombreros",
-    scrollerContainerId: "sombreros",
-  });
-  scrollRight({
-    buttonId: "scrollRightSombreros",
-    scrollerContainerId: "sombreros",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftChapasPinturas",
-    scrollerContainerId: "chapas",
-  });
-  scrollRight({
-    buttonId: "scrollRightChapasPinturas",
-    scrollerContainerId: "chapas",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftSelladoresPinturas",
-    scrollerContainerId: "selladores_pinturas",
-  });
-  scrollRight({
-    buttonId: "scrollRightSelladoresPinturas",
-    scrollerContainerId: "selladores_pinturas",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftClaraboyas",
-    scrollerContainerId: "claraboyas",
-  });
-  scrollRight({
-    buttonId: "scrollRightClaraboyas",
-    scrollerContainerId: "claraboyas",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftMembranas",
-    scrollerContainerId: "membranas_aislantes",
-  });
-  scrollRight({
-    buttonId: "scrollRightMembranas",
-    scrollerContainerId: "membranas_aislantes",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftDurlock",
-    scrollerContainerId: "durlock",
-  });
-  scrollRight({
-    buttonId: "scrollRightDurlock",
-    scrollerContainerId: "durlock",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftAccesorios",
-    scrollerContainerId: "accesorios",
-  });
-  scrollRight({
-    buttonId: "scrollRightAccesorios",
-    scrollerContainerId: "accesorios",
-  });
-
-  scrollLeft({
-    buttonId: "scrollLeftAccesoriosDos",
-    scrollerContainerId: "accesorios_dos",
-  });
-  scrollRight({
-    buttonId: "scrollRightAccesoriosDos",
-    scrollerContainerId: "accesorios_dos",
+  const scrollConfigs = [
+    { baseId: "ItemsDestacados", containerId: "destacados" },
+    { baseId: "Canaletas", containerId: "canaletas" },
+    { baseId: "CaniosGrampas", containerId: "canios_grampas" },
+    { baseId: "Sombreros", containerId: "sombreros" },
+    { baseId: "ChapasPinturas", containerId: "chapas" },
+    { baseId: "SelladoresPinturas", containerId: "selladores_pinturas" },
+    { baseId: "Claraboyas", containerId: "claraboyas" },
+    { baseId: "Membranas", containerId: "membranas_aislantes" },
+    { baseId: "Durlock", containerId: "durlock" },
+    { baseId: "Accesorios", containerId: "accesorios" },
+    { baseId: "AccesoriosDos", containerId: "accesorios_dos" },
+  ];
+  
+  scrollConfigs.forEach(({ baseId, containerId }) => {
+    scrollLeft({
+      buttonId: `scrollLeft${baseId}`,
+      scrollerContainerId: containerId,
+    });
+    scrollRight({
+      buttonId: `scrollRight${baseId}`,
+      scrollerContainerId: containerId,
+    });
   });
 
   function showToast(producto, cantidad) {
@@ -817,6 +719,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     toast.show();
+  }
+
+  function reduceCart() {
+    const result = carrito.reduce((acc, item) => {
+      let key = `${item.id}-${item.color || "default"}-${
+        item.medida || "default"
+      }-${item.tipo || "default"}-${item.metros || "default"}`;
+      if (!acc[key]) {
+        acc[key] = { ...item, cantidad: 1 };
+      } else {
+        acc[key].cantidad++;
+      }
+      return acc;
+    }, {});
+    return result;
   }
 
   let lastSelectedProduct = null; // Guardamos el último producto seleccionado
@@ -878,7 +795,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
   // Función de búsqueda al hacer clic en el botón
-  async function handleButtonSearch(inputId, listId) {
+  async function handleButtonSearch(inputId) {
     const value = document.getElementById(inputId).value.trim().toLowerCase();
     if (!value) return;
 
@@ -913,13 +830,32 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector("button.btn.btn-outline-success")
     .addEventListener("click", () =>
-      handleButtonSearch("searchInput", "suggestionsList")
+      handleButtonSearch("searchInput")
     );
 
   // Botón de búsqueda - móvil
   document
     .querySelectorAll("button.btn.btn-outline-success")[1]
     .addEventListener("click", () =>
-      handleButtonSearch("mobileSearchInput", "mobileSuggestionsList")
+      handleButtonSearch("mobileSearchInput")
     );
+
+
+    // Ajustar Ancho 
+    function ajustarClaseSegunAncho() {
+      const botones = document.querySelectorAll('.items-centrados');
+      botones.forEach((boton) => {
+        if (window.innerWidth < 380) {
+          boton.classList.remove('items-centrados');
+        } else {
+          boton.classList.add('items-centrados');
+        }
+      });
+    }
+    
+    // Ejecutar al cargar la página
+    ajustarClaseSegunAncho();
+    
+    // Ejecutar cuando el usuario cambia el tamaño de la ventana
+    window.addEventListener('resize', ajustarClaseSegunAncho);
 });

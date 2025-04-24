@@ -8,8 +8,8 @@ import {
 } from "./global-functions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Toggle dark mode
-    darkMode();
+  // Toggle dark mode
+  darkMode();
 
   window.addEventListener("resize", hideMenuResize);
   window.addEventListener("load", hideMenuResize);
@@ -45,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderizarProductos();
 
   async function renderizarProductos() {
-    try{
-
+    try {
       const data = await fetch(`${fecthUrl}/data`, {
         method: "GET",
         headers: {
@@ -55,53 +54,50 @@ document.addEventListener("DOMContentLoaded", () => {
         mode: "cors",
         cache: "default",
       });
-      
+
       const productos = await data.json();
-  
-      console.log(productos)
-  
+
+      console.log(productos);
+
       const contenedor = document.getElementById("destacados");
       contenedor.innerHTML = "";
-  
+
       productos["destacados"].splice(-2);
-  
+
       productos["destacados"].forEach((info) => {
         const miNodo = document.createElement("div");
         miNodo.classList.add("card");
-  
+
         const miNodoCardBody = document.createElement("div");
         miNodoCardBody.classList.add("card-body");
-  
+
         const miNodoImagen = document.createElement("img");
         miNodoImagen.setAttribute("src", info.imagen);
         miNodoImagen.setAttribute("alt", info.nombre);
-  
+
         const miNodoTitle = document.createElement("h5");
-        miNodoTitle.classList.add("card-title");
-        if (info.nombre.length > 25) {
-          miNodoTitle.classList.add("titulo-largo");
-        }
+        miNodoTitle.classList.add("titulo-largo");
         miNodoTitle.textContent = info.nombre;
-  
+
         const miNodoDescripcion = document.createElement("p");
         miNodoDescripcion.classList.add("card-text");
         miNodoDescripcion.textContent = info.descripcionCorta;
-  
+
         const miNodoBoton = document.createElement("button");
         miNodoBoton.classList.add("btn", "btn-color");
         miNodoBoton.textContent = "Ver Producto";
         miNodoBoton.setAttribute("marcador", info.id);
-  
+
         miNodoCardBody.appendChild(miNodoImagen);
         miNodoCardBody.appendChild(miNodoTitle);
         miNodoCardBody.appendChild(miNodoDescripcion);
         miNodoCardBody.appendChild(miNodoBoton);
         miNodo.appendChild(miNodoCardBody);
         miNodo.addEventListener("click", () => abrirModalProducto(info));
-  
+
         contenedor.appendChild(miNodo);
       });
-    }catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -218,6 +214,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
     modal.show();
   }
-
-
 });
