@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const miLocalStorage = window.localStorage;
 
   // const fecthUrl = "http://localhost:8000";
-  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
+  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app";
 
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
 
@@ -136,11 +136,19 @@ document.addEventListener("DOMContentLoaded", () => {
       metrosSelecionados =
         cantidadMetros && cantidadMetros.value ? cantidadMetros.value : null;
       if (
-        [54, 55, 56, 108, 109].includes(productoEnEdicion.id) &&
+        [56, 108, 109].includes(productoEnEdicion.id) &&
         (metrosSelecionados > 6 || metrosSelecionados < 2)
       ) {
         document.getElementById("errorMetros").innerHTML =
-          "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1";
+          "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 2";
+        return;
+      }
+      if (
+        [54, 55].includes(productoEnEdicion.id) &&
+        (metrosSelecionados > 8 || metrosSelecionados < 2)
+      ) {
+        document.getElementById("errorMetros").innerHTML =
+          "Hubo un error con los metros ingresados, el maximo es 8 y el minimo 2";
         return;
       }
     }
@@ -314,10 +322,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if ([54, 55, 56, 108, 109].includes(producto.id)) {
         cantidadContainer.style.display = "block"; // Muestra cantidad
         metrosContainer.style.display = "block"; // Muestra metros
-        inputMetros.setAttribute("min", "2");
-        inputMetros.setAttribute("max", "6");
         inputMetros.setAttribute("step", "0.5");
         inputMetros.value = "2"; // Establece valor por defecto a 2
+        inputMetros.setAttribute("min", "2");
+        if ([56, 108, 109].includes(producto.id)) {
+          inputMetros.setAttribute("max", "6");
+        } else {
+          inputMetros.setAttribute("max", "8");
+        }
       } else {
         // Productos con metros pero no en la lista especial
         inputMetros.setAttribute("min", "1");
@@ -480,11 +492,20 @@ document.addEventListener("DOMContentLoaded", () => {
           : null;
 
       if (
-        [54, 55, 56, 108, 109].includes(productoEnEdicion.id) &&
+        [56, 108, 109].includes(productoEnEdicion.id) &&
         (metrosSeleccionados > 6 || metrosSeleccionados < 2)
       ) {
         alert(
-          "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 1"
+          "Hubo un error con los metros ingresados, el maximo es 6 y el minimo 2"
+        );
+        return;
+      }
+      if (
+        [54, 55].includes(productoEnEdicion.id) &&
+        (metrosSeleccionados > 8 || metrosSeleccionados < 2)
+      ) {
+        alert(
+          "Hubo un error con los metros ingresados, el maximo es 8 y el minimo 2"
         );
         return;
       }
@@ -680,7 +701,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { baseId: "Accesorios", containerId: "accesorios" },
     { baseId: "AccesoriosDos", containerId: "accesorios_dos" },
   ];
-  
+
   scrollConfigs.forEach(({ baseId, containerId }) => {
     scrollLeft({
       buttonId: `scrollLeft${baseId}`,
@@ -829,33 +850,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botón de búsqueda - escritorio
   document
     .querySelector("button.btn.btn-outline-success")
-    .addEventListener("click", () =>
-      handleButtonSearch("searchInput")
-    );
+    .addEventListener("click", () => handleButtonSearch("searchInput"));
 
   // Botón de búsqueda - móvil
   document
     .querySelectorAll("button.btn.btn-outline-success")[1]
-    .addEventListener("click", () =>
-      handleButtonSearch("mobileSearchInput")
-    );
+    .addEventListener("click", () => handleButtonSearch("mobileSearchInput"));
 
+  // Ajustar Ancho
+  function ajustarClaseSegunAncho() {
+    const botones = document.querySelectorAll(".items-centrados");
+    botones.forEach((boton) => {
+      if (window.innerWidth < 380) {
+        boton.classList.remove("items-centrados");
+      } else {
+        boton.classList.add("items-centrados");
+      }
+    });
+  }
 
-    // Ajustar Ancho 
-    function ajustarClaseSegunAncho() {
-      const botones = document.querySelectorAll('.items-centrados');
-      botones.forEach((boton) => {
-        if (window.innerWidth < 380) {
-          boton.classList.remove('items-centrados');
-        } else {
-          boton.classList.add('items-centrados');
-        }
-      });
-    }
-    
-    // Ejecutar al cargar la página
-    ajustarClaseSegunAncho();
-    
-    // Ejecutar cuando el usuario cambia el tamaño de la ventana
-    window.addEventListener('resize', ajustarClaseSegunAncho);
+  // Ejecutar al cargar la página
+  ajustarClaseSegunAncho();
+
+  // Ejecutar cuando el usuario cambia el tamaño de la ventana
+  window.addEventListener("resize", ajustarClaseSegunAncho);
 });
