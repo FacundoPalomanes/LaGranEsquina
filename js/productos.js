@@ -745,15 +745,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (query.length === 0) return;
 
     try {
-      const data = data;
+      const productos = data;
 
-      if (data && typeof data === "object") {
-        const secciones = Object.keys(data);
+      if (productos && typeof productos === "object") {
+        const secciones = Object.keys(productos);
 
         secciones.forEach((seccion) => {
           if (seccion === "destacados") return;
 
-          data[seccion].forEach((obj) => {
+          productos[seccion].forEach((obj) => {
             if (obj.nombre.toLowerCase().includes(query)) {
               const li = document.createElement("li");
               li.className = "list-group-item list-group-item-action";
@@ -798,14 +798,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!value) return;
 
     try {
-      const data = data;
+      const productos = data;
 
-      if (data && typeof data === "object") {
-        const secciones = Object.keys(data);
+      if (productos && typeof productos === "object") {
+        const secciones = Object.keys(productos);
 
         for (let i = 0; i < secciones.length; i++) {
-          const productos = data[secciones[i]];
-          const encontrado = productos.find(
+          const productoAEncontrar = productos[secciones[i]];
+          const encontrado = productoAEncontrar.find(
             (obj) => obj.nombre.toLowerCase() === value
           );
 
