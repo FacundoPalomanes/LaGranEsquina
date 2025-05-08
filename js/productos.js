@@ -6,6 +6,7 @@ import {
   scrollRight,
   toggleMenu,
 } from "./global-functions.js";
+import { data } from "../assets/data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -14,38 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const DOMbotonVaciar = document.querySelector("#boton-vaciar");
   const miLocalStorage = window.localStorage;
 
-  // const fecthUrl = "http://localhost:8000";
-  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app";
-
   // FUNCTIONS LLAMADAS AL INGRESAR A LA PAGINA
-
-  let cachedDataPromise = null;
-
-  async function fetchData() {
-    if (cachedDataPromise) return cachedDataPromise; // Si ya existe, lo retornamos directamente
-
-    // Creamos una nueva promesa para hacer el fetch de los datos
-    cachedDataPromise = fetch(`${fecthUrl}/data`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      cache: "default",
-    })
-      .then((res) => res.json())
-      .catch((error) => {
-        console.error("Error al obtener los datos:", error);
-        return null;
-      });
-
-    return cachedDataPromise; // Retornamos la promesa
-  }
 
   renderAllSections();
 
   async function renderAllSections() {
-    const productos = await fetchData();
+    const productos = data;
 
     // Obtener las secciones del JSON dinámicamente
     const sections = Object.keys(productos).map((key) => ({
@@ -205,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function renderizarCarrito() {
     DOMcarrito.textContent = "";
 
-    const productos = await fetchData();
+    const productos = data;
 
     const carritoAgrupado = reduceCart();
 
@@ -284,6 +259,8 @@ document.addEventListener("DOMContentLoaded", () => {
     metros = 1
   ) {
     productoEnEdicion = producto;
+    const errorMetros = document.getElementById("errorMetros");
+    errorMetros.innerHTML = "";
     const inputCantidad = document.getElementById("inputCantidad");
     const inputMetros = document.getElementById("inputMetros");
 
@@ -651,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("boton-comprar")
     .addEventListener("click", async () => {
-      const productos = await fetchData();
+      const productos = data;
       //This could be a function bcause its used a lot of times
       const carritoAgrupado = reduceCart();
 
@@ -768,7 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (query.length === 0) return;
 
     try {
-      const data = await fetchData();
+      const data = data;
 
       if (data && typeof data === "object") {
         const secciones = Object.keys(data);
@@ -821,7 +798,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!value) return;
 
     try {
-      const data = await fetchData();
+      const data = data;
 
       if (data && typeof data === "object") {
         const secciones = Object.keys(data);

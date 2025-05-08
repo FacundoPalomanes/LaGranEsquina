@@ -25,8 +25,6 @@ const server = http.createServer((req, res) => {
     filePath = path.join(__dirname, "index.html");
   } else if (req.url === "/productos") {
     filePath = path.join(__dirname, "productos.html");
-  } else if (req.url === "/admin") {
-    filePath = path.join(__dirname, "admin.html");
   } else {
     filePath = path.join(__dirname, req.url);
   }
@@ -96,6 +94,9 @@ const server = http.createServer((req, res) => {
           break;
         case ".svg":
           contentType = "image/svg+xml";
+          break;
+        case ".webp":
+          contentType = "image/webp";
           break;
       }
 

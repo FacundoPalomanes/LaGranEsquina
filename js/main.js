@@ -6,6 +6,7 @@ import {
   darkMode,
   toggleMenu,
 } from "./global-functions.js";
+import { data } from "../assets/data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Toggle dark mode
@@ -13,9 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", hideMenuResize);
   window.addEventListener("load", hideMenuResize);
-
-  // const fecthUrl = "http://localhost:8000";
-  const fecthUrl = "https://worthwhile-max-darshed-c84f137f.koyeb.app"
 
   // Toggle mobile menu
   toggleMenu();
@@ -46,18 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function renderizarProductos() {
     try {
-      const data = await fetch(`${fecthUrl}/data`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "cors",
-        cache: "default",
-      });
-
-      const productos = await data.json();
-
-      console.log(productos);
+      const productos = await data;
 
       const contenedor = document.getElementById("destacados");
       contenedor.innerHTML = "";
