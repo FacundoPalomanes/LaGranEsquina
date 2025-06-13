@@ -594,10 +594,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function actualizarContadorCarrito() {
-    const cartCount = document.getElementById("cart-count");
-    cartCount.textContent = carrito.length;
-    cartCount.style.display = carrito.length > 0 ? "flex" : "none";
+  const count = carrito.length;
+
+  const cartCountMobile = document.getElementById("cart-count-mobile");
+  const cartCountDesktop = document.getElementById("cart-count-desktop");
+
+  if (cartCountMobile) {
+    cartCountMobile.textContent = count;
+    cartCountMobile.style.display = count > 0 ? "flex" : "none";
   }
+
+  if (cartCountDesktop) {
+    cartCountDesktop.textContent = count;
+    cartCountDesktop.style.display = count > 0 ? "flex" : "none";
+  }
+}
 
   function guardarCarritoEnLocalStorage() {
     miLocalStorage.setItem("carrito", JSON.stringify(carrito));
