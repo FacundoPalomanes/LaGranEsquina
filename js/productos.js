@@ -4,7 +4,6 @@ import {
   hideMenuResize,
   scrollLeft,
   scrollRight,
-  toggleMenu,
 } from "./global-functions.js";
 import { data } from "../assets/data.js";
 
@@ -621,7 +620,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", hideMenuResize);
 
   // Toggle Mobile Menu
-  toggleMenu();
 
   // Comprar function
 
@@ -778,20 +776,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Escuchar input del formulario de escritorio
-  document
-    .getElementById("searchInput")
-    .addEventListener("input", () =>
-      handleSearch("searchInput", "suggestionsList")
-    );
-
-  // Escuchar input del formulario móvil
-  document
-    .getElementById("mobileSearchInput")
-    .addEventListener("input", () =>
-      handleSearch("mobileSearchInput", "mobileSuggestionsList")
-    );
-
   // Función de búsqueda al hacer clic en el botón
   async function handleButtonSearch(inputId) {
     const value = document.getElementById(inputId).value.trim().toLowerCase();
@@ -799,6 +783,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const productos = data;
+      console.log(data);
 
       if (productos && typeof productos === "object") {
         const secciones = Object.keys(productos);
@@ -824,15 +809,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Botón de búsqueda - escritorio
-  document
-    .querySelector("button.btn.btn-outline-success")
-    .addEventListener("click", () => handleButtonSearch("searchInput"));
+  document.getElementById("searchInput").addEventListener("input", () => {
+    handleSearch("searchInput", "suggestionsList");
+  });
 
-  // Botón de búsqueda - móvil
-  document
-    .querySelectorAll("button.btn.btn-outline-success")[1]
-    .addEventListener("click", () => handleButtonSearch("mobileSearchInput"));
+  document.getElementById("mobileSearchInput").addEventListener("input", () => {
+    handleSearch("mobileSearchInput", "mobileSuggestionsList");
+  });
+
+
+  // Vincular botones de búsqueda
+document.querySelectorAll('.btn.btn-outline-success').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    if (index === 0) {
+      handleButtonSearch("searchInput");
+    } else {
+      handleButtonSearch("mobileSearchInput");
+    }
+  });
+});
 
   // Ajustar Ancho
   function ajustarClaseSegunAncho() {

@@ -35,178 +35,141 @@
     <!-- Header -->
     <header class="header">
         <section class="header__info">
-            <p>Estamos desde el año 2001 para asesorarte en lo que necesites. Llamenos al <span class="phone-number">0230
-                4421831</span> o enviando un mensaje al <span class="phone-number">11 6447-1868</span>!!</p>
+            <p>Estamos desde el año 2001 para asesorarte en lo que necesites. Llamenos al <span
+                    class="phone-number">0230
+                    4421831</span> o enviando un mensaje al <span class="phone-number">11 6447-1868</span>!!</p>
         </section>
         <!-- navbar -->
         <section class="container-navbar">
             <nav class="navbar container">
-                <a href="index.html" class="navbar-logo">
-                    <img src="assets/icon/icon.png" alt="logo-empresa">
-                </a>
-                <div class="navbar__nav">
-                    <ul class="nav__list">
-                        <li class="nav__link">
-                            <a href="/">Inicio</a>
-                        </li>
-                        <li class="nav__link">
-                            <a href="#">Productos</a>
-                        </li>
-                        <li class="nav__link">
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                    style="background-color: transparent; border: none; color: #fff;">
-                                    Contacto
-                                </a>
+                <!-- Logo y botones móviles -->
+                <div class="navbar__mobile-wrapper">
+                    <a href="index.html" class="navbar-logo mx-5">
+                        <img src="assets/icon/icon.png" alt="logo-empresa" />
+                    </a>
+                    <div class="navbar__mobile-icons">
+                        <button id="dark-mode-toggle-mobile" class="navbar__toggle-btn">🌙</button>
+                        <button class="navbar__toggle-btn btn cart-btn d-lg-none" type="button"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <img src="/assets/svg/cart-shopping.svg" alt="cart-btn" />
+                            <span id="cart-count" class="cart-count">0</span>
+                        </button>
+                        <button class="navbar__toggle-btn" data-bs-toggle="collapse" data-bs-target="#mobile-menu">
+                            <img src="/assets/menu-icon.svg" alt="Menu Icon" />
+                        </button>
+                    </div>
+                </div>
 
-                                <ul class="dropdown-menu">
-                                    <li><a target="_blank" class="dropdown-item"
-                                            href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0">Whatsapp</a>
-                                    </li>
-                                    <li><a target="_blank" class="dropdown-item"
-                                            href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
-                                    <li><a target="_blank" class="dropdown-item"
-                                            href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a>
-                                    </li>
-                                </ul>
-                            </div>
+                <!-- Navegación principal -->
+                <div class="navbar__nav d-none d-lg-flex align-items-center">
+                    <ul class="nav__list">
+                        <li class="nav__link"><a href="/">Inicio</a></li>
+                        <li class="nav__link"><a href="#">Productos</a></li>
+                        <li class="nav__link dropdown">
+                            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
+                                style="background: transparent; border: none; color: #fff;">
+                                Contacto
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a target="_blank" class="dropdown-item"
+                                        href="https://api.whatsapp.com/send/?phone=5491164471868">Whatsapp</a></li>
+                                <li><a target="_blank" class="dropdown-item"
+                                        href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
+                                <li><a target="_blank" class="dropdown-item"
+                                        href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a></li>
+                            </ul>
                         </li>
                         <li class="nav__link no-hover-effect">
                             <a href="#" id="dark-mode-toggle">🌙</a>
                         </li>
-
-                        <div class="container-fluid d-none d-lg-block">
-                            <form class="d-flex position-relative" role="search" onsubmit="return false">
-                                <input class="form-control me-2" type="search" id="searchInput" placeholder="Buscar"
-                                    aria-label="Search" autocomplete="off">
-                                <button type="button" class="btn btn-outline-success">
-                                    <img src="/assets/svg/search.svg" alt="Search Icon" class="search-icon">
-                                </button>
-                                <ul id="suggestionsList" class="list-group position-absolute w-100 z-3"></ul>
-                            </form>
-                        </div>
                     </ul>
-                    <button id="dark-mode-toggle-mobile" class="navbar__toggle-btn">
-                        🌙
-                    </button>
-                    <button class="navbar__toggle-btn btn cart-btn" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+
+                    <!-- Search Desktop -->
+                    <form class="d-flex position-relative ms-4" role="search" onsubmit="return false">
+                        <input class="form-control me-2" type="search" id="searchInput" placeholder="Buscar"
+                            aria-label="Search" autocomplete="off">
+                        <button type="button" class="btn btn-outline-success">
+                            <img src="/assets/svg/search.svg" alt="Search Icon" class="search-icon">
+                        </button>
+                        <ul id="suggestionsList" class="list-group position-absolute w-100 z-3"></ul>
+                    </form>
+
+                    <!-- Cart Desktop -->
+                    <button class="navbar__toggle-btn btn cart-btn ms-3 d-none d-lg-block" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <img src="/assets/svg/cart-shopping.svg" alt="cart-btn" />
                         <span id="cart-count" class="cart-count">0</span>
                     </button>
+                </div>
 
-                    <button class="navbar__toggle-btn" data-bs-toggle="collapse" data-bs-target="#mobile-menu"
-                        id="toggle-menu">
-                        <img src="/assets/menu-icon.svg" type="image/svg+xml" alt="Menu Icon">
-                    </button>
-                    <div class="navbar__mobile-menu d-none flex-column" id="mobile-menu" class="collapse">
-                        <ul class="nav__list-mobile">
-                            <li class="nav__link-mobile">
-                                <a href="/">Inicio</a>
-                            </li>
-                            <li class="nav__link-mobile">
-                                <a href="#">Productos</a>
-                            </li>
-                            <li class="nav__link-mobile">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                        style="background-color: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: 500;"
-                                        aria-expanded="false">
-                                        Contacto
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a target="_blank" class="dropdown-item"
-                                                href="tel:0230 4421831">Telefono</a></li>
-                                        <li><a target="_blank" class="dropdown-item"
-                                                href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0">Whatsapp</a>
-                                        </li>
-                                        <li><a target="_blank" class="dropdown-item"
-                                                href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a>
-                                        </li>
-                                        <li><a target="_blank" class="dropdown-item"
-                                                href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Menú móvil colapsable -->
+                <div class="collapse navbar__mobile-menu d-lg-none" id="mobile-menu">
+                    <ul class="nav__list-mobile">
+                        <li class="nav__link-mobile"><a href="/">Inicio</a></li>
+                        <li class="nav__link-mobile"><a href="#">Productos</a></li>
+                        <li class="nav__link-mobile dropdown">
+                            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                Contacto
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="tel:02304421831">Teléfono</a></li>
+                                <li><a class="dropdown-item" target="_blank"
+                                        href="https://api.whatsapp.com/send/?phone=5491164471868">Whatsapp</a></li>
+                                <li><a class="dropdown-item" target="_blank"
+                                        href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
+                                <li><a class="dropdown-item" target="_blank"
+                                        href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
+                    <!-- Search Mobile -->
                 </div>
             </nav>
+
+            <!-- Segundo nav para categorías -->
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid d-flex align-items-center justify-content-between">
-                    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
 
-                    <form class="d-flex align-items-center search-bar d-lg-none" role="search">
-                        <input class="form-control move-input mx-2" type="search" id="mobileSearchInput"
-                            placeholder="Buscar" aria-label="Buscar">
+                    </button>
+                    <form class="d-flex d-md-none align-items-center search-bar my-3 mx-3">
+                        <input class="form-control me-2" type="search" id="mobileSearchInput" placeholder="Buscar"
+                            aria-label="Buscar">
                         <button type="button" class="btn btn-outline-success">
                             <img src="/assets/svg/search.svg" alt="Search Icon" class="search-icon">
                         </button>
                         <ul id="mobileSuggestionsList" class="list-group position-absolute w-100 z-3"></ul>
                     </form>
                     <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
-                        <ul class="navbar-nav d-flex justify-content-center">
-                            <div class="group">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#destacados">Canaletas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#canaletas">Babetas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#babetas">Caballetes y Conversas</a>
-                                </li>
-                            </div>
-                            <div class="group">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#caballetes_conversas">Curvas y Codos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#curvas">Caños Redondos y Rectangulares</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#canios_grampas">Sombreros</a>
-                                </li>
-                            </div>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#sombreros">Chapas</a>
+                        <ul class="navbar-nav flex-wrap justify-content-center">
+                            <li class="nav-item"><a class="nav-link" href="#destacados">Canaletas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#canaletas">Babetas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#babetas">Caballetes y Conversas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#caballetes_conversas">Curvas y Codos</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#chapas">Selladores y Pinturas</a>
+                            <li class="nav-item"><a class="nav-link" href="#curvas">Caños Redondos y Rectangulares</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#selladores_pinturas">Claraboyas y Trabajos
-                                    Especiales</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#claraboyas">Membranas y
-                                    Aislantes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#membranas_aislantes">Durlock y Placa Cementicia</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#durlock">Policarbonatos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#policarbonato">Accesorios</a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#canios_grampas">Sombreros</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#sombreros">Chapas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#chapas">Selladores y Pinturas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#selladores_pinturas">Claraboyas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#claraboyas">Membranas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#membranas_aislantes">Durlock</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#durlock">Policarbonatos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#policarbonato">Accesorios</a></li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
         </section>
 
-    </header>
 
+    </header>
+    <br>
 
 
     <main class="container my-5">
@@ -236,7 +199,7 @@
         <!-- Caballetes y Conversas -->
         <div class="block carousel-container position-relative">
             <h2 class="text-center my-3">Caballetes y Conversas</h2>
-            <div id="caballetes_conversas" class="items-centrados item-gap d-flex overflow-auto p-2"></div>
+            <div id="caballetes_conversas" class="items-centrados item-gap d-flex overflow-auto p-1"></div>
         </div>
 
         <!-- Curvas y Codos -->
@@ -351,7 +314,7 @@
                             <h6>Metros</h6>
                             <input type="number" id="inputMetros" class="form-control mx-2 text-center" min="1"
                                 style="width: 80px;">
-                                <p class="text-danger" id="errorMetros"></p>
+                            <p class="text-danger" id="errorMetros"></p>
                         </div>
                         <div class="mt-2" id="contenedorColores"></div>
                         <div class="mt-2" id="contenedorMedidas"></div>

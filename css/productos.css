@@ -129,11 +129,11 @@ p.text-right {
 }
 
 .arrow.left {
-  left: 0;
+  left: -20px; /* misma distancia desde la izquierda */
 }
 
 .arrow.right {
-  right: 0;
+  right: -20px /* misma distancia desde la derecha */
 }
 
 @media screen and (max-width: 768px) {

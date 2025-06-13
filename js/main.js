@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Navbar scroll
   header_movement();
 
-  renderizarProductos();
+
 
   async function renderizarProductos() {
     try {
-      const productos = await data;
+      const productos = data;
 
       const contenedor = document.getElementById("destacados");
       contenedor.innerHTML = "";
@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  renderizarProductos();
   function abrirModalProducto(
     producto,
     cantidad = 1,

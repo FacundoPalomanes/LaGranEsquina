@@ -52,7 +52,7 @@
     <section class="container-navbar">
       <nav class="navbar container">
         <div class="navbar-left">
-          <a href="index.html" class="navbar-logo">
+          <a href="index.html" class="navbar-logo mx-5">
             <img src="assets/icon/icon.png" alt="logo-empresa">
           </a>
           <div class="navbar__nav">
@@ -85,43 +85,43 @@
                 <a href="#nothing" id="dark-mode-toggle">🌙</a>
               </li>
             </ul>
-            <button id="dark-mode-toggle-mobile" class="navbar__toggle-btn">
-              🌙
-            </button>
-            <button class="navbar__toggle-btn" data-bs-toggle="collapse" data-bs-target="#mobile-menu" id="toggle-menu">
-              <img src="/assets/menu-icon.svg" alt="Menu Icon">
-            </button>
-            <div class="navbar__mobile-menu d-none flex-column" id="mobile-menu" class="collapse">
-              <ul class="nav__list-mobile">
-                <li class="nav__link-mobile">
-                  <a href="#">Inicio</a>
-                </li>
-                <li class="nav__link-mobile">
-                  <a href="/productos">Productos</a>
-                </li>
-                <li class="nav__link-mobile">
-                  <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                      style="background-color: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: 500;"
-                      aria-expanded="false">
-                      Contacto
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a target="_blank" class="dropdown-item" href="tel:0230 4421831">Telefono</a></li>
-                      <li><a target="_blank" class="dropdown-item"
-                          href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0">Whatsapp</a>
-                      </li>
-                      <li><a target="_blank" class="dropdown-item"
-                          href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
-                      <li><a target="_blank" class="dropdown-item"
-                          href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
 
+          </div>
+          <button id="dark-mode-toggle-mobile" class="navbar__toggle-btn">
+            🌙
+          </button>
+          <button class="navbar__toggle-btn" data-bs-toggle="collapse" data-bs-target="#mobile-menu" id="toggle-menu">
+            <img src="/assets/menu-icon.svg" alt="Menu Icon">
+          </button>
+          <div id="mobile-menu" class="navbar__mobile-menu d-none flex-column collapse">
+            <ul class="nav__list-mobile">
+              <li class="nav__link-mobile">
+                <a href="#">Inicio</a>
+              </li>
+              <li class="nav__link-mobile">
+                <a href="/productos">Productos</a>
+              </li>
+              <li class="nav__link-mobile">
+                <div class="dropdown">
+                  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    style="background-color: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: 500;"
+                    aria-expanded="false">
+                    Contacto
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a target="_blank" class="dropdown-item" href="tel:0230 4421831">Telefono</a></li>
+                    <li><a target="_blank" class="dropdown-item"
+                        href="https://api.whatsapp.com/send/?phone=5491164471868&text=Hola!+Gracias+por+contactarte+con+Zinguer%C3%ADa+La+Gran+Esquina.%0A%0AEn+breve+te+respondemos.&type=phone_number&app_absent=0">Whatsapp</a>
+                    </li>
+                    <li><a target="_blank" class="dropdown-item"
+                        href="https://www.instagram.com/zinguerialagranesquina/">Instagram</a></li>
+                    <li><a target="_blank" class="dropdown-item"
+                        href="https://www.facebook.com/profile.php?id=100054211464079">Facebook</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
       </nav>
     </section>
@@ -159,21 +159,22 @@
 
   <!-- Productos destacados -->
   <div class="container p-3">
-    <div class="block carousel-container position-relative my-5">
+    <div class="carousel-container position-relative my-5">
       <h2 class="text-center mt-5 fw-bold" style="font-size: 2.5rem;">Nuestros Productos Destacados</h2>
       <button class="arrow left" id="scrollLeft">&#10094;</button>
-      <div id="destacados" class="item-gap d-flex overflow-auto p-5"></div>
+      <div id="destacados" class="item-gap d-flex overflow-auto px-0"></div>
       <button class="arrow right" id="scrollRight">&#10095;</button>
     </div>
   </div>
-  <div class="text-center mt-5 p-5">
+  <div class="text-center my-2">
     <a href="/productos" class="btn btn-color btn-lg">Ver todo el catálogo</a>
   </div>
 
 
 
+
   <div class="container d-flex flex-column align-items-center justify-content-center p-5 gap-3">
-    <h2 class="display-4 fw-bold" style="font-size: 2.5rem;">Nuestros Productos</h2>
+    <h2 class="display-4 fw-bold text-center" style="font-size: 2.5rem;">Nuestras Marcas</h2>
     <div class="slide-container m-3">
       <div class="slide-track">
         <img src="assets/empresas/logo-termiun.png" class="slide-item" alt="Ternium">

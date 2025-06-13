@@ -9,9 +9,9 @@
 .header__info p {
   color: var(--white);
   font-weight: 700;
-  padding: 10px 25px 0px 0;
+  padding: 0.5% 5px 0px 0;
   white-space: nowrap;
-  animation: moveText 20s linear infinite;
+  animation: moveText 15s linear infinite;
 }
 
 .phone-number {
@@ -132,6 +132,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__toggle-btn {
+    display: flex;
+  }
+
   .nav__link {
     margin-left: 9px; 
     font-size: 0.9rem; 
@@ -171,13 +179,12 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 130px;
+    top: 100%;
     right: -25px;
     background-color: var(--orange);
     width: 110%;
     z-index: 1;
     transform: translateY(0%);
-    /* transition: all 0.5s ease; */
   }
 
   @keyframes slideDown {
@@ -302,7 +309,7 @@
 
 .navbar-nav .nav-item .nav-link[href="#canios_grampas"] {
   position: relative; 
-  right: 30px; 
+  right: 20px; 
 }
 
 .navbar-nav .nav-item .nav-link[href="#caballetes_conversas"] {
@@ -357,4 +364,43 @@
   z-index: 3;  /* Asegura que las sugerencias estén por encima de otros elementos */
   background-color: white;  /* Fondo blanco para las sugerencias */
   border-radius: 0 0 4px 4px;  /* Bordes redondeados solo en la parte inferior */
+}
+
+@media screen and (max-width: 768px) {
+
+  .header__info p {
+  padding: 1.2% 15px 0px 0;
+  }
+
+  .navbar__mobile-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar__mobile-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar__nav {
+    display: none; /* ocultamos el resto del nav en mobile */
+  }
+
+  .navbar-logo img {
+    height: 80px; /* Ajustá esto si el logo se ve muy grande */
+    width: auto;
+  }
+}
+
+.navbar__toggle-btn {
+  display: none;
+}
+
+@media screen and (max-width: 608px) {
+  .navbar__toggle-btn {
+    display: flex;
+  }
 }
