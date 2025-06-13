@@ -1113,7 +1113,7 @@ export const data = {
     },
     {
       id: 103,
-      nombre: "Puerta Linea",
+      nombre: "Puerta Placa",
       descripcion:
         "Puerta de MDF de la línea 2000, con un ancho de 70cm, ideal para interiores.",
       imagen:
@@ -1259,8 +1259,8 @@ export const data = {
   accesorios_dos: [
     {
       id: 117,
-      nombre: "Punta Philips",
-      descripcion: "Adaptador para todo tipo de tornillos con cabeza Philips",
+      nombre: "Punta Phillips",
+      descripcion: "Adaptador para todo tipo de tornillos con cabeza Phillips",
       imagen:
         "./assets/productos/accesorios_dos/punta-phillips.jpg",
     },
