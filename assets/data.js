@@ -13,7 +13,7 @@ export const data = {
       descripcion:
         "Disponemos en stock de todos los productos para su instalacion.",
       imagen:
-        "./assets/productos/destacados/membrana-plastica.png",
+        "./assets/productos/destacados/membrana-plastica.webp",
       tipo: ["35 kg", "40 kg"],
       href: "#claraboyas",
     },
@@ -33,7 +33,7 @@ export const data = {
       descripcion:
         "Chapa cincalum C/25 para todo tipo de techos y cerramientos.",
       imagen:
-        "./assets/productos/destacados/chapa-t101.jpeg",
+        "./assets/productos/destacados/chapa-t101.webp",
       href: "#sombreros",
       tipo: ["Calibre 25 Cincalum", "Color C/25"],
     },
@@ -52,7 +52,7 @@ export const data = {
       nombre: "Durlock",
       descripcion: "Placas de yeso para divisiones y cielorrasos.",
       imagen:
-        "./assets/productos/destacados/durlock.png",
+        "./assets/productos/destacados/durlock.webp",
       href: "#membranas_aislantes",
     },
     {
@@ -82,7 +82,7 @@ export const data = {
       descripcion:
         "Material galvanizado utilizado para bajadas de zingueria, conductos de aire, etc.",
       imagen:
-        "./assets/productos/destacados/canio-redondo.jpg",
+        "./assets/productos/destacados/canio-redondo.webp",
       href: "#curvas",
       metros: true,
       medida: [
@@ -104,7 +104,7 @@ export const data = {
       descripcion:
         "Material galvanizado utilizado en bajadas de zingueria, conductos de aire, etc.",
       imagen:
-        "./assets/productos/destacados/canio-rectangular.jpg",
+        "./assets/productos/destacados/canio-rectangular.webp",
       href: "#curvas",
     },
     {
@@ -113,7 +113,7 @@ export const data = {
       descripcion:
         "Accesorio para la protección de ductos de ventilación y chimeneas, evitando la entrada de agua y objetos externos.",
       imagen:
-        "./assets/productos/destacados/sombrero.jpg",
+        "./assets/productos/destacados/sombrero.webp",
       href: "#canios_grampas",
     },
   ],
@@ -133,7 +133,7 @@ export const data = {
       descripcion:
         "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.",
       imagen:
-        "./assets/productos/canaletas/media-cania.jpg",
+        "./assets/productos/canaletas/media-cania.webp",
       metros: true,
     },
     {
@@ -142,7 +142,7 @@ export const data = {
       descripcion:
         "Diseñada para la conducción de agua de lluvia en techos y cubiertas de fácil instalación.",
       imagen:
-        "./assets/productos/canaletas/7-15-10.jpg",
+        "./assets/productos/canaletas/7-15-10.webp",
       metros: true,
     },
     {
@@ -167,7 +167,7 @@ export const data = {
       nombre: "Esquineros",
       descripcion: 'Esquinero soldado a 90° para "canaletas varias"',
       imagen:
-        "./assets/productos/accesorios/esquinero-americana.jpg",
+        "./assets/productos/accesorios/esquinero-americana.webp",
       tipo: ["Americana", "Pecho Paloma", "7x15x10"],
     },
     {
@@ -176,7 +176,7 @@ export const data = {
       descripcion:
         'Boqueta (puntera con tapa y bajada soldada) de terminación para "canaletas varias."',
       imagen:
-        "./assets/productos/accesorios/boqueta-americana.jpg",
+        "./assets/productos/accesorios/boqueta-americana.webp",
       tipo: ["Derecha", "Izquierda", "Intermedia"],
       medida: ["Americana", "Pecho Paloma", "7x15x10"],
     },
@@ -186,7 +186,7 @@ export const data = {
       descripcion:
         'Terminal (tapa soldada en 20cm de canaleta) para cierre y terminación para "canaletas varias"',
       imagen:
-        "./assets/productos/canaletas/terminal-americana.jpg",
+        "./assets/productos/canaletas/terminal-americana.webp",
       tipo: ["Derecha", "Izquierda"],
       medida: ["Americana", "Pecho Paloma", "7x15x10"],
     },
@@ -195,7 +195,7 @@ export const data = {
       nombre: "Soportes",
       descripcion: "Soporte diseñado para sostener distintas canaletas",
       imagen:
-        "./assets/productos/accesorios/soporte.jpg",
+        "./assets/productos/accesorios/soporte.webp",
       tipo: ["Americana", "7x15x10", "Pecho Paloma"],
     },
     {
@@ -203,7 +203,7 @@ export const data = {
       nombre: "Tapas",
       descripcion: "Tapas sueltas para distintas canaletas",
       imagen:
-        "./assets/productos/canaletas/tapas.jpg",
+        "./assets/productos/canaletas/tapas.webp",
       tipo: ["Americana", "7x15x10", "Pecho Paloma", "Por Pedido"],
       medida: ["Izquierda", "Derecha"],
     },
@@ -212,7 +212,7 @@ export const data = {
       nombre: "Capuchón",
       descripcion: "Recubrimiento para cenefas de maderas",
       imagen:
-        "./assets/productos/canaletas/capuchon.jpg",
+        "./assets/productos/canaletas/capuchon.webp",
       metros: true,
     },
     {
@@ -221,7 +221,7 @@ export const data = {
       descripcion:
         'Zinguería en forma de "L" para cubrir entre el techo y la pared',
       imagen:
-        "./assets/productos/canaletas/esquinero-canaleta.jpg",
+        "./assets/productos/canaletas/esquinero-canaleta.webp",
       medida: [
         "10 x 10 cm",
         "15 x 15 cm",
@@ -235,7 +235,7 @@ export const data = {
       nombre: "Recibidor",
       descripcion: "Zinguería Recibidora de agua contra pared",
       imagen:
-        "./assets/productos/canaletas/recibidor.jpg",
+        "./assets/productos/canaletas/recibidor.webp",
       metros: true,
     },
     {
@@ -244,7 +244,7 @@ export const data = {
       descripcion:
         "Zinguería utilizada para recibir caída de agua contra pared.",
       imagen:
-        "./assets/productos/canaletas/interna-amurar.jpg",
+        "./assets/productos/canaletas/interna-amurar.webp",
       metros: true,
     },
     {
@@ -253,7 +253,7 @@ export const data = {
       descripcion:
         "Zinguería lateral con división utilizada bajo chapa o bajo teja.",
       imagen:
-        "./assets/productos/canaletas/banda-peine.jpg",
+        "./assets/productos/canaletas/banda-peine.webp",
       metros: true,
     },
     {
@@ -261,7 +261,7 @@ export const data = {
       nombre: "Bajoteja",
       descripcion: "Zinguería lateral bajochapa o bajoteja",
       imagen:
-        "./assets/productos/canaletas/bajoteja.jpg",
+        "./assets/productos/canaletas/bajoteja.webp",
       metros: true,
     },
   ],
@@ -289,7 +289,7 @@ export const data = {
       descripcion:
         "Babeta diseñada para instalación sobre chapas con forma sinusoidal o trapezoidal.",
       imagen:
-        "./assets/productos/babetas/sobrechapa-cforma.png",
+        "./assets/productos/babetas/sobrechapa-cforma.webp",
       tipo: ["Sinusoidal", "Trapezoidal"],
       metros: true,
       color: ["Galvanizada", "Color"],
@@ -302,7 +302,7 @@ export const data = {
       descripcion:
         "Se utiliza cuando convergen dos aguas de distintos niveles del mismo techo.",
       imagen:
-        "./assets/productos/caballetes_conversas/conversa.png",
+        "./assets/productos/caballetes_conversas/conversa.webp",
       metros: true,
       medida: ["Desarrollo 33", "Desarrollo 40"],
       color: ["Galvanizado", "Color"],
@@ -313,7 +313,7 @@ export const data = {
       descripcion:
         "Se utiliza cuando convergen dos aguas de distintos niveles de techo con mucho caudal.",
       imagen:
-        "./assets/productos/caballetes_conversas/conversa-cdivision.png",
+        "./assets/productos/caballetes_conversas/conversa-cdivision.webp",
       metros: true,
     },
     {
@@ -322,7 +322,7 @@ export const data = {
       descripcion:
         "Caballete o cumbrera diseñado para el cierre superior de techos.",
       imagen:
-        "./assets/productos/caballetes_conversas/caballete.png",
+        "./assets/productos/caballetes_conversas/caballete.webp",
       metros: true,
       medida: ["Desarrollo 33", "Desarrollo 40"],
       color: ["Galvanizado", "Color"],
@@ -333,7 +333,7 @@ export const data = {
       descripcion:
         "Caballete o cumbrera (en 2 partes) con diseño especial sinusoidal o trapezoidal para cierre superior de techo.",
       imagen:
-        "./assets/productos/caballetes_conversas/caballete-cforma.png",
+        "./assets/productos/caballetes_conversas/caballete-cforma.webp",
       tipo: ["Sinusoidal", "Trapezoidal"],
       metros: true,
       color: ["Galvanizada", "Color"],
@@ -383,7 +383,7 @@ export const data = {
       descripcion:
         "Codos de 5x10 y 7x12 cm (a 45° y a 90°) de frente y de costado.",
       imagen:
-        "./assets/productos/curvas/codo-cinco-diez.jpg",
+        "./assets/productos/curvas/codo-cinco-diez.webp",
       tipo: ["De frente", "De costado"],
       medida: ["5x10cm a 45*", "5x10cm a 90*", "7x12cm a 45*", "7x12cm a 90*"],
     },
@@ -392,7 +392,7 @@ export const data = {
       nombre: "Codos Redondos Soldados",
       descripcion: "Codos soldados a 45° y 90°",
       imagen:
-        "./assets/productos/curvas/codo-siete-doce.jpg",
+        "./assets/productos/curvas/codo-siete-doce.webp",
       tipo: ["45°", "90°"],
       medida: ["3 Pulgadas", "4 Pulgadas", "5 Pulgadas", "6 Pulgadas"],
     },
@@ -404,7 +404,7 @@ export const data = {
       descripcion:
         "Caño redondo disponible en medidas de 3” a 12”, con opciones en galvanizado o color para mayor resistencia y versatilidad.",
       imagen:
-        "./assets/productos/canios_grampas/canio-redondo.jpg",
+        "./assets/productos/canios_grampas/canio-redondo.webp",
       metros: true,
       medida: [
         "3 Pulgadas",
@@ -424,7 +424,7 @@ export const data = {
       nombre: "Grampas Omega",
       descripcion: "Grampas Omega metálicas en varias medidas para sujeción.",
       imagen:
-        "./assets/productos/canios_grampas/grampa-omega.jpg",
+        "./assets/productos/canios_grampas/grampa-omega.webp",
       medida: [
         "3 Pulgadas",
         "4 Pulgadas",
@@ -441,7 +441,7 @@ export const data = {
       nombre: "Grampas Para Amurar",
       descripcion: "Grampa en distintos diámetros (con pata de 20 cm de largo)",
       imagen:
-        "./assets/productos/canios_grampas/grampas-pamurar.jpg",
+        "./assets/productos/canios_grampas/grampas-pamurar.webp",
       medida: [
         "3 Pulgadas",
         "4 Pulgadas",
@@ -459,7 +459,7 @@ export const data = {
       descripcion:
         "Caño galvanizado utilizable para bajada de zinguería o conductos de aire",
       imagen:
-        "./assets/productos/canios_grampas/canio-rectangular.jpg",
+        "./assets/productos/canios_grampas/canio-rectangular.webp",
       metros: true,
     },
     {
@@ -468,7 +468,7 @@ export const data = {
       descripcion:
         "Caño galvanizado utilizable para bajada de zinguería o conductos de aire (x metro)",
       imagen:
-        "./assets/productos/canios_grampas/canio-rectangular.jpg",
+        "./assets/productos/canios_grampas/canio-rectangular.webp",
       metros: true,
     },
     {
@@ -476,7 +476,7 @@ export const data = {
       nombre: "Embudos",
       descripcion: "Recibidor de agua en forma de embudo",
       imagen:
-        "./assets/productos/canios_grampas/embudo.jpg",
+        "./assets/productos/canios_grampas/embudo.webp",
       tipo: [
         "Embudo Americano 5x10",
         "Embudo Mini 5x10",
@@ -490,7 +490,7 @@ export const data = {
       nombre: "Grampas",
       descripcion: "Grampas para caños de bajada 5x10 o 7x12.",
       imagen:
-        "./assets/productos/canios_grampas/grampa.jpg",
+        "./assets/productos/canios_grampas/grampa.webp",
       medida: ["5x10", "7x12"],
     },
     {
@@ -499,14 +499,14 @@ export const data = {
       descripcion:
         "Pieza para transformar de redondo a rectangular y también de sentido de orientación (consultar).",
       imagen:
-        "./assets/productos/canios_grampas/transformaciones.jpg",
+        "./assets/productos/canios_grampas/transformaciones.webp",
     },
     {
       id: 46,
       nombre: "Reducciones Cónicas",
       descripcion: "Pieza galvanizada para reducir diferentes diámetros",
       imagen:
-        "./assets/productos/canios_grampas/reducciones-conicas.jpg",
+        "./assets/productos/canios_grampas/reducciones-conicas.webp",
       medida: ["4 a 3", "5 a 4", "6 a 4", "6 a 5"],
     },
   ],
@@ -569,7 +569,7 @@ export const data = {
       descripcion:
         "El Sombrero Espiro cuenta con un diseño en espiral que optimiza la salida de aire en chimeneas y parrillas, y minimiza la acumulación de residuos en el ducto. Ideal para sistemas de ventilación eficientes (medidas rectangulares por pedido).",
       imagen:
-        "./assets/productos/sombreros/espiro.png",
+        "./assets/productos/sombreros/espiro.webp",
       medida: [
         "3 Pulgadas",
         "4 Pulgadas",
@@ -585,7 +585,7 @@ export const data = {
       descripcion:
         "El Sombrero Giratorio o Eólico aprovecha la fuerza del viento para mejorar la ventilación y extracción de humos sin consumo eléctrico (ideal para galpones). Es una solución ecológica y eficiente.",
       imagen:
-        "./assets/productos/sombreros/eolico.jpg",
+        "./assets/productos/sombreros/eolico.webp",
       medida: [
         "4 Pulgadas",
         "6 Pulgadas",
@@ -603,7 +603,7 @@ export const data = {
       descripcion:
         "La Base de los Sombreros Eólicos o Giratorios proporciona una estructura sólida y estable en su instalación",
       imagen:
-        "./assets/productos/sombreros/base-eolico.png",
+        "./assets/productos/sombreros/base-eolico.webp",
       medida: ["16 Pulgadas", "20 Pulgadas", "24 Pulgadas"],
     },
   ],
@@ -614,7 +614,7 @@ export const data = {
       descripcion:
         "La Chapa Lisa galvanizada es ideal para zingueria, cubiertas, revestimientos y aplicaciones estructurales. Lisa color solamente Calibre 25.",
       imagen:
-        "./assets/productos/chapas/lisa.jpg",
+        "./assets/productos/chapas/lisa.webp",
       medida: [
         "C/30 (1 x 2 mts)",
         "C/28 (1 x 2 mts)",
@@ -642,7 +642,7 @@ export const data = {
       nombre: "Trapezoidal C/25",
       descripcion: "Varios Espesores y largos.",
       imagen:
-        "./assets/productos/chapas/chapa-t101.jpeg",
+        "./assets/productos/chapas/chapa-t101.webp",
       tipo: ["Calibre 25 Cincalum", "Color C/25"],
       metros: true,
     },
@@ -652,7 +652,7 @@ export const data = {
       descripcion:
         "La Chapa Plástica (Sinusoidal) es ideal para dejar pasar la claridad en galerías, quinchos, casas, etc (consultar trapezoidal).",
       imagen:
-        "./assets/productos/chapas/chapa-plastica.jpg",
+        "./assets/productos/chapas/chapa-plastica.webp",
       color: ["Natural", "Blanco"],
       metros: true,
     },
@@ -661,7 +661,7 @@ export const data = {
       nombre: 'Clavos 3"',
       descripcion: "Clavos para chapas (viene x100 unidades)",
       imagen:
-        "./assets/productos/chapas/clavos.jpg",
+        "./assets/productos/chapas/clavos.webp",
       tipo: [
         "Clavo Cabeza De Plomo",
         'Clavo de 3" con Accesorio (arandelas de goma y metal)',
@@ -673,7 +673,7 @@ export const data = {
       descripcion:
         "El Perfil C galvanizado es un elemento estructural clave en la construcción de techos, marcos, y soportes. Su diseño en 'C' proporciona resistencia y facilidad de instalación.",
       imagen:
-        "./assets/productos/chapas/perfil-c.jpg",
+        "./assets/productos/chapas/perfil-c.webp",
       tipo: ["4 mts", "6 mts", "8 mts"],
       medida: ["80 x 40 x 1,6", "100 x 50 x 1,6", "120 x 50 x 1,6"],
     },
@@ -683,7 +683,7 @@ export const data = {
       descripcion:
         "Perfil para Estructura de 0,94 mm de espesor. Vienen por 6 mts largo",
       imagen:
-        "./assets/productos/chapas/pgc.jpg",
+        "./assets/productos/chapas/pgc.webp",
       tipo: ["PGC", "PGU"],
       medida: ["6 mts"],
     },
@@ -693,7 +693,7 @@ export const data = {
       descripcion:
         "Tornillos resistentes con punta autoperforante para fijación.",
       imagen:
-        "./assets/productos/chapas/tornillo-autoperforante.png",
+        "./assets/productos/chapas/tornillo-autoperforante.webp",
       tipo: [
         'Madera 1.5"',
         'Madera 2"',
@@ -728,7 +728,7 @@ export const data = {
       nombre: "Sellagrietas",
       descripcion: "Sella grietas, paredes, hormigón, muros, etc.",
       imagen:
-        "./assets/productos/selladores_pinturas/sellagrietas.png",
+        "./assets/productos/selladores_pinturas/sellagrietas.webp",
     },
     {
       id: 64,
@@ -736,7 +736,7 @@ export const data = {
       descripcion:
         "Pintura formulada para protección y acabado en chapas galvanizadas, metálicas, maderas,etc",
       imagen:
-        "./assets/productos/selladores_pinturas/pintura-pchapa.jpg",
+        "./assets/productos/selladores_pinturas/pintura-pchapa.webp",
       color: ["Negro", "Negro Mate", "Blanco", "Gris", "Verde", "Rojo", "Azul"],
       medida: ["1 lt", "4 lts", "10 lts", "20 lts"],
     },
@@ -746,7 +746,7 @@ export const data = {
       descripcion:
         "Impermeabilizante para losas, terrazas y azoteas en varios colores.",
       imagen:
-        "./assets/productos/selladores_pinturas/losalum.png",
+        "./assets/productos/selladores_pinturas/losalum.webp",
       medida: ["1 lt", "4 lts", "10 lts", "20 lts"],
     },
     {
@@ -755,7 +755,7 @@ export const data = {
       descripcion:
         "Sealer sellador para solucion de filtraciones en diversas superficies. Para mayor eficiencia utilizar con vendas",
       imagen:
-        "./assets/productos/selladores_pinturas/sealer.png",
+        "./assets/productos/selladores_pinturas/sealer.webp",
       color: ["Gris", "Negro"],
       medida: ["1 lt", "4 lts", "10 lts", "20 lts"],
     },
@@ -764,7 +764,7 @@ export const data = {
       nombre: "Sellador de Alta Temperatura",
       descripcion: "Sellador especial para calderas, salamandras, etc.",
       imagen:
-        "./assets/productos/selladores_pinturas/sellador-alta-temperatura.png",
+        "./assets/productos/selladores_pinturas/sellador-alta-temperatura.webp",
     },
     {
       id: 68,
@@ -772,7 +772,7 @@ export const data = {
       descripcion:
         "Cinta de vendaje para aislamiento y protección estructural. Se recomienda utilizar con Sealer",
       imagen:
-        "./assets/productos/selladores_pinturas/vendas.png",
+        "./assets/productos/selladores_pinturas/vendas.webp",
       medida: [
         "4 cm x 25 mts",
         "10 cm x 25 mts",
@@ -787,7 +787,7 @@ export const data = {
       nombre: "Claraboyas",
       descripcion: "Recomendada para losas. Viene con ventilación",
       imagen:
-        "./assets/productos/claraboyas/claraboyas.jpg",
+        "./assets/productos/claraboyas/claraboyas.webp",
       medida: ["40 x 40", "40 x 60", "50 x 50", "60 x 60"],
     },
     {
@@ -795,7 +795,7 @@ export const data = {
       nombre: "Claraboyas para Tejas",
       descripcion: "Viene con ventilación en distintas medidas (consultar)",
       imagen:
-        "./assets/productos/claraboyas/claraboya-pteja.jpg",
+        "./assets/productos/claraboyas/claraboya-pteja.webp",
       medida: ["60 x 55 con Ventilacion"],
     },
     {
@@ -804,7 +804,7 @@ export const data = {
       descripcion:
         "Claraboya soldada y sellada  con ventilación (en 1,50 mts de chapa) (consultar medidas)",
       imagen:
-        "./assets/productos/claraboyas/claraboya-soldada.jpg",
+        "./assets/productos/claraboyas/claraboya-soldada.webp",
       tipo: ["Fijo", "De Abrir"],
     },
     {
@@ -812,14 +812,14 @@ export const data = {
       nombre: "Puerta Trampa",
       descripcion: "",
       imagen:
-        "./assets/productos/claraboyas/puerta-trampa.jpg",
+        "./assets/productos/claraboyas/puerta-trampa.webp",
     },
     {
       id: 73,
       nombre: "Campanas",
       descripcion: "Campanas galvanizadas a medida",
       imagen:
-        "./assets/productos/claraboyas/campanas.jpg",
+        "./assets/productos/claraboyas/campanas.webp",
       medida: ["60 x 60", "100 x 60 x 60", "A medida"],
     },
     {
@@ -838,7 +838,7 @@ export const data = {
       nombre: "Flor de Lis",
       descripcion: "Cenefas de Diseño Artistico",
       imagen:
-        "./assets/productos/claraboyas/flor-de-lis.jpg",
+        "./assets/productos/claraboyas/flor-de-lis.webp",
       tipo: [
         "Chica Galvanizada (1)",
         "Grande Galvanizada (2)",
@@ -852,7 +852,7 @@ export const data = {
       nombre: "Capot",
       descripcion: "Capot para cubrir distintas bombas (a medida).",
       imagen:
-        "./assets/productos/claraboyas/capot.jpg",
+        "./assets/productos/claraboyas/capot.webp",
       medida: ["Estandar", "Centrífuga", "A medida"],
     },
   ],
@@ -872,14 +872,14 @@ export const data = {
       descripcion:
         "La Membrana 4 MM con aluminio proporciona un alto nivel de impermeabilización en superficies expuestas a la intemperie, protegiendo contra humedad y filtraciones.",
       imagen:
-        "./assets/productos/membranas_aislantes/mem-asfaltica-aislamax.jpg",
+        "./assets/productos/membranas_aislantes/mem-asfaltica-aislamax.webp",
     },
     {
       id: 78,
       nombre: "Membranas Adhesivas o En Frío",
       descripcion: "Membrana adhesiva para aplicar en frío (sin soplete)",
       imagen:
-        "./assets/productos/membranas_aislantes/membrana-adhesiva.jpg",
+        "./assets/productos/membranas_aislantes/membrana-adhesiva.webp",
       metros: true,
       medida: ["10 cm", "15 cm", "25 cm"],
     },
@@ -898,7 +898,7 @@ export const data = {
       descripcion:
         "Membrana líquida o en pasta son pinturas impermeabilizantes (consultar colores).",
       imagen:
-        "./assets/productos/membranas_aislantes/membrana-pasta.jpg",
+        "./assets/productos/membranas_aislantes/membrana-pasta.webp",
       medida: ["4 kg", "20 kg"],
     },
     {
@@ -916,7 +916,7 @@ export const data = {
       descripcion:
         "El Aislante 10MM protege filtraciones, reduce la transmisión térmica y acústica, proporcionando mayor confort en techos y paredes. Fácil de instalar y resistente, viene de 1x20 metros",
       imagen:
-        "./assets/productos/membranas_aislantes/aislante-10mm.jpg",
+        "./assets/productos/membranas_aislantes/aislante-10mm.webp",
       tipo: ["Con Aluminio", "Doble Aluminio"],
     },
     {
@@ -925,7 +925,7 @@ export const data = {
       descripcion:
         "La Lana de Vidrio es un material aislante térmico y acústico ideal para techos, paredes y entrepisos. Su composición le otorga resistencia al fuego y durabilidad, 1,20 x 18 mts.",
       imagen:
-        "./assets/productos/membranas_aislantes/lana-de-vidrio.jpg",
+        "./assets/productos/membranas_aislantes/lana-de-vidrio.webp",
       tipo: ["Sola", "Aluminio"],
     },
     {
@@ -933,14 +933,14 @@ export const data = {
       nombre: "Cinta Aluminizada",
       descripcion: "Se utiliza para unir aislantes térmicos (x 50mts)",
       imagen:
-        "./assets/productos/membranas_aislantes/cinta-aluminizada.jpg",
+        "./assets/productos/membranas_aislantes/cinta-aluminizada.webp",
     },
     {
       id: 84,
       nombre: "Cintas de Aluminio Reforzada",
       descripcion: "Cinta tramada para unir rollos de lana de vidrio",
       imagen:
-        "./assets/productos/membranas_aislantes/cinta-aluminizada-reforzada.jpg",
+        "./assets/productos/membranas_aislantes/cinta-aluminizada-reforzada.webp",
     },
     {
       id: 85,
@@ -948,7 +948,7 @@ export const data = {
       descripcion:
         "Membrana que funciona como barrera hidrófuga y de vapor ideal sobre madera y paredes",
       imagen:
-        "./assets/productos/membranas_aislantes/house-cover.jpg",
+        "./assets/productos/membranas_aislantes/house-cover.webp",
     },
   ],
   durlock: [
@@ -958,7 +958,7 @@ export const data = {
       descripcion:
         "Placa de yeso Durlock de 9,5mm 1.20x2.40m, ideal para tabiques y cielorrasos",
       imagen:
-        "./assets/productos/durlock/durlock.png",
+        "./assets/productos/durlock/durlock.webp",
     },
     {
       id: 87,
@@ -966,7 +966,7 @@ export const data = {
       descripcion:
         "Placa de yeso Durlock de 12,5mm 1.20x2.40m, ideal para tabiques y cielorrasos. Disponible en versiones para humedad y temperatura.",
       imagen:
-        "./assets/productos/durlock/durlock.png",
+        "./assets/productos/durlock/durlock.webp",
       tipo: ["Normal", "Para Humedad", "Para Temperatura"],
     },
     {
@@ -984,7 +984,7 @@ export const data = {
       descripcion:
         "Perfil solera de galvanizado, utilizado en la base y parte superior de estructuras de construcción en seco. Medidas: 35mm y 70mm (2,60mts de largo).",
       imagen:
-        "./assets/productos/durlock/solera.png",
+        "./assets/productos/durlock/solera.webp",
       medida: ["35mm", "70mm"],
     },
     {
@@ -993,7 +993,7 @@ export const data = {
       descripcion:
         "Cantonera de 2600mm para refuerzo y protección de esquinas en construcción en seco.",
       imagen:
-        "./assets/productos/durlock/cantonera.jpg",
+        "./assets/productos/durlock/cantonera.webp",
     },
     {
       id: 91,
@@ -1001,7 +1001,7 @@ export const data = {
       descripcion:
         "Perfil buña perimetral en forma de 'Z', ideal para terminaciones en cielorrasos y paredes de 2600mm de largo.",
       imagen:
-        "./assets/productos/durlock/bunia-perimetral.jpg",
+        "./assets/productos/durlock/bunia-perimetral.webp",
     },
     {
       id: 92,
@@ -1017,14 +1017,14 @@ export const data = {
       descripcion:
         "Perfil metálico omega de 2600mm de largo para cielorrasos desmontables en sistemas de construcción en seco.",
       imagen:
-        "./assets/productos/durlock/omega.png",
+        "./assets/productos/durlock/omega.webp",
     },
     {
       id: 94,
       nombre: "Travesaños DM",
       descripcion: "Perfil para soportar cielorrasos, tabiques y muros",
       imagen:
-        "./assets/productos/durlock/travesanio.jpg",
+        "./assets/productos/durlock/travesanio.webp",
       medida: ["0.61 mts", "1.22 mts"],
     },
     {
@@ -1041,7 +1041,7 @@ export const data = {
       descripcion:
         "Elemento del cielorraso suspendido. Viene de 3 metros de largo",
       imagen:
-        "./assets/productos/durlock/perimetral.jpg",
+        "./assets/productos/durlock/perimetral.webp",
     },
     {
       id: 97,
@@ -1049,7 +1049,7 @@ export const data = {
       descripcion:
         "Masilla para tratamiento de juntas en placas de yeso. Disponible en presentaciones de 7kg, 15kg y 32kg.",
       imagen:
-        "./assets/productos/durlock/masilla.png",
+        "./assets/productos/durlock/masilla.webp",
       tipo: ["7 kg", "15 kg", "32 kg"],
     },
     {
@@ -1058,7 +1058,7 @@ export const data = {
       descripcion:
         "Masilla para tratamiento de juntas en placas de yeso. Disponible en presentaciones de 1.8kg, 7kg, 18kg y 32kg.",
       imagen:
-        "./assets/productos/durlock/masilla-durlock.jpg",
+        "./assets/productos/durlock/masilla-durlock.webp",
       tipo: ["1.8 kg", "7 kg", "18 kg", "32 kg"],
     },
     {
@@ -1067,7 +1067,7 @@ export const data = {
       descripcion:
         "Enduído plástico para alisar superficies antes de pintar. Disponible en envases de 4L y 20L.",
       imagen:
-        "./assets/productos/durlock/enduido.jpg",
+        "./assets/productos/durlock/enduido.webp",
       tipo: ["4 lts", "20 lts"],
     },
     {
@@ -1076,7 +1076,7 @@ export const data = {
       descripcion:
         "Yeso en polvo de rápido fraguado para trabajos de construcción y terminaciones. Presentaciones: 1kg, 3.5kg y 40kg.",
       imagen:
-        "./assets/productos/durlock/yeso.jpg",
+        "./assets/productos/durlock/yeso.webp",
       tipo: ["1 kg", "3.5 kg", "40 kg"],
     },
     {
@@ -1085,7 +1085,7 @@ export const data = {
       descripcion:
         "Cinta de fibra o papel para refuerzo de juntas en placas de yeso. Disponible en distintas medidas.",
       imagen:
-        "./assets/productos/durlock/cinta.jpg",
+        "./assets/productos/durlock/cinta.webp",
       tipo: [
         "Tramada 20 mts",
         "Tramada 90 mts",
@@ -1099,7 +1099,7 @@ export const data = {
       nombre: "Tornillos",
       descripcion: "Tornillos autoperforantes. Tornillos Tipos: T1, T2, T3..",
       imagen:
-        "./assets/productos/durlock/tornillos.png",
+        "./assets/productos/durlock/tornillos.webp",
       tipo: ["T1", "T2", "T3"],
     },
     {
@@ -1108,7 +1108,7 @@ export const data = {
       descripcion:
         "Fijaciones para estructuras de construcción en seco, etc. Fijaciones Medidas: 6mm y 8mm.",
       imagen:
-        "./assets/productos/durlock/fijacion.jpg",
+        "./assets/productos/durlock/fijacion.webp",
       medida: ["6mm", "8mm"],
     },
     {
@@ -1117,7 +1117,7 @@ export const data = {
       descripcion:
         "Puerta de MDF de la línea 2000, con un ancho de 70cm, ideal para interiores.",
       imagen:
-        "./assets/productos/durlock/puerta.jpg",
+        "./assets/productos/durlock/puerta.webp",
       medida: ["Lado izquierdo", "Lado derecho"],
     },
     {
@@ -1126,7 +1126,7 @@ export const data = {
       descripcion:
         "Placa para revestimientos de paredes, cielorrasos, pisos, etc. Viene de 1,20x2,40 mts",
       imagen:
-        "./assets/productos/durlock/placa-cementicia.jpg",
+        "./assets/productos/durlock/placa-cementicia.webp",
       medida: ["6mm", "8mm", "10mm"],
     },
     {
@@ -1134,7 +1134,7 @@ export const data = {
       nombre: "Masilla GAMAX",
       descripcion: "Masilla para placas cementicias",
       imagen:
-        "./assets/productos/durlock/masilla-GAMAX.jpg",
+        "./assets/productos/durlock/masilla-GAMAX.webp",
       medida: ["7 kg", "16 kg"],
     },
     {
@@ -1143,7 +1143,7 @@ export const data = {
       descripcion:
         "Su utiiza para nivelar superficies, paneles de yeso y fibrocemento",
       imagen:
-        "./assets/productos/durlock/base-coat-balde.jpg",
+        "./assets/productos/durlock/base-coat-balde.webp",
     },
   ],
   policarbonato: [
@@ -1153,7 +1153,7 @@ export const data = {
       descripcion:
         "Placa de policarbonato alveolar cristal, liviana y resistente, ideal para techos y cerramientos. Disponible en varias medidas.",
       imagen:
-        "./assets/productos/policarbonato/cristal.png",
+        "./assets/productos/policarbonato/cristal.webp",
       medida: ["4 mm", "6 mm", "8 mm "],
     },
     {
@@ -1162,7 +1162,7 @@ export const data = {
       descripcion:
         "Chapa de policarbonato sinusoidal, ideal para techos, disponible en varias longitudes (colores cristal y fume).",
       imagen:
-        "./assets/productos/policarbonato/acanalada.png",
+        "./assets/productos/policarbonato/acanalada.webp",
       tipo: ["Cristal", "Fume"],
       metros: true,
     },
@@ -1172,7 +1172,7 @@ export const data = {
       descripcion:
         "Chapa de policarbonato trapezoidal, ideal para techos, disponible en varias longitudes (colores cristal y fume).",
       imagen:
-        "./assets/productos/policarbonato/trapezoidal.png",
+        "./assets/productos/policarbonato/trapezoidal.webp",
       tipo: ["Cristal", "Fume"],
       metros: true,
     },
@@ -1191,7 +1191,7 @@ export const data = {
       descripcion:
         'Pieza de conexión en forma de /"T/" e /"Y/" utilizada para derivar el flujo en instalaciones hidráulicas o de ventilación, permitiendo múltiples salidas.',
       imagen:
-        "./assets/productos/accesorios/tee-y-ramales.jpg",
+        "./assets/productos/accesorios/tee-y-ramales.webp",
       medida: [
         "3 Pulgadas",
         "4 Pulgadas",
@@ -1227,7 +1227,7 @@ export const data = {
       descripcion:
         "Sellador flexible para techos con formas trapezoidal y sinusoidal (viene por 1 metro).",
       imagen:
-        "./assets/productos/accesorios/sellaband.jpg",
+        "./assets/productos/accesorios/sellaband.webp",
       tipo: ["Trapezoidal", "Sinusoidal"],
     },
     {
@@ -1236,7 +1236,7 @@ export const data = {
       descripcion:
         "Burlete sellador flexible para techos con forma trapezoidal y sinusoidal (viene por 1 metro).",
       imagen:
-        "./assets/productos/accesorios/compriband.jpg",
+        "./assets/productos/accesorios/compriband.webp",
       tipo: ["Trapezoidal", "Sinusoidal"],
     },
     {
@@ -1245,7 +1245,7 @@ export const data = {
       descripcion:
         "Malla sostén de aislantes térmicos. Viene de 2 metros de ancho, hasta 100 de largo (200 metros²).",
       imagen:
-        "./assets/productos/accesorios/malla-plastica.jpg",
+        "./assets/productos/accesorios/malla-plastica.webp",
       metros: true,
     },
     {
@@ -1253,7 +1253,7 @@ export const data = {
       nombre: "Boquilla 3/8",
       descripcion: "Adaptador para tornillos autoperforantes con cabeza 3/8",
       imagen:
-        "./assets/productos/accesorios/boquilla-38.jpg",
+        "./assets/productos/accesorios/boquilla-38.webp",
     },
   ],
   accesorios_dos: [
@@ -1262,28 +1262,28 @@ export const data = {
       nombre: "Punta Phillips",
       descripcion: "Adaptador para todo tipo de tornillos con cabeza Phillips",
       imagen:
-        "./assets/productos/accesorios_dos/punta-phillips.jpg",
+        "./assets/productos/accesorios_dos/punta-phillips.webp",
     },
     {
       id: 118,
       nombre: "Martillo de Cobre",
       descripcion: "Elemento para soldar zinguería con estaño",
       imagen:
-        "./assets/productos/accesorios_dos/martillo-cobre.jpg",
+        "./assets/productos/accesorios_dos/martillo-cobre.webp",
     },
     {
       id: 119,
       nombre: "Soplete p/Zinguero",
       descripcion: "Soplete para soldar Zinguería",
       imagen:
-        "./assets/productos/accesorios_dos/soplete-zinguero.jpeg",
+        "./assets/productos/accesorios_dos/soplete-zinguero.webp",
     },
     {
       id: 120,
       nombre: "Gárgola de Bronce",
       descripcion: "Adorno de desague para zinguería",
       imagen:
-        "./assets/productos/accesorios_dos/gargola-bronce.jpg",
+        "./assets/productos/accesorios_dos/gargola-bronce.webp",
     },
     {
       id: 121,
@@ -1291,7 +1291,7 @@ export const data = {
       descripcion:
         "Pieza elástica para salida de ventilaciones a traves de distintas superficies. Gris (Baja temperatura) y Rojo (Alta Temperatura).",
       imagen:
-        "./assets/productos/accesorios_dos/dektite.jpg",
+        "./assets/productos/accesorios_dos/dektite.webp",
       tipo: [
         "Gris N°3 (hasta 127mm)",
         "Gris N°4 (hasta 160mm)",
