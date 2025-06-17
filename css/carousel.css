@@ -59,8 +59,16 @@
 }
 
 
-.test {
-  aspect-ratio: 1200 / 600;
-  width: 100%;
-  height: auto;
+.carousel-container {
+  min-height: 400px;
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+  transition: none;
+}
+
+.carousel-inner {
+  display: block !important;
 }
