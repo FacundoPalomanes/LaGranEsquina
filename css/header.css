@@ -81,18 +81,30 @@
   background-size: 0% 100%;
 }
 
-
 .nav__link a {
   color: var(--white);
   text-decoration: none;
-  position: relative; 
+  position: relative;
 }
 
+/* Wrapper que siempre ocupa espacio para evitar saltos */
+.navbar__toggle-wrapper {
+  width: 40px;
+  height: 40px;
+   margin-left: 12px;
+}
+
+/* Botón toggle - inicialmente oculto con display none fuera mobile */
 .navbar__toggle-btn {
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  display: none;
+  display: none; /* oculto fuera de mobile */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
 
 .navbar__mobile-menu {
@@ -121,7 +133,6 @@
   background-color: white;
 }
 
-
 @keyframes moveText {
   0% {
     transform: translateX(100%);
@@ -136,17 +147,20 @@
     display: none;
   }
 
+  /* Ahora sí mostramos el botón toggle en mobile */
   .navbar__toggle-btn {
     display: flex;
   }
 
   .nav__link {
-    margin-left: 9px; 
-    font-size: 0.9rem; 
+    margin-left: 9px;
+    font-size: 0.9rem;
   }
+
   .navbar-empresas {
     display: none; /* O podrías moverlos a otro lado si preferís */
   }
+
   .empresas-header {
     display: inline-block; /* Visible en pantallas grandes */
     padding: 10px 0;
@@ -226,8 +240,12 @@
     opacity: 1;
   }
 
+  /* En 608px o menos el toggle está visible */
   .navbar__toggle-btn {
     display: flex;
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
   }
 
   .navbar__toggle-btn img {
@@ -244,7 +262,7 @@
   transition: all 0.2s ease-in-out;
   transform: translateY(-100%);
   opacity: 0;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 #mobile-menu.show {
@@ -263,7 +281,6 @@
   gap: 1%;
 }
 
-
 @media screen and (max-width: 1550px) {
   .navbar-nav {
     flex-wrap: wrap;
@@ -275,24 +292,24 @@
 }
 
 .cart-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px; /* Ajusta el padding según sea necesario */
+  position: relative;
+  padding: 6px 14px; /* un poco más de padding a la derecha */
   background: transparent;
   border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .cart-btn img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
 .navbar-nav .nav-item .nav-link[href] {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
-
 
 .group {
   display: flex;
@@ -308,15 +325,14 @@
 }
 
 .navbar-nav .nav-item .nav-link[href="#canios_grampas"] {
-  position: relative; 
-  right: 20px; 
+  position: relative;
+  right: 20px;
 }
 
 .navbar-nav .nav-item .nav-link[href="#caballetes_conversas"] {
-  width: 90px; 
-  position: relative; 
+  width: 90px;
+  position: relative;
   left: 12px;
-
 }
 
 .container-navbar {
@@ -355,21 +371,20 @@
 }
 
 #mobileSuggestionsList {
-  max-height: 300px;  /* Limita la altura máxima */
-  overflow-y: auto;   /* Agrega scroll si las opciones exceden la altura */
+  max-height: 300px; /* Limita la altura máxima */
+  overflow-y: auto; /* Agrega scroll si las opciones exceden la altura */
   position: absolute;
   width: 100%;
-  top: 100%;  /* Asegura que las sugerencias se muestren debajo del input */
+  top: 100%; /* Asegura que las sugerencias se muestren debajo del input */
   left: 0;
-  z-index: 3;  /* Asegura que las sugerencias estén por encima de otros elementos */
-  background-color: white;  /* Fondo blanco para las sugerencias */
-  border-radius: 0 0 4px 4px;  /* Bordes redondeados solo en la parte inferior */
+  z-index: 3; /* Asegura que las sugerencias estén por encima de otros elementos */
+  background-color: white; /* Fondo blanco para las sugerencias */
+  border-radius: 0 0 4px 4px; /* Bordes redondeados solo en la parte inferior */
 }
 
 @media screen and (max-width: 768px) {
-
   .header__info p {
-  padding: 1.2% 15px 0px 0;
+    padding: 1.2% 15px 0px 0;
   }
 
   .navbar__mobile-wrapper {
@@ -379,11 +394,14 @@
     width: 100%;
   }
 
-  .navbar__mobile-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.navbar__mobile-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* espacio entre botones */
+  padding-right: 12px; /* espacio extra a la derecha para que no quede pegado al borde */
+  position: relative;
+}
+
 
   .navbar__nav {
     display: none; /* ocultamos el resto del nav en mobile */
@@ -395,12 +413,23 @@
   }
 }
 
-.navbar__toggle-btn {
-  display: none;
+@media screen and (max-width: 608px) {
+  /* Este media-query ya no necesita poner visibility y pointer-events, 
+     porque .navbar__toggle-btn tiene display flex */
+
+  .navbar__toggle-btn {
+    /* Solo aseguramos que esté visible y con pointer-events */
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+  }
 }
 
-@media screen and (max-width: 608px) {
-  .navbar__toggle-btn {
-    display: flex;
-  }
+
+
+.navbar__toggle-btn.big-toggle {
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  width: 50px;
+  height: 50px;
 }
