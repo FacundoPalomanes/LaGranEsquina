@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const miNodoImagen = document.createElement("img");
         miNodoImagen.setAttribute("src", info.imagen);
         miNodoImagen.setAttribute("alt", info.nombre);
+        miNodoImagen.setAttribute("width", "300");
+        miNodoImagen.setAttribute("height", "200");
 
         const miNodoTitle = document.createElement("h5");
         miNodoTitle.classList.add("titulo-largo");
@@ -200,8 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.show();
   }
   window.addEventListener("load", () => {
-  renderizarProductos();
+    renderizarProductos();
+  });
 });
-});
-
-

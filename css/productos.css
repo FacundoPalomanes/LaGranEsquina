@@ -215,9 +215,9 @@ body.dark-mode .modal-content {
 }
 
 #destacados {
-  height: 250px; /* ajustá según el contenido real */
-  overflow-x: auto;
-  display: flex; /* ya tenés d-flex, perfecto */
-  gap: 1rem; /* para separar los items */
-  min-width: 100%;
+  min-height: 300px;  /* o la altura aproximada de las cards */
+  display: flex;      /* para alinear los cards horizontalmente */
+  gap: 1rem;          /* espacio entre cards */
+  overflow-x: auto;   /* scroll horizontal */
+  padding: 0;         /* ya tenés px-0 en el div */
 }
