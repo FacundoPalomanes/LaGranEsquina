@@ -11,21 +11,19 @@
   transition: transform 0.5s ease;
 }
 
-
 .carousel-item img {
-  display: block;
   width: 100%;
-  aspect-ratio: 2 / 1; /* Es lo mismo que 1200 / 600 */
-  object-fit: cover;
-  height: auto; /* Esto evita conflicto con vh */
+  height: 100%;
+  aspect-ratio: 1200 / 600;
+  object-fit: fill;
+  object-position: center;
 }
 
 /* === Pantallas Grandes (PCs y laptops) === */
 @media screen and (min-width: 1200px) {
   .carousel-item {
-  height: auto;
-  min-height: 600px; /* o lo que te sirva según aspecto de la imagen */
-}
+    height: 80vh;
+  }
 }
 
 /* === Tablets y Dispositivos Medianos === */
@@ -66,11 +64,7 @@
 }
 
 .carousel-item.active {
-  display: block !important;
-  opacity: 1 !important;
-  transition: none !important;
-}
-
-.carousel-inner {
-  display: block !important;
+  display: block;
+  opacity: 1;
+  transition: none;
 }
