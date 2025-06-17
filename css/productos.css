@@ -215,5 +215,9 @@ body.dark-mode .modal-content {
 }
 
 #destacados {
-    min-height: 300px; /* o la altura estimada de los items */
+  height: 250px; /* ajustá según el contenido real */
+  overflow-x: auto;
+  display: flex; /* ya tenés d-flex, perfecto */
+  gap: 1rem; /* para separar los items */
+  min-width: 100%;
 }
