@@ -219,8 +219,11 @@ body.dark-mode .modal-content {
 }
 
 #destacados .card {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
   flex: 0 0 auto;          /* Evita que la card se encoja o crezca */
   width: 300px;            /* Ancho fijo acorde a las imágenes */
-  min-height: 350px;       /* Altura mínima para evitar saltos */
+  min-height: 250px;       /* Altura mínima para evitar saltos */
   box-sizing: border-box;
 }
