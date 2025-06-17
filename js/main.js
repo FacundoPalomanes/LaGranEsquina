@@ -9,6 +9,12 @@ import {
 import { data } from "../assets/data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // const el = document.getElementById("carouselExampleInterval");
+  //  new bootstrap.Carousel(el, {
+  //   interval: 10000,
+  //   ride: "carousel",
+  //   wrap: true,
+  // });
   // Toggle dark mode
   darkMode();
 
@@ -203,11 +209,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.addEventListener("load", () => {
     renderizarProductos();
-    const el = document.getElementById('carouselExampleInterval');
-    const carousel = new bootstrap.Carousel(el, {
-      interval: 10000,
-      ride: 'carousel', 
-      wrap: true        
-    });
   });
 });
