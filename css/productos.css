@@ -213,3 +213,7 @@ body.dark-mode .modal-content {
 .section-title {
   font-size: 2.5rem;
 }
+
+#destacados {
+    min-height: 300px; /* o la altura estimada de los items */
+}
