@@ -203,5 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.addEventListener("load", () => {
     renderizarProductos();
+    const el = document.getElementById('carouselExampleInterval');
+    const carousel = new bootstrap.Carousel(el, {
+      interval: 10000,
+      ride: 'carousel', 
+      wrap: true        
+    });
   });
 });
