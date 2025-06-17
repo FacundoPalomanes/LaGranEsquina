@@ -40,8 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Navbar scroll
   header_movement();
 
-
-
   async function renderizarProductos() {
     try {
       const productos = data;
@@ -89,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  renderizarProductos();
   function abrirModalProducto(
     producto,
     cantidad = 1,
@@ -202,4 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
     modal.show();
   }
+  window.addEventListener("load", () => {
+  renderizarProductos();
 });
+});
+
+

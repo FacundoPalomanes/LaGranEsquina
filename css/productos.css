@@ -209,3 +209,7 @@ body.dark-mode .modal-content {
 .move-text {
   margin-top: 250px;
 }
+
+.section-title {
+  font-size: 2.5rem;
+}
