@@ -9,12 +9,6 @@ import {
 import { data } from "../assets/data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // const el = document.getElementById("carouselExampleInterval");
-  //  new bootstrap.Carousel(el, {
-  //   interval: 10000,
-  //   ride: "carousel",
-  //   wrap: true,
-  // });
   // Toggle dark mode
   darkMode();
 
@@ -210,4 +204,30 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", () => {
     renderizarProductos();
   });
+
+  // En pantallas chicas: reemplazar imagen estática al tocar por el carrusel real
+  const fallback = document.getElementById("carouselFallback");
+  const wrapper = document.getElementById("carouselWrapper");
+
+  // Mostrar el carrusel automáticamente en cuanto cargue el DOM
+
+  // Iniciar carrusel en segundo plano desde el principio
+  const carouselElement = document.getElementById("carouselExampleInterval");
+  new bootstrap.Carousel(carouselElement, {
+    interval: 10000,
+    ride: "carousel",
+    wrap: true,
+  });
+
+  // Si es pantalla chica, esperar un poco para evitar flashes visuales
+  if (window.innerWidth < 768) {
+    // Esperar a que las imágenes hayan empezado a cargar (opcional: podrías usar onload si querés precisión)
+    setTimeout(() => {
+      fallback.classList.add("d-none");
+      wrapper.classList.remove("d-none");
+    }, 500); // 500ms o ajustá el tiempo según qué tan rápido cargan tus imágenes
+  } else {
+    fallback.classList.add("d-none");
+    wrapper.classList.remove("d-none");
+  }
 });

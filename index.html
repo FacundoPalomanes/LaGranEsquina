@@ -159,8 +159,14 @@
       </nav>
     </section>
   </header>
-  <!-- carousel -->
-  <div class="block">
+  <!-- Imagen fallback visible primero -->
+  <div class="carousel-fallback-mobile" id="carouselFallback">
+    <img src="/assets/carrousel/img-1-600.webp" alt="Banner 1" width="600" height="236" loading="eager"
+      fetchpriority="high" class="d-block w-100">
+  </div>
+
+  <!-- Carrusel oculto inicialmente -->
+  <div class="block d-none" id="carouselWrapper">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -170,7 +176,6 @@
             <img src="/assets/carrousel/img-1.webp" class="d-block w-100" alt="Banner 1" width="1200" height="600"
               loading="eager" fetchpriority="high">
           </picture>
-
         </div>
         <div class="carousel-item" data-bs-interval="2000">
           <img src="/assets/carrousel/img-2.webp" class="d-block w-100 takeaway" width="1200" height="600"
