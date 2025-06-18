@@ -164,8 +164,13 @@
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/assets/carrousel/img-1.webp" class="d-block w-100" alt="Banner 1" width="1200" height="600"
-            loading="eager" fetchpriority="high">
+          <picture>
+            <source srcset="/assets/carrousel/img-1-600.webp" media="(max-width: 600px)">
+            <source srcset="/assets/carrousel/img-1.webp" media="(min-width: 601px)">
+            <img src="/assets/carrousel/img-1.webp" class="d-block w-100" alt="Banner 1" width="1200" height="600"
+              loading="eager" fetchpriority="high">
+          </picture>
+
         </div>
         <div class="carousel-item" data-bs-interval="2000">
           <img src="/assets/carrousel/img-2.webp" class="d-block w-100 takeaway" width="1200" height="600"
