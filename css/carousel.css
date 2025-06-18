@@ -1,6 +1,5 @@
 .carousel {
   width: 100%;
-  height: auto;
   overflow: hidden;
   position: relative;
 }
@@ -19,10 +18,12 @@
   object-position: center;
 }
 
+
 /* === Pantallas Grandes (PCs y laptops) === */
 @media screen and (min-width: 1200px) {
   .carousel-item {
     height: 80vh;
+    min-height: 600px;
   }
 }
 
