@@ -16,17 +16,6 @@
   display: block;
 }
 
-.carousel-fallback-mobile {
-  display: block;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  .carousel-fallback-mobile {
-    display: none;
-  }
-}
-
 
 /* === Pantallas Grandes (PCs y laptops) === */
 @media screen and (min-width: 1200px) {
