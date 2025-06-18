@@ -8,15 +8,15 @@
 .carousel-item {
   width: 100%;
   height: auto;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.5s ease;
 }
 
 .carousel-item img {
-  display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
+  height: 100%;
+  aspect-ratio: 1200 / 600;
   object-fit: fill;
-  height: auto;
+  object-position: center;
 }
 
 /* === Pantallas Grandes (PCs y laptops) === */
@@ -61,4 +61,10 @@
 
 .carousel-container {
   min-height: 400px;
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+  transition: none;
 }
