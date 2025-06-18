@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preload" as="image" href="/assets/carrousel/img-1.webp" type="image/webp" fetchpriority="high">
   <!-- favicon -->
-  <title>Zinguería La Gran Esquina | Chapas y Canaletas en Pilar</title>
+  <title>La Gran Esquina - Zinguería en Pilar | Chapas y Canaletas</title>
   <link rel="icon" href="/assets/icon/favicon.ico" type="image/x-icon">
   <!-- openGraph y twitter Cards -->
   <meta property="og:title" content="Zinguería La Gran Esquina - Pilar, Buenos Aires" />
@@ -35,7 +35,8 @@
   <meta name="keywords"
     content="zingueria, chapas, barato, pilar, argentina, canaletas, techos, construcción, materiales, accesorios, drenaje, aluminio, acero, venta de chapas, instalación de canaletas, zinguería personalizada, reparación de techos, pilar buenos aires, servicios de zinguería, productos económicos, calidad en zinguería, venta de techos, zinc, galvanizado, pilar argentina, mejores precios, instalación profesional">
   <meta name="description"
-    content="Somos la zinguería líder en Buenos Aires, ofreciendo la más amplia variedad de chapas, canaletas, techos y accesorios para construcción. Nos especializamos en productos de alta calidad, precios competitivos y soluciones personalizadas para proyectos residenciales e industriales. ¡Descubre por qué somos la mejor opción en zinguería!">
+    content="Zinguería en Pilar, Buenos Aires. Venta de chapas, canaletas, techos y más. Atención personalizada, precios bajos y productos de alta calidad. Descubrí por qué La Gran Esquina es la mejor opción en zinguería.">
+  <meta name="author" content="Zinguería La Gran Esquina">
   <!-- Preconexión para Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,6 +72,30 @@
   <script src="/js/main.js" type="module" defer></script>
 
   <meta http-equiv="Content-Language" content="es">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zinguería La Gran Esquina",
+  "image": "https://www.zinguerialagranesquina.com/assets/icon/icon-og.webp",
+  "url": "https://www.zinguerialagranesquina.com",
+  "telephone": "0230 4421831",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Dr. Honorio Pueyrredón 618",
+    "addressLocality": "Pilar",
+    "addressRegion": "Buenos Aires",
+    "postalCode": "B1630CLP",
+    "addressCountry": "AR"
+  },
+  "openingHours": "Mo-Fr 08:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=100054211464079",
+    "https://www.instagram.com/zinguerialagranesquina/"
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -162,15 +187,11 @@
   </header>
   <!-- carousel -->
   <div class="block">
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <picture>
-            <source srcset="/assets/carrousel/img-1-600.webp" media="(max-width: 600px)">
-            <source srcset="/assets/carrousel/img-1.webp" media="(min-width: 601px)">
-            <img src="/assets/carrousel/img-1.webp" class="d-block w-100" alt="Banner 1" width="1200" height="600"
-              loading="eager" fetchpriority="high">
-          </picture>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carouselInner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="/assets/carrousel/img-1.webp" class="d-block w-100" alt="Banner 1" width="1200" height="600"
+            loading="eager" fetchpriority="high">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
           <img src="/assets/carrousel/img-2.webp" class="d-block w-100 takeaway" width="1200" height="600"

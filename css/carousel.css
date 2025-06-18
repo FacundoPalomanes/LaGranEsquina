@@ -6,14 +6,16 @@
 
 .carousel-item {
   width: 100%;
-  height: 80vh; /* O según el tamaño que desees */
+  height: auto;
+  transition: transform 0.5s ease;
 }
 
 .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: fill; /* Rellena sin deformar */
-  display: block;
+  aspect-ratio: 1200 / 600;
+  object-fit: fill;
+  object-position: center;
 }
 
 
@@ -60,4 +62,10 @@
 
 .carousel-container {
   min-height: 400px;
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+  transition: none;
 }
